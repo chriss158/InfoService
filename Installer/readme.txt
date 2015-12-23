@@ -13,6 +13,11 @@ Changelog:
 [i] - Information
 [!] - Attention
 
+Version v1.74:
+[+] Proxy support
+[+] Support for caching to a network drive/unc path
+[-] Fixed some caching problems
+
 Version v1.73:
 [*] Disabled twitter client. Twitter changed the API. Sorry now time for a new twitter libary :(
 [i] Compatible for MediaPortal 1.7 Pre-Release
