@@ -1,0 +1,277 @@
+{\rtf1\ansi\deff0\nouicompat{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\colortbl ;\red0\green0\blue255;}
+{\*\generator Riched20 10.0.10240}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang7 If you never used InfoService please read carefully the documentation: {{\field{\*\fldinst{HYPERLINK http://infoservice.codeplex.com/documentation }}{\fldrslt{http://infoservice.codeplex.com/documentation\ul0\cf0}}}}\f0\fs22\par
+\par
+There you will find some useful informations about the plugin configuration. Especially MediaPortal skin developers need to look into this wiki. They will find some informations about the used property names and hyperlinks to the GUI screen,\par
+\par
+If you have some problems with the configuration part of the plugin, then click on the help button in the upper right corner of the configuration dialog. \par
+\par
+\par
+Changelog:\par
+\par
+[-] - Fixed issue\par
+[*] - Changed feature\par
+[+] - Added feature\par
+[i] - Information\par
+[!] - Attention\par
+\par
+Version v1.74:\par
+[+] Proxy support\par
+[+] Support for caching to a network drive/unc path\par
+[-] Fixed some caching problems\par
+\par
+Version v1.73:\par
+[*] Disabled twitter client. Twitter changed the API. Sorry now time for a new twitter libary :(\par
+[i] Compatible for MediaPortal 1.7 Pre-Release\par
+\par
+Version v1.72:\par
+[+] Added support for the NotificationBar 0.8.3.0 plugin\par
+[*] Removed public timeline from twitter. Twitter doesn't support this anymore\par
+[-] Fixed twitter client. Status update, authorization and all Timelines should now work aigain\par
+[-] Some special characters will now displayed correctly again\par
+[i] Compatible for MediaPortal 1.4 Pre-Release\par
+\par
+Version v1.71:\par
+[+] Added support for the NotificationBar ({{\field{\*\fldinst{HYPERLINK http://forum.team-mediaportal.com/threads/notificationbar.99207/ }}{\fldrslt{http://forum.team-mediaportal.com/threads/notificationbar.99207/\ul0\cf0}}}}\f0\fs22 ) plugin\par
+[+] Added Greek, Polish and Norwegian language\par
+[!] There are still some untranslated parts :/\par
+[i] If the NotificationBar plugin and the NotificationBar skin file are not installed, the standard MP Dialog will be used for new feed popup\par
+\par
+Version v1.7:\par
+[*] Disabled weather service until i found a new weather provider\par
+[-] Wrong behavior when using a custom MediaPortal configuration (thx to migue333)\par
+[-] Fixed for the most circumstances the stuttering feed/twitter ticker (thx to Pirppuli)\par
+[i] Compatible for MediaPortal 1.3 Alpha and above\par
+\par
+Version v1.66:\par
+[+] Added popup on news update (configurable with timeout)\par
+[*] Disabled recently added/watched features\par
+[*] Improved image parsing from feed (more feed images for RSS feeds should be parsed, too small images will be dropped)\par
+[*] Made log better readable\par
+[*] Improved support for RDF feeds\par
+[*] Improved downloading of Twitter profile images\par
+[*] Updated support for WebBrowser plugin\par
+[-] Fixed image loading from cache (if fails, will be redownloaded)\par
+[-] Fixed encoding issue for feed text\par
+[-] Fixed cache deletion\par
+[-] Fixed couple of bugs and updated localization\par
+[-] Fixed wrong epsiode number when posting a Twitter message\par
+[i] Release for MediaPortal 1.2.0 and above\par
+[!] Many languages files are not updated yet for v1.66 (only German and English). If you have some with untranslated labels please have a look in your language file\par
+\par
+Version v1.62:\par
+[-] Fixed weather crash bug\par
+\par
+Version v1.61:\par
+[+] New Properties: #infoservice.feed.itemtype and #infoservice.twitter.itemtype to replace hard coded labels in the skin (Feed items and Twitter items)\par
+[+] Added new placeholders for ticker (%itemindex%, %itemsource%)\par
+[+] Added setting of properties #infoservice.feed.INDEX.titles and #infoservice.feed.INDEX.img where INDEX is feed index (0 = all feeds, 1 = first one, 2 = ...) \par
+[+] Added new language: Portuguese (Brazilian) \par
+[+] Options can now be used with keyboard shortcuts (ALT + underlined letter).\par
+[+] Added feed item filtering\par
+[+] Added separate tickers masks and separators for normal feeds and all feeds\par
+[+] "Browse The Web" webbrowser is now supported\par
+[*] Improved loading of localization files\par
+[*] Better logging of parsing errors\par
+[*] Improved image parsing from feed\par
+[*] RecentlyAdded items now have age, will be removed after 7 days\par
+[*] Current thread is now logged, too\par
+[-] Fixed threading problems when updating GUI components\par
+[-] Fixed some problems with recently added\par
+[-] Fixed some typos in recently added\par
+[-] Fixed feed & twitter selection on GUI screens\par
+[-] Fixed update problem when users changes weather location via weather screen\par
+[!] Many languages files are not updated yet for v1.61 (only German and English). If you have some with untranslated labels please have a look in your language file\par
+\par
+Version v1.6:\par
+[+] Added Danish, French, English (US) and English (GB) language\par
+[+] Added support for local feed files\par
+[+] Added check if the added feed file / feed url is a valid feed before adding feed\par
+[+] Added own configuration file\par
+[+] Added Blue3 skin files\par
+[+] Added property #infoservice.feed.selected.sourcefeed\par
+[+] Added selection for second line of the "All Feeds" view. The user can now select to show feed publish time, the source feed name or both.\par
+[+] The used Webbrowser plugin (WebBrowser, GeckoBrowser or other) can now be selected in the advanced configuration \par
+[+] Last selected feed/twitter item will be selected on open Twitter or Feeds page\par
+[+] Improved tweeting of TV series/shows a lot!\par
+[*] Changed Blue3Wide and Blue3 to show the feed image instead of feed item image \par
+[*] Reworked SkinSettings. SkinSettings will now overwrite user settings, but the will not saved permanently\par
+[*] Cache folder of twitter and feed is now configurable in the advanced configuration\par
+[*] Overridden settings by skin are marked in the configuration dialog now\par
+[*] Duo MediaPortal code change in property system, changed some weather and Recently Added properties (See Skin changelog v1.5 to v1.6)\par
+[*] Removed MaxTemp and MinTemp from weather today properties, because they are not right for some cities \par
+[*] Log file is now not locked while MediaPortal is running\par
+[-] Fixed some logging issues\par
+[-] Fixed recently added system\par
+[-] Fixed some weather inconstancies.\par
+[-] Fixed some rare crashes duo threading issues.\par
+[-] Fixed false download of other files (only image files are now downloaded) by the Feed Service\par
+[-] Fixed language misspellings for English and Italian\par
+[i] Compiled against MediaPortal 1.1.0 RC4\par
+[!] Duo the use of a own configuration file, you have to setup InfoService again, sorry\par
+\par
+Version v1.5:\par
+[+] Added recently added feature, which shows you the recently added movies and series\par
+[+] Improved twitter client\par
+[+] A brand new twitter screen with all twitter messages and timelines\par
+[+] Post twitter status updates\par
+[+] Open web links in a twitter message in a WebBrowser window\par
+[+] Download all twitter timelines, not only one\par
+[+] Post automatically twitter status update, if you watching a video\par
+[+] Twitter uses now OAuth to connect\par
+[+] Faster overall download times of feed and twitter\par
+[+] Improved logging (for better error detection)\par
+[+] Added multilanguage support (English, German, Italian, Dutch and Spanish for now)\par
+[+] Weather is now updated as soon as you change your weather in the MediaPortal weather GUI\par
+[+] Many new properties (See Skin changelog v1.32 to v1.5)\par
+[+] Added skin settings (See Skin developer guide)\par
+[-] A tons of bugs fixed, so many to count them all\par
+[i] Completely rewritten!\par
+[i] InfoService is now open source!\par
+\par
+Version v1.32:\par
+[-] Fixed empty entry in the normal home menu\par
+\par
+Version v1.31:\par
+[-] Fixed forgotten humidity property for each day (night and day)\par
+[-] Fixed some forgotten translations\par
+\par
+Version v1.3:\par
+[+] Added a "last updated" property for feed, weather and twitter\par
+[+] Added a button to download the default feed name on the Add Feed dialog\par
+[+] Added much more weather properties. See thread/readme for details\par
+[+] Added possibility to change the ticker layout\par
+[*] Default settings are now loaded if the plugin is used for the first time (Feed ticker with MediaPortal RSS on, Weather on)\par
+[-] Fixed no image download for atom feeds\par
+[-] Fixed that the plugin is not showing on the normal home screen\par
+[!] Removed Monochrome skin files\par
+\par
+Version v1.2:\par
+[+] Added option to disable/enable the feed item publish time\par
+[-] Fixed the rare crash when downloading twitter timeline, hopefully\par
+\par
+Version v1.1:\par
+[+] New propertys #infoservice.feed.separator/ #infoservice.twitter.separator which holds the separator string of feed/twitter line\par
+[-] False feed image is showed when "Show all feeds on home" is activated and after entering InfoService screen\par
+[-] Fixed download location of feed images\par
+[i] Duo the false download location of the feed images you can delete the folder "C:\\Temp\\InfoService\\"\par
+[!] The webbrowser part of InfoSerivce moved into a separate WebBrowser plugin. So if you want to read your feeds completely, you need the WebBrowser plugin which can be found here ...\par
+\par
+Version v1.0:\par
+[+] There are to much changes to list them Mainly bugfixes and a better browser handling. Try and test yourself.\par
+\par
+Version v0.99.3:\par
+[*] Changed zoom keys on remote and keyboard to Play previous/next key\par
+[-] Fixed false sizing of browser window, if MediaPortal is not in fullscreen mode\par
+[-] Fixed no weather download (Sorry for that)\par
+\par
+Version v0.99.2:\par
+[+] Added default zoom option for each feed\par
+[+] Added option to change zoom steps\par
+[*] Improved browser zooming feature\par
+[-] Fixed false size of feed browser\par
+\par
+Version v0.99.1:\par
+[-] Fixed false resolving of #infoservice.weather.today/dayX.img.small/big.filenamewithoutext and changed name of #infoservice.weather.today/dayX.img.small/big.filename to #infoservice.weather.today/dayX.img.small/big.filenamewithext\par
+[-] Fixed feed downloading problem with some feeds\par
+\par
+Version v0.99:\par
+[+] Added and changed propertys #infoservice.weather.today/dayX.img.big/small.fullpath, #infoservice.weather.today/dayX.img.big/small.filename, #infoservice.weather.today/dayX.img.big/small.filenamewithoutext\par
+[+] Added possibility to read the whole feed in a browser window (incl. zoom)\par
+[-] Fixed not showing of own feed image\par
+\par
+Version v0.94:\par
+[+] Readded the #infoservice.feed.alltitles property\par
+[-] Removed forgotten debug code\par
+\par
+Version v0.93:\par
+[+] Added sorting for feed items, because some feeds are not sorted by date\par
+[-] Fixed publish time was shown even if the feed item has no publish time\par
+\par
+Version v0.92:\par
+[+] Added feed item publish time to each feed item\par
+[+] Added wait notification on manual update\par
+[-] Fixed no update of weather and twitter data when pressing "Refresh" button\par
+[-] Fixed no weather data for some timezones\par
+\par
+Version v0.9:\par
+[+] Added new button on InfoService window to show itmes of all feeds on basichome\par
+[+] Added possibilty to change weather in MediaPortal (just change weather in the weather screen and wait for the next update)\par
+[*] #infoservice.feed.itemimg will be empty if there is no feed item image found\par
+[*] Old feed data is used if there was a download error\par
+[*] Reverted back to use the MediaPortal weather configuration\par
+[*] Removed property #infoservice.feed.alltitles\par
+[-] Fixed bugs here and there\par
+[-] Fixed filling of #infoservice.feed.selectedindex\par
+[-] Fixed weather data is off by one day\par
+\par
+Version v0.85:\par
+[+] Added new feed configuration dialog\par
+[+] Added sort feature for your feeds in the feed configuration dialog\par
+[*] #infoservice.feed.itemimg filled with default image if no feed item imaged is found\par
+[-] Fixed last selected feed is not active on basichome after update\par
+[-] Fixed no refresh of feed items in the infoscreen window after feed update\par
+[-] Fixed that #infoservice.today.weekday and #infoservice.day2.weekday shows the same weekday\par
+\par
+Version v0.81:\par
+[-] #infoservice.feed.selectedfeed will now be filled\par
+[-] Fixed crash if infoservice thumb dir not exists\par
+\par
+Version v0.8:\par
+[+] Added automatic download of feed logo (if feed logo is found)\par
+[+] Added check if entered feed is an url\par
+[+] Added feed download error dialog on infoservice window\par
+[+] Added new option to change the max items per feed if you use the #infoservice.feed.alltitles\par
+[+] Added new propetry items #infoservice.feed.selectedindex, #infoservice.feed.selectedtitle, #infoservice.feed.itemcount, #infoservice.feed.alltitles, #infoservice.feed.type and #infoservice.feed.selectedfeed\par
+[+] Added plugin configuration to log output (Not the twitter user and password!)\par
+[+] Feed item images are now shown in the listcontrol\par
+[*] Better error handling for weather service\par
+[*] Changed all property names for clearer indentification\par
+[*] Increased the maximum of items to 100 for feeds and twitter (don't know why i've locked this)\par
+[-] Fixed crash when weather.com returns a error\par
+[-] Fixed some html encoding erros\par
+\par
+Version v0.71:\par
+[*] Removed word wrap between the conditions\par
+[-] Fixed forgotten localization of forecast conditions\par
+\par
+Version v0.7:\par
+[+] Added new property #feeditemimg that holds a image of a feed item\par
+[+] Added own configuration for weather\par
+[+] Added possibility to read feeds and download pictures for feed item (only rss 2.0)\par
+\par
+Version v0.6:\par
+[+] Added support for RDF (RSS 1.0) and Atom feeds\par
+[*] Again better error and log handling\par
+[*] Changed property name from #rssfeed -> #feedtitles, #rssimg -> #feedimg as the plugin now supports more than rss feeds\par
+[*] Removed the last separator on the feed and twitter line.\par
+\par
+Version v0.5:\par
+[+] Added possibility to add more than one rss feed\par
+[+] Added possibility to change the rss feed on basichome with a dirty trick (hope it work as expected) :/\par
+[*] Changed error and log handling\par
+[i] Rewrite of ca. 75% code for a easier way to add more services\par
+\par
+Version v0.22:\par
+[*] Day labels are now translated by MediaPortal\par
+\par
+Version v0.21:\par
+[-] Fixed #day4label resolving\par
+[-] Fixed #todaylabel resolves the wrong day\par
+\par
+Version v0.2:\par
+[+] Added a twitter ticker\par
+[+] Added day labes for each day\par
+\par
+Version v0.12:\par
+[-] Fixed crash if there is no internet connection\par
+\par
+Version v0.11:\par
+[-] Fixed crash if no location is found\par
+[-] Fixed crash if timeformat in rss feed wrong\par
+\par
+Version v0.1:\par
+[+] First release\par
+}
+ 

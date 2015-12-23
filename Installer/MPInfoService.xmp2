@@ -118,13 +118,6 @@
               <ZipFileName>Installer{CopyFile}\{52929b7d-1fbc-4d53-851e-5e49479397ac}-strings_pl.xml</ZipFileName>
               <DestinationFilename>%Language%\InfoService\strings_pl.xml</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
-              <Param1 />
-              <UpdateOption>AlwaysOverwrite</UpdateOption>
-              <LocalFileName>\\CHRIS-PC\Coding\InfoService\trunk\LastBuild\InfoService.dll</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{c5fa0220-3f3e-4542-8399-0b7ad070a86d}-InfoService.dll</ZipFileName>
-              <DestinationFilename>%Language%\InfoService\InfoService.dll</DestinationFilename>
-            </FileItem>
           </Items>
         </Files>
       </GroupItem>
@@ -416,6 +409,15 @@ Changelog:
 [i] - Information
 [!] - Attention
 
+Version v1.74:
+[+] Proxy support
+[+] Support for caching to a network drive/unc path
+[-] Fixed some caching problems
+
+Version v1.73:
+[*] Disabled twitter client. Twitter changed the API. Sorry now time for a new twitter libary :(
+[i] Compatible for MediaPortal 1.7 Pre-Release
+
 Version v1.72:
 [+] Added support for the NotificationBar 0.8.3.0 plugin
 [*] Removed public timeline from twitter. Twitter doesn't support this anymore
@@ -663,13 +665,12 @@ Version v0.11:
 [-] Fixed crash if timeformat in rss feed wrong
 
 Version v0.1:
-[+] First release
-</Value>
+[+] First release</Value>
               <ValueType>String</ValueType>
               <Description>The readme text</Description>
             </SectionParam>
             <SectionParam Name="Rreadme text file">
-              <Value>readme.txt</Value>
+              <Value>readme.rtf</Value>
               <ValueType>File</ValueType>
               <Description>The readme file should be RTF file</Description>
             </SectionParam>
@@ -810,26 +811,44 @@ Version v0.1:
     </Items>
   </Dependencies>
   <PluginDependencies>
-    <Items />
+    <Items>
+      <PluginDependencyItem AssemblyName="InfoService.dll">
+        <CompatibleVersion>
+          <Items>
+            <CompatibleVersionItem>
+              <MinRequiredVersion>1.6.100.0</MinRequiredVersion>
+              <DesignedForVersion>1.7.0.0</DesignedForVersion>
+            </CompatibleVersionItem>
+          </Items>
+        </CompatibleVersion>
+        <SubSystemsUsed>
+          <Items>
+            <SubSystemItem Name="MP.Config" />
+            <SubSystemItem Name="MP.Input" />
+            <SubSystemItem Name="MP.SkinEngine" />
+          </Items>
+        </SubSystemsUsed>
+      </PluginDependencyItem>
+    </Items>
   </PluginDependencies>
   <GeneralInfo>
     <Name>InfoService</Name>
     <Id>e39aeb32-041b-41f6-bfd8-cd1d8ea09278</Id>
     <Author>edsche, SilentException</Author>
-    <HomePage>http://infoservice.codeplex.com/</HomePage>
+    <HomePage>https://github.com/hasenbolle/InfoService</HomePage>
     <ForumPage>http://forum.team-mediaportal.com/infoservice-522/</ForumPage>
     <UpdateUrl>http://www.team-mediaportal.com/index.php?option=com_mtree&amp;task=att_download&amp;link_id=84&amp;cf_id=52</UpdateUrl>
     <Version>
       <Major>1</Major>
       <Minor>7</Minor>
-      <Build>3</Build>
-      <Revision>249</Revision>
+      <Build>4</Build>
+      <Revision>0</Revision>
     </Version>
     <ExtensionDescription>InfoService is a plugin for that provides weather, feed and twitter informations on the home screen. It has also a feed reader and a twitter client built in. The plugin is for MediaPortal users and skinners who want to have some information on their MediaPortal homescreen.</ExtensionDescription>
     <VersionDescription />
     <DevelopmentStatus>Stable</DevelopmentStatus>
     <OnlineLocation>http://www.team-mediaportal.com/index.php?option=com_mtree&amp;task=att_download&amp;link_id=84&amp;cf_id=24</OnlineLocation>
-    <ReleaseDate>2014-02-19T19:26:00.1046339+01:00</ReleaseDate>
+    <ReleaseDate>2015-12-23T19:20:22.2684227+01:00</ReleaseDate>
     <Tags>all,infoservice,rss,feed,twitter,weather,feeds</Tags>
     <Location>..\LastBuild\MPInfoService_v[Version].mpe1</Location>
     <Params>
@@ -963,13 +982,6 @@ Version v0.1:
         <LocalFileName>..\LastBuild\Language\InfoService\strings_pl.xml</LocalFileName>
         <ZipFileName>Installer{CopyFile}\{52929b7d-1fbc-4d53-851e-5e49479397ac}-strings_pl.xml</ZipFileName>
         <DestinationFilename>%Language%\InfoService\strings_pl.xml</DestinationFilename>
-      </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
-        <Param1 />
-        <UpdateOption>AlwaysOverwrite</UpdateOption>
-        <LocalFileName>\\CHRIS-PC\Coding\InfoService\trunk\LastBuild\InfoService.dll</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{c5fa0220-3f3e-4542-8399-0b7ad070a86d}-InfoService.dll</ZipFileName>
-        <DestinationFilename>%Language%\InfoService\InfoService.dll</DestinationFilename>
       </FileItem>
       <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
         <Param1 />
@@ -1171,44 +1183,34 @@ Version v0.1:
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\Images\InfoService_tower.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{8e7801a4-4481-4800-9950-13bed9210800}-InfoService_tower.png</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{2d9a1132-6bc0-49c6-9e8d-d9382d03c243}-InfoService_tower.png</ZipFileName>
         <DestinationFilename />
       </FileItem>
       <FileItem InstallType="CopyFile" SystemFile="true" Modified="true">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\Images\InfoService_head.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{e21398aa-3a81-4115-8c31-ace659ba0255}-InfoService_head.png</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{0cb5d593-403d-4d78-bd2f-0452dc4a328e}-InfoService_head.png</ZipFileName>
         <DestinationFilename />
       </FileItem>
       <FileItem InstallType="CopyFile" SystemFile="true" Modified="true">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\Images\InfoService_icon_full.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{4acfa509-8225-4d52-8058-f0b87f45a9c4}-InfoService_icon_full.png</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{15a12ac5-7b19-43a6-97de-32b9044bd3f8}-InfoService_icon_full.png</ZipFileName>
         <DestinationFilename />
       </FileItem>
       <FileItem InstallType="CopyFile" SystemFile="true" Modified="true">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
-        <LocalFileName>readme.txt</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{916140c2-3384-401a-a100-9c732ac94f55}-readme.txt</ZipFileName>
+        <LocalFileName>readme.rtf</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{87b10a60-cae5-4263-92d5-e894bf2b0615}-readme.rtf</ZipFileName>
         <DestinationFilename />
       </FileItem>
     </Items>
   </UniqueFileList>
   <ProjectSettings>
     <FolderGroups>
-      <FolderGroup InstallType="CopyFile" SystemFile="false" Modified="true">
-        <Param1 />
-        <UpdateOption>AlwaysOverwrite</UpdateOption>
-        <LocalFileName />
-        <ZipFileName>Installer{CopyFile}\{a9096135-fbda-499d-a982-3e7b7c37d2ff}-</ZipFileName>
-        <DestinationFilename>%Language%\InfoService</DestinationFilename>
-        <Folder>..\LastBuild\Language\InfoService</Folder>
-        <Group>Languages</Group>
-        <Recursive>true</Recursive>
-      </FolderGroup>
       <FolderGroup InstallType="CopyFile" SystemFile="false" Modified="true">
         <Param1 />
         <UpdateOption>AlwaysOverwrite</UpdateOption>
