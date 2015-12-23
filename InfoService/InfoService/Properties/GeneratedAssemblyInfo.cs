@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Reflection.AssemblyInformationalVersion("1.7.4.0-f0bb641")]
+[assembly: System.Reflection.AssemblyInformationalVersion("1.7.4.0-6f3c048")]
 
 

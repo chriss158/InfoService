@@ -36,6 +36,7 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.pgRSS = new System.Windows.Forms.TabPage();
             this.labelSkinSettingsFeeds = new System.Windows.Forms.Label();
+            this.btnFeedHelp = new System.Windows.Forms.Button();
             this.imgList = new System.Windows.Forms.ImageList(this.components);
             this.gbFeedLayout = new System.Windows.Forms.GroupBox();
             this.rbBothAllFeeds = new System.Windows.Forms.RadioButton();
@@ -71,9 +72,44 @@
             this.laFeedRefresh = new System.Windows.Forms.Label();
             this.cbFeedEnabled = new System.Windows.Forms.CheckBox();
             this.gbFeedConf = new System.Windows.Forms.GroupBox();
+            this.btnAddMultiple = new System.Windows.Forms.Button();
+            this.btnDown = new System.Windows.Forms.Button();
+            this.btnUp = new System.Windows.Forms.Button();
             this.lvFeeds = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnRem = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.pgAbout = new System.Windows.Forms.TabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.llblFamFamFam = new System.Windows.Forms.LinkLabel();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.llblAboutForum = new System.Windows.Forms.LinkLabel();
+            this.llblAboutManual = new System.Windows.Forms.LinkLabel();
+            this.llblAboutCodeplex = new System.Windows.Forms.LinkLabel();
+            this.label36 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.lblProductVersion = new System.Windows.Forms.Label();
             this.pgTwitter = new System.Windows.Forms.TabPage();
             this.labelSkinSettingsTwitter = new System.Windows.Forms.Label();
             this.gbTwitterLayout = new System.Windows.Forms.GroupBox();
@@ -111,37 +147,13 @@
             this.laTwitterRefresh = new System.Windows.Forms.Label();
             this.cbTwitterEnabled = new System.Windows.Forms.CheckBox();
             this.gbTwitterConf = new System.Windows.Forms.GroupBox();
+            this.pbOAuthLogo = new System.Windows.Forms.PictureBox();
+            this.btnTwitterGetPin = new System.Windows.Forms.Button();
+            this.btnTwitterAuthorize = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.txtTwitterPIN = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.pgAbout = new System.Windows.Forms.TabPage();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.llblFamFamFam = new System.Windows.Forms.LinkLabel();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.llblAboutForum = new System.Windows.Forms.LinkLabel();
-            this.llblAboutManual = new System.Windows.Forms.LinkLabel();
-            this.llblAboutCodeplex = new System.Windows.Forms.LinkLabel();
-            this.label36 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.lblProductVersion = new System.Windows.Forms.Label();
+            this.btnTwitterHelp = new System.Windows.Forms.Button();
             this.pgWeather = new System.Windows.Forms.TabPage();
             this.labelSkinSettingsWeather = new System.Windows.Forms.Label();
             this.gbWeatherGeneral = new System.Windows.Forms.GroupBox();
@@ -159,28 +171,17 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearchCity = new System.Windows.Forms.TextBox();
             this.cbWeatherEnabled = new System.Windows.Forms.CheckBox();
+            this.btnWeatherHelp = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.ttFeedHelp = new System.Windows.Forms.ToolTip(this.components);
             this.ttTwitterHelp = new System.Windows.Forms.ToolTip(this.components);
             this.ttTimelineHelp = new System.Windows.Forms.ToolTip(this.components);
             this.ttTwitterUpdateHelp = new System.Windows.Forms.ToolTip(this.components);
+            this.btnAdvancedConfig = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.mlFeedTickerExample = new InfoService.GUIConfiguration.MarqueeLabel();
             this.mlTwitterTickerExample = new InfoService.GUIConfiguration.MarqueeLabel();
-            this.btnAdvancedConfig = new System.Windows.Forms.Button();
-            this.btnFeedHelp = new System.Windows.Forms.Button();
-            this.btnAddMultiple = new System.Windows.Forms.Button();
-            this.btnDown = new System.Windows.Forms.Button();
-            this.btnUp = new System.Windows.Forms.Button();
-            this.btnRem = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.pbOAuthLogo = new System.Windows.Forms.PictureBox();
-            this.btnTwitterGetPin = new System.Windows.Forms.Button();
-            this.btnTwitterAuthorize = new System.Windows.Forms.Button();
-            this.btnTwitterHelp = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnWeatherHelp = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.pgRSS.SuspendLayout();
             this.gbFeedLayout.SuspendLayout();
@@ -191,6 +192,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPopupTimeout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFeedRefreshInt)).BeginInit();
             this.gbFeedConf.SuspendLayout();
+            this.pgAbout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.pgTwitter.SuspendLayout();
             this.gbTwitterLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTwitterItems)).BeginInit();
@@ -200,20 +204,16 @@
             this.gbTwitterGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTwitterRefreshInt)).BeginInit();
             this.gbTwitterConf.SuspendLayout();
-            this.pgAbout.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbOAuthLogo)).BeginInit();
             this.pgWeather.SuspendLayout();
             this.gbWeatherGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtWeatherRefreshInt)).BeginInit();
             this.gbWeatherCity.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbOAuthLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
             // 
             this.tabControl.Controls.Add(this.pgRSS);
-            //this.tabControl.Controls.Add(this.pgTwitter);
             this.tabControl.Controls.Add(this.pgAbout);
             this.tabControl.ImageList = this.imgList;
             this.tabControl.Location = new System.Drawing.Point(4, 2);
@@ -249,6 +249,19 @@
             this.labelSkinSettingsFeeds.TabIndex = 15;
             this.labelSkinSettingsFeeds.Text = "* Skin settings will override marked fields while MediaPortal is running!";
             this.labelSkinSettingsFeeds.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btnFeedHelp
+            // 
+            this.btnFeedHelp.Cursor = System.Windows.Forms.Cursors.Help;
+            this.btnFeedHelp.ImageIndex = 14;
+            this.btnFeedHelp.ImageList = this.imgList;
+            this.btnFeedHelp.Location = new System.Drawing.Point(585, 6);
+            this.btnFeedHelp.Name = "btnFeedHelp";
+            this.btnFeedHelp.Size = new System.Drawing.Size(24, 24);
+            this.btnFeedHelp.TabIndex = 14;
+            this.btnFeedHelp.TabStop = false;
+            this.btnFeedHelp.UseVisualStyleBackColor = true;
+            this.btnFeedHelp.Click += new System.EventHandler(this.btnFeedHelp_Click);
             // 
             // imgList
             // 
@@ -742,6 +755,46 @@
             this.gbFeedConf.TabStop = false;
             this.gbFeedConf.Text = "Feeds";
             // 
+            // btnAddMultiple
+            // 
+            this.btnAddMultiple.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddMultiple.ImageKey = "newspaper_add.png";
+            this.btnAddMultiple.ImageList = this.imgList;
+            this.btnAddMultiple.Location = new System.Drawing.Point(81, 215);
+            this.btnAddMultiple.Name = "btnAddMultiple";
+            this.btnAddMultiple.Size = new System.Drawing.Size(133, 23);
+            this.btnAddMultiple.TabIndex = 7;
+            this.btnAddMultiple.Text = "&Add multiple feeds..";
+            this.btnAddMultiple.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAddMultiple.UseVisualStyleBackColor = true;
+            this.btnAddMultiple.Click += new System.EventHandler(this.btnAddMultiple_Click);
+            // 
+            // btnDown
+            // 
+            this.btnDown.Enabled = false;
+            this.btnDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDown.ImageKey = "arrow_down.png";
+            this.btnDown.ImageList = this.imgList;
+            this.btnDown.Location = new System.Drawing.Point(569, 126);
+            this.btnDown.Name = "btnDown";
+            this.btnDown.Size = new System.Drawing.Size(28, 23);
+            this.btnDown.TabIndex = 6;
+            this.btnDown.UseVisualStyleBackColor = true;
+            this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
+            // 
+            // btnUp
+            // 
+            this.btnUp.Enabled = false;
+            this.btnUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUp.ImageKey = "arrow_up.png";
+            this.btnUp.ImageList = this.imgList;
+            this.btnUp.Location = new System.Drawing.Point(569, 97);
+            this.btnUp.Name = "btnUp";
+            this.btnUp.Size = new System.Drawing.Size(28, 23);
+            this.btnUp.TabIndex = 5;
+            this.btnUp.UseVisualStyleBackColor = true;
+            this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
+            // 
             // lvFeeds
             // 
             this.lvFeeds.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -773,516 +826,49 @@
             this.columnHeader2.Text = "Feed URL/Path";
             this.columnHeader2.Width = 274;
             // 
-            // pgTwitter
-            // 
-            this.pgTwitter.Controls.Add(this.labelSkinSettingsTwitter);
-            this.pgTwitter.Controls.Add(this.gbTwitterLayout);
-            this.pgTwitter.Controls.Add(this.gbTwitterUpdateStatus);
-            this.pgTwitter.Controls.Add(this.gbTwitterTimelines);
-            this.pgTwitter.Controls.Add(this.gbTwitterTickerLayout);
-            this.pgTwitter.Controls.Add(this.gbTwitterGeneral);
-            this.pgTwitter.Controls.Add(this.cbTwitterEnabled);
-            this.pgTwitter.Controls.Add(this.gbTwitterConf);
-            this.pgTwitter.Controls.Add(this.btnTwitterHelp);
-            this.pgTwitter.ImageIndex = 2;
-            this.pgTwitter.Location = new System.Drawing.Point(4, 23);
-            this.pgTwitter.Name = "pgTwitter";
-            this.pgTwitter.Padding = new System.Windows.Forms.Padding(3);
-            this.pgTwitter.Size = new System.Drawing.Size(615, 659);
-            this.pgTwitter.TabIndex = 2;
-            this.pgTwitter.Text = "Twitter";
-            this.pgTwitter.UseVisualStyleBackColor = true;
-            // 
-            // labelSkinSettingsTwitter
-            // 
-            this.labelSkinSettingsTwitter.ForeColor = System.Drawing.Color.DarkRed;
-            this.labelSkinSettingsTwitter.Location = new System.Drawing.Point(362, 3);
-            this.labelSkinSettingsTwitter.Name = "labelSkinSettingsTwitter";
-            this.labelSkinSettingsTwitter.Size = new System.Drawing.Size(219, 30);
-            this.labelSkinSettingsTwitter.TabIndex = 16;
-            this.labelSkinSettingsTwitter.Text = "* Skin settings will override marked fields while MediaPortal is running!";
-            this.labelSkinSettingsTwitter.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // gbTwitterLayout
-            // 
-            this.gbTwitterLayout.Controls.Add(this.txtTwitterItems);
-            this.gbTwitterLayout.Controls.Add(this.laTwitterItems);
-            this.gbTwitterLayout.Enabled = false;
-            this.gbTwitterLayout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbTwitterLayout.Location = new System.Drawing.Point(315, 148);
-            this.gbTwitterLayout.Name = "gbTwitterLayout";
-            this.gbTwitterLayout.Size = new System.Drawing.Size(294, 78);
-            this.gbTwitterLayout.TabIndex = 3;
-            this.gbTwitterLayout.TabStop = false;
-            this.gbTwitterLayout.Text = "Layout";
-            // 
-            // txtTwitterItems
-            // 
-            this.txtTwitterItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTwitterItems.Location = new System.Drawing.Point(155, 23);
-            this.txtTwitterItems.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.txtTwitterItems.Name = "txtTwitterItems";
-            this.txtTwitterItems.Size = new System.Drawing.Size(52, 20);
-            this.txtTwitterItems.TabIndex = 8;
-            this.txtTwitterItems.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.txtTwitterItems.ValueChanged += new System.EventHandler(this.SkinSettingsControlChanged);
-            // 
-            // laTwitterItems
-            // 
-            this.laTwitterItems.AutoSize = true;
-            this.laTwitterItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.laTwitterItems.Location = new System.Drawing.Point(8, 27);
-            this.laTwitterItems.Name = "laTwitterItems";
-            this.laTwitterItems.Size = new System.Drawing.Size(132, 13);
-            this.laTwitterItems.TabIndex = 7;
-            this.laTwitterItems.Text = "Max items for twitter ticker:";
-            // 
-            // gbTwitterUpdateStatus
-            // 
-            this.gbTwitterUpdateStatus.Controls.Add(this.laTwitterWatchingVideoMaskExplain);
-            this.gbTwitterUpdateStatus.Controls.Add(this.txtTwitterWatchingSeriesMask);
-            this.gbTwitterUpdateStatus.Controls.Add(this.laTwitterWatchingSeriesMask);
-            this.gbTwitterUpdateStatus.Controls.Add(this.txtTwitterWatchingMoviesMask);
-            this.gbTwitterUpdateStatus.Controls.Add(this.cbTwitterUseMyVideo);
-            this.gbTwitterUpdateStatus.Controls.Add(this.cbTwitterUserTVSeries);
-            this.gbTwitterUpdateStatus.Controls.Add(this.cbTwitterUseMovingPictures);
-            this.gbTwitterUpdateStatus.Controls.Add(this.laTwitterWatchingMoviesMask);
-            this.gbTwitterUpdateStatus.Controls.Add(this.cbTwitterPostWatchingVideos);
-            this.gbTwitterUpdateStatus.Enabled = false;
-            this.gbTwitterUpdateStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbTwitterUpdateStatus.Location = new System.Drawing.Point(6, 232);
-            this.gbTwitterUpdateStatus.Name = "gbTwitterUpdateStatus";
-            this.gbTwitterUpdateStatus.Size = new System.Drawing.Size(603, 163);
-            this.gbTwitterUpdateStatus.TabIndex = 4;
-            this.gbTwitterUpdateStatus.TabStop = false;
-            this.gbTwitterUpdateStatus.Text = "Update status";
-            // 
-            // laTwitterWatchingVideoMaskExplain
-            // 
-            this.laTwitterWatchingVideoMaskExplain.AutoSize = true;
-            this.laTwitterWatchingVideoMaskExplain.Enabled = false;
-            this.laTwitterWatchingVideoMaskExplain.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.laTwitterWatchingVideoMaskExplain.Location = new System.Drawing.Point(252, 122);
-            this.laTwitterWatchingVideoMaskExplain.Name = "laTwitterWatchingVideoMaskExplain";
-            this.laTwitterWatchingVideoMaskExplain.Size = new System.Drawing.Size(331, 13);
-            this.laTwitterWatchingVideoMaskExplain.TabIndex = 30;
-            this.laTwitterWatchingVideoMaskExplain.Text = "Move your mouse over the textbox to see the available placeholders.";
-            // 
-            // txtTwitterWatchingSeriesMask
-            // 
-            this.txtTwitterWatchingSeriesMask.Enabled = false;
-            this.txtTwitterWatchingSeriesMask.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTwitterWatchingSeriesMask.Location = new System.Drawing.Point(254, 82);
-            this.txtTwitterWatchingSeriesMask.Name = "txtTwitterWatchingSeriesMask";
-            this.txtTwitterWatchingSeriesMask.Size = new System.Drawing.Size(328, 20);
-            this.txtTwitterWatchingSeriesMask.TabIndex = 29;
-            this.txtTwitterWatchingSeriesMask.Text = "I\'m just watching episode %season%x%episode% of %show% on my MediaPortal HTPC!";
-            this.ttTwitterHelp.SetToolTip(this.txtTwitterWatchingSeriesMask, resources.GetString("txtTwitterWatchingSeriesMask.ToolTip"));
-            // 
-            // laTwitterWatchingSeriesMask
-            // 
-            this.laTwitterWatchingSeriesMask.AutoSize = true;
-            this.laTwitterWatchingSeriesMask.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.laTwitterWatchingSeriesMask.Location = new System.Drawing.Point(251, 66);
-            this.laTwitterWatchingSeriesMask.Name = "laTwitterWatchingSeriesMask";
-            this.laTwitterWatchingSeriesMask.Size = new System.Drawing.Size(178, 13);
-            this.laTwitterWatchingSeriesMask.TabIndex = 28;
-            this.laTwitterWatchingSeriesMask.Text = "Status message mask for TV shows:";
-            // 
-            // txtTwitterWatchingMoviesMask
-            // 
-            this.txtTwitterWatchingMoviesMask.Enabled = false;
-            this.txtTwitterWatchingMoviesMask.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTwitterWatchingMoviesMask.Location = new System.Drawing.Point(254, 35);
-            this.txtTwitterWatchingMoviesMask.Name = "txtTwitterWatchingMoviesMask";
-            this.txtTwitterWatchingMoviesMask.Size = new System.Drawing.Size(328, 20);
-            this.txtTwitterWatchingMoviesMask.TabIndex = 26;
-            this.txtTwitterWatchingMoviesMask.Text = "I\'m just watching %video% on my MediaPortal HTPC!";
-            this.ttTwitterHelp.SetToolTip(this.txtTwitterWatchingMoviesMask, "\r\n%video% - Title of the watched movie/video\r\n%filename% - Filename of the played" +
-                    " file\r\n%ext% - Extension of played file");
-            // 
-            // cbTwitterUseMyVideo
-            // 
-            this.cbTwitterUseMyVideo.AutoSize = true;
-            this.cbTwitterUseMyVideo.Enabled = false;
-            this.cbTwitterUseMyVideo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTwitterUseMyVideo.Location = new System.Drawing.Point(35, 88);
-            this.cbTwitterUseMyVideo.Name = "cbTwitterUseMyVideo";
-            this.cbTwitterUseMyVideo.Size = new System.Drawing.Size(95, 17);
-            this.cbTwitterUseMyVideo.TabIndex = 23;
-            this.cbTwitterUseMyVideo.Text = "using MyVideo";
-            this.cbTwitterUseMyVideo.UseVisualStyleBackColor = true;
-            // 
-            // cbTwitterUserTVSeries
-            // 
-            this.cbTwitterUserTVSeries.AutoSize = true;
-            this.cbTwitterUserTVSeries.Enabled = false;
-            this.cbTwitterUserTVSeries.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTwitterUserTVSeries.Location = new System.Drawing.Point(35, 65);
-            this.cbTwitterUserTVSeries.Name = "cbTwitterUserTVSeries";
-            this.cbTwitterUserTVSeries.Size = new System.Drawing.Size(116, 17);
-            this.cbTwitterUserTVSeries.TabIndex = 22;
-            this.cbTwitterUserTVSeries.Text = "using MP-TVSeries";
-            this.cbTwitterUserTVSeries.UseVisualStyleBackColor = true;
-            // 
-            // cbTwitterUseMovingPictures
-            // 
-            this.cbTwitterUseMovingPictures.AutoSize = true;
-            this.cbTwitterUseMovingPictures.Enabled = false;
-            this.cbTwitterUseMovingPictures.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTwitterUseMovingPictures.Location = new System.Drawing.Point(35, 42);
-            this.cbTwitterUseMovingPictures.Name = "cbTwitterUseMovingPictures";
-            this.cbTwitterUseMovingPictures.Size = new System.Drawing.Size(130, 17);
-            this.cbTwitterUseMovingPictures.TabIndex = 21;
-            this.cbTwitterUseMovingPictures.Text = "using Moving Pictures";
-            this.cbTwitterUseMovingPictures.UseVisualStyleBackColor = true;
-            // 
-            // laTwitterWatchingMoviesMask
-            // 
-            this.laTwitterWatchingMoviesMask.AutoSize = true;
-            this.laTwitterWatchingMoviesMask.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.laTwitterWatchingMoviesMask.Location = new System.Drawing.Point(251, 19);
-            this.laTwitterWatchingMoviesMask.Name = "laTwitterWatchingMoviesMask";
-            this.laTwitterWatchingMoviesMask.Size = new System.Drawing.Size(205, 13);
-            this.laTwitterWatchingMoviesMask.TabIndex = 25;
-            this.laTwitterWatchingMoviesMask.Text = "Status message mask for Videos (movies):";
-            // 
-            // cbTwitterPostWatchingVideos
-            // 
-            this.cbTwitterPostWatchingVideos.AutoSize = true;
-            this.cbTwitterPostWatchingVideos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTwitterPostWatchingVideos.Location = new System.Drawing.Point(10, 19);
-            this.cbTwitterPostWatchingVideos.Name = "cbTwitterPostWatchingVideos";
-            this.cbTwitterPostWatchingVideos.Size = new System.Drawing.Size(208, 17);
-            this.cbTwitterPostWatchingVideos.TabIndex = 18;
-            this.cbTwitterPostWatchingVideos.Text = "Update status when watching a video:";
-            this.cbTwitterPostWatchingVideos.UseVisualStyleBackColor = true;
-            this.cbTwitterPostWatchingVideos.CheckedChanged += new System.EventHandler(this.cbTwitterPostWatchingVideos_CheckedChanged);
-            // 
-            // gbTwitterTimelines
-            // 
-            this.gbTwitterTimelines.Controls.Add(this.label24);
-            this.gbTwitterTimelines.Controls.Add(this.cbTwitterRetweetsOfMeTimeline);
-            this.gbTwitterTimelines.Controls.Add(this.cbTwitterRetweetedToMeTimeline);
-            this.gbTwitterTimelines.Controls.Add(this.cbTwitterRetweetedByMeTimeline);
-            this.gbTwitterTimelines.Controls.Add(this.cbTwitterMentionsTimeline);
-            this.gbTwitterTimelines.Controls.Add(this.cbTwitterUserTimeline);
-            this.gbTwitterTimelines.Controls.Add(this.cbTwitterFriendsTimeline);
-            this.gbTwitterTimelines.Controls.Add(this.cbTwitterHomeTimeline);
-            this.gbTwitterTimelines.Controls.Add(this.label20);
-            this.gbTwitterTimelines.Enabled = false;
-            this.gbTwitterTimelines.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbTwitterTimelines.Location = new System.Drawing.Point(6, 401);
-            this.gbTwitterTimelines.Name = "gbTwitterTimelines";
-            this.gbTwitterTimelines.Size = new System.Drawing.Size(603, 108);
-            this.gbTwitterTimelines.TabIndex = 5;
-            this.gbTwitterTimelines.TabStop = false;
-            this.gbTwitterTimelines.Text = "Timelines";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Enabled = false;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(7, 81);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(323, 13);
-            this.label24.TabIndex = 25;
-            this.label24.Text = "Note, the more timelines you select, the longer the download takes.";
-            // 
-            // cbTwitterRetweetsOfMeTimeline
-            // 
-            this.cbTwitterRetweetsOfMeTimeline.AutoSize = true;
-            this.cbTwitterRetweetsOfMeTimeline.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTwitterRetweetsOfMeTimeline.Location = new System.Drawing.Point(101, 47);
-            this.cbTwitterRetweetsOfMeTimeline.Name = "cbTwitterRetweetsOfMeTimeline";
-            this.cbTwitterRetweetsOfMeTimeline.Size = new System.Drawing.Size(100, 17);
-            this.cbTwitterRetweetsOfMeTimeline.TabIndex = 6;
-            this.cbTwitterRetweetsOfMeTimeline.Text = "Retweets of me";
-            this.ttTimelineHelp.SetToolTip(this.cbTwitterRetweetsOfMeTimeline, "The recent tweets of the user that have been retweeted by others.");
-            this.cbTwitterRetweetsOfMeTimeline.UseVisualStyleBackColor = true;
-            // 
-            // cbTwitterRetweetedToMeTimeline
-            // 
-            this.cbTwitterRetweetedToMeTimeline.AutoSize = true;
-            this.cbTwitterRetweetedToMeTimeline.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTwitterRetweetedToMeTimeline.Location = new System.Drawing.Point(232, 21);
-            this.cbTwitterRetweetedToMeTimeline.Name = "cbTwitterRetweetedToMeTimeline";
-            this.cbTwitterRetweetedToMeTimeline.Size = new System.Drawing.Size(107, 17);
-            this.cbTwitterRetweetedToMeTimeline.TabIndex = 3;
-            this.cbTwitterRetweetedToMeTimeline.Text = "Retweeted to me";
-            this.ttTimelineHelp.SetToolTip(this.cbTwitterRetweetedToMeTimeline, "The recent retweets posted by the user\'s friends.");
-            this.cbTwitterRetweetedToMeTimeline.UseVisualStyleBackColor = true;
-            this.cbTwitterRetweetedToMeTimeline.CheckedChanged += new System.EventHandler(this.cbTwitterRetweetedToMeTimeline_CheckedChanged);
-            // 
-            // cbTwitterRetweetedByMeTimeline
-            // 
-            this.cbTwitterRetweetedByMeTimeline.AutoSize = true;
-            this.cbTwitterRetweetedByMeTimeline.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTwitterRetweetedByMeTimeline.Location = new System.Drawing.Point(356, 47);
-            this.cbTwitterRetweetedByMeTimeline.Name = "cbTwitterRetweetedByMeTimeline";
-            this.cbTwitterRetweetedByMeTimeline.Size = new System.Drawing.Size(109, 17);
-            this.cbTwitterRetweetedByMeTimeline.TabIndex = 8;
-            this.cbTwitterRetweetedByMeTimeline.Text = "Retweeted by me";
-            this.ttTimelineHelp.SetToolTip(this.cbTwitterRetweetedByMeTimeline, "The recent retweets posted by the user.");
-            this.cbTwitterRetweetedByMeTimeline.UseVisualStyleBackColor = true;
-            // 
-            // cbTwitterMentionsTimeline
-            // 
-            this.cbTwitterMentionsTimeline.AutoSize = true;
-            this.cbTwitterMentionsTimeline.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTwitterMentionsTimeline.Location = new System.Drawing.Point(481, 21);
-            this.cbTwitterMentionsTimeline.Name = "cbTwitterMentionsTimeline";
-            this.cbTwitterMentionsTimeline.Size = new System.Drawing.Size(69, 17);
-            this.cbTwitterMentionsTimeline.TabIndex = 5;
-            this.cbTwitterMentionsTimeline.Text = "Mentions";
-            this.ttTimelineHelp.SetToolTip(this.cbTwitterMentionsTimeline, "The recent mentions (status containing @username) for the authenticating user.");
-            this.cbTwitterMentionsTimeline.UseVisualStyleBackColor = true;
-            // 
-            // cbTwitterUserTimeline
-            // 
-            this.cbTwitterUserTimeline.AutoSize = true;
-            this.cbTwitterUserTimeline.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTwitterUserTimeline.Location = new System.Drawing.Point(101, 21);
-            this.cbTwitterUserTimeline.Name = "cbTwitterUserTimeline";
-            this.cbTwitterUserTimeline.Size = new System.Drawing.Size(86, 17);
-            this.cbTwitterUserTimeline.TabIndex = 2;
-            this.cbTwitterUserTimeline.Text = "User timeline";
-            this.ttTimelineHelp.SetToolTip(this.cbTwitterUserTimeline, "The recent statuses posted from the user.");
-            this.cbTwitterUserTimeline.UseVisualStyleBackColor = true;
-            this.cbTwitterUserTimeline.CheckedChanged += new System.EventHandler(this.cbTwitterUserTimeline_CheckedChanged);
-            // 
-            // cbTwitterFriendsTimeline
-            // 
-            this.cbTwitterFriendsTimeline.AutoSize = true;
-            this.cbTwitterFriendsTimeline.Checked = true;
-            this.cbTwitterFriendsTimeline.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbTwitterFriendsTimeline.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTwitterFriendsTimeline.Location = new System.Drawing.Point(232, 47);
-            this.cbTwitterFriendsTimeline.Name = "cbTwitterFriendsTimeline";
-            this.cbTwitterFriendsTimeline.Size = new System.Drawing.Size(98, 17);
-            this.cbTwitterFriendsTimeline.TabIndex = 7;
-            this.cbTwitterFriendsTimeline.Text = "Friends timeline";
-            this.ttTimelineHelp.SetToolTip(this.cbTwitterFriendsTimeline, "The recent statuses posted by the user and that user\'s friends.");
-            this.cbTwitterFriendsTimeline.UseVisualStyleBackColor = true;
-            // 
-            // cbTwitterHomeTimeline
-            // 
-            this.cbTwitterHomeTimeline.AutoSize = true;
-            this.cbTwitterHomeTimeline.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTwitterHomeTimeline.Location = new System.Drawing.Point(356, 21);
-            this.cbTwitterHomeTimeline.Name = "cbTwitterHomeTimeline";
-            this.cbTwitterHomeTimeline.Size = new System.Drawing.Size(92, 17);
-            this.cbTwitterHomeTimeline.TabIndex = 4;
-            this.cbTwitterHomeTimeline.Text = "Home timeline";
-            this.ttTimelineHelp.SetToolTip(this.cbTwitterHomeTimeline, "The recent statuses, including retweets, posted by the user and that user\'s frien" +
-                    "ds.");
-            this.cbTwitterHomeTimeline.UseVisualStyleBackColor = true;
-            this.cbTwitterHomeTimeline.CheckedChanged += new System.EventHandler(this.cbTwitterHomeTimeline_CheckedChanged);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(6, 25);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(89, 13);
-            this.label20.TabIndex = 0;
-            this.label20.Text = "Update following:";
-            // 
-            // gbTwitterTickerLayout
-            // 
-            this.gbTwitterTickerLayout.Controls.Add(this.laTwitterTickerLayout);
-            this.gbTwitterTickerLayout.Controls.Add(this.mlTwitterTickerExample);
-            this.gbTwitterTickerLayout.Controls.Add(this.laTwitterSeparator);
-            this.gbTwitterTickerLayout.Controls.Add(this.txtTwitterTickerLayout);
-            this.gbTwitterTickerLayout.Controls.Add(this.label19);
-            this.gbTwitterTickerLayout.Controls.Add(this.txtTwitterSeparator);
-            this.gbTwitterTickerLayout.Enabled = false;
-            this.gbTwitterTickerLayout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbTwitterTickerLayout.Location = new System.Drawing.Point(6, 515);
-            this.gbTwitterTickerLayout.Name = "gbTwitterTickerLayout";
-            this.gbTwitterTickerLayout.Size = new System.Drawing.Size(603, 138);
-            this.gbTwitterTickerLayout.TabIndex = 6;
-            this.gbTwitterTickerLayout.TabStop = false;
-            this.gbTwitterTickerLayout.Text = "Ticker layout";
-            // 
-            // laTwitterTickerLayout
-            // 
-            this.laTwitterTickerLayout.AutoSize = true;
-            this.laTwitterTickerLayout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.laTwitterTickerLayout.Location = new System.Drawing.Point(6, 23);
-            this.laTwitterTickerLayout.Name = "laTwitterTickerLayout";
-            this.laTwitterTickerLayout.Size = new System.Drawing.Size(68, 13);
-            this.laTwitterTickerLayout.TabIndex = 0;
-            this.laTwitterTickerLayout.Text = "Ticker mask:";
-            // 
-            // laTwitterSeparator
-            // 
-            this.laTwitterSeparator.AutoSize = true;
-            this.laTwitterSeparator.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.laTwitterSeparator.Location = new System.Drawing.Point(6, 71);
-            this.laTwitterSeparator.Name = "laTwitterSeparator";
-            this.laTwitterSeparator.Size = new System.Drawing.Size(56, 13);
-            this.laTwitterSeparator.TabIndex = 3;
-            this.laTwitterSeparator.Text = "Separator:";
-            // 
-            // txtTwitterTickerLayout
-            // 
-            this.txtTwitterTickerLayout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTwitterTickerLayout.Location = new System.Drawing.Point(84, 19);
-            this.txtTwitterTickerLayout.Name = "txtTwitterTickerLayout";
-            this.txtTwitterTickerLayout.Size = new System.Drawing.Size(511, 20);
-            this.txtTwitterTickerLayout.TabIndex = 1;
-            this.txtTwitterTickerLayout.Text = "%message%";
-            this.ttTwitterHelp.SetToolTip(this.txtTwitterTickerLayout, resources.GetString("txtTwitterTickerLayout.ToolTip"));
-            this.txtTwitterTickerLayout.TextChanged += new System.EventHandler(this.SkinSettingsControlChanged);
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Enabled = false;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(81, 42);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(331, 13);
-            this.label19.TabIndex = 2;
-            this.label19.Text = "Move your mouse over the textbox to see the available placeholders.";
-            // 
-            // txtTwitterSeparator
-            // 
-            this.txtTwitterSeparator.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTwitterSeparator.Location = new System.Drawing.Point(84, 68);
-            this.txtTwitterSeparator.Name = "txtTwitterSeparator";
-            this.txtTwitterSeparator.Size = new System.Drawing.Size(31, 20);
-            this.txtTwitterSeparator.TabIndex = 4;
-            this.txtTwitterSeparator.Text = "+++";
-            this.txtTwitterSeparator.TextChanged += new System.EventHandler(this.SkinSettingsControlChanged);
-            // 
-            // gbTwitterGeneral
-            // 
-            this.gbTwitterGeneral.Controls.Add(this.cbTwitterUpdateOnStartup);
-            this.gbTwitterGeneral.Controls.Add(this.txtTwitterRefreshInt);
-            this.gbTwitterGeneral.Controls.Add(this.laTwitterRefresh);
-            this.gbTwitterGeneral.Enabled = false;
-            this.gbTwitterGeneral.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbTwitterGeneral.Location = new System.Drawing.Point(6, 148);
-            this.gbTwitterGeneral.Name = "gbTwitterGeneral";
-            this.gbTwitterGeneral.Size = new System.Drawing.Size(303, 78);
-            this.gbTwitterGeneral.TabIndex = 2;
-            this.gbTwitterGeneral.TabStop = false;
-            this.gbTwitterGeneral.Text = "General";
-            // 
-            // cbTwitterUpdateOnStartup
-            // 
-            this.cbTwitterUpdateOnStartup.AutoSize = true;
-            this.cbTwitterUpdateOnStartup.Checked = true;
-            this.cbTwitterUpdateOnStartup.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbTwitterUpdateOnStartup.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTwitterUpdateOnStartup.Location = new System.Drawing.Point(9, 49);
-            this.cbTwitterUpdateOnStartup.Name = "cbTwitterUpdateOnStartup";
-            this.cbTwitterUpdateOnStartup.Size = new System.Drawing.Size(170, 17);
-            this.cbTwitterUpdateOnStartup.TabIndex = 12;
-            this.cbTwitterUpdateOnStartup.Text = "Update on MediaPortal startup";
-            this.cbTwitterUpdateOnStartup.UseVisualStyleBackColor = true;
-            // 
-            // txtTwitterRefreshInt
-            // 
-            this.txtTwitterRefreshInt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTwitterRefreshInt.Location = new System.Drawing.Point(153, 23);
-            this.txtTwitterRefreshInt.Maximum = new decimal(new int[] {
-            2880,
-            0,
-            0,
-            0});
-            this.txtTwitterRefreshInt.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.txtTwitterRefreshInt.Name = "txtTwitterRefreshInt";
-            this.txtTwitterRefreshInt.Size = new System.Drawing.Size(52, 20);
-            this.txtTwitterRefreshInt.TabIndex = 5;
-            this.txtTwitterRefreshInt.Value = new decimal(new int[] {
-            45,
-            0,
-            0,
-            0});
-            this.txtTwitterRefreshInt.ValueChanged += new System.EventHandler(this.SkinSettingsControlChanged);
-            // 
-            // laTwitterRefresh
-            // 
-            this.laTwitterRefresh.AutoSize = true;
-            this.laTwitterRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.laTwitterRefresh.Location = new System.Drawing.Point(6, 26);
-            this.laTwitterRefresh.Name = "laTwitterRefresh";
-            this.laTwitterRefresh.Size = new System.Drawing.Size(132, 13);
-            this.laTwitterRefresh.TabIndex = 4;
-            this.laTwitterRefresh.Text = "Refresh twitter every (min):";
-            // 
-            // cbTwitterEnabled
-            // 
-            this.cbTwitterEnabled.AutoSize = true;
-            this.cbTwitterEnabled.Location = new System.Drawing.Point(6, 7);
-            this.cbTwitterEnabled.Name = "cbTwitterEnabled";
-            this.cbTwitterEnabled.Size = new System.Drawing.Size(132, 17);
-            this.cbTwitterEnabled.TabIndex = 0;
-            this.cbTwitterEnabled.Text = "Twitter Ticker enabled";
-            this.cbTwitterEnabled.UseVisualStyleBackColor = true;
-            this.cbTwitterEnabled.CheckedChanged += new System.EventHandler(this.cbTwitterEnabled_CheckedChanged);
-            // 
-            // gbTwitterConf
-            // 
-            this.gbTwitterConf.Controls.Add(this.pbOAuthLogo);
-            this.gbTwitterConf.Controls.Add(this.btnTwitterGetPin);
-            this.gbTwitterConf.Controls.Add(this.btnTwitterAuthorize);
-            this.gbTwitterConf.Controls.Add(this.label10);
-            this.gbTwitterConf.Controls.Add(this.txtTwitterPIN);
-            this.gbTwitterConf.Controls.Add(this.label11);
-            this.gbTwitterConf.Enabled = false;
-            this.gbTwitterConf.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbTwitterConf.Location = new System.Drawing.Point(6, 30);
-            this.gbTwitterConf.Name = "gbTwitterConf";
-            this.gbTwitterConf.Size = new System.Drawing.Size(603, 112);
-            this.gbTwitterConf.TabIndex = 1;
-            this.gbTwitterConf.TabStop = false;
-            this.gbTwitterConf.Text = "Twitter account";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(84, 83);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(28, 13);
-            this.label10.TabIndex = 2;
-            this.label10.Text = "PIN:";
-            // 
-            // txtTwitterPIN
-            // 
-            this.txtTwitterPIN.Enabled = false;
-            this.txtTwitterPIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTwitterPIN.Location = new System.Drawing.Point(118, 80);
-            this.txtTwitterPIN.Name = "txtTwitterPIN";
-            this.txtTwitterPIN.Size = new System.Drawing.Size(104, 20);
-            this.txtTwitterPIN.TabIndex = 3;
-            // 
-            // label11
-            // 
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(84, 20);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(415, 44);
-            this.label11.TabIndex = 0;
-            this.label11.Text = resources.GetString("label11.Text");
+            // btnRem
+            // 
+            this.btnRem.Enabled = false;
+            this.btnRem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRem.ImageKey = "delete.png";
+            this.btnRem.ImageList = this.imgList;
+            this.btnRem.Location = new System.Drawing.Point(481, 215);
+            this.btnRem.Name = "btnRem";
+            this.btnRem.Size = new System.Drawing.Size(82, 23);
+            this.btnRem.TabIndex = 3;
+            this.btnRem.Text = "&Remove..";
+            this.btnRem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRem.UseVisualStyleBackColor = true;
+            this.btnRem.Click += new System.EventHandler(this.btnRem_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Enabled = false;
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.ImageKey = "pencil.png";
+            this.btnEdit.ImageList = this.imgList;
+            this.btnEdit.Location = new System.Drawing.Point(220, 215);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(63, 23);
+            this.btnEdit.TabIndex = 2;
+            this.btnEdit.Text = "&Edit..";
+            this.btnEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ImageKey = "add.png";
+            this.btnAdd.ImageList = this.imgList;
+            this.btnAdd.Location = new System.Drawing.Point(10, 215);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(65, 23);
+            this.btnAdd.TabIndex = 1;
+            this.btnAdd.Text = "&Add..";
+            this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // pgAbout
             // 
@@ -1298,8 +884,19 @@
             this.pgAbout.Text = "About";
             this.pgAbout.UseVisualStyleBackColor = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::InfoService.Properties.Resources.InfoService_head;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(603, 104);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
+            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label1);
@@ -1596,11 +1193,577 @@
             // 
             this.lblProductVersion.AutoSize = true;
             this.lblProductVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProductVersion.Location = new System.Drawing.Point(553, 113);
+            this.lblProductVersion.Location = new System.Drawing.Point(521, 113);
             this.lblProductVersion.Name = "lblProductVersion";
             this.lblProductVersion.Size = new System.Drawing.Size(53, 13);
             this.lblProductVersion.TabIndex = 1;
             this.lblProductVersion.Text = "v1.x.x.xxx";
+            // 
+            // pgTwitter
+            // 
+            this.pgTwitter.Controls.Add(this.labelSkinSettingsTwitter);
+            this.pgTwitter.Controls.Add(this.gbTwitterLayout);
+            this.pgTwitter.Controls.Add(this.gbTwitterUpdateStatus);
+            this.pgTwitter.Controls.Add(this.gbTwitterTimelines);
+            this.pgTwitter.Controls.Add(this.gbTwitterTickerLayout);
+            this.pgTwitter.Controls.Add(this.gbTwitterGeneral);
+            this.pgTwitter.Controls.Add(this.cbTwitterEnabled);
+            this.pgTwitter.Controls.Add(this.gbTwitterConf);
+            this.pgTwitter.Controls.Add(this.btnTwitterHelp);
+            this.pgTwitter.ImageIndex = 2;
+            this.pgTwitter.Location = new System.Drawing.Point(4, 23);
+            this.pgTwitter.Name = "pgTwitter";
+            this.pgTwitter.Padding = new System.Windows.Forms.Padding(3);
+            this.pgTwitter.Size = new System.Drawing.Size(615, 659);
+            this.pgTwitter.TabIndex = 2;
+            this.pgTwitter.Text = "Twitter";
+            this.pgTwitter.UseVisualStyleBackColor = true;
+            // 
+            // labelSkinSettingsTwitter
+            // 
+            this.labelSkinSettingsTwitter.ForeColor = System.Drawing.Color.DarkRed;
+            this.labelSkinSettingsTwitter.Location = new System.Drawing.Point(362, 3);
+            this.labelSkinSettingsTwitter.Name = "labelSkinSettingsTwitter";
+            this.labelSkinSettingsTwitter.Size = new System.Drawing.Size(219, 30);
+            this.labelSkinSettingsTwitter.TabIndex = 16;
+            this.labelSkinSettingsTwitter.Text = "* Skin settings will override marked fields while MediaPortal is running!";
+            this.labelSkinSettingsTwitter.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // gbTwitterLayout
+            // 
+            this.gbTwitterLayout.Controls.Add(this.txtTwitterItems);
+            this.gbTwitterLayout.Controls.Add(this.laTwitterItems);
+            this.gbTwitterLayout.Enabled = false;
+            this.gbTwitterLayout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbTwitterLayout.Location = new System.Drawing.Point(315, 148);
+            this.gbTwitterLayout.Name = "gbTwitterLayout";
+            this.gbTwitterLayout.Size = new System.Drawing.Size(294, 78);
+            this.gbTwitterLayout.TabIndex = 3;
+            this.gbTwitterLayout.TabStop = false;
+            this.gbTwitterLayout.Text = "Layout";
+            // 
+            // txtTwitterItems
+            // 
+            this.txtTwitterItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTwitterItems.Location = new System.Drawing.Point(155, 23);
+            this.txtTwitterItems.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtTwitterItems.Name = "txtTwitterItems";
+            this.txtTwitterItems.Size = new System.Drawing.Size(52, 20);
+            this.txtTwitterItems.TabIndex = 8;
+            this.txtTwitterItems.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.txtTwitterItems.ValueChanged += new System.EventHandler(this.SkinSettingsControlChanged);
+            // 
+            // laTwitterItems
+            // 
+            this.laTwitterItems.AutoSize = true;
+            this.laTwitterItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.laTwitterItems.Location = new System.Drawing.Point(8, 27);
+            this.laTwitterItems.Name = "laTwitterItems";
+            this.laTwitterItems.Size = new System.Drawing.Size(132, 13);
+            this.laTwitterItems.TabIndex = 7;
+            this.laTwitterItems.Text = "Max items for twitter ticker:";
+            // 
+            // gbTwitterUpdateStatus
+            // 
+            this.gbTwitterUpdateStatus.Controls.Add(this.laTwitterWatchingVideoMaskExplain);
+            this.gbTwitterUpdateStatus.Controls.Add(this.txtTwitterWatchingSeriesMask);
+            this.gbTwitterUpdateStatus.Controls.Add(this.laTwitterWatchingSeriesMask);
+            this.gbTwitterUpdateStatus.Controls.Add(this.txtTwitterWatchingMoviesMask);
+            this.gbTwitterUpdateStatus.Controls.Add(this.cbTwitterUseMyVideo);
+            this.gbTwitterUpdateStatus.Controls.Add(this.cbTwitterUserTVSeries);
+            this.gbTwitterUpdateStatus.Controls.Add(this.cbTwitterUseMovingPictures);
+            this.gbTwitterUpdateStatus.Controls.Add(this.laTwitterWatchingMoviesMask);
+            this.gbTwitterUpdateStatus.Controls.Add(this.cbTwitterPostWatchingVideos);
+            this.gbTwitterUpdateStatus.Enabled = false;
+            this.gbTwitterUpdateStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbTwitterUpdateStatus.Location = new System.Drawing.Point(6, 232);
+            this.gbTwitterUpdateStatus.Name = "gbTwitterUpdateStatus";
+            this.gbTwitterUpdateStatus.Size = new System.Drawing.Size(603, 163);
+            this.gbTwitterUpdateStatus.TabIndex = 4;
+            this.gbTwitterUpdateStatus.TabStop = false;
+            this.gbTwitterUpdateStatus.Text = "Update status";
+            // 
+            // laTwitterWatchingVideoMaskExplain
+            // 
+            this.laTwitterWatchingVideoMaskExplain.AutoSize = true;
+            this.laTwitterWatchingVideoMaskExplain.Enabled = false;
+            this.laTwitterWatchingVideoMaskExplain.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.laTwitterWatchingVideoMaskExplain.Location = new System.Drawing.Point(252, 122);
+            this.laTwitterWatchingVideoMaskExplain.Name = "laTwitterWatchingVideoMaskExplain";
+            this.laTwitterWatchingVideoMaskExplain.Size = new System.Drawing.Size(331, 13);
+            this.laTwitterWatchingVideoMaskExplain.TabIndex = 30;
+            this.laTwitterWatchingVideoMaskExplain.Text = "Move your mouse over the textbox to see the available placeholders.";
+            // 
+            // txtTwitterWatchingSeriesMask
+            // 
+            this.txtTwitterWatchingSeriesMask.Enabled = false;
+            this.txtTwitterWatchingSeriesMask.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTwitterWatchingSeriesMask.Location = new System.Drawing.Point(254, 82);
+            this.txtTwitterWatchingSeriesMask.Name = "txtTwitterWatchingSeriesMask";
+            this.txtTwitterWatchingSeriesMask.Size = new System.Drawing.Size(328, 20);
+            this.txtTwitterWatchingSeriesMask.TabIndex = 29;
+            this.txtTwitterWatchingSeriesMask.Text = "I\'m just watching episode %season%x%episode% of %show% on my MediaPortal HTPC!";
+            this.ttTwitterHelp.SetToolTip(this.txtTwitterWatchingSeriesMask, resources.GetString("txtTwitterWatchingSeriesMask.ToolTip"));
+            // 
+            // laTwitterWatchingSeriesMask
+            // 
+            this.laTwitterWatchingSeriesMask.AutoSize = true;
+            this.laTwitterWatchingSeriesMask.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.laTwitterWatchingSeriesMask.Location = new System.Drawing.Point(251, 66);
+            this.laTwitterWatchingSeriesMask.Name = "laTwitterWatchingSeriesMask";
+            this.laTwitterWatchingSeriesMask.Size = new System.Drawing.Size(178, 13);
+            this.laTwitterWatchingSeriesMask.TabIndex = 28;
+            this.laTwitterWatchingSeriesMask.Text = "Status message mask for TV shows:";
+            // 
+            // txtTwitterWatchingMoviesMask
+            // 
+            this.txtTwitterWatchingMoviesMask.Enabled = false;
+            this.txtTwitterWatchingMoviesMask.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTwitterWatchingMoviesMask.Location = new System.Drawing.Point(254, 35);
+            this.txtTwitterWatchingMoviesMask.Name = "txtTwitterWatchingMoviesMask";
+            this.txtTwitterWatchingMoviesMask.Size = new System.Drawing.Size(328, 20);
+            this.txtTwitterWatchingMoviesMask.TabIndex = 26;
+            this.txtTwitterWatchingMoviesMask.Text = "I\'m just watching %video% on my MediaPortal HTPC!";
+            this.ttTwitterHelp.SetToolTip(this.txtTwitterWatchingMoviesMask, "\r\n%video% - Title of the watched movie/video\r\n%filename% - Filename of the played" +
+        " file\r\n%ext% - Extension of played file");
+            // 
+            // cbTwitterUseMyVideo
+            // 
+            this.cbTwitterUseMyVideo.AutoSize = true;
+            this.cbTwitterUseMyVideo.Enabled = false;
+            this.cbTwitterUseMyVideo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTwitterUseMyVideo.Location = new System.Drawing.Point(35, 88);
+            this.cbTwitterUseMyVideo.Name = "cbTwitterUseMyVideo";
+            this.cbTwitterUseMyVideo.Size = new System.Drawing.Size(95, 17);
+            this.cbTwitterUseMyVideo.TabIndex = 23;
+            this.cbTwitterUseMyVideo.Text = "using MyVideo";
+            this.cbTwitterUseMyVideo.UseVisualStyleBackColor = true;
+            // 
+            // cbTwitterUserTVSeries
+            // 
+            this.cbTwitterUserTVSeries.AutoSize = true;
+            this.cbTwitterUserTVSeries.Enabled = false;
+            this.cbTwitterUserTVSeries.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTwitterUserTVSeries.Location = new System.Drawing.Point(35, 65);
+            this.cbTwitterUserTVSeries.Name = "cbTwitterUserTVSeries";
+            this.cbTwitterUserTVSeries.Size = new System.Drawing.Size(116, 17);
+            this.cbTwitterUserTVSeries.TabIndex = 22;
+            this.cbTwitterUserTVSeries.Text = "using MP-TVSeries";
+            this.cbTwitterUserTVSeries.UseVisualStyleBackColor = true;
+            // 
+            // cbTwitterUseMovingPictures
+            // 
+            this.cbTwitterUseMovingPictures.AutoSize = true;
+            this.cbTwitterUseMovingPictures.Enabled = false;
+            this.cbTwitterUseMovingPictures.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTwitterUseMovingPictures.Location = new System.Drawing.Point(35, 42);
+            this.cbTwitterUseMovingPictures.Name = "cbTwitterUseMovingPictures";
+            this.cbTwitterUseMovingPictures.Size = new System.Drawing.Size(130, 17);
+            this.cbTwitterUseMovingPictures.TabIndex = 21;
+            this.cbTwitterUseMovingPictures.Text = "using Moving Pictures";
+            this.cbTwitterUseMovingPictures.UseVisualStyleBackColor = true;
+            // 
+            // laTwitterWatchingMoviesMask
+            // 
+            this.laTwitterWatchingMoviesMask.AutoSize = true;
+            this.laTwitterWatchingMoviesMask.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.laTwitterWatchingMoviesMask.Location = new System.Drawing.Point(251, 19);
+            this.laTwitterWatchingMoviesMask.Name = "laTwitterWatchingMoviesMask";
+            this.laTwitterWatchingMoviesMask.Size = new System.Drawing.Size(205, 13);
+            this.laTwitterWatchingMoviesMask.TabIndex = 25;
+            this.laTwitterWatchingMoviesMask.Text = "Status message mask for Videos (movies):";
+            // 
+            // cbTwitterPostWatchingVideos
+            // 
+            this.cbTwitterPostWatchingVideos.AutoSize = true;
+            this.cbTwitterPostWatchingVideos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTwitterPostWatchingVideos.Location = new System.Drawing.Point(10, 19);
+            this.cbTwitterPostWatchingVideos.Name = "cbTwitterPostWatchingVideos";
+            this.cbTwitterPostWatchingVideos.Size = new System.Drawing.Size(208, 17);
+            this.cbTwitterPostWatchingVideos.TabIndex = 18;
+            this.cbTwitterPostWatchingVideos.Text = "Update status when watching a video:";
+            this.cbTwitterPostWatchingVideos.UseVisualStyleBackColor = true;
+            this.cbTwitterPostWatchingVideos.CheckedChanged += new System.EventHandler(this.cbTwitterPostWatchingVideos_CheckedChanged);
+            // 
+            // gbTwitterTimelines
+            // 
+            this.gbTwitterTimelines.Controls.Add(this.label24);
+            this.gbTwitterTimelines.Controls.Add(this.cbTwitterRetweetsOfMeTimeline);
+            this.gbTwitterTimelines.Controls.Add(this.cbTwitterRetweetedToMeTimeline);
+            this.gbTwitterTimelines.Controls.Add(this.cbTwitterRetweetedByMeTimeline);
+            this.gbTwitterTimelines.Controls.Add(this.cbTwitterMentionsTimeline);
+            this.gbTwitterTimelines.Controls.Add(this.cbTwitterUserTimeline);
+            this.gbTwitterTimelines.Controls.Add(this.cbTwitterFriendsTimeline);
+            this.gbTwitterTimelines.Controls.Add(this.cbTwitterHomeTimeline);
+            this.gbTwitterTimelines.Controls.Add(this.label20);
+            this.gbTwitterTimelines.Enabled = false;
+            this.gbTwitterTimelines.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbTwitterTimelines.Location = new System.Drawing.Point(6, 401);
+            this.gbTwitterTimelines.Name = "gbTwitterTimelines";
+            this.gbTwitterTimelines.Size = new System.Drawing.Size(603, 108);
+            this.gbTwitterTimelines.TabIndex = 5;
+            this.gbTwitterTimelines.TabStop = false;
+            this.gbTwitterTimelines.Text = "Timelines";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Enabled = false;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(7, 81);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(323, 13);
+            this.label24.TabIndex = 25;
+            this.label24.Text = "Note, the more timelines you select, the longer the download takes.";
+            // 
+            // cbTwitterRetweetsOfMeTimeline
+            // 
+            this.cbTwitterRetweetsOfMeTimeline.AutoSize = true;
+            this.cbTwitterRetweetsOfMeTimeline.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTwitterRetweetsOfMeTimeline.Location = new System.Drawing.Point(101, 47);
+            this.cbTwitterRetweetsOfMeTimeline.Name = "cbTwitterRetweetsOfMeTimeline";
+            this.cbTwitterRetweetsOfMeTimeline.Size = new System.Drawing.Size(100, 17);
+            this.cbTwitterRetweetsOfMeTimeline.TabIndex = 6;
+            this.cbTwitterRetweetsOfMeTimeline.Text = "Retweets of me";
+            this.ttTimelineHelp.SetToolTip(this.cbTwitterRetweetsOfMeTimeline, "The recent tweets of the user that have been retweeted by others.");
+            this.cbTwitterRetweetsOfMeTimeline.UseVisualStyleBackColor = true;
+            // 
+            // cbTwitterRetweetedToMeTimeline
+            // 
+            this.cbTwitterRetweetedToMeTimeline.AutoSize = true;
+            this.cbTwitterRetweetedToMeTimeline.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTwitterRetweetedToMeTimeline.Location = new System.Drawing.Point(232, 21);
+            this.cbTwitterRetweetedToMeTimeline.Name = "cbTwitterRetweetedToMeTimeline";
+            this.cbTwitterRetweetedToMeTimeline.Size = new System.Drawing.Size(107, 17);
+            this.cbTwitterRetweetedToMeTimeline.TabIndex = 3;
+            this.cbTwitterRetweetedToMeTimeline.Text = "Retweeted to me";
+            this.ttTimelineHelp.SetToolTip(this.cbTwitterRetweetedToMeTimeline, "The recent retweets posted by the user\'s friends.");
+            this.cbTwitterRetweetedToMeTimeline.UseVisualStyleBackColor = true;
+            this.cbTwitterRetweetedToMeTimeline.CheckedChanged += new System.EventHandler(this.cbTwitterRetweetedToMeTimeline_CheckedChanged);
+            // 
+            // cbTwitterRetweetedByMeTimeline
+            // 
+            this.cbTwitterRetweetedByMeTimeline.AutoSize = true;
+            this.cbTwitterRetweetedByMeTimeline.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTwitterRetweetedByMeTimeline.Location = new System.Drawing.Point(356, 47);
+            this.cbTwitterRetweetedByMeTimeline.Name = "cbTwitterRetweetedByMeTimeline";
+            this.cbTwitterRetweetedByMeTimeline.Size = new System.Drawing.Size(109, 17);
+            this.cbTwitterRetweetedByMeTimeline.TabIndex = 8;
+            this.cbTwitterRetweetedByMeTimeline.Text = "Retweeted by me";
+            this.ttTimelineHelp.SetToolTip(this.cbTwitterRetweetedByMeTimeline, "The recent retweets posted by the user.");
+            this.cbTwitterRetweetedByMeTimeline.UseVisualStyleBackColor = true;
+            // 
+            // cbTwitterMentionsTimeline
+            // 
+            this.cbTwitterMentionsTimeline.AutoSize = true;
+            this.cbTwitterMentionsTimeline.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTwitterMentionsTimeline.Location = new System.Drawing.Point(481, 21);
+            this.cbTwitterMentionsTimeline.Name = "cbTwitterMentionsTimeline";
+            this.cbTwitterMentionsTimeline.Size = new System.Drawing.Size(69, 17);
+            this.cbTwitterMentionsTimeline.TabIndex = 5;
+            this.cbTwitterMentionsTimeline.Text = "Mentions";
+            this.ttTimelineHelp.SetToolTip(this.cbTwitterMentionsTimeline, "The recent mentions (status containing @username) for the authenticating user.");
+            this.cbTwitterMentionsTimeline.UseVisualStyleBackColor = true;
+            // 
+            // cbTwitterUserTimeline
+            // 
+            this.cbTwitterUserTimeline.AutoSize = true;
+            this.cbTwitterUserTimeline.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTwitterUserTimeline.Location = new System.Drawing.Point(101, 21);
+            this.cbTwitterUserTimeline.Name = "cbTwitterUserTimeline";
+            this.cbTwitterUserTimeline.Size = new System.Drawing.Size(86, 17);
+            this.cbTwitterUserTimeline.TabIndex = 2;
+            this.cbTwitterUserTimeline.Text = "User timeline";
+            this.ttTimelineHelp.SetToolTip(this.cbTwitterUserTimeline, "The recent statuses posted from the user.");
+            this.cbTwitterUserTimeline.UseVisualStyleBackColor = true;
+            this.cbTwitterUserTimeline.CheckedChanged += new System.EventHandler(this.cbTwitterUserTimeline_CheckedChanged);
+            // 
+            // cbTwitterFriendsTimeline
+            // 
+            this.cbTwitterFriendsTimeline.AutoSize = true;
+            this.cbTwitterFriendsTimeline.Checked = true;
+            this.cbTwitterFriendsTimeline.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbTwitterFriendsTimeline.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTwitterFriendsTimeline.Location = new System.Drawing.Point(232, 47);
+            this.cbTwitterFriendsTimeline.Name = "cbTwitterFriendsTimeline";
+            this.cbTwitterFriendsTimeline.Size = new System.Drawing.Size(98, 17);
+            this.cbTwitterFriendsTimeline.TabIndex = 7;
+            this.cbTwitterFriendsTimeline.Text = "Friends timeline";
+            this.ttTimelineHelp.SetToolTip(this.cbTwitterFriendsTimeline, "The recent statuses posted by the user and that user\'s friends.");
+            this.cbTwitterFriendsTimeline.UseVisualStyleBackColor = true;
+            // 
+            // cbTwitterHomeTimeline
+            // 
+            this.cbTwitterHomeTimeline.AutoSize = true;
+            this.cbTwitterHomeTimeline.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTwitterHomeTimeline.Location = new System.Drawing.Point(356, 21);
+            this.cbTwitterHomeTimeline.Name = "cbTwitterHomeTimeline";
+            this.cbTwitterHomeTimeline.Size = new System.Drawing.Size(92, 17);
+            this.cbTwitterHomeTimeline.TabIndex = 4;
+            this.cbTwitterHomeTimeline.Text = "Home timeline";
+            this.ttTimelineHelp.SetToolTip(this.cbTwitterHomeTimeline, "The recent statuses, including retweets, posted by the user and that user\'s frien" +
+        "ds.");
+            this.cbTwitterHomeTimeline.UseVisualStyleBackColor = true;
+            this.cbTwitterHomeTimeline.CheckedChanged += new System.EventHandler(this.cbTwitterHomeTimeline_CheckedChanged);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(6, 25);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(89, 13);
+            this.label20.TabIndex = 0;
+            this.label20.Text = "Update following:";
+            // 
+            // gbTwitterTickerLayout
+            // 
+            this.gbTwitterTickerLayout.Controls.Add(this.laTwitterTickerLayout);
+            this.gbTwitterTickerLayout.Controls.Add(this.mlTwitterTickerExample);
+            this.gbTwitterTickerLayout.Controls.Add(this.laTwitterSeparator);
+            this.gbTwitterTickerLayout.Controls.Add(this.txtTwitterTickerLayout);
+            this.gbTwitterTickerLayout.Controls.Add(this.label19);
+            this.gbTwitterTickerLayout.Controls.Add(this.txtTwitterSeparator);
+            this.gbTwitterTickerLayout.Enabled = false;
+            this.gbTwitterTickerLayout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbTwitterTickerLayout.Location = new System.Drawing.Point(6, 515);
+            this.gbTwitterTickerLayout.Name = "gbTwitterTickerLayout";
+            this.gbTwitterTickerLayout.Size = new System.Drawing.Size(603, 138);
+            this.gbTwitterTickerLayout.TabIndex = 6;
+            this.gbTwitterTickerLayout.TabStop = false;
+            this.gbTwitterTickerLayout.Text = "Ticker layout";
+            // 
+            // laTwitterTickerLayout
+            // 
+            this.laTwitterTickerLayout.AutoSize = true;
+            this.laTwitterTickerLayout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.laTwitterTickerLayout.Location = new System.Drawing.Point(6, 23);
+            this.laTwitterTickerLayout.Name = "laTwitterTickerLayout";
+            this.laTwitterTickerLayout.Size = new System.Drawing.Size(68, 13);
+            this.laTwitterTickerLayout.TabIndex = 0;
+            this.laTwitterTickerLayout.Text = "Ticker mask:";
+            // 
+            // laTwitterSeparator
+            // 
+            this.laTwitterSeparator.AutoSize = true;
+            this.laTwitterSeparator.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.laTwitterSeparator.Location = new System.Drawing.Point(6, 71);
+            this.laTwitterSeparator.Name = "laTwitterSeparator";
+            this.laTwitterSeparator.Size = new System.Drawing.Size(56, 13);
+            this.laTwitterSeparator.TabIndex = 3;
+            this.laTwitterSeparator.Text = "Separator:";
+            // 
+            // txtTwitterTickerLayout
+            // 
+            this.txtTwitterTickerLayout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTwitterTickerLayout.Location = new System.Drawing.Point(84, 19);
+            this.txtTwitterTickerLayout.Name = "txtTwitterTickerLayout";
+            this.txtTwitterTickerLayout.Size = new System.Drawing.Size(511, 20);
+            this.txtTwitterTickerLayout.TabIndex = 1;
+            this.txtTwitterTickerLayout.Text = "%message%";
+            this.ttTwitterHelp.SetToolTip(this.txtTwitterTickerLayout, resources.GetString("txtTwitterTickerLayout.ToolTip"));
+            this.txtTwitterTickerLayout.TextChanged += new System.EventHandler(this.SkinSettingsControlChanged);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Enabled = false;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(81, 42);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(331, 13);
+            this.label19.TabIndex = 2;
+            this.label19.Text = "Move your mouse over the textbox to see the available placeholders.";
+            // 
+            // txtTwitterSeparator
+            // 
+            this.txtTwitterSeparator.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTwitterSeparator.Location = new System.Drawing.Point(84, 68);
+            this.txtTwitterSeparator.Name = "txtTwitterSeparator";
+            this.txtTwitterSeparator.Size = new System.Drawing.Size(31, 20);
+            this.txtTwitterSeparator.TabIndex = 4;
+            this.txtTwitterSeparator.Text = "+++";
+            this.txtTwitterSeparator.TextChanged += new System.EventHandler(this.SkinSettingsControlChanged);
+            // 
+            // gbTwitterGeneral
+            // 
+            this.gbTwitterGeneral.Controls.Add(this.cbTwitterUpdateOnStartup);
+            this.gbTwitterGeneral.Controls.Add(this.txtTwitterRefreshInt);
+            this.gbTwitterGeneral.Controls.Add(this.laTwitterRefresh);
+            this.gbTwitterGeneral.Enabled = false;
+            this.gbTwitterGeneral.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbTwitterGeneral.Location = new System.Drawing.Point(6, 148);
+            this.gbTwitterGeneral.Name = "gbTwitterGeneral";
+            this.gbTwitterGeneral.Size = new System.Drawing.Size(303, 78);
+            this.gbTwitterGeneral.TabIndex = 2;
+            this.gbTwitterGeneral.TabStop = false;
+            this.gbTwitterGeneral.Text = "General";
+            // 
+            // cbTwitterUpdateOnStartup
+            // 
+            this.cbTwitterUpdateOnStartup.AutoSize = true;
+            this.cbTwitterUpdateOnStartup.Checked = true;
+            this.cbTwitterUpdateOnStartup.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbTwitterUpdateOnStartup.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTwitterUpdateOnStartup.Location = new System.Drawing.Point(9, 49);
+            this.cbTwitterUpdateOnStartup.Name = "cbTwitterUpdateOnStartup";
+            this.cbTwitterUpdateOnStartup.Size = new System.Drawing.Size(170, 17);
+            this.cbTwitterUpdateOnStartup.TabIndex = 12;
+            this.cbTwitterUpdateOnStartup.Text = "Update on MediaPortal startup";
+            this.cbTwitterUpdateOnStartup.UseVisualStyleBackColor = true;
+            // 
+            // txtTwitterRefreshInt
+            // 
+            this.txtTwitterRefreshInt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTwitterRefreshInt.Location = new System.Drawing.Point(153, 23);
+            this.txtTwitterRefreshInt.Maximum = new decimal(new int[] {
+            2880,
+            0,
+            0,
+            0});
+            this.txtTwitterRefreshInt.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtTwitterRefreshInt.Name = "txtTwitterRefreshInt";
+            this.txtTwitterRefreshInt.Size = new System.Drawing.Size(52, 20);
+            this.txtTwitterRefreshInt.TabIndex = 5;
+            this.txtTwitterRefreshInt.Value = new decimal(new int[] {
+            45,
+            0,
+            0,
+            0});
+            this.txtTwitterRefreshInt.ValueChanged += new System.EventHandler(this.SkinSettingsControlChanged);
+            // 
+            // laTwitterRefresh
+            // 
+            this.laTwitterRefresh.AutoSize = true;
+            this.laTwitterRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.laTwitterRefresh.Location = new System.Drawing.Point(6, 26);
+            this.laTwitterRefresh.Name = "laTwitterRefresh";
+            this.laTwitterRefresh.Size = new System.Drawing.Size(132, 13);
+            this.laTwitterRefresh.TabIndex = 4;
+            this.laTwitterRefresh.Text = "Refresh twitter every (min):";
+            // 
+            // cbTwitterEnabled
+            // 
+            this.cbTwitterEnabled.AutoSize = true;
+            this.cbTwitterEnabled.Location = new System.Drawing.Point(6, 7);
+            this.cbTwitterEnabled.Name = "cbTwitterEnabled";
+            this.cbTwitterEnabled.Size = new System.Drawing.Size(132, 17);
+            this.cbTwitterEnabled.TabIndex = 0;
+            this.cbTwitterEnabled.Text = "Twitter Ticker enabled";
+            this.cbTwitterEnabled.UseVisualStyleBackColor = true;
+            this.cbTwitterEnabled.CheckedChanged += new System.EventHandler(this.cbTwitterEnabled_CheckedChanged);
+            // 
+            // gbTwitterConf
+            // 
+            this.gbTwitterConf.Controls.Add(this.pbOAuthLogo);
+            this.gbTwitterConf.Controls.Add(this.btnTwitterGetPin);
+            this.gbTwitterConf.Controls.Add(this.btnTwitterAuthorize);
+            this.gbTwitterConf.Controls.Add(this.label10);
+            this.gbTwitterConf.Controls.Add(this.txtTwitterPIN);
+            this.gbTwitterConf.Controls.Add(this.label11);
+            this.gbTwitterConf.Enabled = false;
+            this.gbTwitterConf.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbTwitterConf.Location = new System.Drawing.Point(6, 30);
+            this.gbTwitterConf.Name = "gbTwitterConf";
+            this.gbTwitterConf.Size = new System.Drawing.Size(603, 112);
+            this.gbTwitterConf.TabIndex = 1;
+            this.gbTwitterConf.TabStop = false;
+            this.gbTwitterConf.Text = "Twitter account";
+            // 
+            // pbOAuthLogo
+            // 
+            this.pbOAuthLogo.BackColor = System.Drawing.Color.Transparent;
+            this.pbOAuthLogo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbOAuthLogo.Image = global::InfoService.Properties.Resources.oauth_logo;
+            this.pbOAuthLogo.Location = new System.Drawing.Point(15, 19);
+            this.pbOAuthLogo.Name = "pbOAuthLogo";
+            this.pbOAuthLogo.Size = new System.Drawing.Size(63, 63);
+            this.pbOAuthLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbOAuthLogo.TabIndex = 11;
+            this.pbOAuthLogo.TabStop = false;
+            this.pbOAuthLogo.Click += new System.EventHandler(this.pbOAuthLogo_Click);
+            // 
+            // btnTwitterGetPin
+            // 
+            this.btnTwitterGetPin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTwitterGetPin.ImageKey = "key_go.png";
+            this.btnTwitterGetPin.ImageList = this.imgList;
+            this.btnTwitterGetPin.Location = new System.Drawing.Point(505, 20);
+            this.btnTwitterGetPin.Name = "btnTwitterGetPin";
+            this.btnTwitterGetPin.Size = new System.Drawing.Size(90, 23);
+            this.btnTwitterGetPin.TabIndex = 1;
+            this.btnTwitterGetPin.Text = "&Get PIN!";
+            this.btnTwitterGetPin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnTwitterGetPin.UseVisualStyleBackColor = true;
+            this.btnTwitterGetPin.Click += new System.EventHandler(this.btnGetPin_Click);
+            // 
+            // btnTwitterAuthorize
+            // 
+            this.btnTwitterAuthorize.Enabled = false;
+            this.btnTwitterAuthorize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTwitterAuthorize.ImageKey = "server_key.png";
+            this.btnTwitterAuthorize.ImageList = this.imgList;
+            this.btnTwitterAuthorize.Location = new System.Drawing.Point(228, 78);
+            this.btnTwitterAuthorize.Name = "btnTwitterAuthorize";
+            this.btnTwitterAuthorize.Size = new System.Drawing.Size(90, 23);
+            this.btnTwitterAuthorize.TabIndex = 4;
+            this.btnTwitterAuthorize.Text = "A&uthorize!";
+            this.btnTwitterAuthorize.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnTwitterAuthorize.UseVisualStyleBackColor = true;
+            this.btnTwitterAuthorize.Click += new System.EventHandler(this.btnAuthorize_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(84, 83);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(28, 13);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "PIN:";
+            // 
+            // txtTwitterPIN
+            // 
+            this.txtTwitterPIN.Enabled = false;
+            this.txtTwitterPIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTwitterPIN.Location = new System.Drawing.Point(118, 80);
+            this.txtTwitterPIN.Name = "txtTwitterPIN";
+            this.txtTwitterPIN.Size = new System.Drawing.Size(104, 20);
+            this.txtTwitterPIN.TabIndex = 3;
+            // 
+            // label11
+            // 
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(84, 20);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(415, 44);
+            this.label11.TabIndex = 0;
+            this.label11.Text = resources.GetString("label11.Text");
+            // 
+            // btnTwitterHelp
+            // 
+            this.btnTwitterHelp.Cursor = System.Windows.Forms.Cursors.Help;
+            this.btnTwitterHelp.ImageIndex = 14;
+            this.btnTwitterHelp.ImageList = this.imgList;
+            this.btnTwitterHelp.Location = new System.Drawing.Point(585, 6);
+            this.btnTwitterHelp.Name = "btnTwitterHelp";
+            this.btnTwitterHelp.Size = new System.Drawing.Size(24, 24);
+            this.btnTwitterHelp.TabIndex = 15;
+            this.btnTwitterHelp.TabStop = false;
+            this.btnTwitterHelp.UseVisualStyleBackColor = true;
+            this.btnTwitterHelp.Click += new System.EventHandler(this.btnTwitterHelp_Click);
             // 
             // pgWeather
             // 
@@ -1667,7 +1830,7 @@
             this.label14.Size = new System.Drawing.Size(590, 20);
             this.label14.TabIndex = 0;
             this.label14.Text = "To set the weather location, please use the inbuild weather configuration in Medi" +
-                "aPortal. InfoService will use that.";
+    "aPortal. InfoService will use that.";
             // 
             // cbTempUnit
             // 
@@ -1808,6 +1971,19 @@
             this.cbWeatherEnabled.CheckedChanged += new System.EventHandler(this.cbWeatherEnabled_CheckedChanged);
             this.cbWeatherEnabled.EnabledChanged += new System.EventHandler(this.SkinSettingsControlEnabledChanged);
             // 
+            // btnWeatherHelp
+            // 
+            this.btnWeatherHelp.Cursor = System.Windows.Forms.Cursors.Help;
+            this.btnWeatherHelp.ImageIndex = 14;
+            this.btnWeatherHelp.ImageList = this.imgList;
+            this.btnWeatherHelp.Location = new System.Drawing.Point(585, 6);
+            this.btnWeatherHelp.Name = "btnWeatherHelp";
+            this.btnWeatherHelp.Size = new System.Drawing.Size(24, 24);
+            this.btnWeatherHelp.TabIndex = 15;
+            this.btnWeatherHelp.TabStop = false;
+            this.btnWeatherHelp.UseVisualStyleBackColor = true;
+            this.btnWeatherHelp.Click += new System.EventHandler(this.btnWeatherHelp_Click);
+            // 
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(85, 694);
@@ -1868,6 +2044,30 @@
             this.ttTwitterUpdateHelp.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.ttTwitterUpdateHelp.ToolTipTitle = "Available Placeholders";
             // 
+            // btnAdvancedConfig
+            // 
+            this.btnAdvancedConfig.ImageKey = "cog_add.png";
+            this.btnAdvancedConfig.ImageList = this.imgList;
+            this.btnAdvancedConfig.Location = new System.Drawing.Point(509, 694);
+            this.btnAdvancedConfig.Name = "btnAdvancedConfig";
+            this.btnAdvancedConfig.Size = new System.Drawing.Size(118, 23);
+            this.btnAdvancedConfig.TabIndex = 3;
+            this.btnAdvancedConfig.Text = "A&dvanced Config";
+            this.btnAdvancedConfig.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAdvancedConfig.UseVisualStyleBackColor = true;
+            this.btnAdvancedConfig.Click += new System.EventHandler(this.btnAdvancedConfig_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(275, 383);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(95, 13);
+            this.label6.TabIndex = 28;
+            this.label6.Text = "Czech: homer.web";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // mlFeedTickerExample
             // 
             this.mlFeedTickerExample.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1885,194 +2085,6 @@
             this.mlTwitterTickerExample.Size = new System.Drawing.Size(585, 17);
             this.mlTwitterTickerExample.TabIndex = 5;
             this.mlTwitterTickerExample.UseCompatibleTextRendering = true;
-            // 
-            // btnAdvancedConfig
-            // 
-            this.btnAdvancedConfig.ImageKey = "cog_add.png";
-            this.btnAdvancedConfig.ImageList = this.imgList;
-            this.btnAdvancedConfig.Location = new System.Drawing.Point(509, 694);
-            this.btnAdvancedConfig.Name = "btnAdvancedConfig";
-            this.btnAdvancedConfig.Size = new System.Drawing.Size(118, 23);
-            this.btnAdvancedConfig.TabIndex = 3;
-            this.btnAdvancedConfig.Text = "A&dvanced Config";
-            this.btnAdvancedConfig.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAdvancedConfig.UseVisualStyleBackColor = true;
-            this.btnAdvancedConfig.Click += new System.EventHandler(this.btnAdvancedConfig_Click);
-            // 
-            // btnFeedHelp
-            // 
-            this.btnFeedHelp.Cursor = System.Windows.Forms.Cursors.Help;
-            this.btnFeedHelp.ImageIndex = 14;
-            this.btnFeedHelp.ImageList = this.imgList;
-            this.btnFeedHelp.Location = new System.Drawing.Point(585, 6);
-            this.btnFeedHelp.Name = "btnFeedHelp";
-            this.btnFeedHelp.Size = new System.Drawing.Size(24, 24);
-            this.btnFeedHelp.TabIndex = 14;
-            this.btnFeedHelp.TabStop = false;
-            this.btnFeedHelp.UseVisualStyleBackColor = true;
-            this.btnFeedHelp.Click += new System.EventHandler(this.btnFeedHelp_Click);
-            // 
-            // btnAddMultiple
-            // 
-            this.btnAddMultiple.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddMultiple.ImageKey = "newspaper_add.png";
-            this.btnAddMultiple.ImageList = this.imgList;
-            this.btnAddMultiple.Location = new System.Drawing.Point(81, 215);
-            this.btnAddMultiple.Name = "btnAddMultiple";
-            this.btnAddMultiple.Size = new System.Drawing.Size(133, 23);
-            this.btnAddMultiple.TabIndex = 7;
-            this.btnAddMultiple.Text = "&Add multiple feeds..";
-            this.btnAddMultiple.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAddMultiple.UseVisualStyleBackColor = true;
-            this.btnAddMultiple.Click += new System.EventHandler(this.btnAddMultiple_Click);
-            // 
-            // btnDown
-            // 
-            this.btnDown.Enabled = false;
-            this.btnDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDown.ImageKey = "arrow_down.png";
-            this.btnDown.ImageList = this.imgList;
-            this.btnDown.Location = new System.Drawing.Point(569, 126);
-            this.btnDown.Name = "btnDown";
-            this.btnDown.Size = new System.Drawing.Size(28, 23);
-            this.btnDown.TabIndex = 6;
-            this.btnDown.UseVisualStyleBackColor = true;
-            this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
-            // 
-            // btnUp
-            // 
-            this.btnUp.Enabled = false;
-            this.btnUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUp.ImageKey = "arrow_up.png";
-            this.btnUp.ImageList = this.imgList;
-            this.btnUp.Location = new System.Drawing.Point(569, 97);
-            this.btnUp.Name = "btnUp";
-            this.btnUp.Size = new System.Drawing.Size(28, 23);
-            this.btnUp.TabIndex = 5;
-            this.btnUp.UseVisualStyleBackColor = true;
-            this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
-            // 
-            // btnRem
-            // 
-            this.btnRem.Enabled = false;
-            this.btnRem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRem.ImageKey = "delete.png";
-            this.btnRem.ImageList = this.imgList;
-            this.btnRem.Location = new System.Drawing.Point(481, 215);
-            this.btnRem.Name = "btnRem";
-            this.btnRem.Size = new System.Drawing.Size(82, 23);
-            this.btnRem.TabIndex = 3;
-            this.btnRem.Text = "&Remove..";
-            this.btnRem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnRem.UseVisualStyleBackColor = true;
-            this.btnRem.Click += new System.EventHandler(this.btnRem_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Enabled = false;
-            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.ImageKey = "pencil.png";
-            this.btnEdit.ImageList = this.imgList;
-            this.btnEdit.Location = new System.Drawing.Point(220, 215);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(63, 23);
-            this.btnEdit.TabIndex = 2;
-            this.btnEdit.Text = "&Edit..";
-            this.btnEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.ImageKey = "add.png";
-            this.btnAdd.ImageList = this.imgList;
-            this.btnAdd.Location = new System.Drawing.Point(10, 215);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(65, 23);
-            this.btnAdd.TabIndex = 1;
-            this.btnAdd.Text = "&Add..";
-            this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // pbOAuthLogo
-            // 
-            this.pbOAuthLogo.BackColor = System.Drawing.Color.Transparent;
-            this.pbOAuthLogo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbOAuthLogo.Image = global::InfoService.Properties.Resources.oauth_logo;
-            this.pbOAuthLogo.Location = new System.Drawing.Point(15, 19);
-            this.pbOAuthLogo.Name = "pbOAuthLogo";
-            this.pbOAuthLogo.Size = new System.Drawing.Size(63, 63);
-            this.pbOAuthLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbOAuthLogo.TabIndex = 11;
-            this.pbOAuthLogo.TabStop = false;
-            this.pbOAuthLogo.Click += new System.EventHandler(this.pbOAuthLogo_Click);
-            // 
-            // btnTwitterGetPin
-            // 
-            this.btnTwitterGetPin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTwitterGetPin.ImageKey = "key_go.png";
-            this.btnTwitterGetPin.ImageList = this.imgList;
-            this.btnTwitterGetPin.Location = new System.Drawing.Point(505, 20);
-            this.btnTwitterGetPin.Name = "btnTwitterGetPin";
-            this.btnTwitterGetPin.Size = new System.Drawing.Size(90, 23);
-            this.btnTwitterGetPin.TabIndex = 1;
-            this.btnTwitterGetPin.Text = "&Get PIN!";
-            this.btnTwitterGetPin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnTwitterGetPin.UseVisualStyleBackColor = true;
-            this.btnTwitterGetPin.Click += new System.EventHandler(this.btnGetPin_Click);
-            // 
-            // btnTwitterAuthorize
-            // 
-            this.btnTwitterAuthorize.Enabled = false;
-            this.btnTwitterAuthorize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTwitterAuthorize.ImageKey = "server_key.png";
-            this.btnTwitterAuthorize.ImageList = this.imgList;
-            this.btnTwitterAuthorize.Location = new System.Drawing.Point(228, 78);
-            this.btnTwitterAuthorize.Name = "btnTwitterAuthorize";
-            this.btnTwitterAuthorize.Size = new System.Drawing.Size(90, 23);
-            this.btnTwitterAuthorize.TabIndex = 4;
-            this.btnTwitterAuthorize.Text = "A&uthorize!";
-            this.btnTwitterAuthorize.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnTwitterAuthorize.UseVisualStyleBackColor = true;
-            this.btnTwitterAuthorize.Click += new System.EventHandler(this.btnAuthorize_Click);
-            // 
-            // btnTwitterHelp
-            // 
-            this.btnTwitterHelp.Cursor = System.Windows.Forms.Cursors.Help;
-            this.btnTwitterHelp.ImageIndex = 14;
-            this.btnTwitterHelp.ImageList = this.imgList;
-            this.btnTwitterHelp.Location = new System.Drawing.Point(585, 6);
-            this.btnTwitterHelp.Name = "btnTwitterHelp";
-            this.btnTwitterHelp.Size = new System.Drawing.Size(24, 24);
-            this.btnTwitterHelp.TabIndex = 15;
-            this.btnTwitterHelp.TabStop = false;
-            this.btnTwitterHelp.UseVisualStyleBackColor = true;
-            this.btnTwitterHelp.Click += new System.EventHandler(this.btnTwitterHelp_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::InfoService.Properties.Resources.InfoService_head;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(603, 104);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 20;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btnWeatherHelp
-            // 
-            this.btnWeatherHelp.Cursor = System.Windows.Forms.Cursors.Help;
-            this.btnWeatherHelp.ImageIndex = 14;
-            this.btnWeatherHelp.ImageList = this.imgList;
-            this.btnWeatherHelp.Location = new System.Drawing.Point(585, 6);
-            this.btnWeatherHelp.Name = "btnWeatherHelp";
-            this.btnWeatherHelp.Size = new System.Drawing.Size(24, 24);
-            this.btnWeatherHelp.TabIndex = 15;
-            this.btnWeatherHelp.TabStop = false;
-            this.btnWeatherHelp.UseVisualStyleBackColor = true;
-            this.btnWeatherHelp.Click += new System.EventHandler(this.btnWeatherHelp_Click);
             // 
             // ConfigForm
             // 
@@ -2106,6 +2118,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPopupTimeout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFeedRefreshInt)).EndInit();
             this.gbFeedConf.ResumeLayout(false);
+            this.pgAbout.ResumeLayout(false);
+            this.pgAbout.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.pgTwitter.ResumeLayout(false);
             this.pgTwitter.PerformLayout();
             this.gbTwitterLayout.ResumeLayout(false);
@@ -2122,10 +2139,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTwitterRefreshInt)).EndInit();
             this.gbTwitterConf.ResumeLayout(false);
             this.gbTwitterConf.PerformLayout();
-            this.pgAbout.ResumeLayout(false);
-            this.pgAbout.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbOAuthLogo)).EndInit();
             this.pgWeather.ResumeLayout(false);
             this.pgWeather.PerformLayout();
             this.gbWeatherGeneral.ResumeLayout(false);
@@ -2133,8 +2147,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtWeatherRefreshInt)).EndInit();
             this.gbWeatherCity.ResumeLayout(false);
             this.gbWeatherCity.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbOAuthLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2289,6 +2301,6 @@
         private System.Windows.Forms.CheckBox cbPopupWhileVideoPlaying;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-
+        private System.Windows.Forms.Label label6;
     }
 }

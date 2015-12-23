@@ -180,7 +180,8 @@ namespace InfoService.GUIConfiguration
             txtTwitterWatchingMoviesMask.Text = SettingsManager.Properties.TwitterSettings.TwitterStatusUpdate.WatchMoviesMask;
             txtTwitterWatchingSeriesMask.Text = SettingsManager.Properties.TwitterSettings.TwitterStatusUpdate.WatchSeriesMask;
             SetExampleTicker();
-            lblProductVersion.Text = "v" + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+            //lblProductVersion.Text = "v" + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+            lblProductVersion.Text = "v" + FileVersionInfo.GetVersionInfo(System.Reflection.Assembly.GetExecutingAssembly().Location).ProductVersion;
 
             SkinSettingsControlsUpdate(this, new EventArgs());
 

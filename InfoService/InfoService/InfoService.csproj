@@ -302,6 +302,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUIConfiguration\images\InfoService_icon_disabled.png" />
     <EmbeddedResource Include="GUIConfiguration\images\InfoService_icon_enabled.png" />
+    <Content Include="GUIWindows\Language\InfoService\strings_cs.xml" />
     <Content Include="GUIWindows\Language\InfoService\strings_el.xml" />
     <Content Include="GUIWindows\Language\InfoService\strings_en-GB.xml" />
     <Content Include="GUIWindows\Language\InfoService\strings_en-US.xml" />
@@ -378,7 +379,6 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
- 
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
@@ -396,7 +396,7 @@
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_UpdateFileVersion="True" BuildVersion_ConfigurationName="Release" BuildVersion_BuildVersioningStyle="Increment.Increment.Increment.DeltaBaseDate" BuildVersion_StartDate="2009/11/6" />
+      <UserProperties BuildVersion_StartDate="2009/11/6" BuildVersion_BuildVersioningStyle="Increment.Increment.Increment.DeltaBaseDate" BuildVersion_ConfigurationName="Release" BuildVersion_UpdateFileVersion="True" />
     </VisualStudio>
   </ProjectExtensions>
   <Import Project="$(SolutionDir)\.build\GitAssemblyVersion.targets" />

@@ -118,6 +118,13 @@
               <ZipFileName>Installer{CopyFile}\{52929b7d-1fbc-4d53-851e-5e49479397ac}-strings_pl.xml</ZipFileName>
               <DestinationFilename>%Language%\InfoService\strings_pl.xml</DestinationFilename>
             </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Language\InfoService\strings_cs.xml</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{fbae3ffc-00de-488e-b4a7-9aca62671fde}-strings_cs.xml</ZipFileName>
+              <DestinationFilename>%Language%\InfoService\strings_cs.xml</DestinationFilename>
+            </FileItem>
           </Items>
         </Files>
       </GroupItem>
@@ -412,6 +419,7 @@ Changelog:
 Version v1.74:
 [+] Proxy support
 [+] Support for caching to a network drive/unc path
+[+] Added Czech language
 [-] Fixed some caching problems
 
 Version v1.73:
@@ -848,7 +856,7 @@ Version v0.1:
     <VersionDescription />
     <DevelopmentStatus>Stable</DevelopmentStatus>
     <OnlineLocation>http://www.team-mediaportal.com/index.php?option=com_mtree&amp;task=att_download&amp;link_id=84&amp;cf_id=24</OnlineLocation>
-    <ReleaseDate>2015-12-23T19:20:22.2684227+01:00</ReleaseDate>
+    <ReleaseDate>2015-12-23T19:45:33.626413+01:00</ReleaseDate>
     <Tags>all,infoservice,rss,feed,twitter,weather,feeds</Tags>
     <Location>..\LastBuild\MPInfoService_v[Version].mpe1</Location>
     <Params>
@@ -982,6 +990,13 @@ Version v0.1:
         <LocalFileName>..\LastBuild\Language\InfoService\strings_pl.xml</LocalFileName>
         <ZipFileName>Installer{CopyFile}\{52929b7d-1fbc-4d53-851e-5e49479397ac}-strings_pl.xml</ZipFileName>
         <DestinationFilename>%Language%\InfoService\strings_pl.xml</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Language\InfoService\strings_cs.xml</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{fbae3ffc-00de-488e-b4a7-9aca62671fde}-strings_cs.xml</ZipFileName>
+        <DestinationFilename>%Language%\InfoService\strings_cs.xml</DestinationFilename>
       </FileItem>
       <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
         <Param1 />

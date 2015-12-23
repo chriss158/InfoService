@@ -16,6 +16,7 @@ Changelog:
 Version v1.74:
 [+] Proxy support
 [+] Support for caching to a network drive/unc path
+[+] Added Czech language
 [-] Fixed some caching problems
 
 Version v1.73:
