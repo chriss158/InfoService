@@ -1,0 +1,401 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F5FC1601-A55D-4CA9-8CBF-97EF7573AC5D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>InfoService</RootNamespace>
+    <AssemblyName>InfoService</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.GUIPlugins">
+      <HintPath>..\Externals\MP\Common.GUIPlugins.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Utils">
+      <HintPath>..\Externals\MP\Common.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="Core">
+      <HintPath>..\Externals\MP\Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Dialogs">
+      <HintPath>..\Externals\MP\Dialogs.dll</HintPath>
+    </Reference>
+    <Reference Include="MPNotificationBar, Version=0.8.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Externals\NotificationBar\MPNotificationBar.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Utils">
+      <HintPath>..\Externals\MP\Utils.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BackgroundWorkers\FeedWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BackgroundWorkers\TwitterWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enums\ItemPublishTimeAllFeedsType.cs" />
+    <Compile Include="Enums\RecentlyAddedType.cs" />
+    <Compile Include="Enums\RecentlyAddedWatchedMode.cs" />
+    <Compile Include="Enums\StringEnum.cs" />
+    <Compile Include="Enums\WebBrowserType.cs" />
+    <Compile Include="Feeds\FeedReader\Data\FeedItemFilter.cs" />
+    <Compile Include="Feeds\FeedReader\Enums\FeedWhenClean.cs" />
+    <Compile Include="Feeds\FeedReader\Enums\FeedPartClean.cs" />
+    <Compile Include="Feeds\FeedReader\FeedItemComparer.cs" />
+    <Compile Include="Feeds\FeedReader\Xml\FeedAtomImageXmlParser.cs" />
+    <Compile Include="Feeds\FeedReader\Xml\FeedRdfImageXmlParser.cs" />
+    <Compile Include="Feeds\FeedReader\Xml\FeedRssImageXmlParser.cs" />
+    <Compile Include="Feeds\FeedReader\Xml\Interfaces\IFeedTypeXmlParser.cs" />
+    <Compile Include="Feeds\FeedReader\Xml\Interfaces\IFeedTypeImageXmlParser.cs" />
+    <Compile Include="Feeds\NotificationBar\NotificationBar.cs" />
+    <Compile Include="Feeds\OPMLManager\Data\OPMLFeedItem.cs" />
+    <Compile Include="Feeds\OPMLManager\OPMLManager.cs" />
+    <Compile Include="GUIConfiguration\FeedFormOPML.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIConfiguration\FeedFormOPML.Designer.cs">
+      <DependentUpon>FeedFormOPML.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUIConfiguration\FilterConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIConfiguration\FilterConfigForm.Designer.cs">
+      <DependentUpon>FilterConfigForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUIConfiguration\FeedForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIConfiguration\FeedForm.Designer.cs">
+      <DependentUpon>FeedForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecentlyAddedWatched\Data\NewItemHandler.cs" />
+    <Compile Include="RecentlyAddedWatched\Data\RecentlyItem.cs" />
+    <Compile Include="RecentlyAddedWatched\Data\RecentlyMovieItem.cs" />
+    <Compile Include="RecentlyAddedWatched\Data\RecentlyRecordItem.cs" />
+    <Compile Include="RecentlyAddedWatched\Data\RecentlySeriesItem.cs" />
+    <Compile Include="RecentlyAddedWatched\Interfaces\IRecentlyAddedWatchedProvider.cs" />
+    <Compile Include="RecentlyAddedWatched\Providers\ProviderMPTVSeries.cs" />
+    <Compile Include="RecentlyAddedWatched\Providers\ProviderMovingPictures.cs" />
+    <Compile Include="RecentlyAddedWatched\Providers\ProviderRecordings.cs" />
+    <Compile Include="Settings\CustomXMLSerializer.cs" />
+    <Compile Include="Settings\Data\InfoServiceSettings.cs" />
+    <Compile Include="Feeds\ExFeedItem.cs" />
+    <Compile Include="Feeds\FeedUpdater.cs" />
+    <Compile Include="GUIConfiguration\AdvancedConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIConfiguration\AdvancedConfigForm.Designer.cs">
+      <DependentUpon>AdvancedConfigForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enums\DeleteCache.cs" />
+    <Compile Include="Feeds\ExFeed.cs" />
+    <Compile Include="Feeds\FeedReader\Data\FeedItem.cs" />
+    <Compile Include="Feeds\FeedReader\LogEvents.cs" />
+    <Compile Include="Feeds\FeedReader\Expections\FeedExpections.cs" />
+    <Compile Include="Feeds\FeedReader\Feed.cs" />
+    <Compile Include="Feeds\FeedReader\FeedType.cs" />
+    <Compile Include="Feeds\FeedReader\Utils.cs" />
+    <Compile Include="Feeds\FeedReader\Xml\FeedAtomXmlParser.cs" />
+    <Compile Include="Feeds\FeedReader\Xml\FeedRdfXmlParser.cs" />
+    <Compile Include="Feeds\FeedReader\Xml\FeedRssXmlParser.cs" />
+    <Compile Include="Feeds\FeedReader\Xml\FeedXmlParser.cs" />
+    <Compile Include="GUIWindows\GUIFeed.cs" />
+    <Compile Include="GUIWindows\GUITwitter.cs" />
+    <Compile Include="InfoServiceCore.cs" />
+    <Compile Include="GUIConfiguration\ConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIConfiguration\ConfigForm.Designer.cs">
+      <DependentUpon>ConfigForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUIConfiguration\MarqueeLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BackgroundWorkers\WeatherWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Settings\SettingsManager.cs" />
+    <Compile Include="InfoServiceSkinSettings.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Feeds\FeedService.cs" />
+    <Compile Include="RecentlyAddedWatched\RecentlyAddedWatchedUpdater.cs" />
+    <Compile Include="Twitter\TwitterConnector\AuthType.cs" />
+    <Compile Include="Twitter\TwitterConnector\OAuth\AccessToken.cs" />
+    <Compile Include="Twitter\TwitterConnector\OAuth\Consumer.cs" />
+    <Compile Include="Twitter\TwitterConnector\OAuth\IToken.cs" />
+    <Compile Include="Twitter\TwitterConnector\OAuth\Parameter.cs" />
+    <Compile Include="Twitter\TwitterConnector\OAuth\RequestToken.cs" />
+    <Compile Include="Twitter\TwitterConnector\LogEvents.cs" />
+    <Compile Include="Twitter\TwitterConnector\SatusUpdates.cs" />
+    <Compile Include="Twitter\TwitterConnector\TimelineType.cs" />
+    <Compile Include="Twitter\TwitterConnector\Data\TwitterItem.cs" />
+    <Compile Include="Twitter\TwitterConnector\Timeline.cs" />
+    <Compile Include="Twitter\TwitterConnector\Data\TwitterUser.cs" />
+    <Compile Include="Twitter\TwitterConnector\Expections\TwitterExpections.cs" />
+    <Compile Include="Twitter\TwitterConnector\Twitter.cs" />
+    <Compile Include="Twitter\TwitterUpdater.cs" />
+    <Compile Include="Twitter\TwitterConnector\Utils.cs" />
+    <Compile Include="Twitter\TwitterConnector\Xml\TimelineXmlParser.cs" />
+    <Compile Include="Twitter\TwitterConnector\Xml\TwitterXmlParser.cs" />
+    <Compile Include="Twitter\TwitterService.cs" />
+    <Compile Include="Utils\DownloadWorker.cs" />
+    <Compile Include="Utils\FeedUtils.cs" />
+    <Compile Include="Feeds\FeedReader\ExtensionMethods.cs" />
+    <Compile Include="Utils\InfoServiceUtils.cs" />
+    <Compile Include="Utils\Log.cs" />
+    <Compile Include="Utils\PropertyUtils.cs" />
+    <Compile Include="Utils\RecentlyAddedWatchedUtils.cs" />
+    <Compile Include="Utils\UpdateTimer.cs" />
+    <Compile Include="Utils\TwitterUtils.cs" />
+    <Compile Include="Utils\WeatherUtils.cs" />
+    <Compile Include="Weather\WeatherConnector\Data\WeatherEntities.cs" />
+    <Compile Include="Weather\WeatherConnector\LogEvents.cs" />
+    <Compile Include="Weather\WeatherConnector\Expections\WeatherExpections.cs" />
+    <Compile Include="Weather\WeatherConnector\TemperatureFormat.cs" />
+    <Compile Include="Weather\WeatherConnector\Data\WeatherData.cs" />
+    <Compile Include="Weather\WeatherConnector\Data\WeatherDay.cs" />
+    <Compile Include="Weather\WeatherConnector\Data\WeatherForecast.cs" />
+    <Compile Include="Weather\WeatherConnector\Utils.cs" />
+    <Compile Include="Weather\WeatherConnector\Weather.cs" />
+    <Compile Include="GUIConfiguration\WeatherForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIConfiguration\WeatherForm.Designer.cs">
+      <DependentUpon>WeatherForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Weather\WeatherConnector\Xml\WeatherXml.cs" />
+    <Compile Include="Weather\WeatherService.cs" />
+    <Compile Include="Weather\WeatherUpdater.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GUIConfiguration\AdvancedConfigForm.resx">
+      <DependentUpon>AdvancedConfigForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIConfiguration\ConfigForm.resx">
+      <DependentUpon>ConfigForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIConfiguration\FeedForm.resx">
+      <DependentUpon>FeedForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIConfiguration\FeedFormOPML.resx">
+      <DependentUpon>FeedFormOPML.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIConfiguration\WeatherForm.resx">
+      <DependentUpon>WeatherForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Feeds\FeedReader\Feed.cd" />
+    <None Include="GUIConfiguration\icons\cancel.png" />
+    <None Include="Twitter\TwitterConnector\Twitter.cd" />
+    <None Include="Weather\WeatherConnector\Weather.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GUIConfiguration\icons\oauth_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GUIConfiguration\images\InfoService_head.png" />
+    <EmbeddedResource Include="GUIConfiguration\FilterConfigForm.resx">
+      <DependentUpon>FilterConfigForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIConfiguration\images\InfoService_icon_disabled.png" />
+    <EmbeddedResource Include="GUIConfiguration\images\InfoService_icon_enabled.png" />
+    <Content Include="GUIWindows\Language\InfoService\strings_el.xml" />
+    <Content Include="GUIWindows\Language\InfoService\strings_en-GB.xml" />
+    <Content Include="GUIWindows\Language\InfoService\strings_en-US.xml" />
+    <Content Include="GUIWindows\Language\InfoService\strings_da.xml" />
+    <Content Include="GUIWindows\Language\InfoService\strings_de.xml" />
+    <Content Include="GUIWindows\Language\InfoService\strings_en.xml" />
+    <Content Include="GUIWindows\Language\InfoService\strings_es.xml" />
+    <Content Include="GUIWindows\Language\InfoService\strings_fr.xml" />
+    <Content Include="GUIWindows\Language\InfoService\strings_it.xml" />
+    <Content Include="GUIWindows\Language\InfoService\strings_nl.xml" />
+    <Content Include="GUIWindows\Language\InfoService\strings_no.xml" />
+    <Content Include="GUIWindows\Language\InfoService\strings_pl.xml" />
+    <Content Include="GUIWindows\Language\InfoService\strings_PT-BR.xml" />
+    <Content Include="GUIWindows\Skin\DefaultWide Mods\Weather-Twitter-Feeds_on_Basichome\BasicHome.xml" />
+    <Content Include="GUIWindows\Skin\DefaultWide Mods\Weather-Twitter-Feeds_on_Basichome\common.videowindow.small.xml" />
+    <Content Include="GUIWindows\Skin\DefaultWide\infoservice.feeds.xml" />
+    <Content Include="GUIWindows\Skin\DefaultWide\infoservice.twitter.xml" />
+    <Content Include="GUIWindows\Skin\DefaultWide\infoservice.xml" />
+    <Content Include="GUIWindows\Skin\DefaultWide\media\InfoService\defaultFeedALL.png" />
+    <Content Include="GUIWindows\Skin\DefaultWide\media\InfoService\defaultFeedAtom.png" />
+    <Content Include="GUIWindows\Skin\DefaultWide\media\InfoService\defaultFeedItemAtom.png" />
+    <Content Include="GUIWindows\Skin\DefaultWide\media\InfoService\defaultFeedItemAtomBig.png" />
+    <Content Include="GUIWindows\Skin\DefaultWide\media\InfoService\defaultFeedItemRDF.png" />
+    <Content Include="GUIWindows\Skin\DefaultWide\media\InfoService\defaultFeedItemRDFBig.png" />
+    <Content Include="GUIWindows\Skin\DefaultWide\media\InfoService\defaultFeedItemRSS.png" />
+    <Content Include="GUIWindows\Skin\DefaultWide\media\InfoService\defaultFeedItemRSSBig.png" />
+    <Content Include="GUIWindows\Skin\DefaultWide\media\InfoService\defaultFeedRDF.png" />
+    <Content Include="GUIWindows\Skin\DefaultWide\media\InfoService\defaultFeedRSS.png" />
+    <Content Include="GUIWindows\Skin\DefaultWide\media\InfoService\defaultTwitter.png" />
+    <Content Include="GUIWindows\Skin\DefaultWide Mods\Weather-Twitter-Feeds_on_Basichome\musicOverlay.xml" />
+    <Content Include="GUIWindows\Skin\DefaultWide Mods\Weather-Twitter-Feeds_on_Basichome\videoOverlay.xml" />
+    <Content Include="GUIWindows\Skin\DefaultWide Mods\Weather-Twitter-Feeds_on_Basichome\videoOverlayTop.xml" />
+    <Content Include="GUIWindows\Skin\DefaultWide Mods\Weather-Feeds_on_Basichome\BasicHome.xml" />
+    <Content Include="GUIWindows\Skin\DefaultWide Mods\Weather-Feeds_on_Basichome\common.videowindow.small.xml" />
+    <Content Include="GUIWindows\Skin\DefaultWide Mods\Weather-Feeds_on_Basichome\musicOverlay.xml" />
+    <Content Include="GUIWindows\Skin\DefaultWide Mods\Weather-Feeds_on_Basichome\videoOverlay.xml" />
+    <Content Include="GUIWindows\Skin\DefaultWide Mods\Weather-Feeds_on_Basichome\videoOverlayTop.xml" />
+    <Content Include="GUIWindows\Skin\Default Mods\Weather-Feeds_on_Basichome\BasicHome.xml" />
+    <Content Include="GUIWindows\Skin\Default Mods\Weather-Feeds_on_Basichome\common.videowindow.small.xml" />
+    <Content Include="GUIWindows\Skin\Default\infoservice.feeds.xml" />
+    <Content Include="GUIWindows\Skin\Default\infoservice.twitter.xml" />
+    <Content Include="GUIWindows\Skin\Default\infoservice.xml" />
+    <Content Include="GUIWindows\Skin\Default\media\InfoService\defaultFeedALL.png" />
+    <Content Include="GUIWindows\Skin\Default\media\InfoService\defaultFeedAtom.png" />
+    <Content Include="GUIWindows\Skin\Default\media\InfoService\defaultFeedItemAtom.png" />
+    <Content Include="GUIWindows\Skin\Default\media\InfoService\defaultFeedItemAtomBig.png" />
+    <Content Include="GUIWindows\Skin\Default\media\InfoService\defaultFeedItemRDF.png" />
+    <Content Include="GUIWindows\Skin\Default\media\InfoService\defaultFeedItemRDFBig.png" />
+    <Content Include="GUIWindows\Skin\Default\media\InfoService\defaultFeedItemRSS.png" />
+    <Content Include="GUIWindows\Skin\Default\media\InfoService\defaultFeedItemRSSBig.png" />
+    <Content Include="GUIWindows\Skin\Default\media\InfoService\defaultFeedRDF.png" />
+    <Content Include="GUIWindows\Skin\Default\media\InfoService\defaultFeedRSS.png" />
+    <Content Include="GUIWindows\Skin\Default\media\InfoService\defaultTwitter.png" />
+    <Content Include="GUIWindows\Skin\Default Mods\Weather-Feeds_on_Basichome\musicOverlay.xml" />
+    <Content Include="GUIWindows\Skin\Default Mods\Weather-Feeds_on_Basichome\videoOverlay.xml" />
+    <Content Include="GUIWindows\Skin\Default Mods\Weather-Feeds_on_Basichome\videoOverlayTop.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties BuildVersion_UpdateFileVersion="True" BuildVersion_ConfigurationName="Release" BuildVersion_BuildVersioningStyle="Increment.Increment.Increment.DeltaBaseDate" BuildVersion_StartDate="2009/11/6" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

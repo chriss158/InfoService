@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfoService", "InfoService\InfoService.csproj", "{F5FC1601-A55D-4CA9-8CBF-97EF7573AC5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfoServicePluginLoader", "InfoServicePluginLoader\InfoServicePluginLoader.csproj", "{E5FE0F46-168F-4F9E-9FEF-272356DD4425}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs04
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = InfoService\\InfoService.csproj
+		SccProjectName1 = InfoService
+		SccLocalPath1 = InfoService
+		SccProjectUniqueName2 = InfoServicePluginLoader\\InfoServicePluginLoader.csproj
+		SccProjectName2 = InfoServicePluginLoader
+		SccLocalPath2 = InfoServicePluginLoader
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F5FC1601-A55D-4CA9-8CBF-97EF7573AC5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5FC1601-A55D-4CA9-8CBF-97EF7573AC5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5FC1601-A55D-4CA9-8CBF-97EF7573AC5D}.Debug|x86.ActiveCfg = Debug|x86
+		{F5FC1601-A55D-4CA9-8CBF-97EF7573AC5D}.Debug|x86.Build.0 = Debug|x86
+		{F5FC1601-A55D-4CA9-8CBF-97EF7573AC5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5FC1601-A55D-4CA9-8CBF-97EF7573AC5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5FC1601-A55D-4CA9-8CBF-97EF7573AC5D}.Release|x86.ActiveCfg = Release|x86
+		{F5FC1601-A55D-4CA9-8CBF-97EF7573AC5D}.Release|x86.Build.0 = Release|x86
+		{E5FE0F46-168F-4F9E-9FEF-272356DD4425}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5FE0F46-168F-4F9E-9FEF-272356DD4425}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5FE0F46-168F-4F9E-9FEF-272356DD4425}.Debug|x86.ActiveCfg = Debug|x86
+		{E5FE0F46-168F-4F9E-9FEF-272356DD4425}.Debug|x86.Build.0 = Debug|x86
+		{E5FE0F46-168F-4F9E-9FEF-272356DD4425}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5FE0F46-168F-4F9E-9FEF-272356DD4425}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5FE0F46-168F-4F9E-9FEF-272356DD4425}.Release|x86.ActiveCfg = Release|x86
+		{E5FE0F46-168F-4F9E-9FEF-272356DD4425}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

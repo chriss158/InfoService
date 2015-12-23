@@ -1,0 +1,1239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PackageClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Version>2.0</Version>
+  <Groups>
+    <Items>
+      <GroupItem Name="Plugin">
+        <ParentGroup />
+        <DisplayName>Plugin</DisplayName>
+        <DefaulChecked>true</DefaulChecked>
+        <Description>Install the InfoService plugin</Description>
+        <Files>
+          <Items>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\InfoService.dll</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{be1ed68f-64db-4d89-8cbf-87c5b83ab36c}-InfoService.dll</ZipFileName>
+              <DestinationFilename>%Plugins%\InfoService.dll</DestinationFilename>
+            </FileItem>
+          </Items>
+        </Files>
+      </GroupItem>
+      <GroupItem Name="Languages">
+        <ParentGroup />
+        <DisplayName>Languages</DisplayName>
+        <DefaulChecked>true</DefaulChecked>
+        <Description>Install English, German, Italian, Dutch, Danish, French, Spanish, Greek, Polish and Norwegian language files</Description>
+        <Files>
+          <Items>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Language\InfoService\strings_de.xml</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{9e602d60-5799-4635-9f01-6b54773db66b}-strings_de.xml</ZipFileName>
+              <DestinationFilename>%Language%\InfoService\strings_de.xml</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Language\InfoService\strings_en.xml</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{b820cf02-3b84-47f2-a703-5ce1991f1cf8}-strings_en.xml</ZipFileName>
+              <DestinationFilename>%Language%\InfoService\strings_en.xml</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Language\InfoService\strings_es.xml</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{088d2880-eca6-485a-b299-eb29637c05a4}-strings_es.xml</ZipFileName>
+              <DestinationFilename>%Language%\InfoService\strings_es.xml</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Language\InfoService\strings_it.xml</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{6f5091a8-ece4-4796-818f-60afbe2c1627}-strings_it.xml</ZipFileName>
+              <DestinationFilename>%Language%\InfoService\strings_it.xml</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Language\InfoService\strings_nl.xml</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{421f63ff-42e7-4b79-a624-06fa69112112}-strings_nl.xml</ZipFileName>
+              <DestinationFilename>%Language%\InfoService\strings_nl.xml</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Language\InfoService\strings_da.xml</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{fa657c32-0ea8-44db-8c19-2f555a07eec1}-strings_da.xml</ZipFileName>
+              <DestinationFilename>%Language%\InfoService\strings_da.xml</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Language\InfoService\strings_fr.xml</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{3c1a5829-dff3-4016-a428-ec3e0c9668cc}-strings_fr.xml</ZipFileName>
+              <DestinationFilename>%Language%\InfoService\strings_fr.xml</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Language\InfoService\strings_en-US.xml</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{5902a6e4-8e28-4059-a393-e1f604819973}-strings_en-US.xml</ZipFileName>
+              <DestinationFilename>%Language%\InfoService\strings_en-US.xml</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Language\InfoService\strings_en-GB.xml</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{f79f420f-58d7-4c52-8573-908a7c7ad905}-strings_en-GB.xml</ZipFileName>
+              <DestinationFilename>%Language%\InfoService\strings_en-GB.xml</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Language\InfoService\strings_PT-BR.xml</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{ab6438f4-fe43-4cbc-8eb3-5a3219ceb5fb}-strings_PT-BR.xml</ZipFileName>
+              <DestinationFilename>%Language%\InfoService\strings_PT-BR.xml</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Language\InfoService\strings_el.xml</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{b72e3f89-0bad-4847-b1c3-c1ad38f49e39}-strings_el.xml</ZipFileName>
+              <DestinationFilename>%Language%\InfoService\strings_el.xml</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Language\InfoService\strings_no.xml</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{a8a5ac7d-af35-4f9c-b568-ce0912191380}-strings_no.xml</ZipFileName>
+              <DestinationFilename>%Language%\InfoService\strings_no.xml</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Language\InfoService\strings_pl.xml</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{52929b7d-1fbc-4d53-851e-5e49479397ac}-strings_pl.xml</ZipFileName>
+              <DestinationFilename>%Language%\InfoService\strings_pl.xml</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>\\CHRIS-PC\Coding\InfoService\trunk\LastBuild\InfoService.dll</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{c5fa0220-3f3e-4542-8399-0b7ad070a86d}-InfoService.dll</ZipFileName>
+              <DestinationFilename>%Language%\InfoService\InfoService.dll</DestinationFilename>
+            </FileItem>
+          </Items>
+        </Files>
+      </GroupItem>
+      <GroupItem Name="Default skin files">
+        <ParentGroup />
+        <DisplayName>Default skin files</DisplayName>
+        <DefaulChecked>false</DefaulChecked>
+        <Description>Default skin files</Description>
+        <Files>
+          <Items>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Skin\Default\infoservice.feeds.xml</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{4535c8c3-30cb-4f00-abf8-5f6461d5f385}-infoservice.feeds.xml</ZipFileName>
+              <DestinationFilename>%Skin%\Default\infoservice.feeds.xml</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Skin\Default\infoservice.twitter.xml</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{0f90251e-34f2-4819-88fa-1f6c99dc14c2}-infoservice.twitter.xml</ZipFileName>
+              <DestinationFilename>%Skin%\Default\infoservice.twitter.xml</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Skin\Default\infoservice.xml</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{d205375b-2642-479a-87f0-6db197a1ba5b}-infoservice.xml</ZipFileName>
+              <DestinationFilename>%Skin%\Default\infoservice.xml</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Skin\Default\media\InfoService\defaultFeedALL.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{3c54b0c1-bdb1-4d32-8d15-a3388e7fda91}-defaultFeedALL.png</ZipFileName>
+              <DestinationFilename>%Skin%\Default\media\InfoService\defaultFeedALL.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Skin\Default\media\InfoService\defaultFeedAtom.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{8310e5db-f218-418d-866e-e6183796bfff}-defaultFeedAtom.png</ZipFileName>
+              <DestinationFilename>%Skin%\Default\media\InfoService\defaultFeedAtom.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Skin\Default\media\InfoService\defaultFeedItemAtom.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{b11dfff5-0676-4e1e-9f5a-13b4be2caf01}-defaultFeedItemAtom.png</ZipFileName>
+              <DestinationFilename>%Skin%\Default\media\InfoService\defaultFeedItemAtom.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Skin\Default\media\InfoService\defaultFeedItemAtomBig.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{6bb0bf17-ebaa-41a0-b183-b813fd622d54}-defaultFeedItemAtomBig.png</ZipFileName>
+              <DestinationFilename>%Skin%\Default\media\InfoService\defaultFeedItemAtomBig.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Skin\Default\media\InfoService\defaultFeedItemRDF.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{519116e6-f267-489d-80b7-3f359abfd87a}-defaultFeedItemRDF.png</ZipFileName>
+              <DestinationFilename>%Skin%\Default\media\InfoService\defaultFeedItemRDF.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Skin\Default\media\InfoService\defaultFeedItemRDFBig.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{c30a000a-859d-4bd4-bd67-c7fab78b7211}-defaultFeedItemRDFBig.png</ZipFileName>
+              <DestinationFilename>%Skin%\Default\media\InfoService\defaultFeedItemRDFBig.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Skin\Default\media\InfoService\defaultFeedItemRSS.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{a14a1d26-2664-415c-9b6b-be02779fa84c}-defaultFeedItemRSS.png</ZipFileName>
+              <DestinationFilename>%Skin%\Default\media\InfoService\defaultFeedItemRSS.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Skin\Default\media\InfoService\defaultFeedItemRSSBig.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{0e75f865-e038-497d-a9b5-4eb32f65845a}-defaultFeedItemRSSBig.png</ZipFileName>
+              <DestinationFilename>%Skin%\Default\media\InfoService\defaultFeedItemRSSBig.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Skin\Default\media\InfoService\defaultFeedRDF.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{8370c58b-c794-4705-a897-a471bf12c279}-defaultFeedRDF.png</ZipFileName>
+              <DestinationFilename>%Skin%\Default\media\InfoService\defaultFeedRDF.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Skin\Default\media\InfoService\defaultFeedRSS.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{b0065b4a-4a10-4a1b-881f-4b031e23ca04}-defaultFeedRSS.png</ZipFileName>
+              <DestinationFilename>%Skin%\Default\media\InfoService\defaultFeedRSS.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Skin\Default\media\InfoService\defaultTwitter.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{4d07c5c5-b7a7-4658-ac38-2e311a75dc96}-defaultTwitter.png</ZipFileName>
+              <DestinationFilename>%Skin%\Default\media\InfoService\defaultTwitter.png</DestinationFilename>
+            </FileItem>
+          </Items>
+        </Files>
+      </GroupItem>
+      <GroupItem Name="DefaultWide skin files">
+        <ParentGroup />
+        <DisplayName>DefaultWide skin files</DisplayName>
+        <DefaulChecked>false</DefaulChecked>
+        <Description>DefaultWide skin files</Description>
+        <Files>
+          <Items>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Skin\DefaultWide\infoservice.feeds.xml</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{d30286a6-98c4-4506-916f-c806638dfed3}-infoservice.feeds.xml</ZipFileName>
+              <DestinationFilename>%Skin%\DefaultWide\infoservice.feeds.xml</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Skin\DefaultWide\infoservice.twitter.xml</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{a1c4bb52-1ded-4fdf-a3d3-cfa7bdf7ee3c}-infoservice.twitter.xml</ZipFileName>
+              <DestinationFilename>%Skin%\DefaultWide\infoservice.twitter.xml</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Skin\DefaultWide\infoservice.xml</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{451dcf32-5b9c-477b-8991-e759c0e5f810}-infoservice.xml</ZipFileName>
+              <DestinationFilename>%Skin%\DefaultWide\infoservice.xml</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Skin\DefaultWide\media\InfoService\defaultFeedALL.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{2d239d08-4715-40b8-9346-b30035ac8bee}-defaultFeedALL.png</ZipFileName>
+              <DestinationFilename>%Skin%\DefaultWide\media\InfoService\defaultFeedALL.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Skin\DefaultWide\media\InfoService\defaultFeedAtom.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{14255e8a-b3f4-44e3-bd38-9a86184fc9ac}-defaultFeedAtom.png</ZipFileName>
+              <DestinationFilename>%Skin%\DefaultWide\media\InfoService\defaultFeedAtom.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Skin\DefaultWide\media\InfoService\defaultFeedItemAtom.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{c04fa76b-028b-4550-be21-8cbfdafdd676}-defaultFeedItemAtom.png</ZipFileName>
+              <DestinationFilename>%Skin%\DefaultWide\media\InfoService\defaultFeedItemAtom.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Skin\DefaultWide\media\InfoService\defaultFeedItemAtomBig.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{d7c5a911-a890-42fb-986d-0158696ffe52}-defaultFeedItemAtomBig.png</ZipFileName>
+              <DestinationFilename>%Skin%\DefaultWide\media\InfoService\defaultFeedItemAtomBig.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Skin\DefaultWide\media\InfoService\defaultFeedItemRDF.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{85c9f48c-fa91-454d-b6c8-ad8d4f146f08}-defaultFeedItemRDF.png</ZipFileName>
+              <DestinationFilename>%Skin%\DefaultWide\media\InfoService\defaultFeedItemRDF.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Skin\DefaultWide\media\InfoService\defaultFeedItemRDFBig.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{20c0182e-dd21-45a4-8109-82e6a4ee9f8e}-defaultFeedItemRDFBig.png</ZipFileName>
+              <DestinationFilename>%Skin%\DefaultWide\media\InfoService\defaultFeedItemRDFBig.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Skin\DefaultWide\media\InfoService\defaultFeedItemRSS.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{a7503fde-7e8b-419e-ad2c-bc08623c783e}-defaultFeedItemRSS.png</ZipFileName>
+              <DestinationFilename>%Skin%\DefaultWide\media\InfoService\defaultFeedItemRSS.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Skin\DefaultWide\media\InfoService\defaultFeedItemRSSBig.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{34f9fc74-469b-404c-aa97-a657f81385a0}-defaultFeedItemRSSBig.png</ZipFileName>
+              <DestinationFilename>%Skin%\DefaultWide\media\InfoService\defaultFeedItemRSSBig.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Skin\DefaultWide\media\InfoService\defaultFeedRDF.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{48f3a1e1-c2bf-48e0-92b1-e12d1b2bf8be}-defaultFeedRDF.png</ZipFileName>
+              <DestinationFilename>%Skin%\DefaultWide\media\InfoService\defaultFeedRDF.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Skin\DefaultWide\media\InfoService\defaultFeedRSS.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{c265e82f-4d2f-476e-91e3-604a6d87dce0}-defaultFeedRSS.png</ZipFileName>
+              <DestinationFilename>%Skin%\DefaultWide\media\InfoService\defaultFeedRSS.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\LastBuild\Skin\DefaultWide\media\InfoService\defaultTwitter.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{114d4067-eafc-45fd-8789-28a65105a55d}-defaultTwitter.png</ZipFileName>
+              <DestinationFilename>%Skin%\DefaultWide\media\InfoService\defaultTwitter.png</DestinationFilename>
+            </FileItem>
+          </Items>
+        </Files>
+      </GroupItem>
+    </Items>
+  </Groups>
+  <Sections>
+    <Items>
+      <SectionItem Guid="0531bafd-18d4-4226-852a-e5d62a1012c4" Name="Welcome Screen" ConditionGroup="">
+        <Params>
+          <Items>
+            <SectionParam Name="Header text">
+              <Value>Welcome to the [Name] Installer</Value>
+              <ValueType>String</ValueType>
+              <Description />
+            </SectionParam>
+            <SectionParam Name="Description">
+              <Value>This will install [Name] v[Version] on your computer.
+It is recommended that you close all other applications before continuing.
+Click Next to continue or Cancel to exit Setup.</Value>
+              <ValueType>String</ValueType>
+              <Description />
+            </SectionParam>
+            <SectionParam Name="Left part image">
+              <Value>..\Images\InfoService_tower.png</Value>
+              <ValueType>File</ValueType>
+              <Description />
+            </SectionParam>
+            <SectionParam Name="Header image">
+              <Value>..\Images\InfoService_head.png</Value>
+              <ValueType>File</ValueType>
+              <Description>Image in upper right part</Description>
+            </SectionParam>
+          </Items>
+        </Params>
+        <Actions>
+          <Items />
+        </Actions>
+        <IncludedGroups />
+        <PanelName>Welcome Screen</PanelName>
+        <WizardButtonsEnum>NextCancel</WizardButtonsEnum>
+      </SectionItem>
+      <SectionItem Guid="0d464b6e-27b1-48a1-ae6f-942181dd1ff6" Name="Readme Information" ConditionGroup="">
+        <Params>
+          <Items>
+            <SectionParam Name="Header Title">
+              <Value>Readme Information</Value>
+              <ValueType>String</ValueType>
+              <Description>Header title</Description>
+            </SectionParam>
+            <SectionParam Name="Header description">
+              <Value>Readme Information for [Name]</Value>
+              <ValueType>String</ValueType>
+              <Description>Description of section, shown in under section title</Description>
+            </SectionParam>
+            <SectionParam Name="Header image">
+              <Value>..\Images\InfoService_icon_full.png</Value>
+              <ValueType>File</ValueType>
+              <Description>Image in upper right part</Description>
+            </SectionParam>
+            <SectionParam Name="Readme text">
+              <Value>If you never used InfoService please read carefully the documentation: http://infoservice.codeplex.com/documentation
+
+There you will find some useful informations about the plugin configuration. Especially MediaPortal skin developers need to look into this wiki. They will find some informations about the used property names and hyperlinks to the GUI screen,
+
+If you have some problems with the configuration part of the plugin, then click on the help button in the upper right corner of the configuration dialog. 
+
+
+Changelog:
+
+[-] - Fixed issue
+[*] - Changed feature
+[+] - Added feature
+[i] - Information
+[!] - Attention
+
+Version v1.72:
+[+] Added support for the NotificationBar 0.8.3.0 plugin
+[*] Removed public timeline from twitter. Twitter doesn't support this anymore
+[-] Fixed twitter client. Status update, authorization and all Timelines should now work aigain
+[-] Some special characters will now displayed correctly again
+[i] Compatible for MediaPortal 1.4 Pre-Release
+
+Version v1.71:
+[+] Added support for the NotificationBar (http://forum.team-mediaportal.com/threads/notificationbar.99207/) plugin
+[+] Added Greek, Polish and Norwegian language
+[!] There are still some untranslated parts :/
+[i] If the NotificationBar plugin and the NotificationBar skin file are not installed, the standard MP Dialog will be used for new feed popup
+
+Version v1.7:
+[*] Disabled weather service until i found a new weather provider
+[-] Wrong behavior when using a custom MediaPortal configuration (thx to migue333)
+[-] Fixed for the most circumstances the stuttering feed/twitter ticker (thx to Pirppuli)
+[i] Compatible for MediaPortal 1.3 Alpha and above
+
+Version v1.66:
+[+] Added popup on news update (configurable with timeout)
+[*] Disabled recently added/watched features
+[*] Improved image parsing from feed (more feed images for RSS feeds should be parsed, too small images will be dropped)
+[*] Made log better readable
+[*] Improved support for RDF feeds
+[*] Improved downloading of Twitter profile images
+[*] Updated support for WebBrowser plugin
+[-] Fixed image loading from cache (if fails, will be redownloaded)
+[-] Fixed encoding issue for feed text
+[-] Fixed cache deletion
+[-] Fixed couple of bugs and updated localization
+[-] Fixed wrong epsiode number when posting a Twitter message
+[i] Release for MediaPortal 1.2.0 and above
+[!] Many languages files are not updated yet for v1.66 (only German and English). If you have some with untranslated labels please have a look in your language file
+
+Version v1.62:
+[-] Fixed weather crash bug
+
+Version v1.61:
+[+] New Properties: #infoservice.feed.itemtype and #infoservice.twitter.itemtype to replace hard coded labels in the skin (Feed items and Twitter items)
+[+] Added new placeholders for ticker (%itemindex%, %itemsource%)
+[+] Added setting of properties #infoservice.feed.INDEX.titles and #infoservice.feed.INDEX.img where INDEX is feed index (0 = all feeds, 1 = first one, 2 = ...) 
+[+] Added new language: Portuguese (Brazilian) 
+[+] Options can now be used with keyboard shortcuts (ALT + underlined letter).
+[+] Added feed item filtering
+[+] Added separate tickers masks and separators for normal feeds and all feeds
+[+] "Browse The Web" webbrowser is now supported
+[*] Improved loading of localization files
+[*] Better logging of parsing errors
+[*] Improved image parsing from feed
+[*] RecentlyAdded items now have age, will be removed after 7 days
+[*] Current thread is now logged, too
+[-] Fixed threading problems when updating GUI components
+[-] Fixed some problems with recently added
+[-] Fixed some typos in recently added
+[-] Fixed feed &amp; twitter selection on GUI screens
+[-] Fixed update problem when users changes weather location via weather screen
+[!] Many languages files are not updated yet for v1.61 (only German and English). If you have some with untranslated labels please have a look in your language file
+
+Version v1.6:
+[+] Added Danish, French, English (US) and English (GB) language
+[+] Added support for local feed files
+[+] Added check if the added feed file / feed url is a valid feed before adding feed
+[+] Added own configuration file
+[+] Added Blue3 skin files
+[+] Added property #infoservice.feed.selected.sourcefeed
+[+] Added selection for second line of the "All Feeds" view. The user can now select to show feed publish time, the source feed name or both.
+[+] The used Webbrowser plugin (WebBrowser, GeckoBrowser or other) can now be selected in the advanced configuration 
+[+] Last selected feed/twitter item will be selected on open Twitter or Feeds page
+[+] Improved tweeting of TV series/shows a lot!
+[*] Changed Blue3Wide and Blue3 to show the feed image instead of feed item image 
+[*] Reworked SkinSettings. SkinSettings will now overwrite user settings, but the will not saved permanently
+[*] Cache folder of twitter and feed is now configurable in the advanced configuration
+[*] Overridden settings by skin are marked in the configuration dialog now
+[*] Duo MediaPortal code change in property system, changed some weather and Recently Added properties (See Skin changelog v1.5 to v1.6)
+[*] Removed MaxTemp and MinTemp from weather today properties, because they are not right for some cities 
+[*] Log file is now not locked while MediaPortal is running
+[-] Fixed some logging issues
+[-] Fixed recently added system
+[-] Fixed some weather inconstancies.
+[-] Fixed some rare crashes duo threading issues.
+[-] Fixed false download of other files (only image files are now downloaded) by the Feed Service
+[-] Fixed language misspellings for English and Italian
+[i] Compiled against MediaPortal 1.1.0 RC4
+[!] Duo the use of a own configuration file, you have to setup InfoService again, sorry
+
+Version v1.5:
+[+] Added recently added feature, which shows you the recently added movies and series
+[+] Improved twitter client
+[+] A brand new twitter screen with all twitter messages and timelines
+[+] Post twitter status updates
+[+] Open web links in a twitter message in a WebBrowser window
+[+] Download all twitter timelines, not only one
+[+] Post automatically twitter status update, if you watching a video
+[+] Twitter uses now OAuth to connect
+[+] Faster overall download times of feed and twitter
+[+] Improved logging (for better error detection)
+[+] Added multilanguage support (English, German, Italian, Dutch and Spanish for now)
+[+] Weather is now updated as soon as you change your weather in the MediaPortal weather GUI
+[+] Many new properties (See Skin changelog v1.32 to v1.5)
+[+] Added skin settings (See Skin developer guide)
+[-] A tons of bugs fixed, so many to count them all
+[i] Completely rewritten!
+[i] InfoService is now open source!
+
+Version v1.32:
+[-] Fixed empty entry in the normal home menu
+
+Version v1.31:
+[-] Fixed forgotten humidity property for each day (night and day)
+[-] Fixed some forgotten translations
+
+Version v1.3:
+[+] Added a "last updated" property for feed, weather and twitter
+[+] Added a button to download the default feed name on the Add Feed dialog
+[+] Added much more weather properties. See thread/readme for details
+[+] Added possibility to change the ticker layout
+[*] Default settings are now loaded if the plugin is used for the first time (Feed ticker with MediaPortal RSS on, Weather on)
+[-] Fixed no image download for atom feeds
+[-] Fixed that the plugin is not showing on the normal home screen
+[!] Removed Monochrome skin files
+
+Version v1.2:
+[+] Added option to disable/enable the feed item publish time
+[-] Fixed the rare crash when downloading twitter timeline, hopefully
+
+Version v1.1:
+[+] New propertys #infoservice.feed.separator/ #infoservice.twitter.separator which holds the separator string of feed/twitter line
+[-] False feed image is showed when "Show all feeds on home" is activated and after entering InfoService screen
+[-] Fixed download location of feed images
+[i] Duo the false download location of the feed images you can delete the folder "C:\Temp\InfoService\"
+[!] The webbrowser part of InfoSerivce moved into a separate WebBrowser plugin. So if you want to read your feeds completely, you need the WebBrowser plugin which can be found here ...
+
+Version v1.0:
+[+] There are to much changes to list them Mainly bugfixes and a better browser handling. Try and test yourself.
+
+Version v0.99.3:
+[*] Changed zoom keys on remote and keyboard to Play previous/next key
+[-] Fixed false sizing of browser window, if MediaPortal is not in fullscreen mode
+[-] Fixed no weather download (Sorry for that)
+
+Version v0.99.2:
+[+] Added default zoom option for each feed
+[+] Added option to change zoom steps
+[*] Improved browser zooming feature
+[-] Fixed false size of feed browser
+
+Version v0.99.1:
+[-] Fixed false resolving of #infoservice.weather.today/dayX.img.small/big.filenamewithoutext and changed name of #infoservice.weather.today/dayX.img.small/big.filename to #infoservice.weather.today/dayX.img.small/big.filenamewithext
+[-] Fixed feed downloading problem with some feeds
+
+Version v0.99:
+[+] Added and changed propertys #infoservice.weather.today/dayX.img.big/small.fullpath, #infoservice.weather.today/dayX.img.big/small.filename, #infoservice.weather.today/dayX.img.big/small.filenamewithoutext
+[+] Added possibility to read the whole feed in a browser window (incl. zoom)
+[-] Fixed not showing of own feed image
+
+Version v0.94:
+[+] Readded the #infoservice.feed.alltitles property
+[-] Removed forgotten debug code
+
+Version v0.93:
+[+] Added sorting for feed items, because some feeds are not sorted by date
+[-] Fixed publish time was shown even if the feed item has no publish time
+
+Version v0.92:
+[+] Added feed item publish time to each feed item
+[+] Added wait notification on manual update
+[-] Fixed no update of weather and twitter data when pressing "Refresh" button
+[-] Fixed no weather data for some timezones
+
+Version v0.9:
+[+] Added new button on InfoService window to show itmes of all feeds on basichome
+[+] Added possibilty to change weather in MediaPortal (just change weather in the weather screen and wait for the next update)
+[*] #infoservice.feed.itemimg will be empty if there is no feed item image found
+[*] Old feed data is used if there was a download error
+[*] Reverted back to use the MediaPortal weather configuration
+[*] Removed property #infoservice.feed.alltitles
+[-] Fixed bugs here and there
+[-] Fixed filling of #infoservice.feed.selectedindex
+[-] Fixed weather data is off by one day
+
+Version v0.85:
+[+] Added new feed configuration dialog
+[+] Added sort feature for your feeds in the feed configuration dialog
+[*] #infoservice.feed.itemimg filled with default image if no feed item imaged is found
+[-] Fixed last selected feed is not active on basichome after update
+[-] Fixed no refresh of feed items in the infoscreen window after feed update
+[-] Fixed that #infoservice.today.weekday and #infoservice.day2.weekday shows the same weekday
+
+Version v0.81:
+[-] #infoservice.feed.selectedfeed will now be filled
+[-] Fixed crash if infoservice thumb dir not exists
+
+Version v0.8:
+[+] Added automatic download of feed logo (if feed logo is found)
+[+] Added check if entered feed is an url
+[+] Added feed download error dialog on infoservice window
+[+] Added new option to change the max items per feed if you use the #infoservice.feed.alltitles
+[+] Added new propetry items #infoservice.feed.selectedindex, #infoservice.feed.selectedtitle, #infoservice.feed.itemcount, #infoservice.feed.alltitles, #infoservice.feed.type and #infoservice.feed.selectedfeed
+[+] Added plugin configuration to log output (Not the twitter user and password!)
+[+] Feed item images are now shown in the listcontrol
+[*] Better error handling for weather service
+[*] Changed all property names for clearer indentification
+[*] Increased the maximum of items to 100 for feeds and twitter (don't know why i've locked this)
+[-] Fixed crash when weather.com returns a error
+[-] Fixed some html encoding erros
+
+Version v0.71:
+[*] Removed word wrap between the conditions
+[-] Fixed forgotten localization of forecast conditions
+
+Version v0.7:
+[+] Added new property #feeditemimg that holds a image of a feed item
+[+] Added own configuration for weather
+[+] Added possibility to read feeds and download pictures for feed item (only rss 2.0)
+
+Version v0.6:
+[+] Added support for RDF (RSS 1.0) and Atom feeds
+[*] Again better error and log handling
+[*] Changed property name from #rssfeed -&gt; #feedtitles, #rssimg -&gt; #feedimg as the plugin now supports more than rss feeds
+[*] Removed the last separator on the feed and twitter line.
+
+Version v0.5:
+[+] Added possibility to add more than one rss feed
+[+] Added possibility to change the rss feed on basichome with a dirty trick (hope it work as expected) :/
+[*] Changed error and log handling
+[i] Rewrite of ca. 75% code for a easier way to add more services
+
+Version v0.22:
+[*] Day labels are now translated by MediaPortal
+
+Version v0.21:
+[-] Fixed #day4label resolving
+[-] Fixed #todaylabel resolves the wrong day
+
+Version v0.2:
+[+] Added a twitter ticker
+[+] Added day labes for each day
+
+Version v0.12:
+[-] Fixed crash if there is no internet connection
+
+Version v0.11:
+[-] Fixed crash if no location is found
+[-] Fixed crash if timeformat in rss feed wrong
+
+Version v0.1:
+[+] First release
+</Value>
+              <ValueType>String</ValueType>
+              <Description>The readme text</Description>
+            </SectionParam>
+            <SectionParam Name="Rreadme text file">
+              <Value>readme.txt</Value>
+              <ValueType>File</ValueType>
+              <Description>The readme file should be RTF file</Description>
+            </SectionParam>
+          </Items>
+        </Params>
+        <Actions>
+          <Items />
+        </Actions>
+        <IncludedGroups />
+        <PanelName>Readme Information</PanelName>
+        <WizardButtonsEnum>BackNextCancel</WizardButtonsEnum>
+      </SectionItem>
+      <SectionItem Guid="285bbcc5-db94-40b5-93f5-8a6092ecbb0a" Name="Tree View Selector" ConditionGroup="">
+        <Params>
+          <Items>
+            <SectionParam Name="Header Title">
+              <Value>Customize [Name] Installation</Value>
+              <ValueType>String</ValueType>
+              <Description>Header title</Description>
+            </SectionParam>
+            <SectionParam Name="Header description">
+              <Value>Which InfoService components should be installed</Value>
+              <ValueType>String</ValueType>
+              <Description>Description of section, shown in under section title</Description>
+            </SectionParam>
+            <SectionParam Name="Header image">
+              <Value>..\Images\InfoService_icon_full.png</Value>
+              <ValueType>File</ValueType>
+              <Description>Image in upper right part</Description>
+            </SectionParam>
+            <SectionParam Name="Description ">
+              <Value>Please select which components of InfoService you want to install.</Value>
+              <ValueType>String</ValueType>
+              <Description>Description of this operation</Description>
+            </SectionParam>
+          </Items>
+        </Params>
+        <Actions>
+          <Items />
+        </Actions>
+        <IncludedGroups>
+          <string>Languages</string>
+          <string>Default skin files</string>
+          <string>DefaultWide skin files</string>
+        </IncludedGroups>
+        <PanelName>Tree View Selector</PanelName>
+        <WizardButtonsEnum>BackNextCancel</WizardButtonsEnum>
+      </SectionItem>
+      <SectionItem Guid="755141ae-5277-4111-afc6-74103c1c93d7" Name="Install Section" ConditionGroup="">
+        <Params>
+          <Items>
+            <SectionParam Name="Header Title">
+              <Value>Installing [Name]</Value>
+              <ValueType>String</ValueType>
+              <Description>Header title</Description>
+            </SectionParam>
+            <SectionParam Name="Header description">
+              <Value>Installing [Name]... Please wait.</Value>
+              <ValueType>String</ValueType>
+              <Description>Description of section, shown in under section title</Description>
+            </SectionParam>
+            <SectionParam Name="Header image">
+              <Value>..\Images\InfoService_icon_full.png</Value>
+              <ValueType>File</ValueType>
+              <Description>Image in upper right part</Description>
+            </SectionParam>
+          </Items>
+        </Params>
+        <Actions>
+          <Items>
+            <ActionItem Name="InstallFiles" ActionType="InstallFiles" ConditionGroup="">
+              <Params>
+                <Items />
+              </Params>
+              <ExecuteLocation>AfterPanelShow</ExecuteLocation>
+            </ActionItem>
+          </Items>
+        </Actions>
+        <IncludedGroups />
+        <PanelName>Install Section</PanelName>
+        <WizardButtonsEnum>Next</WizardButtonsEnum>
+      </SectionItem>
+      <SectionItem Guid="27282873-4d2b-4717-b657-3869fe61b88f" Name="Setup Complete" ConditionGroup="">
+        <Params>
+          <Items>
+            <SectionParam Name="Header text">
+              <Value>The Extension Installer Wizard has successfully installed [Name].</Value>
+              <ValueType>String</ValueType>
+              <Description />
+            </SectionParam>
+            <SectionParam Name="Left part image">
+              <Value>..\Images\InfoService_tower.png</Value>
+              <ValueType>File</ValueType>
+              <Description />
+            </SectionParam>
+            <SectionParam Name="Show radio buttons">
+              <Value>YES</Value>
+              <ValueType>Bool</ValueType>
+              <Description>Use radiobutton in place of combobox</Description>
+            </SectionParam>
+            <SectionParam Name="Header image">
+              <Value>..\Images\InfoService_icon_full.png</Value>
+              <ValueType>File</ValueType>
+              <Description>Image in upper right part</Description>
+            </SectionParam>
+          </Items>
+        </Params>
+        <Actions>
+          <Items />
+        </Actions>
+        <IncludedGroups />
+        <PanelName>Setup Complete</PanelName>
+        <WizardButtonsEnum>Finish</WizardButtonsEnum>
+      </SectionItem>
+    </Items>
+  </Sections>
+  <Dependencies>
+    <Items>
+      <DependencyItem>
+        <Type>MediaPortal</Type>
+        <Id />
+        <MinVersion>
+          <Major>1</Major>
+          <Minor>1</Minor>
+          <Build>6</Build>
+          <Revision>27644</Revision>
+        </MinVersion>
+        <MaxVersion>
+          <Major>1</Major>
+          <Minor>1</Minor>
+          <Build>6</Build>
+          <Revision>27644</Revision>
+        </MaxVersion>
+        <WarnOnly>false</WarnOnly>
+        <Message>requires MediaPortal version 1.1.6.27644 to 1.1.6.27644.</Message>
+        <Name>MediaPortal</Name>
+      </DependencyItem>
+    </Items>
+  </Dependencies>
+  <PluginDependencies>
+    <Items />
+  </PluginDependencies>
+  <GeneralInfo>
+    <Name>InfoService</Name>
+    <Id>e39aeb32-041b-41f6-bfd8-cd1d8ea09278</Id>
+    <Author>edsche, SilentException</Author>
+    <HomePage>http://infoservice.codeplex.com/</HomePage>
+    <ForumPage>http://forum.team-mediaportal.com/infoservice-522/</ForumPage>
+    <UpdateUrl>http://www.team-mediaportal.com/index.php?option=com_mtree&amp;task=att_download&amp;link_id=84&amp;cf_id=52</UpdateUrl>
+    <Version>
+      <Major>1</Major>
+      <Minor>7</Minor>
+      <Build>3</Build>
+      <Revision>249</Revision>
+    </Version>
+    <ExtensionDescription>InfoService is a plugin for that provides weather, feed and twitter informations on the home screen. It has also a feed reader and a twitter client built in. The plugin is for MediaPortal users and skinners who want to have some information on their MediaPortal homescreen.</ExtensionDescription>
+    <VersionDescription />
+    <DevelopmentStatus>Stable</DevelopmentStatus>
+    <OnlineLocation>http://www.team-mediaportal.com/index.php?option=com_mtree&amp;task=att_download&amp;link_id=84&amp;cf_id=24</OnlineLocation>
+    <ReleaseDate>2014-02-19T19:26:00.1046339+01:00</ReleaseDate>
+    <Tags>all,infoservice,rss,feed,twitter,weather,feeds</Tags>
+    <Location>..\LastBuild\MPInfoService_v[Version].mpe1</Location>
+    <Params>
+      <Items>
+        <SectionParam Name="Icon">
+          <Value>..\Images\InfoService_icon_full.png</Value>
+          <ValueType>File</ValueType>
+          <Description>The icon file of the package (jpg,png,bmp)</Description>
+        </SectionParam>
+        <SectionParam Name="Online Icon">
+          <Value>http://infoservice.googlecode.com/svn/trunk/InfoService_icon_full.png</Value>
+          <ValueType>String</ValueType>
+          <Description>The icon file of the package stored online (jpg,png,bmp)</Description>
+        </SectionParam>
+        <SectionParam Name="Configuration file">
+          <Value>%Plugins%\Windows\InfoService.dll</Value>
+          <ValueType>Template</ValueType>
+          <Description>The file used to configure the extension.
+ If have .exe extension the will be executed
+ If have .dll extension used like MP plugin configuration</Description>
+        </SectionParam>
+        <SectionParam Name="Online Screenshots">
+          <Value>http://infoservice.googlecode.com/svn/trunk/Config/addeditfeed.png;http://infoservice.googlecode.com/svn/trunk/Config/feeditemsfilters.png;http://infoservice.googlecode.com/svn/trunk/Config/advancedconfig.png;http://infoservice.googlecode.com/svn/trunk/Config/editfeed_on_feeds.png;http://infoservice.googlecode.com/svn/trunk/Config/feeds.png;http://infoservice.googlecode.com/svn/trunk/Config/twitter.png;http://infoservice.googlecode.com/svn/trunk/Config/weather.png;http://infoservice.googlecode.com/svn/trunk/MP/mp1.png;http://infoservice.googlecode.com/svn/trunk/MP/mp2.png;http://infoservice.googlecode.com/svn/trunk/MP/mp3.png;http://infoservice.googlecode.com/svn/trunk/MP/mp4.png;http://infoservice.googlecode.com/svn/trunk/MP/mp5.png;http://infoservice.googlecode.com/svn/trunk/MP/mp6.png;http://infoservice.googlecode.com/svn/trunk/MP/mp7.png;http://infoservice.googlecode.com/svn/trunk/MP/mp8.png</Value>
+          <ValueType>String</ValueType>
+          <Description>Online stored screenshot urls separated by ; </Description>
+        </SectionParam>
+        <SectionParam Name="Force to uninstall on update">
+          <Value>YES</Value>
+          <ValueType>Bool</ValueType>
+          <Description>Show dialog and force to uninstall previous version when updating an extension. Should only be disabled if you are using an NSIS/MSI installer.</Description>
+        </SectionParam>
+      </Items>
+    </Params>
+  </GeneralInfo>
+  <UniqueFileList>
+    <Items>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\InfoService.dll</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{be1ed68f-64db-4d89-8cbf-87c5b83ab36c}-InfoService.dll</ZipFileName>
+        <DestinationFilename>%Plugins%\InfoService.dll</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Language\InfoService\strings_de.xml</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{9e602d60-5799-4635-9f01-6b54773db66b}-strings_de.xml</ZipFileName>
+        <DestinationFilename>%Language%\InfoService\strings_de.xml</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Language\InfoService\strings_en.xml</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{b820cf02-3b84-47f2-a703-5ce1991f1cf8}-strings_en.xml</ZipFileName>
+        <DestinationFilename>%Language%\InfoService\strings_en.xml</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Language\InfoService\strings_es.xml</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{088d2880-eca6-485a-b299-eb29637c05a4}-strings_es.xml</ZipFileName>
+        <DestinationFilename>%Language%\InfoService\strings_es.xml</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Language\InfoService\strings_it.xml</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{6f5091a8-ece4-4796-818f-60afbe2c1627}-strings_it.xml</ZipFileName>
+        <DestinationFilename>%Language%\InfoService\strings_it.xml</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Language\InfoService\strings_nl.xml</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{421f63ff-42e7-4b79-a624-06fa69112112}-strings_nl.xml</ZipFileName>
+        <DestinationFilename>%Language%\InfoService\strings_nl.xml</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Language\InfoService\strings_da.xml</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{fa657c32-0ea8-44db-8c19-2f555a07eec1}-strings_da.xml</ZipFileName>
+        <DestinationFilename>%Language%\InfoService\strings_da.xml</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Language\InfoService\strings_fr.xml</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{3c1a5829-dff3-4016-a428-ec3e0c9668cc}-strings_fr.xml</ZipFileName>
+        <DestinationFilename>%Language%\InfoService\strings_fr.xml</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Language\InfoService\strings_en-US.xml</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{5902a6e4-8e28-4059-a393-e1f604819973}-strings_en-US.xml</ZipFileName>
+        <DestinationFilename>%Language%\InfoService\strings_en-US.xml</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Language\InfoService\strings_en-GB.xml</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{f79f420f-58d7-4c52-8573-908a7c7ad905}-strings_en-GB.xml</ZipFileName>
+        <DestinationFilename>%Language%\InfoService\strings_en-GB.xml</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Language\InfoService\strings_PT-BR.xml</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{ab6438f4-fe43-4cbc-8eb3-5a3219ceb5fb}-strings_PT-BR.xml</ZipFileName>
+        <DestinationFilename>%Language%\InfoService\strings_PT-BR.xml</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Language\InfoService\strings_el.xml</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{b72e3f89-0bad-4847-b1c3-c1ad38f49e39}-strings_el.xml</ZipFileName>
+        <DestinationFilename>%Language%\InfoService\strings_el.xml</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Language\InfoService\strings_no.xml</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{a8a5ac7d-af35-4f9c-b568-ce0912191380}-strings_no.xml</ZipFileName>
+        <DestinationFilename>%Language%\InfoService\strings_no.xml</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Language\InfoService\strings_pl.xml</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{52929b7d-1fbc-4d53-851e-5e49479397ac}-strings_pl.xml</ZipFileName>
+        <DestinationFilename>%Language%\InfoService\strings_pl.xml</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>\\CHRIS-PC\Coding\InfoService\trunk\LastBuild\InfoService.dll</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{c5fa0220-3f3e-4542-8399-0b7ad070a86d}-InfoService.dll</ZipFileName>
+        <DestinationFilename>%Language%\InfoService\InfoService.dll</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Skin\Default\infoservice.feeds.xml</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{4535c8c3-30cb-4f00-abf8-5f6461d5f385}-infoservice.feeds.xml</ZipFileName>
+        <DestinationFilename>%Skin%\Default\infoservice.feeds.xml</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Skin\Default\infoservice.twitter.xml</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{0f90251e-34f2-4819-88fa-1f6c99dc14c2}-infoservice.twitter.xml</ZipFileName>
+        <DestinationFilename>%Skin%\Default\infoservice.twitter.xml</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Skin\Default\infoservice.xml</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{d205375b-2642-479a-87f0-6db197a1ba5b}-infoservice.xml</ZipFileName>
+        <DestinationFilename>%Skin%\Default\infoservice.xml</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Skin\Default\media\InfoService\defaultFeedALL.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{3c54b0c1-bdb1-4d32-8d15-a3388e7fda91}-defaultFeedALL.png</ZipFileName>
+        <DestinationFilename>%Skin%\Default\media\InfoService\defaultFeedALL.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Skin\Default\media\InfoService\defaultFeedAtom.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{8310e5db-f218-418d-866e-e6183796bfff}-defaultFeedAtom.png</ZipFileName>
+        <DestinationFilename>%Skin%\Default\media\InfoService\defaultFeedAtom.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Skin\Default\media\InfoService\defaultFeedItemAtom.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{b11dfff5-0676-4e1e-9f5a-13b4be2caf01}-defaultFeedItemAtom.png</ZipFileName>
+        <DestinationFilename>%Skin%\Default\media\InfoService\defaultFeedItemAtom.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Skin\Default\media\InfoService\defaultFeedItemAtomBig.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{6bb0bf17-ebaa-41a0-b183-b813fd622d54}-defaultFeedItemAtomBig.png</ZipFileName>
+        <DestinationFilename>%Skin%\Default\media\InfoService\defaultFeedItemAtomBig.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Skin\Default\media\InfoService\defaultFeedItemRDF.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{519116e6-f267-489d-80b7-3f359abfd87a}-defaultFeedItemRDF.png</ZipFileName>
+        <DestinationFilename>%Skin%\Default\media\InfoService\defaultFeedItemRDF.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Skin\Default\media\InfoService\defaultFeedItemRDFBig.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{c30a000a-859d-4bd4-bd67-c7fab78b7211}-defaultFeedItemRDFBig.png</ZipFileName>
+        <DestinationFilename>%Skin%\Default\media\InfoService\defaultFeedItemRDFBig.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Skin\Default\media\InfoService\defaultFeedItemRSS.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{a14a1d26-2664-415c-9b6b-be02779fa84c}-defaultFeedItemRSS.png</ZipFileName>
+        <DestinationFilename>%Skin%\Default\media\InfoService\defaultFeedItemRSS.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Skin\Default\media\InfoService\defaultFeedItemRSSBig.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{0e75f865-e038-497d-a9b5-4eb32f65845a}-defaultFeedItemRSSBig.png</ZipFileName>
+        <DestinationFilename>%Skin%\Default\media\InfoService\defaultFeedItemRSSBig.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Skin\Default\media\InfoService\defaultFeedRDF.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{8370c58b-c794-4705-a897-a471bf12c279}-defaultFeedRDF.png</ZipFileName>
+        <DestinationFilename>%Skin%\Default\media\InfoService\defaultFeedRDF.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Skin\Default\media\InfoService\defaultFeedRSS.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{b0065b4a-4a10-4a1b-881f-4b031e23ca04}-defaultFeedRSS.png</ZipFileName>
+        <DestinationFilename>%Skin%\Default\media\InfoService\defaultFeedRSS.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Skin\Default\media\InfoService\defaultTwitter.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{4d07c5c5-b7a7-4658-ac38-2e311a75dc96}-defaultTwitter.png</ZipFileName>
+        <DestinationFilename>%Skin%\Default\media\InfoService\defaultTwitter.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Skin\DefaultWide\infoservice.feeds.xml</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{d30286a6-98c4-4506-916f-c806638dfed3}-infoservice.feeds.xml</ZipFileName>
+        <DestinationFilename>%Skin%\DefaultWide\infoservice.feeds.xml</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Skin\DefaultWide\infoservice.twitter.xml</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{a1c4bb52-1ded-4fdf-a3d3-cfa7bdf7ee3c}-infoservice.twitter.xml</ZipFileName>
+        <DestinationFilename>%Skin%\DefaultWide\infoservice.twitter.xml</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Skin\DefaultWide\infoservice.xml</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{451dcf32-5b9c-477b-8991-e759c0e5f810}-infoservice.xml</ZipFileName>
+        <DestinationFilename>%Skin%\DefaultWide\infoservice.xml</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Skin\DefaultWide\media\InfoService\defaultFeedALL.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{2d239d08-4715-40b8-9346-b30035ac8bee}-defaultFeedALL.png</ZipFileName>
+        <DestinationFilename>%Skin%\DefaultWide\media\InfoService\defaultFeedALL.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Skin\DefaultWide\media\InfoService\defaultFeedAtom.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{14255e8a-b3f4-44e3-bd38-9a86184fc9ac}-defaultFeedAtom.png</ZipFileName>
+        <DestinationFilename>%Skin%\DefaultWide\media\InfoService\defaultFeedAtom.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Skin\DefaultWide\media\InfoService\defaultFeedItemAtom.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{c04fa76b-028b-4550-be21-8cbfdafdd676}-defaultFeedItemAtom.png</ZipFileName>
+        <DestinationFilename>%Skin%\DefaultWide\media\InfoService\defaultFeedItemAtom.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Skin\DefaultWide\media\InfoService\defaultFeedItemAtomBig.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{d7c5a911-a890-42fb-986d-0158696ffe52}-defaultFeedItemAtomBig.png</ZipFileName>
+        <DestinationFilename>%Skin%\DefaultWide\media\InfoService\defaultFeedItemAtomBig.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Skin\DefaultWide\media\InfoService\defaultFeedItemRDF.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{85c9f48c-fa91-454d-b6c8-ad8d4f146f08}-defaultFeedItemRDF.png</ZipFileName>
+        <DestinationFilename>%Skin%\DefaultWide\media\InfoService\defaultFeedItemRDF.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Skin\DefaultWide\media\InfoService\defaultFeedItemRDFBig.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{20c0182e-dd21-45a4-8109-82e6a4ee9f8e}-defaultFeedItemRDFBig.png</ZipFileName>
+        <DestinationFilename>%Skin%\DefaultWide\media\InfoService\defaultFeedItemRDFBig.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Skin\DefaultWide\media\InfoService\defaultFeedItemRSS.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{a7503fde-7e8b-419e-ad2c-bc08623c783e}-defaultFeedItemRSS.png</ZipFileName>
+        <DestinationFilename>%Skin%\DefaultWide\media\InfoService\defaultFeedItemRSS.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Skin\DefaultWide\media\InfoService\defaultFeedItemRSSBig.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{34f9fc74-469b-404c-aa97-a657f81385a0}-defaultFeedItemRSSBig.png</ZipFileName>
+        <DestinationFilename>%Skin%\DefaultWide\media\InfoService\defaultFeedItemRSSBig.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Skin\DefaultWide\media\InfoService\defaultFeedRDF.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{48f3a1e1-c2bf-48e0-92b1-e12d1b2bf8be}-defaultFeedRDF.png</ZipFileName>
+        <DestinationFilename>%Skin%\DefaultWide\media\InfoService\defaultFeedRDF.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Skin\DefaultWide\media\InfoService\defaultFeedRSS.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{c265e82f-4d2f-476e-91e3-604a6d87dce0}-defaultFeedRSS.png</ZipFileName>
+        <DestinationFilename>%Skin%\DefaultWide\media\InfoService\defaultFeedRSS.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\LastBuild\Skin\DefaultWide\media\InfoService\defaultTwitter.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{114d4067-eafc-45fd-8789-28a65105a55d}-defaultTwitter.png</ZipFileName>
+        <DestinationFilename>%Skin%\DefaultWide\media\InfoService\defaultTwitter.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="true" Modified="true">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\Images\InfoService_tower.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{8e7801a4-4481-4800-9950-13bed9210800}-InfoService_tower.png</ZipFileName>
+        <DestinationFilename />
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="true" Modified="true">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\Images\InfoService_head.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{e21398aa-3a81-4115-8c31-ace659ba0255}-InfoService_head.png</ZipFileName>
+        <DestinationFilename />
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="true" Modified="true">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\Images\InfoService_icon_full.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{4acfa509-8225-4d52-8058-f0b87f45a9c4}-InfoService_icon_full.png</ZipFileName>
+        <DestinationFilename />
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="true" Modified="true">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>readme.txt</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{916140c2-3384-401a-a100-9c732ac94f55}-readme.txt</ZipFileName>
+        <DestinationFilename />
+      </FileItem>
+    </Items>
+  </UniqueFileList>
+  <ProjectSettings>
+    <FolderGroups>
+      <FolderGroup InstallType="CopyFile" SystemFile="false" Modified="true">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName />
+        <ZipFileName>Installer{CopyFile}\{a9096135-fbda-499d-a982-3e7b7c37d2ff}-</ZipFileName>
+        <DestinationFilename>%Language%\InfoService</DestinationFilename>
+        <Folder>..\LastBuild\Language\InfoService</Folder>
+        <Group>Languages</Group>
+        <Recursive>true</Recursive>
+      </FolderGroup>
+      <FolderGroup InstallType="CopyFile" SystemFile="false" Modified="true">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName />
+        <ZipFileName>Installer{CopyFile}\{a9096136-fbda-499d-a982-3e7b7c37d2ff}-</ZipFileName>
+        <DestinationFilename>%Skin%\Default</DestinationFilename>
+        <Folder>..\LastBuild\Skin\Default</Folder>
+        <Group>Default skin files</Group>
+        <Recursive>true</Recursive>
+      </FolderGroup>
+      <FolderGroup InstallType="CopyFile" SystemFile="false" Modified="true">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName />
+        <ZipFileName>Installer{CopyFile}\{a9096137-fbda-499d-a982-3e7b7c37d2ff}-</ZipFileName>
+        <DestinationFilename>%Skin%\DefaultWide</DestinationFilename>
+        <Folder>..\LastBuild\Skin\DefaultWide</Folder>
+        <Group>DefaultWide skin files</Group>
+        <Recursive>true</Recursive>
+      </FolderGroup>
+    </FolderGroups>
+    <ProjectFilename>MPInfoService.xmp2</ProjectFilename>
+    <UpdatePath1>.\update.xml</UpdatePath1>
+    <UpdatePath2 />
+    <UpdatePath3 />
+  </ProjectSettings>
+  <IsSkin>false</IsSkin>
+</PackageClass>

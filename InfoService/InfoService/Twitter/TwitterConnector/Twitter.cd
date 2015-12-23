@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="TwitterConnector.Twitter">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAUAABAAAQACAAoACAAAIAgAAQAAAaAAAKAQAAAgAIA=</HashCode>
+      <FileName>Twitter\TwitterConnector\Twitter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TwitterConnector.Data.TwitterUser">
+    <Position X="2.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAwAAAIAAgAAAQCAIAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Twitter\TwitterConnector\Data\TwitterUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="TwitterConnector.TimelineType">
+    <Position X="5.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAABAAAAAQAAAAAAAAAAAAAAAQQAAAAACAAQAAEAQAA=</HashCode>
+      <FileName>Twitter\TwitterConnector\TimelineType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="WeatherConnector.Data.WeatherData">
+    <Position X="2.25" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAEAAAAAAAAAEAAAQBAAAAAACIAAAAAAiAAgBCA=</HashCode>
+      <FileName>Weather\WeatherConnector\Data\WeatherData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeatherConnector.Data.WeatherForecast">
+    <Position X="7.75" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAIAgAAAABAAAAAAAAAAAAAAABAAAFAAAAAAA=</HashCode>
+      <FileName>Weather\WeatherConnector\Data\WeatherForecast.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeatherConnector.Weather">
+    <Position X="10.75" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAgQIAAFCAACCAAAMgQAAAAAACAQQgAAAAAAAAAAI=</HashCode>
+      <FileName>Weather\WeatherConnector\Weather.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeatherConnector.Data.WeatherDay">
+    <Position X="5.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgIACAAAAAAAAGAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Weather\WeatherConnector\Data\WeatherDay.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeatherConnector.Data.WeatherEntities">
+    <Position X="2.25" Y="4.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Weather\WeatherConnector\Data\WeatherEntities.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeatherConnector.Xml.WeatherXml">
+    <Position X="7.75" Y="4.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAgAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>Weather\WeatherConnector\Xml\WeatherXml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="WeatherConnector.TemperatureFormat">
+    <Position X="5.5" Y="5.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Weather\WeatherConnector\TemperatureFormat.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
