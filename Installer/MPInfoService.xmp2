@@ -24,7 +24,7 @@
         <ParentGroup />
         <DisplayName>Languages</DisplayName>
         <DefaulChecked>true</DefaulChecked>
-        <Description>Install English, German, Italian, Dutch, Danish, French, Spanish, Greek, Polish and Norwegian language files</Description>
+        <Description>Install English, German, Italian, Dutch, Danish, French, Spanish, Greek, Polish, Norwegian and Czech language files</Description>
         <Files>
           <Items>
             <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
