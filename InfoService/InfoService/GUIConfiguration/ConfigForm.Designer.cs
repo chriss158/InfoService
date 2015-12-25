@@ -53,11 +53,8 @@
             this.gbTwitterTimelines = new System.Windows.Forms.GroupBox();
             this.label24 = new System.Windows.Forms.Label();
             this.cbTwitterRetweetsOfMeTimeline = new System.Windows.Forms.CheckBox();
-            this.cbTwitterRetweetedToMeTimeline = new System.Windows.Forms.CheckBox();
-            this.cbTwitterRetweetedByMeTimeline = new System.Windows.Forms.CheckBox();
             this.cbTwitterMentionsTimeline = new System.Windows.Forms.CheckBox();
             this.cbTwitterUserTimeline = new System.Windows.Forms.CheckBox();
-            this.cbTwitterFriendsTimeline = new System.Windows.Forms.CheckBox();
             this.cbTwitterHomeTimeline = new System.Windows.Forms.CheckBox();
             this.label20 = new System.Windows.Forms.Label();
             this.gbTwitterTickerLayout = new System.Windows.Forms.GroupBox();
@@ -101,86 +98,86 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.ttFeedHelp = new System.Windows.Forms.ToolTip(this.components);
+            this.txtFeedTickerLayout = new System.Windows.Forms.TextBox();
+            this.txtFeedTickerAllLayout = new System.Windows.Forms.TextBox();
             this.ttTwitterHelp = new System.Windows.Forms.ToolTip(this.components);
             this.ttTimelineHelp = new System.Windows.Forms.ToolTip(this.components);
             this.ttTwitterUpdateHelp = new System.Windows.Forms.ToolTip(this.components);
             this.btnAdvancedConfig = new System.Windows.Forms.Button();
             this.pgAbout = new System.Windows.Forms.TabPage();
-            this.lblProductVersion = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label36 = new System.Windows.Forms.Label();
-            this.llblAboutCodeplex = new System.Windows.Forms.LinkLabel();
-            this.llblAboutManual = new System.Windows.Forms.LinkLabel();
-            this.llblAboutForum = new System.Windows.Forms.LinkLabel();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.llblFamFamFam = new System.Windows.Forms.LinkLabel();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.llblFamFamFam = new System.Windows.Forms.LinkLabel();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.llblAboutForum = new System.Windows.Forms.LinkLabel();
+            this.llblAboutManual = new System.Windows.Forms.LinkLabel();
+            this.llblAboutCodeplex = new System.Windows.Forms.LinkLabel();
+            this.label36 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.lblProductVersion = new System.Windows.Forms.Label();
             this.pgRSS = new System.Windows.Forms.TabPage();
+            this.labelSkinSettingsFeeds = new System.Windows.Forms.Label();
+            this.btnFeedHelp = new System.Windows.Forms.Button();
+            this.gbFeedLayout = new System.Windows.Forms.GroupBox();
+            this.rbBothAllFeeds = new System.Windows.Forms.RadioButton();
+            this.rbFeedNameAllFeeds = new System.Windows.Forms.RadioButton();
+            this.rbItemPublishTimeAllFeeds = new System.Windows.Forms.RadioButton();
+            this.cbFeedShowItemPublishTime = new System.Windows.Forms.CheckBox();
+            this.laFeedItems = new System.Windows.Forms.Label();
+            this.txtFeedItems = new System.Windows.Forms.NumericUpDown();
+            this.txtFeedItemsPerFeed = new System.Windows.Forms.NumericUpDown();
+            this.laFeedItemsPerFeed = new System.Windows.Forms.Label();
+            this.gbFeedTickerLayout = new System.Windows.Forms.GroupBox();
+            this.laFeedAllSeparator = new System.Windows.Forms.Label();
+            this.txtFeedAllSeparator = new System.Windows.Forms.TextBox();
+            this.laFeedTickerAllLayout = new System.Windows.Forms.Label();
+            this.laFeedTickerLayout = new System.Windows.Forms.Label();
+            this.laFeedSeparator = new System.Windows.Forms.Label();
+            this.txtFeedSeparator = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.gbFeedGeneral = new System.Windows.Forms.GroupBox();
+            this.cbPopupWhileVideoPlaying = new System.Windows.Forms.CheckBox();
+            this.lblPopupTimeout = new System.Windows.Forms.Label();
+            this.txtPopupTimeout = new System.Windows.Forms.NumericUpDown();
+            this.cbNewsPopup = new System.Windows.Forms.CheckBox();
+            this.cbFeedRandomFeedOnUpdate = new System.Windows.Forms.CheckBox();
+            this.rbFeedShowThisFeedOnStartup = new System.Windows.Forms.RadioButton();
+            this.rbFeedShowRandomFeedOnStartup = new System.Windows.Forms.RadioButton();
+            this.cbFeedUpdateOnStartup = new System.Windows.Forms.CheckBox();
+            this.cobFeedStartupFeed = new System.Windows.Forms.ComboBox();
+            this.txtFeedRefreshInt = new System.Windows.Forms.NumericUpDown();
+            this.laFeedRefresh = new System.Windows.Forms.Label();
+            this.cbFeedEnabled = new System.Windows.Forms.CheckBox();
             this.gbFeedConf = new System.Windows.Forms.GroupBox();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnRem = new System.Windows.Forms.Button();
+            this.btnAddMultiple = new System.Windows.Forms.Button();
+            this.btnDown = new System.Windows.Forms.Button();
+            this.btnUp = new System.Windows.Forms.Button();
             this.lvFeeds = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnUp = new System.Windows.Forms.Button();
-            this.btnDown = new System.Windows.Forms.Button();
-            this.btnAddMultiple = new System.Windows.Forms.Button();
-            this.cbFeedEnabled = new System.Windows.Forms.CheckBox();
-            this.gbFeedGeneral = new System.Windows.Forms.GroupBox();
-            this.laFeedRefresh = new System.Windows.Forms.Label();
-            this.txtFeedRefreshInt = new System.Windows.Forms.NumericUpDown();
-            this.cobFeedStartupFeed = new System.Windows.Forms.ComboBox();
-            this.cbFeedUpdateOnStartup = new System.Windows.Forms.CheckBox();
-            this.rbFeedShowRandomFeedOnStartup = new System.Windows.Forms.RadioButton();
-            this.rbFeedShowThisFeedOnStartup = new System.Windows.Forms.RadioButton();
-            this.cbFeedRandomFeedOnUpdate = new System.Windows.Forms.CheckBox();
-            this.cbNewsPopup = new System.Windows.Forms.CheckBox();
-            this.txtPopupTimeout = new System.Windows.Forms.NumericUpDown();
-            this.lblPopupTimeout = new System.Windows.Forms.Label();
-            this.cbPopupWhileVideoPlaying = new System.Windows.Forms.CheckBox();
-            this.gbFeedTickerLayout = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.txtFeedSeparator = new System.Windows.Forms.TextBox();
-            this.laFeedSeparator = new System.Windows.Forms.Label();
-            this.laFeedTickerLayout = new System.Windows.Forms.Label();
-            this.txtFeedTickerLayout = new System.Windows.Forms.TextBox();
-            this.laFeedTickerAllLayout = new System.Windows.Forms.Label();
-            this.txtFeedTickerAllLayout = new System.Windows.Forms.TextBox();
-            this.txtFeedAllSeparator = new System.Windows.Forms.TextBox();
-            this.laFeedAllSeparator = new System.Windows.Forms.Label();
-            this.gbFeedLayout = new System.Windows.Forms.GroupBox();
-            this.laFeedItemsPerFeed = new System.Windows.Forms.Label();
-            this.txtFeedItemsPerFeed = new System.Windows.Forms.NumericUpDown();
-            this.txtFeedItems = new System.Windows.Forms.NumericUpDown();
-            this.laFeedItems = new System.Windows.Forms.Label();
-            this.cbFeedShowItemPublishTime = new System.Windows.Forms.CheckBox();
-            this.rbItemPublishTimeAllFeeds = new System.Windows.Forms.RadioButton();
-            this.rbFeedNameAllFeeds = new System.Windows.Forms.RadioButton();
-            this.rbBothAllFeeds = new System.Windows.Forms.RadioButton();
-            this.btnFeedHelp = new System.Windows.Forms.Button();
-            this.labelSkinSettingsFeeds = new System.Windows.Forms.Label();
+            this.btnRem = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.pgTwitter.SuspendLayout();
             this.gbTwitterLayout.SuspendLayout();
@@ -197,17 +194,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtWeatherRefreshInt)).BeginInit();
             this.gbWeatherCity.SuspendLayout();
             this.pgAbout.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.pgRSS.SuspendLayout();
-            this.gbFeedConf.SuspendLayout();
-            this.gbFeedGeneral.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFeedRefreshInt)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPopupTimeout)).BeginInit();
-            this.gbFeedTickerLayout.SuspendLayout();
             this.gbFeedLayout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFeedItemsPerFeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFeedItems)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFeedItemsPerFeed)).BeginInit();
+            this.gbFeedTickerLayout.SuspendLayout();
+            this.gbFeedGeneral.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPopupTimeout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFeedRefreshInt)).BeginInit();
+            this.gbFeedConf.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -440,11 +437,8 @@
             // 
             this.gbTwitterTimelines.Controls.Add(this.label24);
             this.gbTwitterTimelines.Controls.Add(this.cbTwitterRetweetsOfMeTimeline);
-            this.gbTwitterTimelines.Controls.Add(this.cbTwitterRetweetedToMeTimeline);
-            this.gbTwitterTimelines.Controls.Add(this.cbTwitterRetweetedByMeTimeline);
             this.gbTwitterTimelines.Controls.Add(this.cbTwitterMentionsTimeline);
             this.gbTwitterTimelines.Controls.Add(this.cbTwitterUserTimeline);
-            this.gbTwitterTimelines.Controls.Add(this.cbTwitterFriendsTimeline);
             this.gbTwitterTimelines.Controls.Add(this.cbTwitterHomeTimeline);
             this.gbTwitterTimelines.Controls.Add(this.label20);
             this.gbTwitterTimelines.Enabled = false;
@@ -471,7 +465,7 @@
             // 
             this.cbTwitterRetweetsOfMeTimeline.AutoSize = true;
             this.cbTwitterRetweetsOfMeTimeline.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTwitterRetweetsOfMeTimeline.Location = new System.Drawing.Point(101, 47);
+            this.cbTwitterRetweetsOfMeTimeline.Location = new System.Drawing.Point(366, 24);
             this.cbTwitterRetweetsOfMeTimeline.Name = "cbTwitterRetweetsOfMeTimeline";
             this.cbTwitterRetweetsOfMeTimeline.Size = new System.Drawing.Size(100, 17);
             this.cbTwitterRetweetsOfMeTimeline.TabIndex = 6;
@@ -479,36 +473,11 @@
             this.ttTimelineHelp.SetToolTip(this.cbTwitterRetweetsOfMeTimeline, "The recent tweets of the user that have been retweeted by others.");
             this.cbTwitterRetweetsOfMeTimeline.UseVisualStyleBackColor = true;
             // 
-            // cbTwitterRetweetedToMeTimeline
-            // 
-            this.cbTwitterRetweetedToMeTimeline.AutoSize = true;
-            this.cbTwitterRetweetedToMeTimeline.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTwitterRetweetedToMeTimeline.Location = new System.Drawing.Point(232, 21);
-            this.cbTwitterRetweetedToMeTimeline.Name = "cbTwitterRetweetedToMeTimeline";
-            this.cbTwitterRetweetedToMeTimeline.Size = new System.Drawing.Size(107, 17);
-            this.cbTwitterRetweetedToMeTimeline.TabIndex = 3;
-            this.cbTwitterRetweetedToMeTimeline.Text = "Retweeted to me";
-            this.ttTimelineHelp.SetToolTip(this.cbTwitterRetweetedToMeTimeline, "The recent retweets posted by the user\'s friends.");
-            this.cbTwitterRetweetedToMeTimeline.UseVisualStyleBackColor = true;
-            this.cbTwitterRetweetedToMeTimeline.CheckedChanged += new System.EventHandler(this.cbTwitterRetweetedToMeTimeline_CheckedChanged);
-            // 
-            // cbTwitterRetweetedByMeTimeline
-            // 
-            this.cbTwitterRetweetedByMeTimeline.AutoSize = true;
-            this.cbTwitterRetweetedByMeTimeline.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTwitterRetweetedByMeTimeline.Location = new System.Drawing.Point(356, 47);
-            this.cbTwitterRetweetedByMeTimeline.Name = "cbTwitterRetweetedByMeTimeline";
-            this.cbTwitterRetweetedByMeTimeline.Size = new System.Drawing.Size(109, 17);
-            this.cbTwitterRetweetedByMeTimeline.TabIndex = 8;
-            this.cbTwitterRetweetedByMeTimeline.Text = "Retweeted by me";
-            this.ttTimelineHelp.SetToolTip(this.cbTwitterRetweetedByMeTimeline, "The recent retweets posted by the user.");
-            this.cbTwitterRetweetedByMeTimeline.UseVisualStyleBackColor = true;
-            // 
             // cbTwitterMentionsTimeline
             // 
             this.cbTwitterMentionsTimeline.AutoSize = true;
             this.cbTwitterMentionsTimeline.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTwitterMentionsTimeline.Location = new System.Drawing.Point(481, 21);
+            this.cbTwitterMentionsTimeline.Location = new System.Drawing.Point(291, 24);
             this.cbTwitterMentionsTimeline.Name = "cbTwitterMentionsTimeline";
             this.cbTwitterMentionsTimeline.Size = new System.Drawing.Size(69, 17);
             this.cbTwitterMentionsTimeline.TabIndex = 5;
@@ -520,7 +489,7 @@
             // 
             this.cbTwitterUserTimeline.AutoSize = true;
             this.cbTwitterUserTimeline.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTwitterUserTimeline.Location = new System.Drawing.Point(101, 21);
+            this.cbTwitterUserTimeline.Location = new System.Drawing.Point(101, 24);
             this.cbTwitterUserTimeline.Name = "cbTwitterUserTimeline";
             this.cbTwitterUserTimeline.Size = new System.Drawing.Size(86, 17);
             this.cbTwitterUserTimeline.TabIndex = 2;
@@ -529,25 +498,11 @@
             this.cbTwitterUserTimeline.UseVisualStyleBackColor = true;
             this.cbTwitterUserTimeline.CheckedChanged += new System.EventHandler(this.cbTwitterUserTimeline_CheckedChanged);
             // 
-            // cbTwitterFriendsTimeline
-            // 
-            this.cbTwitterFriendsTimeline.AutoSize = true;
-            this.cbTwitterFriendsTimeline.Checked = true;
-            this.cbTwitterFriendsTimeline.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbTwitterFriendsTimeline.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTwitterFriendsTimeline.Location = new System.Drawing.Point(232, 47);
-            this.cbTwitterFriendsTimeline.Name = "cbTwitterFriendsTimeline";
-            this.cbTwitterFriendsTimeline.Size = new System.Drawing.Size(98, 17);
-            this.cbTwitterFriendsTimeline.TabIndex = 7;
-            this.cbTwitterFriendsTimeline.Text = "Friends timeline";
-            this.ttTimelineHelp.SetToolTip(this.cbTwitterFriendsTimeline, "The recent statuses posted by the user and that user\'s friends.");
-            this.cbTwitterFriendsTimeline.UseVisualStyleBackColor = true;
-            // 
             // cbTwitterHomeTimeline
             // 
             this.cbTwitterHomeTimeline.AutoSize = true;
             this.cbTwitterHomeTimeline.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTwitterHomeTimeline.Location = new System.Drawing.Point(356, 21);
+            this.cbTwitterHomeTimeline.Location = new System.Drawing.Point(193, 24);
             this.cbTwitterHomeTimeline.Name = "cbTwitterHomeTimeline";
             this.cbTwitterHomeTimeline.Size = new System.Drawing.Size(92, 17);
             this.cbTwitterHomeTimeline.TabIndex = 4;
@@ -1066,6 +1021,30 @@
             this.ttFeedHelp.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.ttFeedHelp.ToolTipTitle = "Available Placeholders";
             // 
+            // txtFeedTickerLayout
+            // 
+            this.txtFeedTickerLayout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFeedTickerLayout.Location = new System.Drawing.Point(10, 39);
+            this.txtFeedTickerLayout.Name = "txtFeedTickerLayout";
+            this.txtFeedTickerLayout.Size = new System.Drawing.Size(291, 20);
+            this.txtFeedTickerLayout.TabIndex = 1;
+            this.txtFeedTickerLayout.Text = "%itemtitle%";
+            this.ttFeedHelp.SetToolTip(this.txtFeedTickerLayout, resources.GetString("txtFeedTickerLayout.ToolTip"));
+            this.txtFeedTickerLayout.TextChanged += new System.EventHandler(this.txtFeedTickerLayout_TextChanged);
+            // 
+            // txtFeedTickerAllLayout
+            // 
+            this.txtFeedTickerAllLayout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFeedTickerAllLayout.Location = new System.Drawing.Point(307, 39);
+            this.txtFeedTickerAllLayout.Name = "txtFeedTickerAllLayout";
+            this.txtFeedTickerAllLayout.Size = new System.Drawing.Size(290, 20);
+            this.txtFeedTickerAllLayout.TabIndex = 9;
+            this.txtFeedTickerAllLayout.Text = "%itemtitle% (%itemsource%)";
+            this.ttFeedHelp.SetToolTip(this.txtFeedTickerAllLayout, resources.GetString("txtFeedTickerAllLayout.ToolTip"));
+            this.txtFeedTickerAllLayout.TextChanged += new System.EventHandler(this.txtFeedTickerAllLayout_TextChanged);
+            this.txtFeedTickerAllLayout.Enter += new System.EventHandler(this.txtFeedTickerAllLayout_Enter);
+            this.txtFeedTickerAllLayout.Leave += new System.EventHandler(this.txtFeedTickerAllLayout_Leave);
+            // 
             // ttTwitterHelp
             // 
             this.ttTwitterHelp.AutomaticDelay = 50;
@@ -1123,15 +1102,15 @@
             this.pgAbout.Text = "About";
             this.pgAbout.UseVisualStyleBackColor = true;
             // 
-            // lblProductVersion
+            // pictureBox1
             // 
-            this.lblProductVersion.AutoSize = true;
-            this.lblProductVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProductVersion.Location = new System.Drawing.Point(521, 113);
-            this.lblProductVersion.Name = "lblProductVersion";
-            this.lblProductVersion.Size = new System.Drawing.Size(53, 13);
-            this.lblProductVersion.TabIndex = 1;
-            this.lblProductVersion.Text = "v1.x.x.xxx";
+            this.pictureBox1.Image = global::InfoService.Properties.Resources.InfoService_head;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(603, 104);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
             // 
             // groupBox1
             // 
@@ -1169,197 +1148,71 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "About";
             // 
-            // label25
+            // label6
             // 
-            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(9, 16);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(588, 46);
-            this.label25.TabIndex = 3;
-            this.label25.Text = resources.GetString("label25.Text");
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(275, 383);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(95, 13);
+            this.label6.TabIndex = 28;
+            this.label6.Text = "Czech: homer.web";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label26
+            // label5
             // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(9, 85);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(226, 13);
-            this.label26.TabIndex = 4;
-            this.label26.Text = "Project coordination and development:";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(275, 364);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(94, 13);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Norwegian: ronilse";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label27
+            // label4
             // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(9, 112);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(85, 13);
-            this.label27.TabIndex = 5;
-            this.label27.Text = "Development:";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(275, 345);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(73, 13);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "Greek: elapse";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label28
+            // label1
             // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(9, 193);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(73, 13);
-            this.label28.TabIndex = 6;
-            this.label28.Text = "Languages:";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(275, 326);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(86, 13);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "Polish: amilewski";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label29
+            // label39
             // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(275, 85);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(42, 13);
-            this.label29.TabIndex = 7;
-            this.label29.Tag = "";
-            this.label29.Text = "edsche";
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.Location = new System.Drawing.Point(275, 307);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(78, 13);
+            this.label39.TabIndex = 24;
+            this.label39.Text = "French: framug";
+            this.label39.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label30
+            // label21
             // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(275, 112);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(80, 13);
-            this.label30.TabIndex = 8;
-            this.label30.Text = "SilentException";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(275, 212);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(85, 13);
-            this.label31.TabIndex = 9;
-            this.label31.Text = "German: edsche";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(275, 193);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(82, 13);
-            this.label32.TabIndex = 10;
-            this.label32.Text = "English: edsche";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(275, 250);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(79, 13);
-            this.label33.TabIndex = 11;
-            this.label33.Text = "Italian: chemelli";
-            this.label33.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(275, 231);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(63, 13);
-            this.label34.TabIndex = 12;
-            this.label34.Text = "Dutch: Zinu";
-            this.label34.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(275, 269);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(92, 13);
-            this.label35.TabIndex = 13;
-            this.label35.Text = "Spanish: bodiroga";
-            this.label35.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Location = new System.Drawing.Point(12, 425);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(580, 3);
-            this.groupBox3.TabIndex = 14;
-            this.groupBox3.TabStop = false;
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(12, 431);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(102, 13);
-            this.label36.TabIndex = 15;
-            this.label36.Text = "Help ressources:";
-            // 
-            // llblAboutCodeplex
-            // 
-            this.llblAboutCodeplex.AutoSize = true;
-            this.llblAboutCodeplex.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.llblAboutCodeplex.Location = new System.Drawing.Point(12, 454);
-            this.llblAboutCodeplex.Name = "llblAboutCodeplex";
-            this.llblAboutCodeplex.Size = new System.Drawing.Size(143, 13);
-            this.llblAboutCodeplex.TabIndex = 16;
-            this.llblAboutCodeplex.TabStop = true;
-            this.llblAboutCodeplex.Text = "InfoService Codeplex project";
-            this.llblAboutCodeplex.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblAboutCodeplex_LinkClicked);
-            // 
-            // llblAboutManual
-            // 
-            this.llblAboutManual.AutoSize = true;
-            this.llblAboutManual.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.llblAboutManual.Location = new System.Drawing.Point(12, 476);
-            this.llblAboutManual.Name = "llblAboutManual";
-            this.llblAboutManual.Size = new System.Drawing.Size(249, 13);
-            this.llblAboutManual.TabIndex = 17;
-            this.llblAboutManual.TabStop = true;
-            this.llblAboutManual.Text = "InfoService User/Developer/Skin Designer Manual";
-            this.llblAboutManual.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblAboutManual_LinkClicked);
-            // 
-            // llblAboutForum
-            // 
-            this.llblAboutForum.AutoSize = true;
-            this.llblAboutForum.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.llblAboutForum.Location = new System.Drawing.Point(12, 500);
-            this.llblAboutForum.Name = "llblAboutForum";
-            this.llblAboutForum.Size = new System.Drawing.Size(182, 13);
-            this.llblAboutForum.TabIndex = 18;
-            this.llblAboutForum.TabStop = true;
-            this.llblAboutForum.Text = "InfoService MediaPortal forum thread";
-            this.llblAboutForum.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblAboutForum_LinkClicked);
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(9, 139);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(51, 13);
-            this.label17.TabIndex = 19;
-            this.label17.Text = "Images:";
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(275, 139);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(42, 13);
-            this.label37.TabIndex = 20;
-            this.label37.Tag = "";
-            this.label37.Text = "edsche";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(9, 166);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(42, 13);
-            this.label38.TabIndex = 21;
-            this.label38.Text = "Icons:";
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(275, 288);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(84, 13);
+            this.label21.TabIndex = 23;
+            this.label21.Text = "Danish: 1stdead";
+            this.label21.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // llblFamFamFam
             // 
@@ -1373,81 +1226,207 @@
             this.llblFamFamFam.Text = "FamFamFam";
             this.llblFamFamFam.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblFamFamFam_LinkClicked);
             // 
-            // label21
+            // label38
             // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(275, 288);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(84, 13);
-            this.label21.TabIndex = 23;
-            this.label21.Text = "Danish: 1stdead";
-            this.label21.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(9, 166);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(42, 13);
+            this.label38.TabIndex = 21;
+            this.label38.Text = "Icons:";
             // 
-            // label39
+            // label37
             // 
-            this.label39.AutoSize = true;
-            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.Location = new System.Drawing.Point(275, 307);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(78, 13);
-            this.label39.TabIndex = 24;
-            this.label39.Text = "French: framug";
-            this.label39.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.Location = new System.Drawing.Point(275, 139);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(42, 13);
+            this.label37.TabIndex = 20;
+            this.label37.Tag = "";
+            this.label37.Text = "edsche";
             // 
-            // label1
+            // label17
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(275, 326);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 13);
-            this.label1.TabIndex = 25;
-            this.label1.Text = "Polish: amilewski";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(9, 139);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(51, 13);
+            this.label17.TabIndex = 19;
+            this.label17.Text = "Images:";
             // 
-            // label4
+            // llblAboutForum
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(275, 345);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(73, 13);
-            this.label4.TabIndex = 26;
-            this.label4.Text = "Greek: elapse";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.llblAboutForum.AutoSize = true;
+            this.llblAboutForum.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.llblAboutForum.Location = new System.Drawing.Point(12, 500);
+            this.llblAboutForum.Name = "llblAboutForum";
+            this.llblAboutForum.Size = new System.Drawing.Size(182, 13);
+            this.llblAboutForum.TabIndex = 18;
+            this.llblAboutForum.TabStop = true;
+            this.llblAboutForum.Text = "InfoService MediaPortal forum thread";
+            this.llblAboutForum.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblAboutForum_LinkClicked);
             // 
-            // label5
+            // llblAboutManual
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(275, 364);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(94, 13);
-            this.label5.TabIndex = 27;
-            this.label5.Text = "Norwegian: ronilse";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.llblAboutManual.AutoSize = true;
+            this.llblAboutManual.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.llblAboutManual.Location = new System.Drawing.Point(12, 476);
+            this.llblAboutManual.Name = "llblAboutManual";
+            this.llblAboutManual.Size = new System.Drawing.Size(249, 13);
+            this.llblAboutManual.TabIndex = 17;
+            this.llblAboutManual.TabStop = true;
+            this.llblAboutManual.Text = "InfoService User/Developer/Skin Designer Manual";
+            this.llblAboutManual.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblAboutManual_LinkClicked);
             // 
-            // label6
+            // llblAboutCodeplex
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(275, 383);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 13);
-            this.label6.TabIndex = 28;
-            this.label6.Text = "Czech: homer.web";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.llblAboutCodeplex.AutoSize = true;
+            this.llblAboutCodeplex.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.llblAboutCodeplex.Location = new System.Drawing.Point(12, 454);
+            this.llblAboutCodeplex.Name = "llblAboutCodeplex";
+            this.llblAboutCodeplex.Size = new System.Drawing.Size(143, 13);
+            this.llblAboutCodeplex.TabIndex = 16;
+            this.llblAboutCodeplex.TabStop = true;
+            this.llblAboutCodeplex.Text = "InfoService Codeplex project";
+            this.llblAboutCodeplex.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblAboutCodeplex_LinkClicked);
             // 
-            // pictureBox1
+            // label36
             // 
-            this.pictureBox1.Image = global::InfoService.Properties.Resources.InfoService_head;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(603, 104);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 20;
-            this.pictureBox1.TabStop = false;
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(12, 431);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(102, 13);
+            this.label36.TabIndex = 15;
+            this.label36.Text = "Help ressources:";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Location = new System.Drawing.Point(12, 425);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(580, 3);
+            this.groupBox3.TabIndex = 14;
+            this.groupBox3.TabStop = false;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.Location = new System.Drawing.Point(275, 269);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(92, 13);
+            this.label35.TabIndex = 13;
+            this.label35.Text = "Spanish: bodiroga";
+            this.label35.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.Location = new System.Drawing.Point(275, 231);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(63, 13);
+            this.label34.TabIndex = 12;
+            this.label34.Text = "Dutch: Zinu";
+            this.label34.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.Location = new System.Drawing.Point(275, 250);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(79, 13);
+            this.label33.TabIndex = 11;
+            this.label33.Text = "Italian: chemelli";
+            this.label33.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Location = new System.Drawing.Point(275, 193);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(82, 13);
+            this.label32.TabIndex = 10;
+            this.label32.Text = "English: edsche";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(275, 212);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(85, 13);
+            this.label31.TabIndex = 9;
+            this.label31.Text = "German: edsche";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(275, 112);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(80, 13);
+            this.label30.TabIndex = 8;
+            this.label30.Text = "SilentException";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(275, 85);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(42, 13);
+            this.label29.TabIndex = 7;
+            this.label29.Tag = "";
+            this.label29.Text = "edsche";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(9, 193);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(73, 13);
+            this.label28.TabIndex = 6;
+            this.label28.Text = "Languages:";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(9, 112);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(85, 13);
+            this.label27.TabIndex = 5;
+            this.label27.Text = "Development:";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(9, 85);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(226, 13);
+            this.label26.TabIndex = 4;
+            this.label26.Text = "Project coordination and development:";
+            // 
+            // label25
+            // 
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(9, 16);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(588, 46);
+            this.label25.TabIndex = 3;
+            this.label25.Text = resources.GetString("label25.Text");
+            // 
+            // lblProductVersion
+            // 
+            this.lblProductVersion.AutoSize = true;
+            this.lblProductVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProductVersion.Location = new System.Drawing.Point(521, 113);
+            this.lblProductVersion.Name = "lblProductVersion";
+            this.lblProductVersion.Size = new System.Drawing.Size(53, 13);
+            this.lblProductVersion.TabIndex = 1;
+            this.lblProductVersion.Text = "v1.x.x.xxx";
             // 
             // pgRSS
             // 
@@ -1467,6 +1446,457 @@
             this.pgRSS.Text = "Feeds";
             this.pgRSS.UseVisualStyleBackColor = true;
             // 
+            // labelSkinSettingsFeeds
+            // 
+            this.labelSkinSettingsFeeds.ForeColor = System.Drawing.Color.DarkRed;
+            this.labelSkinSettingsFeeds.Location = new System.Drawing.Point(362, 3);
+            this.labelSkinSettingsFeeds.Name = "labelSkinSettingsFeeds";
+            this.labelSkinSettingsFeeds.Size = new System.Drawing.Size(219, 30);
+            this.labelSkinSettingsFeeds.TabIndex = 15;
+            this.labelSkinSettingsFeeds.Text = "* Skin settings will override marked fields while MediaPortal is running!";
+            this.labelSkinSettingsFeeds.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btnFeedHelp
+            // 
+            this.btnFeedHelp.Cursor = System.Windows.Forms.Cursors.Help;
+            this.btnFeedHelp.ImageIndex = 14;
+            this.btnFeedHelp.ImageList = this.imgList;
+            this.btnFeedHelp.Location = new System.Drawing.Point(585, 6);
+            this.btnFeedHelp.Name = "btnFeedHelp";
+            this.btnFeedHelp.Size = new System.Drawing.Size(24, 24);
+            this.btnFeedHelp.TabIndex = 14;
+            this.btnFeedHelp.TabStop = false;
+            this.btnFeedHelp.UseVisualStyleBackColor = true;
+            this.btnFeedHelp.Click += new System.EventHandler(this.btnFeedHelp_Click);
+            // 
+            // gbFeedLayout
+            // 
+            this.gbFeedLayout.Controls.Add(this.rbBothAllFeeds);
+            this.gbFeedLayout.Controls.Add(this.rbFeedNameAllFeeds);
+            this.gbFeedLayout.Controls.Add(this.rbItemPublishTimeAllFeeds);
+            this.gbFeedLayout.Controls.Add(this.cbFeedShowItemPublishTime);
+            this.gbFeedLayout.Controls.Add(this.laFeedItems);
+            this.gbFeedLayout.Controls.Add(this.txtFeedItems);
+            this.gbFeedLayout.Controls.Add(this.txtFeedItemsPerFeed);
+            this.gbFeedLayout.Controls.Add(this.laFeedItemsPerFeed);
+            this.gbFeedLayout.Enabled = false;
+            this.gbFeedLayout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbFeedLayout.Location = new System.Drawing.Point(358, 280);
+            this.gbFeedLayout.Name = "gbFeedLayout";
+            this.gbFeedLayout.Size = new System.Drawing.Size(251, 223);
+            this.gbFeedLayout.TabIndex = 3;
+            this.gbFeedLayout.TabStop = false;
+            this.gbFeedLayout.Text = "Layout";
+            // 
+            // rbBothAllFeeds
+            // 
+            this.rbBothAllFeeds.AutoSize = true;
+            this.rbBothAllFeeds.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbBothAllFeeds.Location = new System.Drawing.Point(25, 88);
+            this.rbBothAllFeeds.Name = "rbBothAllFeeds";
+            this.rbBothAllFeeds.Size = new System.Drawing.Size(147, 17);
+            this.rbBothAllFeeds.TabIndex = 3;
+            this.rbBothAllFeeds.Text = "Show both on \"All Feeds\"";
+            this.rbBothAllFeeds.UseVisualStyleBackColor = true;
+            this.rbBothAllFeeds.CheckedChanged += new System.EventHandler(this.SkinSettingsControlChanged);
+            this.rbBothAllFeeds.EnabledChanged += new System.EventHandler(this.SkinSettingsControlEnabledChanged);
+            // 
+            // rbFeedNameAllFeeds
+            // 
+            this.rbFeedNameAllFeeds.AutoSize = true;
+            this.rbFeedNameAllFeeds.Checked = true;
+            this.rbFeedNameAllFeeds.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbFeedNameAllFeeds.Location = new System.Drawing.Point(25, 65);
+            this.rbFeedNameAllFeeds.Name = "rbFeedNameAllFeeds";
+            this.rbFeedNameAllFeeds.Size = new System.Drawing.Size(211, 17);
+            this.rbFeedNameAllFeeds.TabIndex = 2;
+            this.rbFeedNameAllFeeds.TabStop = true;
+            this.rbFeedNameAllFeeds.Text = "Show source feed name on \"All Feeds\"";
+            this.rbFeedNameAllFeeds.UseVisualStyleBackColor = true;
+            this.rbFeedNameAllFeeds.CheckedChanged += new System.EventHandler(this.SkinSettingsControlChanged);
+            this.rbFeedNameAllFeeds.EnabledChanged += new System.EventHandler(this.SkinSettingsControlEnabledChanged);
+            // 
+            // rbItemPublishTimeAllFeeds
+            // 
+            this.rbItemPublishTimeAllFeeds.AutoSize = true;
+            this.rbItemPublishTimeAllFeeds.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbItemPublishTimeAllFeeds.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.rbItemPublishTimeAllFeeds.Location = new System.Drawing.Point(25, 42);
+            this.rbItemPublishTimeAllFeeds.Name = "rbItemPublishTimeAllFeeds";
+            this.rbItemPublishTimeAllFeeds.Size = new System.Drawing.Size(203, 17);
+            this.rbItemPublishTimeAllFeeds.TabIndex = 1;
+            this.rbItemPublishTimeAllFeeds.Text = "Show item publish time on \"All Feeds\"";
+            this.rbItemPublishTimeAllFeeds.UseVisualStyleBackColor = true;
+            this.rbItemPublishTimeAllFeeds.CheckedChanged += new System.EventHandler(this.SkinSettingsControlChanged);
+            this.rbItemPublishTimeAllFeeds.EnabledChanged += new System.EventHandler(this.SkinSettingsControlEnabledChanged);
+            // 
+            // cbFeedShowItemPublishTime
+            // 
+            this.cbFeedShowItemPublishTime.AutoSize = true;
+            this.cbFeedShowItemPublishTime.Checked = true;
+            this.cbFeedShowItemPublishTime.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbFeedShowItemPublishTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbFeedShowItemPublishTime.Location = new System.Drawing.Point(10, 19);
+            this.cbFeedShowItemPublishTime.Name = "cbFeedShowItemPublishTime";
+            this.cbFeedShowItemPublishTime.Size = new System.Drawing.Size(184, 17);
+            this.cbFeedShowItemPublishTime.TabIndex = 0;
+            this.cbFeedShowItemPublishTime.Text = "Show additional feed informations";
+            this.cbFeedShowItemPublishTime.UseVisualStyleBackColor = true;
+            this.cbFeedShowItemPublishTime.CheckedChanged += new System.EventHandler(this.cbFeedShowItemPublishTime_CheckedChanged);
+            this.cbFeedShowItemPublishTime.EnabledChanged += new System.EventHandler(this.SkinSettingsControlEnabledChanged);
+            // 
+            // laFeedItems
+            // 
+            this.laFeedItems.AutoSize = true;
+            this.laFeedItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.laFeedItems.Location = new System.Drawing.Point(7, 145);
+            this.laFeedItems.Name = "laFeedItems";
+            this.laFeedItems.Size = new System.Drawing.Size(125, 13);
+            this.laFeedItems.TabIndex = 6;
+            this.laFeedItems.Text = "Max items for feed ticker:";
+            this.laFeedItems.EnabledChanged += new System.EventHandler(this.SkinSettingsControlEnabledChanged);
+            // 
+            // txtFeedItems
+            // 
+            this.txtFeedItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFeedItems.Location = new System.Drawing.Point(181, 142);
+            this.txtFeedItems.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtFeedItems.Name = "txtFeedItems";
+            this.txtFeedItems.Size = new System.Drawing.Size(45, 20);
+            this.txtFeedItems.TabIndex = 7;
+            this.txtFeedItems.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.txtFeedItems.ValueChanged += new System.EventHandler(this.SkinSettingsControlChanged);
+            // 
+            // txtFeedItemsPerFeed
+            // 
+            this.txtFeedItemsPerFeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFeedItemsPerFeed.Location = new System.Drawing.Point(181, 116);
+            this.txtFeedItemsPerFeed.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtFeedItemsPerFeed.Name = "txtFeedItemsPerFeed";
+            this.txtFeedItemsPerFeed.Size = new System.Drawing.Size(45, 20);
+            this.txtFeedItemsPerFeed.TabIndex = 5;
+            this.txtFeedItemsPerFeed.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.txtFeedItemsPerFeed.ValueChanged += new System.EventHandler(this.SkinSettingsControlChanged);
+            // 
+            // laFeedItemsPerFeed
+            // 
+            this.laFeedItemsPerFeed.AutoSize = true;
+            this.laFeedItemsPerFeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.laFeedItemsPerFeed.Location = new System.Drawing.Point(7, 119);
+            this.laFeedItemsPerFeed.Name = "laFeedItemsPerFeed";
+            this.laFeedItemsPerFeed.Size = new System.Drawing.Size(170, 13);
+            this.laFeedItemsPerFeed.TabIndex = 4;
+            this.laFeedItemsPerFeed.Text = "Max items per feed for \"All Feeds\":";
+            this.laFeedItemsPerFeed.EnabledChanged += new System.EventHandler(this.SkinSettingsControlEnabledChanged);
+            // 
+            // gbFeedTickerLayout
+            // 
+            this.gbFeedTickerLayout.Controls.Add(this.laFeedAllSeparator);
+            this.gbFeedTickerLayout.Controls.Add(this.txtFeedAllSeparator);
+            this.gbFeedTickerLayout.Controls.Add(this.txtFeedTickerAllLayout);
+            this.gbFeedTickerLayout.Controls.Add(this.laFeedTickerAllLayout);
+            this.gbFeedTickerLayout.Controls.Add(this.txtFeedTickerLayout);
+            this.gbFeedTickerLayout.Controls.Add(this.laFeedTickerLayout);
+            this.gbFeedTickerLayout.Controls.Add(this.mlFeedTickerExample);
+            this.gbFeedTickerLayout.Controls.Add(this.laFeedSeparator);
+            this.gbFeedTickerLayout.Controls.Add(this.txtFeedSeparator);
+            this.gbFeedTickerLayout.Controls.Add(this.label16);
+            this.gbFeedTickerLayout.Controls.Add(this.label3);
+            this.gbFeedTickerLayout.Enabled = false;
+            this.gbFeedTickerLayout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbFeedTickerLayout.Location = new System.Drawing.Point(6, 509);
+            this.gbFeedTickerLayout.Name = "gbFeedTickerLayout";
+            this.gbFeedTickerLayout.Size = new System.Drawing.Size(603, 144);
+            this.gbFeedTickerLayout.TabIndex = 3;
+            this.gbFeedTickerLayout.TabStop = false;
+            this.gbFeedTickerLayout.Text = "Ticker layout";
+            // 
+            // laFeedAllSeparator
+            // 
+            this.laFeedAllSeparator.AutoSize = true;
+            this.laFeedAllSeparator.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.laFeedAllSeparator.Location = new System.Drawing.Point(304, 68);
+            this.laFeedAllSeparator.Name = "laFeedAllSeparator";
+            this.laFeedAllSeparator.Size = new System.Drawing.Size(56, 13);
+            this.laFeedAllSeparator.TabIndex = 10;
+            this.laFeedAllSeparator.Text = "Separator:";
+            // 
+            // txtFeedAllSeparator
+            // 
+            this.txtFeedAllSeparator.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFeedAllSeparator.Location = new System.Drawing.Point(366, 65);
+            this.txtFeedAllSeparator.Name = "txtFeedAllSeparator";
+            this.txtFeedAllSeparator.Size = new System.Drawing.Size(31, 20);
+            this.txtFeedAllSeparator.TabIndex = 11;
+            this.txtFeedAllSeparator.Text = "+++";
+            this.txtFeedAllSeparator.TextChanged += new System.EventHandler(this.txtFeedAllSeparator_TextChanged);
+            this.txtFeedAllSeparator.Enter += new System.EventHandler(this.txtFeedAllSeparator_Enter);
+            this.txtFeedAllSeparator.Leave += new System.EventHandler(this.txtFeedAllSeparator_Leave);
+            // 
+            // laFeedTickerAllLayout
+            // 
+            this.laFeedTickerAllLayout.AutoSize = true;
+            this.laFeedTickerAllLayout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.laFeedTickerAllLayout.Location = new System.Drawing.Point(304, 23);
+            this.laFeedTickerAllLayout.Name = "laFeedTickerAllLayout";
+            this.laFeedTickerAllLayout.Size = new System.Drawing.Size(125, 13);
+            this.laFeedTickerAllLayout.TabIndex = 8;
+            this.laFeedTickerAllLayout.Text = "Ticker mask for all feeds:";
+            // 
+            // laFeedTickerLayout
+            // 
+            this.laFeedTickerLayout.AutoSize = true;
+            this.laFeedTickerLayout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.laFeedTickerLayout.Location = new System.Drawing.Point(7, 23);
+            this.laFeedTickerLayout.Name = "laFeedTickerLayout";
+            this.laFeedTickerLayout.Size = new System.Drawing.Size(68, 13);
+            this.laFeedTickerLayout.TabIndex = 0;
+            this.laFeedTickerLayout.Text = "Ticker mask:";
+            this.laFeedTickerLayout.EnabledChanged += new System.EventHandler(this.SkinSettingsControlEnabledChanged);
+            // 
+            // laFeedSeparator
+            // 
+            this.laFeedSeparator.AutoSize = true;
+            this.laFeedSeparator.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.laFeedSeparator.Location = new System.Drawing.Point(7, 68);
+            this.laFeedSeparator.Name = "laFeedSeparator";
+            this.laFeedSeparator.Size = new System.Drawing.Size(56, 13);
+            this.laFeedSeparator.TabIndex = 3;
+            this.laFeedSeparator.Text = "Separator:";
+            this.laFeedSeparator.EnabledChanged += new System.EventHandler(this.SkinSettingsControlEnabledChanged);
+            // 
+            // txtFeedSeparator
+            // 
+            this.txtFeedSeparator.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFeedSeparator.Location = new System.Drawing.Point(69, 65);
+            this.txtFeedSeparator.Name = "txtFeedSeparator";
+            this.txtFeedSeparator.Size = new System.Drawing.Size(31, 20);
+            this.txtFeedSeparator.TabIndex = 4;
+            this.txtFeedSeparator.Text = "+++";
+            this.txtFeedSeparator.TextChanged += new System.EventHandler(this.txtFeedSeparator_TextChanged);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Enabled = false;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label16.Location = new System.Drawing.Point(132, 87);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(333, 13);
+            this.label16.TabIndex = 2;
+            this.label16.Text = "Move your mouse over the textboxs to see the available placeholders";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(7, 116);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 13);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Preview:";
+            // 
+            // gbFeedGeneral
+            // 
+            this.gbFeedGeneral.Controls.Add(this.cbPopupWhileVideoPlaying);
+            this.gbFeedGeneral.Controls.Add(this.lblPopupTimeout);
+            this.gbFeedGeneral.Controls.Add(this.txtPopupTimeout);
+            this.gbFeedGeneral.Controls.Add(this.cbNewsPopup);
+            this.gbFeedGeneral.Controls.Add(this.cbFeedRandomFeedOnUpdate);
+            this.gbFeedGeneral.Controls.Add(this.rbFeedShowThisFeedOnStartup);
+            this.gbFeedGeneral.Controls.Add(this.rbFeedShowRandomFeedOnStartup);
+            this.gbFeedGeneral.Controls.Add(this.cbFeedUpdateOnStartup);
+            this.gbFeedGeneral.Controls.Add(this.cobFeedStartupFeed);
+            this.gbFeedGeneral.Controls.Add(this.txtFeedRefreshInt);
+            this.gbFeedGeneral.Controls.Add(this.laFeedRefresh);
+            this.gbFeedGeneral.Enabled = false;
+            this.gbFeedGeneral.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbFeedGeneral.Location = new System.Drawing.Point(6, 280);
+            this.gbFeedGeneral.Name = "gbFeedGeneral";
+            this.gbFeedGeneral.Size = new System.Drawing.Size(346, 223);
+            this.gbFeedGeneral.TabIndex = 2;
+            this.gbFeedGeneral.TabStop = false;
+            this.gbFeedGeneral.Text = "General";
+            // 
+            // cbPopupWhileVideoPlaying
+            // 
+            this.cbPopupWhileVideoPlaying.AutoSize = true;
+            this.cbPopupWhileVideoPlaying.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbPopupWhileVideoPlaying.Location = new System.Drawing.Point(31, 185);
+            this.cbPopupWhileVideoPlaying.Name = "cbPopupWhileVideoPlaying";
+            this.cbPopupWhileVideoPlaying.Size = new System.Drawing.Size(226, 17);
+            this.cbPopupWhileVideoPlaying.TabIndex = 10;
+            this.cbPopupWhileVideoPlaying.Text = "Show popup while playing fullscreen video";
+            this.cbPopupWhileVideoPlaying.UseVisualStyleBackColor = true;
+            // 
+            // lblPopupTimeout
+            // 
+            this.lblPopupTimeout.AutoSize = true;
+            this.lblPopupTimeout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPopupTimeout.Location = new System.Drawing.Point(28, 161);
+            this.lblPopupTimeout.Name = "lblPopupTimeout";
+            this.lblPopupTimeout.Size = new System.Drawing.Size(78, 13);
+            this.lblPopupTimeout.TabIndex = 9;
+            this.lblPopupTimeout.Text = "Popup timeout:";
+            // 
+            // txtPopupTimeout
+            // 
+            this.txtPopupTimeout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPopupTimeout.Location = new System.Drawing.Point(182, 159);
+            this.txtPopupTimeout.Maximum = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
+            this.txtPopupTimeout.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtPopupTimeout.Name = "txtPopupTimeout";
+            this.txtPopupTimeout.Size = new System.Drawing.Size(50, 20);
+            this.txtPopupTimeout.TabIndex = 8;
+            this.txtPopupTimeout.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // cbNewsPopup
+            // 
+            this.cbNewsPopup.AutoSize = true;
+            this.cbNewsPopup.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbNewsPopup.Location = new System.Drawing.Point(10, 136);
+            this.cbNewsPopup.Name = "cbNewsPopup";
+            this.cbNewsPopup.Size = new System.Drawing.Size(184, 17);
+            this.cbNewsPopup.TabIndex = 7;
+            this.cbNewsPopup.Text = "Show a popup on new feed items";
+            this.cbNewsPopup.UseVisualStyleBackColor = true;
+            this.cbNewsPopup.CheckedChanged += new System.EventHandler(this.cbNewsPopup_CheckedChanged);
+            // 
+            // cbFeedRandomFeedOnUpdate
+            // 
+            this.cbFeedRandomFeedOnUpdate.AutoSize = true;
+            this.cbFeedRandomFeedOnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbFeedRandomFeedOnUpdate.Location = new System.Drawing.Point(10, 113);
+            this.cbFeedRandomFeedOnUpdate.Name = "cbFeedRandomFeedOnUpdate";
+            this.cbFeedRandomFeedOnUpdate.Size = new System.Drawing.Size(175, 17);
+            this.cbFeedRandomFeedOnUpdate.TabIndex = 6;
+            this.cbFeedRandomFeedOnUpdate.Text = "Show a random feed on update";
+            this.cbFeedRandomFeedOnUpdate.UseVisualStyleBackColor = true;
+            // 
+            // rbFeedShowThisFeedOnStartup
+            // 
+            this.rbFeedShowThisFeedOnStartup.AutoSize = true;
+            this.rbFeedShowThisFeedOnStartup.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbFeedShowThisFeedOnStartup.Location = new System.Drawing.Point(10, 67);
+            this.rbFeedShowThisFeedOnStartup.Name = "rbFeedShowThisFeedOnStartup";
+            this.rbFeedShowThisFeedOnStartup.Size = new System.Drawing.Size(148, 17);
+            this.rbFeedShowThisFeedOnStartup.TabIndex = 3;
+            this.rbFeedShowThisFeedOnStartup.Text = "Show this feed on startup:";
+            this.rbFeedShowThisFeedOnStartup.UseVisualStyleBackColor = true;
+            this.rbFeedShowThisFeedOnStartup.CheckedChanged += new System.EventHandler(this.rbFeedShowThisFeedOnStartup_CheckedChanged);
+            // 
+            // rbFeedShowRandomFeedOnStartup
+            // 
+            this.rbFeedShowRandomFeedOnStartup.AutoSize = true;
+            this.rbFeedShowRandomFeedOnStartup.Checked = true;
+            this.rbFeedShowRandomFeedOnStartup.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbFeedShowRandomFeedOnStartup.Location = new System.Drawing.Point(10, 90);
+            this.rbFeedShowRandomFeedOnStartup.Name = "rbFeedShowRandomFeedOnStartup";
+            this.rbFeedShowRandomFeedOnStartup.Size = new System.Drawing.Size(173, 17);
+            this.rbFeedShowRandomFeedOnStartup.TabIndex = 5;
+            this.rbFeedShowRandomFeedOnStartup.TabStop = true;
+            this.rbFeedShowRandomFeedOnStartup.Text = "Show a random feed on startup";
+            this.rbFeedShowRandomFeedOnStartup.UseVisualStyleBackColor = true;
+            this.rbFeedShowRandomFeedOnStartup.CheckedChanged += new System.EventHandler(this.rbFeedShowRandomFeedOnStartup_CheckedChanged);
+            // 
+            // cbFeedUpdateOnStartup
+            // 
+            this.cbFeedUpdateOnStartup.AutoSize = true;
+            this.cbFeedUpdateOnStartup.Checked = true;
+            this.cbFeedUpdateOnStartup.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbFeedUpdateOnStartup.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbFeedUpdateOnStartup.Location = new System.Drawing.Point(10, 44);
+            this.cbFeedUpdateOnStartup.Name = "cbFeedUpdateOnStartup";
+            this.cbFeedUpdateOnStartup.Size = new System.Drawing.Size(170, 17);
+            this.cbFeedUpdateOnStartup.TabIndex = 2;
+            this.cbFeedUpdateOnStartup.Text = "Update on MediaPortal startup";
+            this.cbFeedUpdateOnStartup.UseVisualStyleBackColor = true;
+            // 
+            // cobFeedStartupFeed
+            // 
+            this.cobFeedStartupFeed.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cobFeedStartupFeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cobFeedStartupFeed.FormattingEnabled = true;
+            this.cobFeedStartupFeed.Location = new System.Drawing.Point(187, 66);
+            this.cobFeedStartupFeed.Name = "cobFeedStartupFeed";
+            this.cobFeedStartupFeed.Size = new System.Drawing.Size(139, 21);
+            this.cobFeedStartupFeed.TabIndex = 4;
+            // 
+            // txtFeedRefreshInt
+            // 
+            this.txtFeedRefreshInt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFeedRefreshInt.Location = new System.Drawing.Point(187, 18);
+            this.txtFeedRefreshInt.Maximum = new decimal(new int[] {
+            2880,
+            0,
+            0,
+            0});
+            this.txtFeedRefreshInt.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtFeedRefreshInt.Name = "txtFeedRefreshInt";
+            this.txtFeedRefreshInt.Size = new System.Drawing.Size(45, 20);
+            this.txtFeedRefreshInt.TabIndex = 1;
+            this.txtFeedRefreshInt.Value = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            this.txtFeedRefreshInt.ValueChanged += new System.EventHandler(this.SkinSettingsControlChanged);
+            // 
+            // laFeedRefresh
+            // 
+            this.laFeedRefresh.AutoSize = true;
+            this.laFeedRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.laFeedRefresh.Location = new System.Drawing.Point(7, 21);
+            this.laFeedRefresh.Name = "laFeedRefresh";
+            this.laFeedRefresh.Size = new System.Drawing.Size(125, 13);
+            this.laFeedRefresh.TabIndex = 0;
+            this.laFeedRefresh.Text = "Refresh feed every (min):";
+            this.laFeedRefresh.EnabledChanged += new System.EventHandler(this.SkinSettingsControlEnabledChanged);
+            // 
+            // cbFeedEnabled
+            // 
+            this.cbFeedEnabled.AutoSize = true;
+            this.cbFeedEnabled.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbFeedEnabled.Location = new System.Drawing.Point(6, 7);
+            this.cbFeedEnabled.Name = "cbFeedEnabled";
+            this.cbFeedEnabled.Size = new System.Drawing.Size(124, 17);
+            this.cbFeedEnabled.TabIndex = 0;
+            this.cbFeedEnabled.Text = "Feed Ticker enabled";
+            this.cbFeedEnabled.UseVisualStyleBackColor = true;
+            this.cbFeedEnabled.CheckedChanged += new System.EventHandler(this.cbFeedEnabled_CheckedChanged);
+            // 
             // gbFeedConf
             // 
             this.gbFeedConf.Controls.Add(this.btnAddMultiple);
@@ -1485,49 +1915,45 @@
             this.gbFeedConf.TabStop = false;
             this.gbFeedConf.Text = "Feeds";
             // 
-            // btnAdd
+            // btnAddMultiple
             // 
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.ImageKey = "add.png";
-            this.btnAdd.ImageList = this.imgList;
-            this.btnAdd.Location = new System.Drawing.Point(10, 215);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(65, 23);
-            this.btnAdd.TabIndex = 1;
-            this.btnAdd.Text = "&Add..";
-            this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.btnAddMultiple.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddMultiple.ImageKey = "newspaper_add.png";
+            this.btnAddMultiple.ImageList = this.imgList;
+            this.btnAddMultiple.Location = new System.Drawing.Point(81, 215);
+            this.btnAddMultiple.Name = "btnAddMultiple";
+            this.btnAddMultiple.Size = new System.Drawing.Size(133, 23);
+            this.btnAddMultiple.TabIndex = 7;
+            this.btnAddMultiple.Text = "&Add multiple feeds..";
+            this.btnAddMultiple.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAddMultiple.UseVisualStyleBackColor = true;
+            this.btnAddMultiple.Click += new System.EventHandler(this.btnAddMultiple_Click);
             // 
-            // btnEdit
+            // btnDown
             // 
-            this.btnEdit.Enabled = false;
-            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.ImageKey = "pencil.png";
-            this.btnEdit.ImageList = this.imgList;
-            this.btnEdit.Location = new System.Drawing.Point(220, 215);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(63, 23);
-            this.btnEdit.TabIndex = 2;
-            this.btnEdit.Text = "&Edit..";
-            this.btnEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            this.btnDown.Enabled = false;
+            this.btnDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDown.ImageKey = "arrow_down.png";
+            this.btnDown.ImageList = this.imgList;
+            this.btnDown.Location = new System.Drawing.Point(569, 126);
+            this.btnDown.Name = "btnDown";
+            this.btnDown.Size = new System.Drawing.Size(28, 23);
+            this.btnDown.TabIndex = 6;
+            this.btnDown.UseVisualStyleBackColor = true;
+            this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
             // 
-            // btnRem
+            // btnUp
             // 
-            this.btnRem.Enabled = false;
-            this.btnRem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRem.ImageKey = "delete.png";
-            this.btnRem.ImageList = this.imgList;
-            this.btnRem.Location = new System.Drawing.Point(481, 215);
-            this.btnRem.Name = "btnRem";
-            this.btnRem.Size = new System.Drawing.Size(82, 23);
-            this.btnRem.TabIndex = 3;
-            this.btnRem.Text = "&Remove..";
-            this.btnRem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnRem.UseVisualStyleBackColor = true;
-            this.btnRem.Click += new System.EventHandler(this.btnRem_Click);
+            this.btnUp.Enabled = false;
+            this.btnUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUp.ImageKey = "arrow_up.png";
+            this.btnUp.ImageList = this.imgList;
+            this.btnUp.Location = new System.Drawing.Point(569, 97);
+            this.btnUp.Name = "btnUp";
+            this.btnUp.Size = new System.Drawing.Size(28, 23);
+            this.btnUp.TabIndex = 5;
+            this.btnUp.UseVisualStyleBackColor = true;
+            this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
             // 
             // lvFeeds
             // 
@@ -1560,520 +1986,49 @@
             this.columnHeader2.Text = "Feed URL/Path";
             this.columnHeader2.Width = 274;
             // 
-            // btnUp
-            // 
-            this.btnUp.Enabled = false;
-            this.btnUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUp.ImageKey = "arrow_up.png";
-            this.btnUp.ImageList = this.imgList;
-            this.btnUp.Location = new System.Drawing.Point(569, 97);
-            this.btnUp.Name = "btnUp";
-            this.btnUp.Size = new System.Drawing.Size(28, 23);
-            this.btnUp.TabIndex = 5;
-            this.btnUp.UseVisualStyleBackColor = true;
-            this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
-            // 
-            // btnDown
-            // 
-            this.btnDown.Enabled = false;
-            this.btnDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDown.ImageKey = "arrow_down.png";
-            this.btnDown.ImageList = this.imgList;
-            this.btnDown.Location = new System.Drawing.Point(569, 126);
-            this.btnDown.Name = "btnDown";
-            this.btnDown.Size = new System.Drawing.Size(28, 23);
-            this.btnDown.TabIndex = 6;
-            this.btnDown.UseVisualStyleBackColor = true;
-            this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
-            // 
-            // btnAddMultiple
-            // 
-            this.btnAddMultiple.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddMultiple.ImageKey = "newspaper_add.png";
-            this.btnAddMultiple.ImageList = this.imgList;
-            this.btnAddMultiple.Location = new System.Drawing.Point(81, 215);
-            this.btnAddMultiple.Name = "btnAddMultiple";
-            this.btnAddMultiple.Size = new System.Drawing.Size(133, 23);
-            this.btnAddMultiple.TabIndex = 7;
-            this.btnAddMultiple.Text = "&Add multiple feeds..";
-            this.btnAddMultiple.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAddMultiple.UseVisualStyleBackColor = true;
-            this.btnAddMultiple.Click += new System.EventHandler(this.btnAddMultiple_Click);
-            // 
-            // cbFeedEnabled
-            // 
-            this.cbFeedEnabled.AutoSize = true;
-            this.cbFeedEnabled.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbFeedEnabled.Location = new System.Drawing.Point(6, 7);
-            this.cbFeedEnabled.Name = "cbFeedEnabled";
-            this.cbFeedEnabled.Size = new System.Drawing.Size(124, 17);
-            this.cbFeedEnabled.TabIndex = 0;
-            this.cbFeedEnabled.Text = "Feed Ticker enabled";
-            this.cbFeedEnabled.UseVisualStyleBackColor = true;
-            this.cbFeedEnabled.CheckedChanged += new System.EventHandler(this.cbFeedEnabled_CheckedChanged);
-            // 
-            // gbFeedGeneral
-            // 
-            this.gbFeedGeneral.Controls.Add(this.cbPopupWhileVideoPlaying);
-            this.gbFeedGeneral.Controls.Add(this.lblPopupTimeout);
-            this.gbFeedGeneral.Controls.Add(this.txtPopupTimeout);
-            this.gbFeedGeneral.Controls.Add(this.cbNewsPopup);
-            this.gbFeedGeneral.Controls.Add(this.cbFeedRandomFeedOnUpdate);
-            this.gbFeedGeneral.Controls.Add(this.rbFeedShowThisFeedOnStartup);
-            this.gbFeedGeneral.Controls.Add(this.rbFeedShowRandomFeedOnStartup);
-            this.gbFeedGeneral.Controls.Add(this.cbFeedUpdateOnStartup);
-            this.gbFeedGeneral.Controls.Add(this.cobFeedStartupFeed);
-            this.gbFeedGeneral.Controls.Add(this.txtFeedRefreshInt);
-            this.gbFeedGeneral.Controls.Add(this.laFeedRefresh);
-            this.gbFeedGeneral.Enabled = false;
-            this.gbFeedGeneral.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbFeedGeneral.Location = new System.Drawing.Point(6, 280);
-            this.gbFeedGeneral.Name = "gbFeedGeneral";
-            this.gbFeedGeneral.Size = new System.Drawing.Size(346, 223);
-            this.gbFeedGeneral.TabIndex = 2;
-            this.gbFeedGeneral.TabStop = false;
-            this.gbFeedGeneral.Text = "General";
-            // 
-            // laFeedRefresh
-            // 
-            this.laFeedRefresh.AutoSize = true;
-            this.laFeedRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.laFeedRefresh.Location = new System.Drawing.Point(7, 21);
-            this.laFeedRefresh.Name = "laFeedRefresh";
-            this.laFeedRefresh.Size = new System.Drawing.Size(125, 13);
-            this.laFeedRefresh.TabIndex = 0;
-            this.laFeedRefresh.Text = "Refresh feed every (min):";
-            this.laFeedRefresh.EnabledChanged += new System.EventHandler(this.SkinSettingsControlEnabledChanged);
-            // 
-            // txtFeedRefreshInt
-            // 
-            this.txtFeedRefreshInt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFeedRefreshInt.Location = new System.Drawing.Point(187, 18);
-            this.txtFeedRefreshInt.Maximum = new decimal(new int[] {
-            2880,
-            0,
-            0,
-            0});
-            this.txtFeedRefreshInt.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.txtFeedRefreshInt.Name = "txtFeedRefreshInt";
-            this.txtFeedRefreshInt.Size = new System.Drawing.Size(45, 20);
-            this.txtFeedRefreshInt.TabIndex = 1;
-            this.txtFeedRefreshInt.Value = new decimal(new int[] {
-            30,
-            0,
-            0,
-            0});
-            this.txtFeedRefreshInt.ValueChanged += new System.EventHandler(this.SkinSettingsControlChanged);
-            // 
-            // cobFeedStartupFeed
-            // 
-            this.cobFeedStartupFeed.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cobFeedStartupFeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cobFeedStartupFeed.FormattingEnabled = true;
-            this.cobFeedStartupFeed.Location = new System.Drawing.Point(187, 66);
-            this.cobFeedStartupFeed.Name = "cobFeedStartupFeed";
-            this.cobFeedStartupFeed.Size = new System.Drawing.Size(139, 21);
-            this.cobFeedStartupFeed.TabIndex = 4;
-            // 
-            // cbFeedUpdateOnStartup
-            // 
-            this.cbFeedUpdateOnStartup.AutoSize = true;
-            this.cbFeedUpdateOnStartup.Checked = true;
-            this.cbFeedUpdateOnStartup.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbFeedUpdateOnStartup.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbFeedUpdateOnStartup.Location = new System.Drawing.Point(10, 44);
-            this.cbFeedUpdateOnStartup.Name = "cbFeedUpdateOnStartup";
-            this.cbFeedUpdateOnStartup.Size = new System.Drawing.Size(170, 17);
-            this.cbFeedUpdateOnStartup.TabIndex = 2;
-            this.cbFeedUpdateOnStartup.Text = "Update on MediaPortal startup";
-            this.cbFeedUpdateOnStartup.UseVisualStyleBackColor = true;
-            // 
-            // rbFeedShowRandomFeedOnStartup
-            // 
-            this.rbFeedShowRandomFeedOnStartup.AutoSize = true;
-            this.rbFeedShowRandomFeedOnStartup.Checked = true;
-            this.rbFeedShowRandomFeedOnStartup.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbFeedShowRandomFeedOnStartup.Location = new System.Drawing.Point(10, 90);
-            this.rbFeedShowRandomFeedOnStartup.Name = "rbFeedShowRandomFeedOnStartup";
-            this.rbFeedShowRandomFeedOnStartup.Size = new System.Drawing.Size(173, 17);
-            this.rbFeedShowRandomFeedOnStartup.TabIndex = 5;
-            this.rbFeedShowRandomFeedOnStartup.TabStop = true;
-            this.rbFeedShowRandomFeedOnStartup.Text = "Show a random feed on startup";
-            this.rbFeedShowRandomFeedOnStartup.UseVisualStyleBackColor = true;
-            this.rbFeedShowRandomFeedOnStartup.CheckedChanged += new System.EventHandler(this.rbFeedShowRandomFeedOnStartup_CheckedChanged);
-            // 
-            // rbFeedShowThisFeedOnStartup
-            // 
-            this.rbFeedShowThisFeedOnStartup.AutoSize = true;
-            this.rbFeedShowThisFeedOnStartup.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbFeedShowThisFeedOnStartup.Location = new System.Drawing.Point(10, 67);
-            this.rbFeedShowThisFeedOnStartup.Name = "rbFeedShowThisFeedOnStartup";
-            this.rbFeedShowThisFeedOnStartup.Size = new System.Drawing.Size(148, 17);
-            this.rbFeedShowThisFeedOnStartup.TabIndex = 3;
-            this.rbFeedShowThisFeedOnStartup.Text = "Show this feed on startup:";
-            this.rbFeedShowThisFeedOnStartup.UseVisualStyleBackColor = true;
-            this.rbFeedShowThisFeedOnStartup.CheckedChanged += new System.EventHandler(this.rbFeedShowThisFeedOnStartup_CheckedChanged);
-            // 
-            // cbFeedRandomFeedOnUpdate
-            // 
-            this.cbFeedRandomFeedOnUpdate.AutoSize = true;
-            this.cbFeedRandomFeedOnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbFeedRandomFeedOnUpdate.Location = new System.Drawing.Point(10, 113);
-            this.cbFeedRandomFeedOnUpdate.Name = "cbFeedRandomFeedOnUpdate";
-            this.cbFeedRandomFeedOnUpdate.Size = new System.Drawing.Size(175, 17);
-            this.cbFeedRandomFeedOnUpdate.TabIndex = 6;
-            this.cbFeedRandomFeedOnUpdate.Text = "Show a random feed on update";
-            this.cbFeedRandomFeedOnUpdate.UseVisualStyleBackColor = true;
-            // 
-            // cbNewsPopup
-            // 
-            this.cbNewsPopup.AutoSize = true;
-            this.cbNewsPopup.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbNewsPopup.Location = new System.Drawing.Point(10, 136);
-            this.cbNewsPopup.Name = "cbNewsPopup";
-            this.cbNewsPopup.Size = new System.Drawing.Size(184, 17);
-            this.cbNewsPopup.TabIndex = 7;
-            this.cbNewsPopup.Text = "Show a popup on new feed items";
-            this.cbNewsPopup.UseVisualStyleBackColor = true;
-            this.cbNewsPopup.CheckedChanged += new System.EventHandler(this.cbNewsPopup_CheckedChanged);
-            // 
-            // txtPopupTimeout
-            // 
-            this.txtPopupTimeout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPopupTimeout.Location = new System.Drawing.Point(182, 159);
-            this.txtPopupTimeout.Maximum = new decimal(new int[] {
-            60,
-            0,
-            0,
-            0});
-            this.txtPopupTimeout.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.txtPopupTimeout.Name = "txtPopupTimeout";
-            this.txtPopupTimeout.Size = new System.Drawing.Size(50, 20);
-            this.txtPopupTimeout.TabIndex = 8;
-            this.txtPopupTimeout.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            // 
-            // lblPopupTimeout
-            // 
-            this.lblPopupTimeout.AutoSize = true;
-            this.lblPopupTimeout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPopupTimeout.Location = new System.Drawing.Point(28, 161);
-            this.lblPopupTimeout.Name = "lblPopupTimeout";
-            this.lblPopupTimeout.Size = new System.Drawing.Size(78, 13);
-            this.lblPopupTimeout.TabIndex = 9;
-            this.lblPopupTimeout.Text = "Popup timeout:";
-            // 
-            // cbPopupWhileVideoPlaying
-            // 
-            this.cbPopupWhileVideoPlaying.AutoSize = true;
-            this.cbPopupWhileVideoPlaying.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbPopupWhileVideoPlaying.Location = new System.Drawing.Point(31, 185);
-            this.cbPopupWhileVideoPlaying.Name = "cbPopupWhileVideoPlaying";
-            this.cbPopupWhileVideoPlaying.Size = new System.Drawing.Size(226, 17);
-            this.cbPopupWhileVideoPlaying.TabIndex = 10;
-            this.cbPopupWhileVideoPlaying.Text = "Show popup while playing fullscreen video";
-            this.cbPopupWhileVideoPlaying.UseVisualStyleBackColor = true;
-            // 
-            // gbFeedTickerLayout
-            // 
-            this.gbFeedTickerLayout.Controls.Add(this.laFeedAllSeparator);
-            this.gbFeedTickerLayout.Controls.Add(this.txtFeedAllSeparator);
-            this.gbFeedTickerLayout.Controls.Add(this.txtFeedTickerAllLayout);
-            this.gbFeedTickerLayout.Controls.Add(this.laFeedTickerAllLayout);
-            this.gbFeedTickerLayout.Controls.Add(this.txtFeedTickerLayout);
-            this.gbFeedTickerLayout.Controls.Add(this.laFeedTickerLayout);
-            this.gbFeedTickerLayout.Controls.Add(this.mlFeedTickerExample);
-            this.gbFeedTickerLayout.Controls.Add(this.laFeedSeparator);
-            this.gbFeedTickerLayout.Controls.Add(this.txtFeedSeparator);
-            this.gbFeedTickerLayout.Controls.Add(this.label16);
-            this.gbFeedTickerLayout.Controls.Add(this.label3);
-            this.gbFeedTickerLayout.Enabled = false;
-            this.gbFeedTickerLayout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbFeedTickerLayout.Location = new System.Drawing.Point(6, 509);
-            this.gbFeedTickerLayout.Name = "gbFeedTickerLayout";
-            this.gbFeedTickerLayout.Size = new System.Drawing.Size(603, 144);
-            this.gbFeedTickerLayout.TabIndex = 3;
-            this.gbFeedTickerLayout.TabStop = false;
-            this.gbFeedTickerLayout.Text = "Ticker layout";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(7, 116);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 13);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Preview:";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Enabled = false;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label16.Location = new System.Drawing.Point(132, 87);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(333, 13);
-            this.label16.TabIndex = 2;
-            this.label16.Text = "Move your mouse over the textboxs to see the available placeholders";
-            // 
-            // txtFeedSeparator
-            // 
-            this.txtFeedSeparator.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFeedSeparator.Location = new System.Drawing.Point(69, 65);
-            this.txtFeedSeparator.Name = "txtFeedSeparator";
-            this.txtFeedSeparator.Size = new System.Drawing.Size(31, 20);
-            this.txtFeedSeparator.TabIndex = 4;
-            this.txtFeedSeparator.Text = "+++";
-            this.txtFeedSeparator.TextChanged += new System.EventHandler(this.txtFeedSeparator_TextChanged);
-            // 
-            // laFeedSeparator
-            // 
-            this.laFeedSeparator.AutoSize = true;
-            this.laFeedSeparator.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.laFeedSeparator.Location = new System.Drawing.Point(7, 68);
-            this.laFeedSeparator.Name = "laFeedSeparator";
-            this.laFeedSeparator.Size = new System.Drawing.Size(56, 13);
-            this.laFeedSeparator.TabIndex = 3;
-            this.laFeedSeparator.Text = "Separator:";
-            this.laFeedSeparator.EnabledChanged += new System.EventHandler(this.SkinSettingsControlEnabledChanged);
-            // 
-            // laFeedTickerLayout
-            // 
-            this.laFeedTickerLayout.AutoSize = true;
-            this.laFeedTickerLayout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.laFeedTickerLayout.Location = new System.Drawing.Point(7, 23);
-            this.laFeedTickerLayout.Name = "laFeedTickerLayout";
-            this.laFeedTickerLayout.Size = new System.Drawing.Size(68, 13);
-            this.laFeedTickerLayout.TabIndex = 0;
-            this.laFeedTickerLayout.Text = "Ticker mask:";
-            this.laFeedTickerLayout.EnabledChanged += new System.EventHandler(this.SkinSettingsControlEnabledChanged);
-            // 
-            // txtFeedTickerLayout
-            // 
-            this.txtFeedTickerLayout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFeedTickerLayout.Location = new System.Drawing.Point(10, 39);
-            this.txtFeedTickerLayout.Name = "txtFeedTickerLayout";
-            this.txtFeedTickerLayout.Size = new System.Drawing.Size(291, 20);
-            this.txtFeedTickerLayout.TabIndex = 1;
-            this.txtFeedTickerLayout.Text = "%itemtitle%";
-            this.ttFeedHelp.SetToolTip(this.txtFeedTickerLayout, resources.GetString("txtFeedTickerLayout.ToolTip"));
-            this.txtFeedTickerLayout.TextChanged += new System.EventHandler(this.txtFeedTickerLayout_TextChanged);
-            // 
-            // laFeedTickerAllLayout
-            // 
-            this.laFeedTickerAllLayout.AutoSize = true;
-            this.laFeedTickerAllLayout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.laFeedTickerAllLayout.Location = new System.Drawing.Point(304, 23);
-            this.laFeedTickerAllLayout.Name = "laFeedTickerAllLayout";
-            this.laFeedTickerAllLayout.Size = new System.Drawing.Size(125, 13);
-            this.laFeedTickerAllLayout.TabIndex = 8;
-            this.laFeedTickerAllLayout.Text = "Ticker mask for all feeds:";
-            // 
-            // txtFeedTickerAllLayout
-            // 
-            this.txtFeedTickerAllLayout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFeedTickerAllLayout.Location = new System.Drawing.Point(307, 39);
-            this.txtFeedTickerAllLayout.Name = "txtFeedTickerAllLayout";
-            this.txtFeedTickerAllLayout.Size = new System.Drawing.Size(290, 20);
-            this.txtFeedTickerAllLayout.TabIndex = 9;
-            this.txtFeedTickerAllLayout.Text = "%itemtitle% (%itemsource%)";
-            this.ttFeedHelp.SetToolTip(this.txtFeedTickerAllLayout, resources.GetString("txtFeedTickerAllLayout.ToolTip"));
-            this.txtFeedTickerAllLayout.TextChanged += new System.EventHandler(this.txtFeedTickerAllLayout_TextChanged);
-            this.txtFeedTickerAllLayout.Enter += new System.EventHandler(this.txtFeedTickerAllLayout_Enter);
-            this.txtFeedTickerAllLayout.Leave += new System.EventHandler(this.txtFeedTickerAllLayout_Leave);
-            // 
-            // txtFeedAllSeparator
-            // 
-            this.txtFeedAllSeparator.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFeedAllSeparator.Location = new System.Drawing.Point(366, 65);
-            this.txtFeedAllSeparator.Name = "txtFeedAllSeparator";
-            this.txtFeedAllSeparator.Size = new System.Drawing.Size(31, 20);
-            this.txtFeedAllSeparator.TabIndex = 11;
-            this.txtFeedAllSeparator.Text = "+++";
-            this.txtFeedAllSeparator.TextChanged += new System.EventHandler(this.txtFeedAllSeparator_TextChanged);
-            this.txtFeedAllSeparator.Enter += new System.EventHandler(this.txtFeedAllSeparator_Enter);
-            this.txtFeedAllSeparator.Leave += new System.EventHandler(this.txtFeedAllSeparator_Leave);
-            // 
-            // laFeedAllSeparator
-            // 
-            this.laFeedAllSeparator.AutoSize = true;
-            this.laFeedAllSeparator.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.laFeedAllSeparator.Location = new System.Drawing.Point(304, 68);
-            this.laFeedAllSeparator.Name = "laFeedAllSeparator";
-            this.laFeedAllSeparator.Size = new System.Drawing.Size(56, 13);
-            this.laFeedAllSeparator.TabIndex = 10;
-            this.laFeedAllSeparator.Text = "Separator:";
-            // 
-            // gbFeedLayout
-            // 
-            this.gbFeedLayout.Controls.Add(this.rbBothAllFeeds);
-            this.gbFeedLayout.Controls.Add(this.rbFeedNameAllFeeds);
-            this.gbFeedLayout.Controls.Add(this.rbItemPublishTimeAllFeeds);
-            this.gbFeedLayout.Controls.Add(this.cbFeedShowItemPublishTime);
-            this.gbFeedLayout.Controls.Add(this.laFeedItems);
-            this.gbFeedLayout.Controls.Add(this.txtFeedItems);
-            this.gbFeedLayout.Controls.Add(this.txtFeedItemsPerFeed);
-            this.gbFeedLayout.Controls.Add(this.laFeedItemsPerFeed);
-            this.gbFeedLayout.Enabled = false;
-            this.gbFeedLayout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbFeedLayout.Location = new System.Drawing.Point(358, 280);
-            this.gbFeedLayout.Name = "gbFeedLayout";
-            this.gbFeedLayout.Size = new System.Drawing.Size(251, 223);
-            this.gbFeedLayout.TabIndex = 3;
-            this.gbFeedLayout.TabStop = false;
-            this.gbFeedLayout.Text = "Layout";
-            // 
-            // laFeedItemsPerFeed
-            // 
-            this.laFeedItemsPerFeed.AutoSize = true;
-            this.laFeedItemsPerFeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.laFeedItemsPerFeed.Location = new System.Drawing.Point(7, 119);
-            this.laFeedItemsPerFeed.Name = "laFeedItemsPerFeed";
-            this.laFeedItemsPerFeed.Size = new System.Drawing.Size(170, 13);
-            this.laFeedItemsPerFeed.TabIndex = 4;
-            this.laFeedItemsPerFeed.Text = "Max items per feed for \"All Feeds\":";
-            this.laFeedItemsPerFeed.EnabledChanged += new System.EventHandler(this.SkinSettingsControlEnabledChanged);
-            // 
-            // txtFeedItemsPerFeed
-            // 
-            this.txtFeedItemsPerFeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFeedItemsPerFeed.Location = new System.Drawing.Point(181, 116);
-            this.txtFeedItemsPerFeed.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.txtFeedItemsPerFeed.Name = "txtFeedItemsPerFeed";
-            this.txtFeedItemsPerFeed.Size = new System.Drawing.Size(45, 20);
-            this.txtFeedItemsPerFeed.TabIndex = 5;
-            this.txtFeedItemsPerFeed.Value = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            this.txtFeedItemsPerFeed.ValueChanged += new System.EventHandler(this.SkinSettingsControlChanged);
-            // 
-            // txtFeedItems
-            // 
-            this.txtFeedItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFeedItems.Location = new System.Drawing.Point(181, 142);
-            this.txtFeedItems.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.txtFeedItems.Name = "txtFeedItems";
-            this.txtFeedItems.Size = new System.Drawing.Size(45, 20);
-            this.txtFeedItems.TabIndex = 7;
-            this.txtFeedItems.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.txtFeedItems.ValueChanged += new System.EventHandler(this.SkinSettingsControlChanged);
-            // 
-            // laFeedItems
-            // 
-            this.laFeedItems.AutoSize = true;
-            this.laFeedItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.laFeedItems.Location = new System.Drawing.Point(7, 145);
-            this.laFeedItems.Name = "laFeedItems";
-            this.laFeedItems.Size = new System.Drawing.Size(125, 13);
-            this.laFeedItems.TabIndex = 6;
-            this.laFeedItems.Text = "Max items for feed ticker:";
-            this.laFeedItems.EnabledChanged += new System.EventHandler(this.SkinSettingsControlEnabledChanged);
-            // 
-            // cbFeedShowItemPublishTime
-            // 
-            this.cbFeedShowItemPublishTime.AutoSize = true;
-            this.cbFeedShowItemPublishTime.Checked = true;
-            this.cbFeedShowItemPublishTime.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbFeedShowItemPublishTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbFeedShowItemPublishTime.Location = new System.Drawing.Point(10, 19);
-            this.cbFeedShowItemPublishTime.Name = "cbFeedShowItemPublishTime";
-            this.cbFeedShowItemPublishTime.Size = new System.Drawing.Size(184, 17);
-            this.cbFeedShowItemPublishTime.TabIndex = 0;
-            this.cbFeedShowItemPublishTime.Text = "Show additional feed informations";
-            this.cbFeedShowItemPublishTime.UseVisualStyleBackColor = true;
-            this.cbFeedShowItemPublishTime.CheckedChanged += new System.EventHandler(this.cbFeedShowItemPublishTime_CheckedChanged);
-            this.cbFeedShowItemPublishTime.EnabledChanged += new System.EventHandler(this.SkinSettingsControlEnabledChanged);
-            // 
-            // rbItemPublishTimeAllFeeds
-            // 
-            this.rbItemPublishTimeAllFeeds.AutoSize = true;
-            this.rbItemPublishTimeAllFeeds.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbItemPublishTimeAllFeeds.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.rbItemPublishTimeAllFeeds.Location = new System.Drawing.Point(25, 42);
-            this.rbItemPublishTimeAllFeeds.Name = "rbItemPublishTimeAllFeeds";
-            this.rbItemPublishTimeAllFeeds.Size = new System.Drawing.Size(203, 17);
-            this.rbItemPublishTimeAllFeeds.TabIndex = 1;
-            this.rbItemPublishTimeAllFeeds.Text = "Show item publish time on \"All Feeds\"";
-            this.rbItemPublishTimeAllFeeds.UseVisualStyleBackColor = true;
-            this.rbItemPublishTimeAllFeeds.CheckedChanged += new System.EventHandler(this.SkinSettingsControlChanged);
-            this.rbItemPublishTimeAllFeeds.EnabledChanged += new System.EventHandler(this.SkinSettingsControlEnabledChanged);
-            // 
-            // rbFeedNameAllFeeds
-            // 
-            this.rbFeedNameAllFeeds.AutoSize = true;
-            this.rbFeedNameAllFeeds.Checked = true;
-            this.rbFeedNameAllFeeds.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbFeedNameAllFeeds.Location = new System.Drawing.Point(25, 65);
-            this.rbFeedNameAllFeeds.Name = "rbFeedNameAllFeeds";
-            this.rbFeedNameAllFeeds.Size = new System.Drawing.Size(211, 17);
-            this.rbFeedNameAllFeeds.TabIndex = 2;
-            this.rbFeedNameAllFeeds.TabStop = true;
-            this.rbFeedNameAllFeeds.Text = "Show source feed name on \"All Feeds\"";
-            this.rbFeedNameAllFeeds.UseVisualStyleBackColor = true;
-            this.rbFeedNameAllFeeds.CheckedChanged += new System.EventHandler(this.SkinSettingsControlChanged);
-            this.rbFeedNameAllFeeds.EnabledChanged += new System.EventHandler(this.SkinSettingsControlEnabledChanged);
-            // 
-            // rbBothAllFeeds
-            // 
-            this.rbBothAllFeeds.AutoSize = true;
-            this.rbBothAllFeeds.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbBothAllFeeds.Location = new System.Drawing.Point(25, 88);
-            this.rbBothAllFeeds.Name = "rbBothAllFeeds";
-            this.rbBothAllFeeds.Size = new System.Drawing.Size(147, 17);
-            this.rbBothAllFeeds.TabIndex = 3;
-            this.rbBothAllFeeds.Text = "Show both on \"All Feeds\"";
-            this.rbBothAllFeeds.UseVisualStyleBackColor = true;
-            this.rbBothAllFeeds.CheckedChanged += new System.EventHandler(this.SkinSettingsControlChanged);
-            this.rbBothAllFeeds.EnabledChanged += new System.EventHandler(this.SkinSettingsControlEnabledChanged);
-            // 
-            // btnFeedHelp
-            // 
-            this.btnFeedHelp.Cursor = System.Windows.Forms.Cursors.Help;
-            this.btnFeedHelp.ImageIndex = 14;
-            this.btnFeedHelp.ImageList = this.imgList;
-            this.btnFeedHelp.Location = new System.Drawing.Point(585, 6);
-            this.btnFeedHelp.Name = "btnFeedHelp";
-            this.btnFeedHelp.Size = new System.Drawing.Size(24, 24);
-            this.btnFeedHelp.TabIndex = 14;
-            this.btnFeedHelp.TabStop = false;
-            this.btnFeedHelp.UseVisualStyleBackColor = true;
-            this.btnFeedHelp.Click += new System.EventHandler(this.btnFeedHelp_Click);
-            // 
-            // labelSkinSettingsFeeds
-            // 
-            this.labelSkinSettingsFeeds.ForeColor = System.Drawing.Color.DarkRed;
-            this.labelSkinSettingsFeeds.Location = new System.Drawing.Point(362, 3);
-            this.labelSkinSettingsFeeds.Name = "labelSkinSettingsFeeds";
-            this.labelSkinSettingsFeeds.Size = new System.Drawing.Size(219, 30);
-            this.labelSkinSettingsFeeds.TabIndex = 15;
-            this.labelSkinSettingsFeeds.Text = "* Skin settings will override marked fields while MediaPortal is running!";
-            this.labelSkinSettingsFeeds.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // btnRem
+            // 
+            this.btnRem.Enabled = false;
+            this.btnRem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRem.ImageKey = "delete.png";
+            this.btnRem.ImageList = this.imgList;
+            this.btnRem.Location = new System.Drawing.Point(481, 215);
+            this.btnRem.Name = "btnRem";
+            this.btnRem.Size = new System.Drawing.Size(82, 23);
+            this.btnRem.TabIndex = 3;
+            this.btnRem.Text = "&Remove..";
+            this.btnRem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRem.UseVisualStyleBackColor = true;
+            this.btnRem.Click += new System.EventHandler(this.btnRem_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Enabled = false;
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.ImageKey = "pencil.png";
+            this.btnEdit.ImageList = this.imgList;
+            this.btnEdit.Location = new System.Drawing.Point(220, 215);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(63, 23);
+            this.btnEdit.TabIndex = 2;
+            this.btnEdit.Text = "&Edit..";
+            this.btnEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ImageKey = "add.png";
+            this.btnAdd.ImageList = this.imgList;
+            this.btnAdd.Location = new System.Drawing.Point(10, 215);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(65, 23);
+            this.btnAdd.TabIndex = 1;
+            this.btnAdd.Text = "&Add..";
+            this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // tabControl
             // 
@@ -2131,22 +2086,22 @@
             this.gbWeatherCity.PerformLayout();
             this.pgAbout.ResumeLayout(false);
             this.pgAbout.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pgRSS.ResumeLayout(false);
             this.pgRSS.PerformLayout();
-            this.gbFeedConf.ResumeLayout(false);
-            this.gbFeedGeneral.ResumeLayout(false);
-            this.gbFeedGeneral.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFeedRefreshInt)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPopupTimeout)).EndInit();
-            this.gbFeedTickerLayout.ResumeLayout(false);
-            this.gbFeedTickerLayout.PerformLayout();
             this.gbFeedLayout.ResumeLayout(false);
             this.gbFeedLayout.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFeedItemsPerFeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFeedItems)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFeedItemsPerFeed)).EndInit();
+            this.gbFeedTickerLayout.ResumeLayout(false);
+            this.gbFeedTickerLayout.PerformLayout();
+            this.gbFeedGeneral.ResumeLayout(false);
+            this.gbFeedGeneral.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPopupTimeout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFeedRefreshInt)).EndInit();
+            this.gbFeedConf.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -2191,11 +2146,8 @@
         private System.Windows.Forms.GroupBox gbTwitterTimelines;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.CheckBox cbTwitterRetweetsOfMeTimeline;
-        private System.Windows.Forms.CheckBox cbTwitterRetweetedToMeTimeline;
-        private System.Windows.Forms.CheckBox cbTwitterRetweetedByMeTimeline;
         private System.Windows.Forms.CheckBox cbTwitterMentionsTimeline;
         private System.Windows.Forms.CheckBox cbTwitterUserTimeline;
-        private System.Windows.Forms.CheckBox cbTwitterFriendsTimeline;
         private System.Windows.Forms.CheckBox cbTwitterHomeTimeline;
         private System.Windows.Forms.ToolTip ttTwitterHelp;
         private System.Windows.Forms.ToolTip ttTimelineHelp;

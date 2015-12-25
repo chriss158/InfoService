@@ -166,10 +166,10 @@ namespace InfoService.GUIConfiguration
             cbTwitterHomeTimeline.Checked = SettingsManager.Properties.TwitterSettings.UsedTimelines.HomeTimeline;
             //cbTwitterPublicTimeline.Checked = SettingsManager.Properties.TwitterSettings.UsedTimelines.PublicTimeline;
             cbTwitterUserTimeline.Checked = SettingsManager.Properties.TwitterSettings.UsedTimelines.UserTimeline;
-            cbTwitterFriendsTimeline.Checked = SettingsManager.Properties.TwitterSettings.UsedTimelines.FriendsTimeline;
+            //cbTwitterFriendsTimeline.Checked = SettingsManager.Properties.TwitterSettings.UsedTimelines.FriendsTimeline;
             cbTwitterMentionsTimeline.Checked = SettingsManager.Properties.TwitterSettings.UsedTimelines.MentionsTimeline;
-            cbTwitterRetweetedByMeTimeline.Checked = SettingsManager.Properties.TwitterSettings.UsedTimelines.RetweetedByMeTimeline;
-            cbTwitterRetweetedToMeTimeline.Checked = SettingsManager.Properties.TwitterSettings.UsedTimelines.RetweetedToMeTimeline;
+            //cbTwitterRetweetedByMeTimeline.Checked = SettingsManager.Properties.TwitterSettings.UsedTimelines.RetweetedByMeTimeline;
+            //cbTwitterRetweetedToMeTimeline.Checked = SettingsManager.Properties.TwitterSettings.UsedTimelines.RetweetedToMeTimeline;
             cbTwitterRetweetsOfMeTimeline.Checked = SettingsManager.Properties.TwitterSettings.UsedTimelines.RetweetsOfMeTimeline;
             txtTwitterTickerLayout.Text = SettingsManager.Properties.TwitterSettings.TickerMask;
             cbTwitterPostWatchingVideos.Checked = SettingsManager.Properties.TwitterSettings.TwitterStatusUpdate.Enabled;
@@ -209,9 +209,12 @@ namespace InfoService.GUIConfiguration
 
             if (cbTwitterEnabled.Checked)
             {
-                if (!cbTwitterFriendsTimeline.Checked && !cbTwitterUserTimeline.Checked &&
-                    //!cbTwitterPublicTimeline.Checked && !cbTwitterHomeTimeline.Checked &&
-                    !cbTwitterRetweetedByMeTimeline.Checked && !cbTwitterRetweetedToMeTimeline.Checked &&
+                //if (!cbTwitterFriendsTimeline.Checked && !cbTwitterUserTimeline.Checked &&
+                //    !cbTwitterPublicTimeline.Checked && !cbTwitterHomeTimeline.Checked &&
+                //    !cbTwitterRetweetedByMeTimeline.Checked && !cbTwitterRetweetedToMeTimeline.Checked &&
+                //    !cbTwitterRetweetsOfMeTimeline.Checked && !cbTwitterMentionsTimeline.Checked)
+                //{
+                if (!cbTwitterUserTimeline.Checked && !cbTwitterHomeTimeline.Checked &&
                     !cbTwitterRetweetsOfMeTimeline.Checked && !cbTwitterMentionsTimeline.Checked)
                 {
                     DialogResult dr = MessageBox.Show(
@@ -291,10 +294,10 @@ namespace InfoService.GUIConfiguration
             //SettingsManager.Properties.TwitterSettings.UsedTimelines.PublicTimeline = cbTwitterPublicTimeline.Checked;
             SettingsManager.Properties.TwitterSettings.UsedTimelines.HomeTimeline = cbTwitterHomeTimeline.Checked;
             SettingsManager.Properties.TwitterSettings.UsedTimelines.UserTimeline = cbTwitterUserTimeline.Checked;
-            SettingsManager.Properties.TwitterSettings.UsedTimelines.FriendsTimeline = cbTwitterFriendsTimeline.Checked;
+            //SettingsManager.Properties.TwitterSettings.UsedTimelines.FriendsTimeline = cbTwitterFriendsTimeline.Checked;
             SettingsManager.Properties.TwitterSettings.UsedTimelines.MentionsTimeline = cbTwitterMentionsTimeline.Checked;
-            SettingsManager.Properties.TwitterSettings.UsedTimelines.RetweetedByMeTimeline = cbTwitterRetweetedByMeTimeline.Checked;
-            SettingsManager.Properties.TwitterSettings.UsedTimelines.RetweetedToMeTimeline = cbTwitterRetweetedToMeTimeline.Checked;
+            //SettingsManager.Properties.TwitterSettings.UsedTimelines.RetweetedByMeTimeline = cbTwitterRetweetedByMeTimeline.Checked;
+            //SettingsManager.Properties.TwitterSettings.UsedTimelines.RetweetedToMeTimeline = cbTwitterRetweetedToMeTimeline.Checked;
             SettingsManager.Properties.TwitterSettings.UsedTimelines.RetweetsOfMeTimeline = cbTwitterRetweetsOfMeTimeline.Checked;
             SettingsManager.Properties.TwitterSettings.TickerMask = txtTwitterTickerLayout.Text;
             SettingsManager.Properties.TwitterSettings.TwitterStatusUpdate.Enabled = cbTwitterPostWatchingVideos.Checked;
