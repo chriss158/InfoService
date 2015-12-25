@@ -157,17 +157,17 @@ namespace InfoService.Twitter
             }
         }
 
-        private static bool _useFriendsTimeline;
-        public static bool UseFriendsTimeline
-        {
-            get { return _useFriendsTimeline; }
-            set
-            {
-                logger.WriteLog("Set TwitterUseFriendsTimeline to " + value, LogLevel.Debug, InfoServiceModul.InfoService);
-                _useFriendsTimeline = value;
-                if (value) UsedTimelines.Add(TimelineType.Friends);
-            }
-        }
+        //private static bool _useFriendsTimeline;
+        //public static bool UseFriendsTimeline
+        //{
+        //    get { return _useFriendsTimeline; }
+        //    set
+        //    {
+        //        logger.WriteLog("Set TwitterUseFriendsTimeline to " + value, LogLevel.Debug, InfoServiceModul.InfoService);
+        //        _useFriendsTimeline = value;
+        //        if (value) UsedTimelines.Add(TimelineType.Friends);
+        //    }
+        //}
 
         private static bool _useMentionsTimeline;
         public static bool UseMentionsTimeline
@@ -181,29 +181,29 @@ namespace InfoService.Twitter
             }
         }
 
-        private static bool _useRetweetedByMeTimeline;
-        public static bool UseRetweetedByMeTimeline
-        {
-            get { return _useRetweetedByMeTimeline; }
-            set
-            {
-                logger.WriteLog("Set TwitterUseRetweetedByMeTimeline to " + value, LogLevel.Debug, InfoServiceModul.InfoService);
-                _useRetweetedByMeTimeline = value;
-                if (value) UsedTimelines.Add(TimelineType.RetweetedByMe);
-            }
-        }
+        //private static bool _useRetweetedByMeTimeline;
+        //public static bool UseRetweetedByMeTimeline
+        //{
+        //    get { return _useRetweetedByMeTimeline; }
+        //    set
+        //    {
+        //        logger.WriteLog("Set TwitterUseRetweetedByMeTimeline to " + value, LogLevel.Debug, InfoServiceModul.InfoService);
+        //        _useRetweetedByMeTimeline = value;
+        //        if (value) UsedTimelines.Add(TimelineType.RetweetedByMe);
+        //    }
+        //}
 
-        private static bool _useRetweetedToMeTimeline;
-        public static bool UseRetweetedToMeTimeline
-        {
-            get { return _useRetweetedToMeTimeline; }
-            set
-            {
-                logger.WriteLog("Set TwitterUseRetweetedToMeTimeline to " + value, LogLevel.Debug, InfoServiceModul.InfoService);
-                _useRetweetedToMeTimeline = value;
-                if (value) UsedTimelines.Add(TimelineType.RetweetedToMe);
-            }
-        }
+        //private static bool _useRetweetedToMeTimeline;
+        //public static bool UseRetweetedToMeTimeline
+        //{
+        //    get { return _useRetweetedToMeTimeline; }
+        //    set
+        //    {
+        //        logger.WriteLog("Set TwitterUseRetweetedToMeTimeline to " + value, LogLevel.Debug, InfoServiceModul.InfoService);
+        //        _useRetweetedToMeTimeline = value;
+        //        if (value) UsedTimelines.Add(TimelineType.RetweetedToMe);
+        //    }
+        //}
 
         private static bool _useRetweetsOfMeTimeline;
         public static bool UseRetweetsOfMeTimeline
@@ -282,7 +282,7 @@ namespace InfoService.Twitter
                 LogEvents.OnError += new LogEvents.TwitterErrorHandler(LogEvents_OnError);
                 LogEvents.OnInfo += new LogEvents.TwitterErrorHandler(LogEvents_OnInfo);
                 LogEvents.OnWarning += new LogEvents.TwitterErrorHandler(LogEvents_OnWarning);
-                _twitterTimelines = new TwitterConnector.Twitter("", "", pin, new AccessToken(tokenValue, tokenSecret), AuthType.OAuth, CacheFolder);
+                _twitterTimelines = new TwitterConnector.Twitter("", "", pin, new AccessToken(tokenValue, tokenSecret), CacheFolder);
                 Enabled = true;
                 _activeTimeline = TimelineType.None;
                 return true;
@@ -338,12 +338,12 @@ namespace InfoService.Twitter
         private static Timeline GetFirstUsedTimeline()
         {
             //if (UsePublicTimeline) return _twitterTimelines.Timelines[TimelineType.Public.ToString()];
-            if (UseFriendsTimeline) return _twitterTimelines.Timelines[TimelineType.Friends.ToString()];
+            //if (UseFriendsTimeline) return _twitterTimelines.Timelines[TimelineType.Friends.ToString()];
             if (UseHomeTimeline) return _twitterTimelines.Timelines[TimelineType.Home.ToString()];
             if (UseUserTimeline) return _twitterTimelines.Timelines[TimelineType.User.ToString()];
             if (UseMentionsTimeline) return _twitterTimelines.Timelines[TimelineType.Mentions.ToString()];
-            if (UseRetweetedByMeTimeline) return _twitterTimelines.Timelines[TimelineType.RetweetedByMe.ToString()];
-            if (UseRetweetedToMeTimeline) return _twitterTimelines.Timelines[TimelineType.RetweetedToMe.ToString()];
+            //if (UseRetweetedByMeTimeline) return _twitterTimelines.Timelines[TimelineType.RetweetedByMe.ToString()];
+            //if (UseRetweetedToMeTimeline) return _twitterTimelines.Timelines[TimelineType.RetweetedToMe.ToString()];
             if (UseRetweetsOfMeTimeline) return _twitterTimelines.Timelines[TimelineType.RetweetsOfMe.ToString()];
             return null;
         }

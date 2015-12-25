@@ -12,18 +12,17 @@ namespace TwitterConnector
 {
     public class Twitter
     {
-        private string _password;
-        private string _user;
         private string _pin;
         internal const string CONSUMER_KEY = "7wS9lAEQhFT6nqFX2EhKUw";
         internal const string CONSUMER_SECRET = "AoLW66pilNF2ck4KWHh4MBMZNZehZ1OuwP5FWZlrY";
         private bool _useCache;
-        private AuthType _useAuthType;
         private AccessToken _accessToken;
         private static RequestToken _reqToken;
 
-        public string CacheFolder { get; protected set; }
+        public static string CacheFolder { get; protected set; }
         public Dictionary<string, Timeline> Timelines { get; set; }
+        public static bool CacheEnabled { get; private set; }
+        public static bool CacheAutomatic { get; private set; }
 
         public static string GetAuthUrl()
         {
@@ -72,34 +71,20 @@ namespace TwitterConnector
 
         }
 
-        public Twitter(string user, string password, string pin, AccessToken accessToken, AuthType authType)
+        public Twitter(string user, string password, string pin, AccessToken accessToken)
         {
-            InitTwitter(user, password, pin, authType, accessToken);
+            InitTwitter(user, password, pin, accessToken);
         }
-        public Twitter(string user, string password, string pin, AccessToken accessToken, AuthType authType, string cacheFolder)
+        public Twitter(string user, string password, string pin, AccessToken accessToken, string cacheFolder, bool useCacheAutomatic = false)
         {
-            InitTwitter(user, password, pin, authType, accessToken);
+            InitTwitter(user, password, pin, accessToken);
             SetCache(cacheFolder);
+            CacheAutomatic = useCacheAutomatic;
+            if (!useCacheAutomatic) EnableCache();
         }
 
-        private void InitTwitter(string user, string password, string pin, AuthType authType, AccessToken accessToken)
+        private void InitTwitter(string user, string password, string pin, AccessToken accessToken)
         {
-            if (authType == AuthType.HTTPAuth)
-            {
-                if (string.IsNullOrEmpty(user))
-                {
-                    throw new TwitterUserPasswordExpection("No twitter user set. TwitterConnector disabled");
-                }
-                if (string.IsNullOrEmpty(password))
-                {
-                    throw new TwitterUserPasswordExpection("No password for twitter user set. TwitterConnector disabled");
-                }
-                LogEvents.InvokeOnDebug(new TwitterArgs("Create TwitterConnector instance without using cache"));
-                _user = user;
-                _password = password;
-            }
-            else if (authType == AuthType.OAuth)
-            {
                 if (string.IsNullOrEmpty(pin))
                 {
                     throw new TwitterNoPinExpection("No pin for OAuth is set. TwitterConnector disabled");
@@ -127,56 +112,103 @@ namespace TwitterConnector
                     throw new TwitterAuthExpection("Authorization unsuccessful", ex);
                 }
 
-            }
             Timelines = new Dictionary<string, Timeline>();
             //Timelines.Add(TimelineType.Public.ToString(), new Timeline(TimelineType.Public, authType, user, password, accessToken));
-            Timelines.Add(TimelineType.Friends.ToString(), new Timeline(TimelineType.Friends, authType, user, password, accessToken));
-            Timelines.Add(TimelineType.User.ToString(), new Timeline(TimelineType.User, authType, user, password, accessToken));
-            Timelines.Add(TimelineType.Home.ToString(), new Timeline(TimelineType.Home, authType, user, password, accessToken));
-            Timelines.Add(TimelineType.Mentions.ToString(), new Timeline(TimelineType.Mentions, authType, user, password, accessToken));
-            Timelines.Add(TimelineType.RetweetedByMe.ToString(), new Timeline(TimelineType.RetweetedByMe, authType, user, password, accessToken));
-            Timelines.Add(TimelineType.RetweetedToMe.ToString(), new Timeline(TimelineType.RetweetedToMe, authType, user, password, accessToken));
-            Timelines.Add(TimelineType.RetweetsOfMe.ToString(), new Timeline(TimelineType.RetweetsOfMe, authType, user, password, accessToken));
-            _useAuthType = authType;
+            //Timelines.Add(TimelineType.Friends.ToString(), new Timeline(TimelineType.Friends, authType, user, password, accessToken));
+            Timelines.Add(TimelineType.User.ToString(), new Timeline(TimelineType.User, user, password, accessToken));
+            Timelines.Add(TimelineType.Home.ToString(), new Timeline(TimelineType.Home, user, password, accessToken));
+            Timelines.Add(TimelineType.Mentions.ToString(), new Timeline(TimelineType.Mentions, user, password, accessToken));
+            //Timelines.Add(TimelineType.RetweetedByMe.ToString(), new Timeline(TimelineType.RetweetedByMe, authType, user, password, accessToken));
+            //Timelines.Add(TimelineType.RetweetedToMe.ToString(), new Timeline(TimelineType.RetweetedToMe, authType, user, password, accessToken));
+            Timelines.Add(TimelineType.RetweetsOfMe.ToString(), new Timeline(TimelineType.RetweetsOfMe, user, password, accessToken));
         }
-
-        private void SetCache(string cacheFolder)
+        public static void DisableCache()
         {
-            if (!string.IsNullOrEmpty(cacheFolder))
+            LogEvents.InvokeOnDebug(new TwitterArgs("Cache disabled."));
+            CacheEnabled = false;
+
+        }
+        public static bool EnableCache()
+        {
+            LogEvents.InvokeOnDebug(new TwitterArgs("Try enabling cache..."));
+            if (CacheEnabled)
             {
-                if (Utils.IsValidPath(cacheFolder))
+                LogEvents.InvokeOnDebug(new TwitterArgs("Cache already enabled with cache folder \"" + CacheFolder + "\""));
+                return true;
+            }
+            return CheckCache();
+        }
+        public static bool CheckCache()
+        {
+            LogEvents.InvokeOnDebug(new TwitterArgs("Checking cache folder \"" + CacheFolder + "\"..."));
+            if (!string.IsNullOrEmpty(CacheFolder))
+            {
+                if (Utils.IsValidPath(CacheFolder))
                 {
-                    LogEvents.InvokeOnDebug(new TwitterArgs(cacheFolder + " is a valid path. Now checking if the cache folder already exists"));
-                    if (!Directory.Exists(cacheFolder))
+                    LogEvents.InvokeOnDebug(new TwitterArgs(CacheFolder + " is a valid path. Now checking if the cache folder already exists..."));
+                    if (Utils.IsCacheFolderAvailable(CacheFolder))
                     {
-                        LogEvents.InvokeOnDebug(new TwitterArgs(cacheFolder + " doesn't exist. Now create a new folder."));
-                        try
+
+                        if (!Utils.DoesCacheFolderExists(CacheFolder))
                         {
-                            Directory.CreateDirectory(cacheFolder);
-                        }
-                        catch(Exception ex)
-                        {
-                            _useCache = false;
-                            throw new TwitterCacheFolderNotValid("Could not create cache older " + cacheFolder + ". " + ex.Message);
+                            LogEvents.InvokeOnDebug(new TwitterArgs(CacheFolder + " doesn't exist. Now create a new folder."));
+                            try
+                            {
+                                Directory.CreateDirectory(CacheFolder);
+                            }
+                            catch (Exception ex)
+                            {
+                                LogEvents.InvokeOnWarning(new TwitterArgs("Could not create cache older " + CacheFolder, ex.Message));
+                                DisableCache();
+                                return false;
+                                //throw new FeedCacheFolderNotValid("Could not create cache older " + cacheFolder + ". Feed disabled." + ex.Message);
+                            }
                         }
                     }
-                    LogEvents.InvokeOnDebug(new TwitterArgs(cacheFolder + " exist. Caching is now enabled."));
-                    if (!cacheFolder.EndsWith(@"\")) cacheFolder += @"\";
-                    CacheFolder = cacheFolder;
-                    _useCache = true;
+                    else
+                    {
+                        CacheEnabled = false;
+                        LogEvents.InvokeOnWarning(new TwitterArgs("Cache folder " + CacheFolder + " is not available."));
+                        DisableCache();
+                        return false;
+                        //throw new FeedCacheFolderNotValid(cacheFolder + " is not available in the network. Feed disabled.");
+                    }
+                    LogEvents.InvokeOnDebug(new TwitterArgs(CacheFolder + " exist. Caching for feeds is now enabled."));
+
+                    //CacheFolder = cacheFolder;
+                    CacheEnabled = true;
+                    return true;
+
                 }
                 else
                 {
-                    _useCache = false;
-                    throw new TwitterCacheFolderNotValid(cacheFolder + " is not a valid path. Caching disabled");
+                    LogEvents.InvokeOnWarning(new TwitterArgs("Cache folder " + CacheFolder + " is not valid path."));
+                    DisableCache();
+                    return false;
+                    //throw new FeedCacheFolderNotValid(cacheFolder + " is not a valid path. Caching disabled");
                 }
             }
             else
             {
-                _useCache = false;
-                throw new TwitterNoCacheFolderExpection("Cache folder path is empty. Caching disabled");
+                LogEvents.InvokeOnWarning(new TwitterArgs("Cache folder path is empty."));
+                DisableCache();
+                return false;
+                //throw new FeedNoCacheFolderExpection("Cache folder path is empty. Caching disabled");
             }
         }
+        public static void SetCache(string cacheFolder, bool autoEnableCache)
+        {
+            LogEvents.InvokeOnDebug(new TwitterArgs("Set cache folder to \"" + cacheFolder + "\""));
+            DisableCache();
+            CacheFolder = cacheFolder;
+            if (!CacheFolder.EndsWith(@"\")) CacheFolder += @"\";
+            if (autoEnableCache) EnableCache();
+        }
+        public static void SetCache(string cacheFolder)
+        {
+            SetCache(cacheFolder, false);
+        }
+       
         public bool DeleteCache()
         {
             LogEvents.InvokeOnDebug(new TwitterArgs("Try to delete cache from " + CacheFolder));
@@ -200,32 +232,48 @@ namespace TwitterConnector
 
         public bool PostStatus(string message)
         {
-            if (_useAuthType == AuthType.HTTPAuth)
+            if (StatusUpdate.PostStatus(_accessToken, message))
             {
-                if (StatusUpdate.PostStatus(_user, _password, message))
-                {
-                    LogEvents.InvokeOnInfo(new TwitterArgs("Posting status update \"" + message + "\" successful"));
-                    return true;
-                }
-                LogEvents.InvokeOnInfo(new TwitterArgs("Posting status update \"" + message + "\" unsuccessful. See above for errors or warnings"));
+                LogEvents.InvokeOnInfo(new TwitterArgs("Posting status update \"" + message + "\" successful"));
+                return true;
             }
-            else if(_useAuthType == AuthType.OAuth)
-            {
-                if (StatusUpdate.PostStatus(_accessToken, message))
-                {
-                    LogEvents.InvokeOnInfo(new TwitterArgs("Posting status update \"" + message + "\" successful"));
-                    return true;
-                }
-                LogEvents.InvokeOnInfo(new TwitterArgs("Posting status update \"" + message + "\" unsuccessful. See above for errors or warnings")); 
-            }
+            LogEvents.InvokeOnInfo(new TwitterArgs("Posting status update \"" + message + "\" unsuccessful. See above for errors or warnings"));
             return false;
         }
         public void UpdateAllTimelines()
         {
             foreach (KeyValuePair<string, Timeline> timeline in Timelines)
             {
-                if (_useCache) timeline.Value.Update(CacheFolder);
-                else timeline.Value.Update();
+                bool cacheAvailable = false;
+                if (CacheAutomatic)
+                {
+                    CheckCache();
+                }
+
+                if (CacheEnabled)
+                {
+                    if (!CacheAutomatic)
+                    {
+                        cacheAvailable = Utils.IsCacheFolderAvailable(CacheFolder);
+                    }
+                    else cacheAvailable = true;
+                }
+
+                if (!CacheEnabled)
+                {
+                    timeline.Value.Update();
+                }
+                else
+                {
+                    if (cacheAvailable)
+                    {
+                        timeline.Value.Update(CacheFolder);
+                    }
+                    else
+                    {
+                        LogEvents.InvokeOnError(new TwitterArgs("Error parsing timeline into cache folder " + CacheFolder + ". Cache folder is not available...", ""));
+                    }
+                }
             }
         }
     }

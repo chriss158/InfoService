@@ -12,31 +12,31 @@ namespace TwitterConnector
         //[PrettyName("Public Timeline")]
         //Public,
 
-        [Url("http://api.twitter.com/1/statuses/home_timeline.xml")]
+        [Url("https://api.twitter.com/1.1/statuses/home_timeline.json")]
         [PrettyName("Home Timeline")]
         Home,
 
-        [Url("http://api.twitter.com/1/statuses/user_timeline.xml")]
+        [Url("https://api.twitter.com/1.1/statuses/user_timeline.json")]
         [PrettyName("User Timeline")]
         User,
 
-        [Url("http://api.twitter.com/1/statuses/friends_timeline.xml")]
-        [PrettyName("Friends Timeline")]
-        Friends,
+        //[Url("https://api.twitter.com/1.1/statuses/friends_timeline.json")]
+        //[PrettyName("Friends Timeline")]
+        //Friends,
 
-        [Url("http://api.twitter.com/1/statuses/mentions.xml")]
+        [Url("https://api.twitter.com/1.1/statuses/mentions_timeline.json")]
         [PrettyName("Mentions Timeline")]
         Mentions,
 
-        [Url("http://api.twitter.com/1/statuses/retweeted_by_me.xml")]
-        [PrettyName("Retweeted by me Timeline")]
-        RetweetedByMe,
+        //[Url("https://api.twitter.com/1.1/statuses/retweeted_by_me.json")]
+        //[PrettyName("Retweeted by me Timeline")]
+        //RetweetedByMe,
 
-        [Url("http://api.twitter.com/1/statuses/retweeted_to_me.xml")]
-        [PrettyName("Retweeted to me Timeline")]
-        RetweetedToMe,
+        //[Url("https://api.twitter.com/1.1/statuses/retweeted_to_me.json")]
+        //[PrettyName("Retweeted to me Timeline")]
+        //RetweetedToMe,
 
-        [Url("http://api.twitter.com/1/statuses/retweets_of_me.xml")]
+        [Url("https://api.twitter.com/1.1/statuses/retweets_of_me.json")]
         [PrettyName("Retweets of me Timeline")]
         RetweetsOfMe,
     }

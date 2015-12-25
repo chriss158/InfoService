@@ -15,8 +15,6 @@ using FeedReader.Data;
 using FeedReader.Enums;
 using System.Runtime.InteropServices;
 using System.Runtime.Versioning;
-using System.Threading.Tasks;
-using System.Net.NetworkInformation;
 using System.Net.Sockets;
 #endregion
 

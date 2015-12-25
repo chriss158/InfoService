@@ -14,39 +14,26 @@ using System.Xml;
 using System.Xml.Linq;
 using TwitterConnector.Data;
 using TwitterConnector.OAuth;
-
+using System.Runtime.InteropServices;
+using System.Runtime.Versioning;
+using System.Net.Sockets;
 #endregion
 
 namespace TwitterConnector
 {
     internal static class Utils
     {
-        internal static XDocument DownloadTwitterXml(string user, string password, string url)
-        {
-            int rateLimit = 0, limitRemaining = 0;
-            try
-            {
-                HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
-                req.Credentials = new NetworkCredential(user, password);
-                HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
-                GetInfoFromResponse(resp, out rateLimit, out limitRemaining);
-                using (XmlReader reader = XmlReader.Create(resp.GetResponseStream()))
-                {
-                    return XDocument.Load(reader);
-                }
-            }
-            catch (WebException wex)
-            {
-                LogEvents.InvokeOnError(new TwitterArgs(string.Format("Twitter rate limit exceeded, max of {0}/hr allowed. Remaining = {1}", rateLimit, limitRemaining), wex.Message, wex.StackTrace));
-                return null;
-            }
+        [DllImport("shlwapi.dll", CharSet = CharSet.Unicode)]
+        [ResourceExposure(ResourceScope.None)]
+        [return: MarshalAsAttribute(UnmanagedType.Bool)]
+        internal static extern bool PathIsUNC([MarshalAsAttribute(UnmanagedType.LPWStr), In] string pszPath);
 
-            catch (Exception ex)
-            {
-                LogEvents.InvokeOnError(new TwitterArgs("Error downloading twitter status from " + url, ex.Message, ex.StackTrace));
-                return null;
-            }
-        }
+        [DllImport("mpr.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+        public static extern int WNetGetConnection(
+            [MarshalAs(UnmanagedType.LPTStr)] string localName,
+            [MarshalAs(UnmanagedType.LPTStr)] StringBuilder remoteName,
+            ref int length);
+
         internal static XDocument DownloadTwitterXml(AccessToken accessToken, string url)
         {
             int rateLimit = 0, limitRemaining = 0;
@@ -76,13 +63,46 @@ namespace TwitterConnector
                 return null;
             }
         }
-        internal static XDocument DownloadTwitterXml(string url)
+        
+        internal static dynamic DownloadTwitterJson(AccessToken accessToken, string url)
         {
+            int rateLimit = 0, limitRemaining = 0;
             try
             {
-                return XDocument.Load(url);
+                Consumer c = new Consumer(Twitter.CONSUMER_KEY, Twitter.CONSUMER_SECRET);
+                HttpWebResponse resp = c.AccessProtectedResource(
+                    accessToken,
+                    url,
+                    "GET",
+                    "http://twitter.com/", new[] { new Parameter("since_id", "1") });
+                GetInfoFromResponse(resp, out rateLimit, out limitRemaining);
+                string responseString = string.Empty;
+                using (Stream stream = resp.GetResponseStream())
+                {
+                    using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
+                    {
+                        responseString = reader.ReadToEnd();
+                    }
+                    
+                }
+                if (!string.IsNullOrEmpty(responseString))
+                {
+                    dynamic timelineJson = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(responseString);
+                    return timelineJson;
+                }
+                else
+                {
+                    LogEvents.InvokeOnError(new TwitterArgs("Error downloading twitter status from " + url + ". Downloaded timeline is empty."));
+                    return null;
+                }
             }
-            catch(Exception ex)
+            catch (WebException wex)
+            {
+                LogEvents.InvokeOnError(new TwitterArgs(string.Format("Twitter rate limit exceeded, max of {0}/hr allowed. Remaining = {1}", rateLimit, limitRemaining), wex.Message, wex.StackTrace));
+                return null;
+            }
+
+            catch (Exception ex)
             {
                 LogEvents.InvokeOnError(new TwitterArgs("Error downloading twitter status from " + url, ex.Message, ex.StackTrace));
                 return null;
@@ -109,18 +129,20 @@ namespace TwitterConnector
         }
 
 
-        private static Image DownloadImage(string url)
+        internal static Image DownloadImage(string url)
         {
             if (!string.IsNullOrEmpty(url))
             {
                 try
                 {
                     WebRequest requestPic = WebRequest.Create(new Uri(url));
-
-                    WebResponse responsePic = requestPic.GetResponse();
-                    Image rImage = Image.FromStream(responsePic.GetResponseStream());
-
-                    return rImage;
+                    requestPic.Proxy.Credentials = CredentialCache.DefaultNetworkCredentials;
+                    using (WebResponse responsePic = requestPic.GetResponse())
+                    {
+                        Image rImage = Image.FromStream(responsePic.GetResponseStream());
+                        LogEvents.InvokeOnDebug(new TwitterArgs("Downloading image from url " + url + " successfull"));
+                        return rImage;
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -167,7 +189,13 @@ namespace TwitterConnector
                     LogEvents.InvokeOnDebug(new TwitterArgs("User picture is cached. Try to load picture"));
                     try
                     {
-                        user.Picture = Image.FromFile(imgpath);
+                        using (FileStream fs = new FileStream(imgpath, FileMode.Open, FileAccess.Read))
+                        {
+                            using (Image cacheImage = Image.FromStream(fs))
+                            {
+                                user.Picture = cacheImage.Clone() as Image;
+                            }
+                        }
                         user.PicturePath = imgpath;
                         LogEvents.InvokeOnDebug(new TwitterArgs("Loading user picture from cache path " + imgpath + " successful"));
                     }
@@ -201,7 +229,10 @@ namespace TwitterConnector
                         try
                         {
                             LogEvents.InvokeOnDebug(new TwitterArgs("Saving user picture to cache folder -> " + imgpath));
-                            user.Picture.Save(imgpath, ImageFormat.Png);
+                            using (Image cloneImage = user.Picture.Clone() as Image)
+                            {
+                                cloneImage.Save(imgpath, ImageFormat.Png);
+                            }
                             user.PicturePath = imgpath;
                         }
                         catch (Exception ex)
@@ -221,7 +252,10 @@ namespace TwitterConnector
             for (int i = 0; i < items.Count; i++)
             {
                 items[i].User = GetUserPicture(items[i].User, cacheFolder);
-                if (items[i].Retweet != null) items[i].Retweet.User = GetUserPicture(items[i].User, cacheFolder);
+                for (int j = 0; j < items[i].Retweets.Count; j++)
+                {
+                    items[i].Retweets[j].User = GetUserPicture(items[i].Retweets[j].User, cacheFolder);
+                }
             }
             return items;
         }
@@ -230,7 +264,10 @@ namespace TwitterConnector
             for (int i = 0; i < items.Count; i++)
             {
                 items[i].User = GetUserPicture(items[i].User);
-                if (items[i].Retweet != null) items[i].Retweet.User = GetUserPicture(items[i].User);
+                for (int j = 0; j < items[i].Retweets.Count; j++)
+                {
+                    items[i].Retweets[j].User = GetUserPicture(items[i].Retweets[j].User);
+                }
             }
             return items;
         }
@@ -246,18 +283,23 @@ namespace TwitterConnector
         }
         private static string GenerateMd5Hash(string input)
         {
-            LogEvents.InvokeOnDebug(new TwitterArgs("Generating MD5 Hash for user " + input));
-            MD5 md5Hasher = MD5.Create();
-
-            byte[] data = md5Hasher.ComputeHash(Encoding.Default.GetBytes(input));
+            byte[] data = null;
+            LogEvents.InvokeOnDebug(new TwitterArgs("Generating MD5 Hash out of \"" + input + "\""));
+            using (MD5 md5Hasher = MD5.Create())
+            {
+                data = md5Hasher.ComputeHash(Encoding.Default.GetBytes(input));
+            }
 
             StringBuilder sBuilder = new StringBuilder();
-
-            for (int i = 0; i < data.Length; i++)
+            sBuilder.Clear();
+            if (data != null)
             {
-                sBuilder.Append(data[i].ToString("x2"));
+                for (int i = 0; i < data.Length; i++)
+                {
+                    sBuilder.Append(data[i].ToString("x2"));
+                }
             }
-            LogEvents.InvokeOnDebug(new TwitterArgs("MD5 Hash for user \"" + input + "\" is " + sBuilder));
+            LogEvents.InvokeOnDebug(new TwitterArgs("MD5 Hash out of \"" + input + "\" is " + sBuilder));
             return sBuilder.ToString();
         }
         internal static string Clean(string input)
@@ -400,6 +442,189 @@ namespace TwitterConnector
                 return r.Replace(output, "");
             }
             return input;
+        }
+        internal static string GetUncPath(string originalPath)
+        {
+
+            StringBuilder sb = new StringBuilder(512);
+            int size = sb.Capacity;
+
+            // look for the {LETTER}: combination ...
+            if (!IsUncPath(originalPath))
+            //if (originalPath.Length > 2 && originalPath[1] == ':')
+            {
+                LogEvents.InvokeOnInfo(new TwitterArgs("Convert path " + originalPath + " to UNC path..."));
+                // don't use char.IsLetter here - as that can be misleading
+                // the only valid drive letters are a-z && A-Z.
+                char c = originalPath[0];
+                if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+                {
+                    int error = WNetGetConnection(originalPath.Substring(0, 2),
+                        sb, ref size);
+                    if (error == 0)
+                    {
+                        DirectoryInfo dir = new DirectoryInfo(originalPath);
+
+                        string path = Path.GetFullPath(originalPath)
+                            .Substring(Path.GetPathRoot(originalPath).Length);
+                        string newPath = Path.Combine(sb.ToString().TrimEnd(), path);
+                        LogEvents.InvokeOnInfo(new TwitterArgs("Converted UNC path is " + newPath + "."));
+                        return newPath;
+                    }
+                    else
+                    {
+                        LogEvents.InvokeOnError(new TwitterArgs("Error converting path " + originalPath + " to UNC path. Error code -> " + error));
+                    }
+                }
+            }
+
+            return originalPath;
+        }
+
+
+        internal static bool IsUncPath(string path)
+        {
+            LogEvents.InvokeOnDebug(new TwitterArgs("Checking if folder " + path + " is a UNC path..."));
+            bool isUncPath = PathIsUNC(path);
+            if (isUncPath)
+            {
+                LogEvents.InvokeOnDebug(new TwitterArgs("Folder " + path + " is a UNC path."));
+                return true;
+            }
+            else
+            {
+                LogEvents.InvokeOnDebug(new TwitterArgs("Folder " + path + " is NOT a UNC path."));
+                return false;
+            }
+        }
+        internal static bool IsNetworkPath(string path)
+        {
+            if (IsUncPath(path))
+            {
+                return true;
+            }
+
+            if (IsNetworkDrive(path))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        internal static bool IsNetworkDrive(string path)
+        {
+            LogEvents.InvokeOnDebug(new TwitterArgs("Checking if folder " + path + " is a network drive path..."));
+            string networkPath = Path.GetPathRoot(path);
+            DriveInfo drive = new DriveInfo(networkPath);
+            if (drive.DriveType == DriveType.Network)
+            {
+                LogEvents.InvokeOnDebug(new TwitterArgs("Folder " + path + " is a network drive path."));
+                return true;
+            }
+            else
+            {
+                LogEvents.InvokeOnDebug(new TwitterArgs("Folder " + path + " is NOT a network path."));
+                return false;
+            }
+        }
+        internal static bool IsCacheFolderAvailable(string path)
+        {
+            string serverName = string.Empty;
+            LogEvents.InvokeOnInfo(new TwitterArgs("Checking if cache folder " + path + " is available..."));
+            if (IsNetworkPath(path))
+            {
+                string uncPath = GetUncPath(path);
+
+                LogEvents.InvokeOnInfo(new TwitterArgs("Getting server name from unc path " + uncPath + "..."));
+                serverName = uncPath.Trim(@"\".ToCharArray());
+                if (serverName.Contains(@"\")) serverName = serverName.Remove(serverName.IndexOf(@"\", StringComparison.Ordinal));
+                LogEvents.InvokeOnInfo(new TwitterArgs("Server name is \"" + serverName + "\""));
+                LogEvents.InvokeOnInfo(new TwitterArgs("Checking server \"" + serverName + "\" is available..."));
+                try
+                {
+                    LogEvents.InvokeOnInfo(new TwitterArgs("Checking DNS entry for server \"" + serverName + "\"..."));
+                    if (Dns.GetHostEntry(serverName) == null)
+                    {
+                        LogEvents.InvokeOnError(new TwitterArgs("Could not resolve DNS entry for server \"" + serverName + "\". Server is NOT available."));
+                        return false;
+                    }
+                }
+                catch (SocketException se)
+                {
+                    LogEvents.InvokeOnError(new TwitterArgs("Could not resolve DNS entry for server \"" + serverName + "\". Server is NOT available.", se.Message, se.StackTrace));
+                    return false;
+                }
+
+                if (!IsServerShareReachable(serverName, 10000))
+                {
+                    LogEvents.InvokeOnError(new TwitterArgs("Server \"" + serverName + "\" is NOT available."));
+                    return false;
+                }
+
+
+                LogEvents.InvokeOnInfo(new TwitterArgs("Server \"" + serverName + "\" is available."));
+                return true;
+            }
+            else return true;
+        }
+
+
+        public static bool IsServerShareReachable(string host, int timeout)
+        {
+            LogEvents.InvokeOnDebug(new TwitterArgs("Checking if shares of \"" + host + "\" are reachable..."));
+            const int port = 139; //SMB Port
+
+            bool IsOnline = false;
+            try
+            {
+                IPAddress[] adresses = Dns.GetHostAddresses(host);
+                if (adresses.Length > 0)
+                {
+                    IPAddress address = IPAddress.Parse(adresses[0].ToString());
+                    using (TcpClient tcpClient = new TcpClient(address.AddressFamily))
+                    {
+                        tcpClient.NoDelay = true;
+                        IAsyncResult connection = tcpClient.BeginConnect(address, port, null, null);
+
+                        bool result = connection.AsyncWaitHandle.WaitOne(timeout, false);
+
+                        if (connection.IsCompleted && result)
+                        {
+                            LogEvents.InvokeOnDebug(new TwitterArgs("Server shares of \"" + host + "\" are reachable."));
+                            tcpClient.EndConnect(connection);
+                            IsOnline = true;
+                        }
+                        else
+                        {
+                            LogEvents.InvokeOnDebug(new TwitterArgs("Server shares of \"" + host + "\" are NOT reachable."));
+                        }
+                        tcpClient.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LogEvents.InvokeOnDebug(new TwitterArgs("Server shares of \"" + host + "\" are NOT reachable.", ex.Message, ex.StackTrace));
+            }
+            return IsOnline;
+        }
+
+
+
+        internal static bool DoesCacheFolderExists(string path)
+        {
+            LogEvents.InvokeOnInfo(new TwitterArgs("Checking if cache folder \"" + path + "\" exists..."));
+            if (Directory.Exists(path))
+            {
+                LogEvents.InvokeOnInfo(new TwitterArgs("Cache folder \"" + path + "\" does exists."));
+                return true;
+            }
+            else
+            {
+                LogEvents.InvokeOnError(new TwitterArgs("Cache folder \"" + path + "\" does NOT exists."));
+                return false;
+            }
         }
     }
 }

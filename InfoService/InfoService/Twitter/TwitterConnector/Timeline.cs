@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using TwitterConnector.Data;
 using TwitterConnector.OAuth;
-using TwitterConnector.Xml;
+using TwitterConnector.Json;
 
 #endregion
 
@@ -12,13 +12,12 @@ namespace TwitterConnector
 {
     public class Timeline
     {
-        public Timeline(TimelineType type, AuthType authType, string user, string password, AccessToken accessToken)
+        public Timeline(TimelineType type, string user, string password, AccessToken accessToken)
         {
             _items = new List<TwitterItem>();
             _type = type;
             _user = user;
             _password = password;
-            _authType = authType;
             _accessToken = accessToken;
             _authSettingsSupplied = true;
         }
@@ -49,7 +48,6 @@ namespace TwitterConnector
         }
         public bool LastUpdateSuccessful { get; set; }
         public DateTime LastUpdate { get; set; }
-        private AuthType _authType;
         private string _user;
         private string _password;
         private AccessToken _accessToken;
@@ -62,7 +60,7 @@ namespace TwitterConnector
             {
                 LogEvents.InvokeOnInfo(new TwitterArgs("Updating Twitter " + _type + " timeline without using cache"));
                 List<TwitterItem> oldTwitterItems = _items;
-                if (TimelineXmlParser.TryParse(ref _items, _type, _user, _password, _accessToken, _authType))
+                if (TimelineJsonParser.TryParse(ref _items, _type, _user, _password, _accessToken))
                 {
                     LogEvents.InvokeOnInfo(new TwitterArgs("Update of Twitter " + _type + " timeline successful"));
                     LastUpdateSuccessful = true;
@@ -85,7 +83,7 @@ namespace TwitterConnector
             {
                 LogEvents.InvokeOnInfo(new TwitterArgs("Updating Twitter " + _type + " timeline using cache"));
                 List<TwitterItem> oldTwitterItems = _items;
-                if (TimelineXmlParser.TryParse(ref _items, _type, _user, _password, _accessToken, _authType, cacheFolder))
+                if (TimelineJsonParser.TryParse(ref _items, _type, _user, _password, _accessToken, cacheFolder))
                 {
                     LogEvents.InvokeOnInfo(new TwitterArgs("Update of Twitter " + _type + " timeline successful"));
                     LastUpdateSuccessful = true;

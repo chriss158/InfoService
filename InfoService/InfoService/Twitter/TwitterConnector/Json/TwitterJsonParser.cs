@@ -1,21 +1,17 @@
-﻿#region Usings
-
-using System;
+﻿using System;
 using System.Globalization;
 using System.Xml.Linq;
 
-#endregion
-
-namespace TwitterConnector.Xml
+namespace TwitterConnector.Json
 {
-    internal class TwitterXmlParser
+    internal class TwitterJsonParser
     {
-        internal static string ParseString(XElement ele, string element)
+        internal static string ParseString(dynamic ele, string element)
         {
             //return ele != null ? ele.Value : "";
             try
             {
-                return ele.Value;
+                return Convert.ToString(ele);
             }
             catch (Exception ex)
             {
@@ -23,12 +19,12 @@ namespace TwitterConnector.Xml
             }
             return "";
         }
-        internal static int ParseInteger(XElement ele, string element)
+        internal static int ParseInteger(dynamic ele, string element)
         {
             //return ele != null ? Convert.ToInt32(ele.Value) : 0;
             try
             {
-                return Convert.ToInt32(ele.Value);
+                return Convert.ToInt32(ele);
             }
             catch (Exception ex)
             {
@@ -36,14 +32,14 @@ namespace TwitterConnector.Xml
             }
             return -1;
         }
-        internal static DateTime ParseDateTime(XElement ele, string element)
+        internal static DateTime ParseDateTime(dynamic ele, string element)
         {
             try
             {
                 DateTime tryTime;
-                if (DateTime.TryParseExact(ele.Value, "ddd MMM dd HH:mm:ss zzzz yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out tryTime))
+                if (DateTime.TryParseExact(ele, "ddd MMM dd HH:mm:ss zzzz yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out tryTime))
                 {
-                    return DateTime.ParseExact(ele.Value, "ddd MMM dd HH:mm:ss zzzz yyyy", CultureInfo.InvariantCulture);
+                    return DateTime.ParseExact(ele, "ddd MMM dd HH:mm:ss zzzz yyyy", CultureInfo.InvariantCulture);
                 }
             }
             catch (Exception ex)
