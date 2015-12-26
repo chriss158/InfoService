@@ -265,6 +265,8 @@ namespace InfoService.GUIWindows
                                 PropertyUtils.SetProperty(PropertyUtils.Properties.Twitter.SelectedUserpicture,
                                                                TwitterService.GetTimeline(TwitterService.ActiveTimeline).Items
                                                                    [_twitterListcontrol.SelectedListItemIndex].User.PicturePath);
+                                PropertyUtils.SetProperty(PropertyUtils.Properties.Twitter.SelectedMediaImage, TwitterService.GetTimeline(TwitterService.ActiveTimeline).Items
+                                                                   [_twitterListcontrol.SelectedListItemIndex].MediaPath);
                                 GUIControl.SetControlLabel(GetID, GUITwitterMessage,
                                                            TwitterService.GetTimeline(TwitterService.ActiveTimeline).Items
                                                                [_twitterListcontrol.SelectedListItemIndex].Text);

@@ -7,7 +7,7 @@ namespace TwitterConnector.OAuth
     /// <summary>
     /// Stands for access token
     /// </summary>
-    public class AccessToken:IToken 
+    public class AccessToken : IToken
     {
         private String _tokenValue;
         private String _tokenSecret;

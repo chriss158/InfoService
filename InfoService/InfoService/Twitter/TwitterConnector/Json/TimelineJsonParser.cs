@@ -41,8 +41,13 @@ namespace TwitterConnector.Json
                     Id = TwitterJsonParser.ParseString(tweet.id_str, "tweet[" + i + "]/id_str"),
                     Text = TwitterJsonParser.ParseString(tweet.text, "tweet[" + i + "]/text"),
                     Source = Utils.Clean(TwitterJsonParser.ParseString(tweet.source, "tweet[" + i + "]/source")),
-                    PublishDate = TwitterJsonParser.ParseDateTime(tweet.created_at, "tweet[" + i + "]/created_at"),
+                    PublishDate = TwitterJsonParser.ParseDateTime(tweet.created_at, "tweet[" + i + "]/created_at")
                 };
+                if(tweet.entities.media != null && tweet.entities.media[0] != null)
+                {
+                    twit.MediaId = TwitterJsonParser.ParseString(tweet.entities.media[0].id_str, "tweet[" + i + "]/entities/media/id_str");
+                    twit.MediaPath = TwitterJsonParser.ParseString(tweet.entities.media[0].media_url, "tweet[" + i + "]/entities/media/media_url");
+                }
                 if (tweet.user != null)
                 {
                     twit.User = new TwitterUser
@@ -64,10 +69,10 @@ namespace TwitterConnector.Json
 
                 if (jsonRetweetedStatus != null)
                 {
+                    LogEvents.InvokeOnDebug(new TwitterArgs("Download of the retweets timeline of tweet \"" + twit.Text + "\" succesful. Now parsing the json..."));
                     int j = 0;
                     foreach (dynamic retweet in jsonRetweetedStatus)
                     {
-                        LogEvents.InvokeOnDebug(new TwitterArgs("Download of the retweets timeline succesful. Now parsing the json"));
                         TwitterItem twiRetweet = new TwitterItem
                         {
                             Id = TwitterJsonParser.ParseString(tweet.id_str, "tweet[" + i + "]/retweeted_status[" + j + "]/id_str"),
@@ -99,7 +104,7 @@ namespace TwitterConnector.Json
                 i++;
             }
             LogEvents.InvokeOnInfo(new TwitterArgs("Try to get user pictures from " + type + " timeline either from cache or from download links"));
-            twitterItems = _useCache ? Utils.GetUserPictures(twitterItems, _cacheFolder) : Utils.GetUserPictures(twitterItems);
+            twitterItems = _useCache ? Utils.GetImages(twitterItems, _cacheFolder) : Utils.GetImages(twitterItems);
             LogEvents.InvokeOnDebug(new TwitterArgs("Parsing of " + type + " timeline done. See above for possibly errors or warnings"));
             return true;
         }

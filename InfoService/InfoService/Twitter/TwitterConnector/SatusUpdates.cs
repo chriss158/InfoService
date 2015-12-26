@@ -48,20 +48,21 @@ namespace TwitterConnector
         {
             try
             {
+                //Consumer c = new Consumer(Twitter.CONSUMER_KEY, Twitter.CONSUMER_SECRET);
+                //HttpWebResponse resp = c.AccessProtectedResource(
+                //    accessToken,
+                //    url,
+                //    "GET",
+                //    "https://twitter.com/", new[] { new Parameter("since_id", "1") });
+
                 Consumer c = new Consumer(Twitter.CONSUMER_KEY, Twitter.CONSUMER_SECRET);
-                WebResponse resp =
+                HttpWebResponse resp =
                     c.AccessProtectedResource(
                         accessToken,
-                        "http://api.twitter.com/1/statuses/update.xml",
+                        "https://api.twitter.com/1.1/statuses/update.json",
                         "POST",
-                        "http://twitter.com/",
-                        new Parameter[]{
-                        new Parameter(
-                            "status",
-                            msg
-                            )
-                        }
-                    );
+                        "https://twitter.com/", new[] { new Parameter("status", msg),
+                                                        new Parameter("include_entities", "true") });
                 if (resp != null) resp.Close();
             }
             catch (Exception ex)

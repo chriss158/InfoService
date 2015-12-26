@@ -37,9 +37,10 @@ namespace TwitterConnector.Json
             try
             {
                 DateTime tryTime;
-                if (DateTime.TryParseExact(ele, "ddd MMM dd HH:mm:ss zzzz yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out tryTime))
+                string dateTime = Convert.ToString(ele);
+                if (DateTime.TryParseExact(dateTime, "ddd MMM dd HH:mm:ss zzzz yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out tryTime))
                 {
-                    return DateTime.ParseExact(ele, "ddd MMM dd HH:mm:ss zzzz yyyy", CultureInfo.InvariantCulture);
+                    return DateTime.ParseExact(dateTime, "ddd MMM dd HH:mm:ss zzzz yyyy", CultureInfo.InvariantCulture);
                 }
             }
             catch (Exception ex)

@@ -13,8 +13,8 @@ namespace TwitterConnector
     public class Twitter
     {
         private string _pin;
-        internal const string CONSUMER_KEY = "7wS9lAEQhFT6nqFX2EhKUw";
-        internal const string CONSUMER_SECRET = "AoLW66pilNF2ck4KWHh4MBMZNZehZ1OuwP5FWZlrY";
+        internal const string CONSUMER_KEY = "v7y1GwRj47OYZiHuFOz7Pwh2u";
+        internal const string CONSUMER_SECRET = "m7RL45DMq1dqDpoGFCYohzvdktQue5Oyx0qzhizGRo3ZODv24s";
         private bool _useCache;
         private AccessToken _accessToken;
         private static RequestToken _reqToken;
@@ -45,7 +45,7 @@ namespace TwitterConnector
             try
             {
                 Consumer c = new Consumer(CONSUMER_KEY, CONSUMER_SECRET);
-                _reqToken = c.ObtainUnauthorizedRequestToken("https://api.twitter.com/oauth/request_token", "http://twitter.com/");
+                _reqToken = c.ObtainUnauthorizedRequestToken("https://api.twitter.com/oauth/request_token", "https://twitter.com/");
                 requestToken = _reqToken;
                 return true;
             }
@@ -60,8 +60,8 @@ namespace TwitterConnector
             try
             {
                 Consumer c = new Consumer(CONSUMER_KEY, CONSUMER_SECRET);
-                //_reqToken = c.ObtainUnauthorizedRequestToken("http://twitter.com/oauth/request_token", "http://twitter.com/");
-                accessToken = c.RequestAccessToken(pin, _reqToken, "https://api.twitter.com/oauth/access_token", "http://twitter.com/");
+                //_reqToken = c.ObtainUnauthorizedRequestToken("http://twitter.com/oauth/request_token", "https://twitter.com/");
+                accessToken = c.RequestAccessToken(pin, _reqToken, "https://api.twitter.com/oauth/access_token", "https://twitter.com/");
                 return true;
             }
             catch (Exception ex)

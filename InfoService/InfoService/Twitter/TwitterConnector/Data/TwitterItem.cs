@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 
 #endregion
 
@@ -15,6 +16,9 @@ namespace TwitterConnector.Data
         public string Text { get; set; }
         public string Source { get; set; }
         public List<TwitterItem> Retweets { get; set; }
+        public string MediaPath { get; set; }
+        public string MediaId { get; set; }
+        public Image MediaImage { get; set; }
         public TwitterItem()
         {
             Retweets = new List<TwitterItem>();

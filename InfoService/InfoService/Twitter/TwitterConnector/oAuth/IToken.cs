@@ -7,7 +7,7 @@ namespace TwitterConnector.OAuth
     /// <summary>
     /// Inter face of token.
     /// </summary>
-    public interface  IToken
+    public interface IToken
     {
         /// <summary>
         /// token value

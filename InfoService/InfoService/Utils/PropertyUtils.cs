@@ -111,6 +111,7 @@ namespace InfoService.Utils
                 public const string LastupdatedDatetime = "#infoservice.twitter.lastupdated.datetime";
                 public const string SelectedUsername = "#infoservice.twitter.selected.username";
                 public const string SelectedUserpicture = "#infoservice.twitter.selected.userpicture";
+                public const string SelectedMediaImage = "#infoservice.twitter.selected.mediaimage";
                 public const string SelectedTimeline = "#infoservice.twitter.selected.timeline";
                 public const string SelectedIndex = "#infoservice.twitter.selected.index";
             }
