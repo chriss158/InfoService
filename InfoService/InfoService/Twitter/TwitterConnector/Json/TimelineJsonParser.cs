@@ -8,20 +8,13 @@ namespace TwitterConnector.Json
 {
     internal static class TimelineJsonParser
     {
-        private static string _cacheFolder;
-        private static bool _useCache;
         private const string _retweetsUrl = "https://api.twitter.com/1.1/statuses/retweets/{0}.json";
 
-        internal static bool TryParse(ref List<TwitterItem> twitterItems, TimelineType type, string user, string password, AccessToken accessToken, string cacheFolder)
+        internal static bool TryParse(ref List<TwitterItem> twitterItems, TimelineType type, string user, string password, AccessToken accessToken, string cacheFolder = "")
         {
-            LogEvents.InvokeOnDebug(new TwitterArgs("Try downloading/parsing the " + type + " timeline using cache"));
-            _cacheFolder = cacheFolder;
-            _useCache = true;
-            return TryParse(ref twitterItems, type, user, password, accessToken);
-        }
-        internal static bool TryParse(ref List<TwitterItem> twitterItems, TimelineType type, string user, string password, AccessToken accessToken)
-        {
-            LogEvents.InvokeOnDebug(new TwitterArgs("Try downloading/parsing the " + type + " timeline"));
+            LogEvents.InvokeOnDebug(!string.IsNullOrEmpty(cacheFolder)
+                ? new TwitterArgs("Try downloading/parsing the " + type + " timeline using cache")
+                : new TwitterArgs("Try downloading/parsing the " + type + " timeline"));
             dynamic jsonTwitter = null;
             jsonTwitter = Utils.DownloadTwitterJson(accessToken, type.GetUrl());
             if (jsonTwitter == null)
@@ -100,11 +93,13 @@ namespace TwitterConnector.Json
                         j++;
                     }
                 }
+               
                 twitterItems.Add(twit);
                 i++;
             }
+
             LogEvents.InvokeOnInfo(new TwitterArgs("Try to get user pictures from " + type + " timeline either from cache or from download links"));
-            twitterItems = _useCache ? Utils.GetImages(twitterItems, _cacheFolder) : Utils.GetImages(twitterItems);
+            twitterItems = Utils.GetImages(twitterItems, cacheFolder);
             LogEvents.InvokeOnDebug(new TwitterArgs("Parsing of " + type + " timeline done. See above for possibly errors or warnings"));
             return true;
         }

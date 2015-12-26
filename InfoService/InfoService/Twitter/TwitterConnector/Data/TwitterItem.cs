@@ -22,6 +22,11 @@ namespace TwitterConnector.Data
         public TwitterItem()
         {
             Retweets = new List<TwitterItem>();
+            Id = string.Empty;
+            Text = string.Empty;
+            Source = string.Empty;
+            MediaPath = string.Empty;
+            MediaId = string.Empty;
         }
     }
    

@@ -240,41 +240,58 @@ namespace TwitterConnector
             LogEvents.InvokeOnInfo(new TwitterArgs("Posting status update \"" + message + "\" unsuccessful. See above for errors or warnings"));
             return false;
         }
-        public void UpdateAllTimelines()
+        public bool UpdateTimelines(List<TimelineType> timeLines)
         {
+            int successCount = timeLines.Count;
+            int count = 0;
             foreach (KeyValuePair<string, Timeline> timeline in Timelines)
             {
-                bool cacheAvailable = false;
-                if (CacheAutomatic)
+                if (timeLines.Contains(timeline.Value.Type))
                 {
-                    CheckCache();
-                }
-
-                if (CacheEnabled)
-                {
-                    if (!CacheAutomatic)
+                    bool cacheAvailable = false;
+                    if (CacheAutomatic)
                     {
-                        cacheAvailable = Utils.IsCacheFolderAvailable(CacheFolder);
+                        CheckCache();
                     }
-                    else cacheAvailable = true;
-                }
 
-                if (!CacheEnabled)
-                {
-                    timeline.Value.Update();
-                }
-                else
-                {
-                    if (cacheAvailable)
+                    if (CacheEnabled)
                     {
-                        timeline.Value.Update(CacheFolder);
+                        if (!CacheAutomatic)
+                        {
+                            cacheAvailable = Utils.IsCacheFolderAvailable(CacheFolder);
+                        }
+                        else cacheAvailable = true;
+                    }
+
+                    if (!CacheEnabled)
+                    {
+                        if(timeline.Value.Update())
+                        {
+                            count++;
+                        }
                     }
                     else
                     {
-                        LogEvents.InvokeOnError(new TwitterArgs("Error parsing timeline into cache folder " + CacheFolder + ". Cache folder is not available...", ""));
+                        if (cacheAvailable)
+                        {
+                            if(timeline.Value.Update(CacheFolder))
+                            {
+                                count++;
+                            }
+                        }
+                        else
+                        {
+                            LogEvents.InvokeOnError(new TwitterArgs("Error parsing timeline into cache folder " + CacheFolder + ". Cache folder is not available...", ""));
+                        }
                     }
                 }
             }
+            if (successCount == count) return true;
+            else return false;
+        }
+        public bool UpdateAllTimelines()
+        {
+            return UpdateTimelines(new List<TimelineType>() { TimelineType.Home, TimelineType.Mentions, TimelineType.RetweetsOfMe, TimelineType.User });
         }
     }
 }

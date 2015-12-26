@@ -87,9 +87,7 @@ namespace TwitterConnector
                 }
                 if (!string.IsNullOrEmpty(responseString))
                 {
-                    //dynamic timelineJson = Newtonsoft.Json.Linq.JObject.Parse(responseString);
                     dynamic timelineJson = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(responseString);
-                    //dynamic timelineJson = System.Web.Helpers.Json.Decode(responseString);
                     return timelineJson;
                 }
                 else
@@ -153,15 +151,6 @@ namespace TwitterConnector
             }
             return null;
         }
-        private static bool IsUserPictureCached(string user, string cacheFolder, out string cachedImagePath)
-        {
-            LogEvents.InvokeOnDebug(new TwitterArgs("Checking if user picture is cached"));
-            string md5hash = GenerateMd5Hash(user);
-            if(cacheFolder.EndsWith(@"\")) cachedImagePath = cacheFolder + md5hash + ".png";
-            else cachedImagePath = cacheFolder + @"\" + md5hash + ".png";
-            return File.Exists(cachedImagePath);
-        }
-
         private static bool IsImageCached(string id, string cacheFolder, out string cachedImagePath)
         {
             LogEvents.InvokeOnDebug(new TwitterArgs("Checking if user picture is cached"));
@@ -170,92 +159,10 @@ namespace TwitterConnector
             else cachedImagePath = cacheFolder + @"\" + md5hash + ".png";
             return File.Exists(cachedImagePath);
         }
-
-        private static TwitterUser GetUserPicture(TwitterUser user)
+       
+        private static bool GetImage(string url, string name, out Image img, out string imgPath)
         {
-            if (user != null)
-            {
-                LogEvents.InvokeOnDebug(new TwitterArgs("Downloading user picture for user \"" + user.ScreenName + "\" from url " + user.PicturePath));
-                try
-                {
-                    user.Picture = DownloadImage(user.PicturePath);
-                    user.PicturePath = string.Empty;
-                }
-                catch (Exception ex)
-                {
-                    LogEvents.InvokeOnWarning(new TwitterArgs("Error downloading user picture from url " + user.PicturePath, ex.Message, ex.StackTrace));
-                }
-            }
-            return user;
-        }
-        private static TwitterUser GetUserPicture(TwitterUser user, string cacheFolder)
-        {
-            if (user != null)
-            {
-                string imgpath;
-                LogEvents.InvokeOnDebug(new TwitterArgs("Downloading user picture for user " + user.ScreenName));
-                string name = user.ScreenName;
-                if (IsUserPictureCached(name, cacheFolder, out imgpath))
-                {
-                    LogEvents.InvokeOnDebug(new TwitterArgs("User picture is cached. Try to load picture"));
-                    try
-                    {
-                        using (FileStream fs = new FileStream(imgpath, FileMode.Open, FileAccess.Read))
-                        {
-                            using (Image cacheImage = Image.FromStream(fs))
-                            {
-                                user.Picture = cacheImage.Clone() as Image;
-                            }
-                        }
-                        user.PicturePath = imgpath;
-                        LogEvents.InvokeOnDebug(new TwitterArgs("Loading user picture from cache path " + imgpath + " successful"));
-                    }
-                    catch (Exception ex)
-                    {
-                        user.PicturePath = string.Empty;
-                        LogEvents.InvokeOnWarning(new TwitterArgs("Error loading user picture from cache " + imgpath, ex.Message, ex.StackTrace));
-                    }
-                }
-                else
-                {
-                    LogEvents.InvokeOnDebug(new TwitterArgs("User picture is not cached. Downloading user picture from url " + user.PicturePath));
-                    user.Picture = DownloadImage(user.PicturePath);
-                    if (user.Picture != null)
-                    {
-                        string dirName = Path.GetDirectoryName(imgpath);
-                        if (!Directory.Exists(dirName))
-                        {
-                            LogEvents.InvokeOnDebug(new TwitterArgs("Twitter folder doesn't exist. Creating a new one -> " + dirName));
-                            try
-                            {
-                                Directory.CreateDirectory(dirName);
-                            }
-                            catch(Exception ex)
-                            {
-                                LogEvents.InvokeOnWarning(new TwitterArgs("Error saving user picture from url " + user.PicturePath + " to directory " + dirName + ". Could not create directory " + dirName + ".", ex.Message, ex.StackTrace));
-                                user.PicturePath = string.Empty;
-                            }
-
-                        }
-                        try
-                        {
-                            LogEvents.InvokeOnDebug(new TwitterArgs("Saving user picture to cache folder -> " + imgpath));
-                            using (Image cloneImage = user.Picture.Clone() as Image)
-                            {
-                                cloneImage.Save(imgpath, ImageFormat.Png);
-                            }
-                            user.PicturePath = imgpath;
-                        }
-                        catch (Exception ex)
-                        {
-                            LogEvents.InvokeOnWarning(new TwitterArgs("Error saving user picture from url " + user.PicturePath, ex.Message, ex.StackTrace));
-                            user.PicturePath = string.Empty;
-                        }
-                    }
-                    else user.PicturePath = string.Empty;
-                }
-            }
-            return user;
+            return GetImage(url, name, string.Empty, out img, out imgPath);
         }
         private static bool GetImage(string url, string name, string cacheFolder, out Image img, out string imgPath)
         {
@@ -263,73 +170,92 @@ namespace TwitterConnector
             imgPath = string.Empty;
             if (!string.IsNullOrEmpty(url))
             {
-                string cachePath;
-                LogEvents.InvokeOnDebug(new TwitterArgs("Downloading image for id " + name));
-                //string name = user.ScreenName;
-                if (IsImageCached(name, cacheFolder, out cachePath))
+                if (!string.IsNullOrEmpty(cacheFolder))
                 {
-                    LogEvents.InvokeOnDebug(new TwitterArgs("Image is cached. Try to load image"));
-                    try
+                    string cachePath;
+                    LogEvents.InvokeOnDebug(new TwitterArgs("Downloading image for id " + name));
+                    //string name = user.ScreenName;
+                    if (IsImageCached(name, cacheFolder, out cachePath))
                     {
-                        using (FileStream fs = new FileStream(cachePath, FileMode.Open, FileAccess.Read))
-                        {
-                            using (Image cacheImage = Image.FromStream(fs))
-                            {
-                                img = cacheImage.Clone() as Image;
-                            }
-                        }
-                        imgPath = cachePath;
-                        LogEvents.InvokeOnDebug(new TwitterArgs("Loading image from cache path " + cachePath + " successful"));
-                        return true;
-                    }
-                    catch (Exception ex)
-                    {
-                        imgPath = string.Empty;
-                        img = null;
-                        LogEvents.InvokeOnWarning(new TwitterArgs("Error loading image from cache " + cachePath, ex.Message, ex.StackTrace));
-                        return false;
-                    }
-                }
-                else
-                {
-                    LogEvents.InvokeOnDebug(new TwitterArgs("Image is not cached. Downloading image from url " + url));
-                    img = DownloadImage(url);
-                    if (img != null)
-                    {
-                        string dirName = Path.GetDirectoryName(cachePath);
-                        if (!Directory.Exists(dirName))
-                        {
-                            LogEvents.InvokeOnDebug(new TwitterArgs("Twitter folder doesn't exist. Creating a new one -> " + dirName));
-                            try
-                            {
-                                Directory.CreateDirectory(dirName);
-                            }
-                            catch (Exception ex)
-                            {
-                                LogEvents.InvokeOnWarning(new TwitterArgs("Error saving image from url " + url + " to directory " + dirName + ". Could not create directory " + dirName + ".", ex.Message, ex.StackTrace));
-                                imgPath = string.Empty;
-                                img = null;
-                                return false;
-                            }
-
-                        }
+                        LogEvents.InvokeOnDebug(new TwitterArgs("Image is cached. Try to load image"));
                         try
                         {
-                            LogEvents.InvokeOnDebug(new TwitterArgs("Saving image to cache folder -> " + cachePath));
-                            using (Image cloneImage = img.Clone() as Image)
+                            using (FileStream fs = new FileStream(cachePath, FileMode.Open, FileAccess.Read))
                             {
-                                cloneImage.Save(cachePath, ImageFormat.Png);
+                                using (Image cacheImage = Image.FromStream(fs))
+                                {
+                                    img = cacheImage.Clone() as Image;
+                                }
                             }
                             imgPath = cachePath;
+                            LogEvents.InvokeOnDebug(new TwitterArgs("Loading image from cache path " + cachePath + " successful"));
                             return true;
                         }
                         catch (Exception ex)
                         {
-                            LogEvents.InvokeOnWarning(new TwitterArgs("Error saving image from url " + url, ex.Message, ex.StackTrace));
+                            imgPath = string.Empty;
+                            img = null;
+                            LogEvents.InvokeOnWarning(new TwitterArgs("Error loading image from cache " + cachePath, ex.Message, ex.StackTrace));
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        LogEvents.InvokeOnDebug(new TwitterArgs("Image is not cached. Downloading image from url " + url));
+                        img = DownloadImage(url);
+                        if (img != null)
+                        {
+                            string dirName = Path.GetDirectoryName(cachePath);
+                            if (!Directory.Exists(dirName))
+                            {
+                                LogEvents.InvokeOnDebug(new TwitterArgs("Twitter folder doesn't exist. Creating a new one -> " + dirName));
+                                try
+                                {
+                                    Directory.CreateDirectory(dirName);
+                                }
+                                catch (Exception ex)
+                                {
+                                    LogEvents.InvokeOnWarning(new TwitterArgs("Error saving image from url " + url + " to directory " + dirName + ". Could not create directory " + dirName + ".", ex.Message, ex.StackTrace));
+                                    imgPath = string.Empty;
+                                    img = null;
+                                    return false;
+                                }
+
+                            }
+                            try
+                            {
+                                LogEvents.InvokeOnDebug(new TwitterArgs("Saving image to cache folder -> " + cachePath));
+                                using (Image cloneImage = img.Clone() as Image)
+                                {
+                                    cloneImage.Save(cachePath, ImageFormat.Png);
+                                }
+                                imgPath = cachePath;
+                                return true;
+                            }
+                            catch (Exception ex)
+                            {
+                                LogEvents.InvokeOnWarning(new TwitterArgs("Error saving image from url " + url, ex.Message, ex.StackTrace));
+                                imgPath = string.Empty;
+                                img = null;
+                                return false;
+                            }
+                        }
+                        else
+                        {
                             imgPath = string.Empty;
                             img = null;
                             return false;
                         }
+                    }
+                }
+                else
+                {
+                    imgPath = string.Empty;
+                    LogEvents.InvokeOnDebug(new TwitterArgs("Downloading image for id " + name + " from url " + url));
+                    img = DownloadImage(url);
+                    if (img != null)
+                    {
+                        return true;
                     }
                     else
                     {
@@ -339,13 +265,12 @@ namespace TwitterConnector
                     }
                 }
 
-
             }
             else return false;
             //return true;
         }
 
-        public static List<TwitterItem> GetImages(List<TwitterItem> items, string cacheFolder)
+        public static List<TwitterItem> GetImages(List<TwitterItem> items, string cacheFolder = "")
         {
             Image newImage = null;
             string newImagePath = string.Empty;
@@ -356,8 +281,15 @@ namespace TwitterConnector
                 newImagePath = string.Empty;
                 if (GetImage(items[i].User.PicturePath, items[i].User.ScreenName, cacheFolder, out newImage, out newImagePath))
                 {
-                    items[i].User.PicturePath = newImagePath;
-                    items[i].User.Picture = (Image)newImage.Clone();
+                    if (string.IsNullOrEmpty(cacheFolder))
+                    {
+                        items[i].User.Picture = (Image)newImage.Clone();
+                        items[i].User.PicturePath = string.Empty;
+                    }
+                    else
+                    {
+                        items[i].User.PicturePath = newImagePath;
+                    }
                     newImage.Dispose();
                 }
 
@@ -365,33 +297,36 @@ namespace TwitterConnector
                 newImagePath = string.Empty;
                 if (GetImage(items[i].MediaPath, items[i].MediaId, cacheFolder, out newImage, out newImagePath))
                 {
-                    items[i].MediaPath = newImagePath;
-                    items[i].MediaImage = (Image)newImage.Clone();
+                    
+                    if (string.IsNullOrEmpty(cacheFolder))
+                    {
+                        items[i].MediaImage = (Image)newImage.Clone();
+                        items[i].MediaPath = string.Empty;
+                    }
+                    else
+                    {
+                        items[i].MediaPath = newImagePath;
+                    }
                     newImage.Dispose();
                 }
                 for (int j = 0; j < items[i].Retweets.Count; j++)
                 {
                     newImage = null;
                     newImagePath = string.Empty;
-                    items[i].Retweets[j].User = GetUserPicture(items[i].Retweets[j].User, cacheFolder);
                     if (GetImage(items[i].Retweets[j].User.PicturePath, items[i].Retweets[j].User.ScreenName, cacheFolder, out newImage, out newImagePath))
                     {
-                        items[i].Retweets[j].User.PicturePath = newImagePath;
-                        items[i].Retweets[j].User.Picture = (Image)newImage.Clone();
+                        
+                        if (string.IsNullOrEmpty(cacheFolder))
+                        {
+                            items[i].Retweets[j].User.Picture = (Image)newImage.Clone();
+                            items[i].Retweets[j].User.PicturePath = string.Empty;
+                        }
+                        else
+                        {
+                            items[i].Retweets[j].User.PicturePath = newImagePath;
+                        }
                         newImage.Dispose();
                     }
-                }
-            }
-            return items;
-        }
-        public static List<TwitterItem> GetImages(List<TwitterItem> items)
-        {
-            for (int i = 0; i < items.Count; i++)
-            {
-                items[i].User = GetUserPicture(items[i].User);
-                for (int j = 0; j < items[i].Retweets.Count; j++)
-                {
-                    items[i].Retweets[j].User = GetUserPicture(items[i].Retweets[j].User);
                 }
             }
             return items;

@@ -237,7 +237,7 @@ namespace TwitterConnector.OAuth
             String oauth_nonce =
                 Guid.NewGuid().ToString();
             String oauth_callback =
-                (callbackURL != null && callbackURL.Length > 0 ?
+                (!string.IsNullOrEmpty(callbackURL) ?
                     callbackURL :
                     "oob"
                 );
@@ -749,24 +749,10 @@ namespace TwitterConnector.OAuth
                 byte[] contentsBytes = Encoding.ASCII.GetBytes(contents);
                 request.ContentLength = contentsBytes.Length;
 
-                Stream s = null;
-                StreamWriter sw = null;
 
-                try
+                using (Stream s = request.GetRequestStream())
                 {
-                    s = request.GetRequestStream();
-                    sw = new StreamWriter(s, Encoding.ASCII);
-
-                    sw.Write(contents);
-                    sw.Flush();
-                }
-                finally
-                {
-                    if (sw != null)
-                        sw.Close();
-                    if (s != null)
-                        s.Close();
-
+                    s.Write(contentsBytes, 0, contentsBytes.Length);
                 }
             }
 

@@ -368,30 +368,17 @@ namespace InfoService.Twitter
             UpdateInProgress = true;
             try
             {
-                int falseDownloads = 0;
-                foreach (KeyValuePair<string, Timeline> timeline in _twitterTimelines.Timelines)
+                if(_twitterTimelines.UpdateTimelines(UsedTimelines))
                 {
-                    if (!UsedTimelines.Contains(timeline.Value.Type)) continue;
-                    if (!timeline.Value.Update(CacheFolder))
-                    {
-                        falseDownloads++;
-                    }
+                    LastRefresh = DateTime.Now;
+                    logger.WriteLog("Update of Twitter succesfull. Now setting up properties...", LogLevel.Info, InfoServiceModul.Twitter);
+                    return true;
                 }
-
-                if (UsedTimelines.Count == falseDownloads)
+                else
                 {
                     logger.WriteLog("Update of Twitter unsuccesfull. Check the errors and warnings above", LogLevel.Error, InfoServiceModul.Twitter);
                     return false;
                 }
-                if (falseDownloads > 0)
-                {
-                    LastRefresh = DateTime.Now;
-                    logger.WriteLog("Update of TwitterService partially succesfull. See above for errors. Anyway now setting up properties...", LogLevel.Warning, InfoServiceModul.Twitter);
-                    return true;
-                }
-                LastRefresh = DateTime.Now;
-                logger.WriteLog("Update of Twitter succesfull. Now setting up properties...", LogLevel.Info, InfoServiceModul.Twitter);
-                return true;
             }
             finally
             {

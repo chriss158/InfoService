@@ -50,7 +50,7 @@ namespace TwitterConnector
             Type type = value.GetType();
             FieldInfo fi = type.GetField(value.ToString());
             Url[] attrs = fi.GetCustomAttributes(typeof(Url), false) as Url[];
-            if (attrs.Length > 0)
+            if (attrs != null && attrs.Length > 0)
                 output = attrs[0].Value;
             return output;
         }
@@ -60,7 +60,7 @@ namespace TwitterConnector
             Type type = value.GetType();
             FieldInfo fi = type.GetField(value.ToString());
             PrettyName[] attrs = fi.GetCustomAttributes(typeof(PrettyName), false) as PrettyName[];
-            if (attrs.Length > 0)
+            if (attrs != null && attrs.Length > 0)
                 output = attrs[0].Value;
             return output;
         }
