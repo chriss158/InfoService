@@ -5,7 +5,6 @@ InfoService is a plugin for that provides weather/feed and twitter informations 
 
 ## Features
 - Supports RDF (RSS 1.0), RSS 2.0 and Atom feeds
-- Receives weather data (+ 5 day forecast) from http://www.weather.com
 - Receives multiple feeds
 - Receives your twitter timelines
 - Update your twitter status
@@ -13,7 +12,6 @@ InfoService is a plugin for that provides weather/feed and twitter informations 
 - Open all links within a twitter message in a webrowser (Needs a extra plugin)
 - Show different feeds and weather locations on basichome screen
 - Read the complete feed in a browser window (Needs a extra plugin)
-- Shows recently added TV Series and movies
 - Multi-Language (English, German, Italian, Dutch and Spanish)
 
 ## Screenshots
