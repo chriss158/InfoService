@@ -341,7 +341,7 @@ namespace FeedReader
                 this.Description = null;
                 this.Items.Clear();
                 this.Items = null;
-                this.Image?.Dispose();
+                if(this.Image != null) this.Image.Dispose();
                 this.Image = null;
                 this.ImagePath = null;
                 this.UrlPath = null;

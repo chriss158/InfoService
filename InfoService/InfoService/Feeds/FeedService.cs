@@ -352,7 +352,7 @@ namespace InfoService.Feeds
                                         feed.Image = cacheImage.Clone() as Image;
                                     }
                                 }
-                                feed.Image?.Dispose();
+                                if(feed.Image != null) feed.Image.Dispose();
                                 feed.Image = null;
                                 feed.ImagePath = feed.OwnFeedImagePath;
                                 Logger.WriteLog("Loading own feed[" + feed.Title + "] image successful", LogLevel.Debug, InfoServiceModul.Feed);
@@ -393,7 +393,7 @@ namespace InfoService.Feeds
                                             feed.Image = cacheImage.Clone() as Image;
                                         }
                                     }
-                                    feed.Image?.Dispose();
+                                    if(feed.Image != null) feed.Image.Dispose();
                                     feed.Image = null;
                                     feed.ImagePath = path;
                                     Logger.WriteLog("Loading default feed[" + feed.Title + "] image successful", LogLevel.Debug, InfoServiceModul.Feed);
@@ -499,7 +499,7 @@ namespace InfoService.Feeds
                                 feed.Items[i].Image = cacheImage.Clone() as Image;
                             }
                         }
-                        feed.Items[i].Image?.Dispose();
+                        if(feed.Items[i].Image != null) feed.Items[i].Image.Dispose();
                         feed.Items[i].Image = null;
                         feed.Items[i].ImagePath = path;
                         Logger.WriteLog("Loading default feed[" + feed.Title + "] item[" + i + "] image successful", LogLevel.Debug, InfoServiceModul.Feed);
@@ -520,7 +520,7 @@ namespace InfoService.Feeds
                                 feed.Items[i].ImageBig = cacheImage.Clone() as Image;
                             }
                         }
-                        feed.Items[i].ImageBig?.Dispose();
+                        if(feed.Items[i].ImageBig != null) feed.Items[i].ImageBig.Dispose();
                         feed.Items[i].ImageBig = null;
                         feed.Items[i].ImagePathBig = pathBig;
                         Logger.WriteLog("Loading default feed[" + feed.Title + "] item[" + i + "] BIG image successful", LogLevel.Debug, InfoServiceModul.Feed);

@@ -13,6 +13,12 @@ Changelog:
 [i] - Information
 [!] - Attention
 
+Version v1.8:
+[+] Re-enabled Twitter
+[+] New property for twitter: #infoservice.twitter.selected.mediaimage. It holds the first image which is attached to a tweet
+[*] Memory footpring improvements
+[-] All over small fixes
+
 Version v1.74:
 [+] Proxy support
 [+] Support for caching to a network drive/unc path

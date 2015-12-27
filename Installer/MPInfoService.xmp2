@@ -200,6 +200,12 @@ Changelog:
 [i] - Information
 [!] - Attention
 
+Version v1.8:
+[+] Re-enabled Twitter
+[+] New property for twitter: #infoservice.twitter.selected.mediaimage. It holds the first image which is attached to a tweet
+[*] Memory footpring improvements
+[-] All over small fixes
+
 Version v1.74:
 [+] Proxy support
 [+] Support for caching to a network drive/unc path
@@ -457,7 +463,8 @@ Version v0.11:
 [-] Fixed crash if timeformat in rss feed wrong
 
 Version v0.1:
-[+] First release</Value>
+[+] First release
+</Value>
               <ValueType>String</ValueType>
               <Description>The readme text</Description>
             </SectionParam>
@@ -631,15 +638,15 @@ Version v0.1:
     <UpdateUrl>http://www.team-mediaportal.com/index.php?option=com_mtree&amp;task=att_download&amp;link_id=84&amp;cf_id=52</UpdateUrl>
     <Version>
       <Major>1</Major>
-      <Minor>7</Minor>
-      <Build>4</Build>
+      <Minor>8</Minor>
+      <Build>0</Build>
       <Revision>0</Revision>
     </Version>
     <ExtensionDescription>InfoService is a plugin for that provides weather, feed and twitter informations on the home screen. It has also a feed reader and a twitter client built in. The plugin is for MediaPortal users and skinners who want to have some information on their MediaPortal homescreen.</ExtensionDescription>
     <VersionDescription />
     <DevelopmentStatus>Stable</DevelopmentStatus>
     <OnlineLocation>http://www.team-mediaportal.com/index.php?option=com_mtree&amp;task=att_download&amp;link_id=84&amp;cf_id=24</OnlineLocation>
-    <ReleaseDate>2015-12-24T14:35:38.1871351+01:00</ReleaseDate>
+    <ReleaseDate>2015-12-27T19:46:43.1576343+01:00</ReleaseDate>
     <Tags>all,infoservice,rss,feed,twitter,weather,feeds</Tags>
     <Location>..\LastBuild\MPInfoService_v[Version].mpe1</Location>
     <Params>
