@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
+using MediaPortal.ExtensionMethods;
 using TwitterConnector.Expections;
 using TwitterConnector.OAuth;
 
@@ -14,8 +16,8 @@ namespace TwitterConnector
     public class Twitter
     {
         private string _pin;
-        internal const string CONSUMER_KEY = "v7y1GwRj47OYZiHuFOz7Pwh2u";
-        internal const string CONSUMER_SECRET = "m7RL45DMq1dqDpoGFCYohzvdktQue5Oyx0qzhizGRo3ZODv24s";
+        public static string ConsumerKey = string.Empty;
+        public static string ConsumerSecret = string.Empty;
         private bool _useCache;
         private AccessToken _accessToken;
         private static RequestToken _reqToken;
@@ -41,33 +43,56 @@ namespace TwitterConnector
             }
             throw new TwitterAuthExpection("Couldn't get auth url. RequestToken is empty");
         }
+
+        public static void SetConsumerKeySecret(string consumerKey, string consumerSecret)
+        {
+            ConsumerSecret = consumerSecret;
+            ConsumerKey = consumerKey;
+        }
+            
         public static bool GetRequestToken(out RequestToken requestToken)
         {
-            try
+            if (!string.IsNullOrEmpty(ConsumerKey) && !string.IsNullOrEmpty(ConsumerSecret))
             {
-                Consumer c = new Consumer(CONSUMER_KEY, CONSUMER_SECRET);
-                _reqToken = c.ObtainUnauthorizedRequestToken("https://api.twitter.com/oauth/request_token", "https://twitter.com/");
-                requestToken = _reqToken;
-                return true;
+                try
+                {
+                    Consumer c = new Consumer(ConsumerKey, ConsumerSecret);
+                    _reqToken = c.ObtainUnauthorizedRequestToken("https://api.twitter.com/oauth/request_token",
+                        "https://twitter.com/");
+                    requestToken = _reqToken;
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    throw new TwitterAuthExpection("Couldn't get request token", ex);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                throw new TwitterAuthExpection("Couldn't get request token", ex);
+                throw new TwitterAuthExpection("Couldn't get request token. Consumer key/secret is initial.");
             }
 
         }
         public static bool GetAuthToken(string pin, out AccessToken accessToken)
         {
-            try
+            if (!string.IsNullOrEmpty(ConsumerKey) && !string.IsNullOrEmpty(ConsumerSecret))
             {
-                Consumer c = new Consumer(CONSUMER_KEY, CONSUMER_SECRET);
-                //_reqToken = c.ObtainUnauthorizedRequestToken("http://twitter.com/oauth/request_token", "https://twitter.com/");
-                accessToken = c.RequestAccessToken(pin, _reqToken, "https://api.twitter.com/oauth/access_token", "https://twitter.com/");
-                return true;
+                try
+                {
+                    Consumer c = new Consumer(ConsumerKey, ConsumerSecret);
+                    //_reqToken = c.ObtainUnauthorizedRequestToken("http://twitter.com/oauth/request_token", "https://twitter.com/");
+                    accessToken = c.RequestAccessToken(pin, _reqToken, "https://api.twitter.com/oauth/access_token",
+                        "https://twitter.com/");
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    throw new TwitterAuthExpection("Couldn't get auth token", ex);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                throw new TwitterAuthExpection("Couldn't get auth token", ex);
+                throw new TwitterAuthExpection("Couldn't get request token. Consumer key/secret is initial.");
             }
 
         }
@@ -231,16 +256,6 @@ namespace TwitterConnector
             return false;
         }
 
-        public bool PostStatus(string message)
-        {
-            if (StatusUpdate.PostStatus(_accessToken, message))
-            {
-                LogEvents.InvokeOnInfo(new TwitterArgs("Posting status update \"" + message + "\" successful"));
-                return true;
-            }
-            LogEvents.InvokeOnInfo(new TwitterArgs("Posting status update \"" + message + "\" unsuccessful. See above for errors or warnings"));
-            return false;
-        }
         public bool UpdateTimelines(List<TimelineType> timeLines)
         {
             int successCount = timeLines.Count;
@@ -304,6 +319,32 @@ namespace TwitterConnector
         public bool UpdateAllTimelines()
         {
             return UpdateTimelines(new List<TimelineType>() { TimelineType.Home, TimelineType.Mentions, TimelineType.RetweetsOfMe, TimelineType.User });
+        }
+        public bool PostStatus(string message)
+        {
+            try
+            {
+                Consumer c = new Consumer(ConsumerKey, ConsumerSecret);
+                HttpWebResponse resp =
+                    c.AccessProtectedResource(
+                        _accessToken,
+                        "https://api.twitter.com/1.1/statuses/update.json",
+                        "POST",
+                        "https://twitter.com/", new[] { new Parameter("status", message) });
+                if (resp != null)
+                {
+                    resp.Close();
+                    resp.SafeDispose();
+                }
+                LogEvents.InvokeOnInfo(new TwitterArgs("Posting status update \"" + message + "\" successful"));
+                
+            }
+            catch (Exception ex)
+            {
+                LogEvents.InvokeOnError(new TwitterArgs("Error posting status update", ex.Message, ex.StackTrace));
+                return false;
+            }
+            return true;
         }
     }
 }

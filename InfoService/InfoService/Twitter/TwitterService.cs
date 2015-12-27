@@ -282,6 +282,7 @@ namespace InfoService.Twitter
                 LogEvents.OnError += new LogEvents.TwitterErrorHandler(LogEvents_OnError);
                 LogEvents.OnInfo += new LogEvents.TwitterErrorHandler(LogEvents_OnInfo);
                 LogEvents.OnWarning += new LogEvents.TwitterErrorHandler(LogEvents_OnWarning);
+                TwitterConnector.Twitter.SetConsumerKeySecret(TwitterApiKeys.ConsumerKey, TwitterApiKeys.ConsumerSecret);
                 _twitterTimelines = new TwitterConnector.Twitter("", "", pin, new AccessToken(tokenValue, tokenSecret), CacheFolder);
                 Enabled = true;
                 _activeTimeline = TimelineType.None;

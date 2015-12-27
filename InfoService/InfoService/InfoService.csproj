@@ -214,6 +214,7 @@
     </Compile>
     <Compile Include="Feeds\FeedService.cs" />
     <Compile Include="RecentlyAddedWatched\RecentlyAddedWatchedUpdater.cs" />
+    <Compile Include="Twitter\TwitterApiKeys.cs" />
     <Compile Include="Twitter\TwitterConnector\Json\TimelineJsonParser.cs" />
     <Compile Include="Twitter\TwitterConnector\Json\TwitterJsonParser.cs" />
     <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Bson\BsonBinaryType.cs" />
@@ -415,7 +416,6 @@
     <Compile Include="Twitter\TwitterConnector\OAuth\Parameter.cs" />
     <Compile Include="Twitter\TwitterConnector\OAuth\RequestToken.cs" />
     <Compile Include="Twitter\TwitterConnector\LogEvents.cs" />
-    <Compile Include="Twitter\TwitterConnector\SatusUpdates.cs" />
     <Compile Include="Twitter\TwitterConnector\TimelineType.cs" />
     <Compile Include="Twitter\TwitterConnector\Data\TwitterItem.cs" />
     <Compile Include="Twitter\TwitterConnector\Timeline.cs" />
@@ -591,7 +591,7 @@
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_StartDate="2009/11/6" BuildVersion_BuildVersioningStyle="Increment.Increment.Increment.DeltaBaseDate" BuildVersion_ConfigurationName="Release" BuildVersion_UpdateFileVersion="True" />
+      <UserProperties BuildVersion_UpdateFileVersion="True" BuildVersion_ConfigurationName="Release" BuildVersion_BuildVersioningStyle="Increment.Increment.Increment.DeltaBaseDate" BuildVersion_StartDate="2009/11/6" />
     </VisualStudio>
   </ProjectExtensions>
   <Import Project="$(SolutionDir)\.build\GitAssemblyVersion.targets" />

@@ -39,7 +39,7 @@ namespace TwitterConnector
             int rateLimit = 0, limitRemaining = 0;
             try
             {
-                Consumer c = new Consumer(Twitter.CONSUMER_KEY, Twitter.CONSUMER_SECRET);
+                Consumer c = new Consumer(Twitter.ConsumerKey, Twitter.ConsumerSecret);
                 HttpWebResponse resp = c.AccessProtectedResource(
                     accessToken,
                     url,
@@ -69,7 +69,7 @@ namespace TwitterConnector
             int rateLimit = 0, limitRemaining = 0;
             try
             {
-                Consumer c = new Consumer(Twitter.CONSUMER_KEY, Twitter.CONSUMER_SECRET);
+                Consumer c = new Consumer(Twitter.ConsumerKey, Twitter.ConsumerSecret);
                 HttpWebResponse resp = c.AccessProtectedResource(
                     accessToken,
                     url,
