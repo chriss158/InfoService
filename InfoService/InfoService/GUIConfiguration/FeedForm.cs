@@ -234,7 +234,7 @@ namespace InfoService.GUIConfiguration
 
         private void FeedForm_HelpButtonClicked(object sender, CancelEventArgs e)
         {
-            Process.Start(@"http://infoservice.codeplex.com/wikipage?title=Add%2fEdit%20Feed&referringTitle=How%20to%20use%20%28Users%29");
+            Process.Start(@"https://github.com/hasenbolle/InfoService/wiki/Add%20and%20edit%20Feed");
         }
 
         private void btnBrowseFeed_Click(object sender, EventArgs e)
@@ -244,6 +244,5 @@ namespace InfoService.GUIConfiguration
                 txtFeedURL_PATH.Text = openFeedDialog.FileName;
             }
         }
-
     }
 }

@@ -257,19 +257,22 @@ namespace InfoService.GUIWindows
                             GUIListItem item = GUIControl.GetSelectedListItem(GetID, GUITwitterList);
                             if (item != null)
                             {
-                                PropertyUtils.SetProperty(PropertyUtils.Properties.Twitter.SelectedUsername,
-                                                               TwitterService.GetTimeline(TwitterService.ActiveTimeline).Items
-                                                                   [_twitterListcontrol.SelectedListItemIndex].User.ScreenName);
-                                PropertyUtils.SetProperty(PropertyUtils.Properties.Twitter.SelectedIndex,
-                                                               _twitterListcontrol.SelectedListItemIndex.ToString());
-                                PropertyUtils.SetProperty(PropertyUtils.Properties.Twitter.SelectedUserpicture,
-                                                               TwitterService.GetTimeline(TwitterService.ActiveTimeline).Items
-                                                                   [_twitterListcontrol.SelectedListItemIndex].User.PicturePath);
-                                PropertyUtils.SetProperty(PropertyUtils.Properties.Twitter.SelectedMediaImage, TwitterService.GetTimeline(TwitterService.ActiveTimeline).Items
-                                                                   [_twitterListcontrol.SelectedListItemIndex].MediaPath);
-                                GUIControl.SetControlLabel(GetID, GUITwitterMessage,
-                                                           TwitterService.GetTimeline(TwitterService.ActiveTimeline).Items
-                                                               [_twitterListcontrol.SelectedListItemIndex].Text);
+                                if (_twitterListcontrol != null)
+                                {
+                                    PropertyUtils.SetProperty(PropertyUtils.Properties.Twitter.SelectedUsername,
+                                        TwitterService.GetTimeline(TwitterService.ActiveTimeline).Items
+                                            [_twitterListcontrol.SelectedListItemIndex].User.ScreenName);
+                                    PropertyUtils.SetProperty(PropertyUtils.Properties.Twitter.SelectedIndex,
+                                        _twitterListcontrol.SelectedListItemIndex.ToString());
+                                    PropertyUtils.SetProperty(PropertyUtils.Properties.Twitter.SelectedUserpicture,
+                                        TwitterService.GetTimeline(TwitterService.ActiveTimeline).Items
+                                            [_twitterListcontrol.SelectedListItemIndex].User.PicturePath);
+                                    PropertyUtils.SetProperty(PropertyUtils.Properties.Twitter.SelectedMediaImage, TwitterService.GetTimeline(TwitterService.ActiveTimeline).Items
+                                        [_twitterListcontrol.SelectedListItemIndex].MediaPath);
+                                    GUIControl.SetControlLabel(GetID, GUITwitterMessage,
+                                        TwitterService.GetTimeline(TwitterService.ActiveTimeline).Items
+                                            [_twitterListcontrol.SelectedListItemIndex].Text);
+                                }
                                 break;
 
 

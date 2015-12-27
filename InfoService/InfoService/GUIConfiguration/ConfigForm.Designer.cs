@@ -119,7 +119,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.llblAboutForum = new System.Windows.Forms.LinkLabel();
             this.llblAboutManual = new System.Windows.Forms.LinkLabel();
-            this.llblAboutCodeplex = new System.Windows.Forms.LinkLabel();
+            this.llblAboutGithub = new System.Windows.Forms.LinkLabel();
             this.label36 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label35 = new System.Windows.Forms.Label();
@@ -1126,7 +1126,7 @@
             this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.llblAboutForum);
             this.groupBox1.Controls.Add(this.llblAboutManual);
-            this.groupBox1.Controls.Add(this.llblAboutCodeplex);
+            this.groupBox1.Controls.Add(this.llblAboutGithub);
             this.groupBox1.Controls.Add(this.label36);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.label35);
@@ -1261,10 +1261,10 @@
             this.llblAboutForum.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.llblAboutForum.Location = new System.Drawing.Point(12, 500);
             this.llblAboutForum.Name = "llblAboutForum";
-            this.llblAboutForum.Size = new System.Drawing.Size(182, 13);
+            this.llblAboutForum.Size = new System.Drawing.Size(152, 13);
             this.llblAboutForum.TabIndex = 18;
             this.llblAboutForum.TabStop = true;
-            this.llblAboutForum.Text = "InfoService MediaPortal forum thread";
+            this.llblAboutForum.Text = "MediaPortal InfoService Forum";
             this.llblAboutForum.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblAboutForum_LinkClicked);
             // 
             // llblAboutManual
@@ -1279,17 +1279,17 @@
             this.llblAboutManual.Text = "InfoService User/Developer/Skin Designer Manual";
             this.llblAboutManual.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblAboutManual_LinkClicked);
             // 
-            // llblAboutCodeplex
+            // llblAboutGithub
             // 
-            this.llblAboutCodeplex.AutoSize = true;
-            this.llblAboutCodeplex.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.llblAboutCodeplex.Location = new System.Drawing.Point(12, 454);
-            this.llblAboutCodeplex.Name = "llblAboutCodeplex";
-            this.llblAboutCodeplex.Size = new System.Drawing.Size(143, 13);
-            this.llblAboutCodeplex.TabIndex = 16;
-            this.llblAboutCodeplex.TabStop = true;
-            this.llblAboutCodeplex.Text = "InfoService Codeplex project";
-            this.llblAboutCodeplex.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblAboutCodeplex_LinkClicked);
+            this.llblAboutGithub.AutoSize = true;
+            this.llblAboutGithub.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.llblAboutGithub.Location = new System.Drawing.Point(12, 454);
+            this.llblAboutGithub.Name = "llblAboutGithub";
+            this.llblAboutGithub.Size = new System.Drawing.Size(130, 13);
+            this.llblAboutGithub.TabIndex = 16;
+            this.llblAboutGithub.TabStop = true;
+            this.llblAboutGithub.Text = "InfoService Github project";
+            this.llblAboutGithub.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblAboutCodeplex_LinkClicked);
             // 
             // label36
             // 
@@ -2238,7 +2238,7 @@
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.LinkLabel llblAboutCodeplex;
+        private System.Windows.Forms.LinkLabel llblAboutGithub;
         private System.Windows.Forms.LinkLabel llblAboutManual;
         private System.Windows.Forms.LinkLabel llblAboutForum;
         private System.Windows.Forms.Label label17;

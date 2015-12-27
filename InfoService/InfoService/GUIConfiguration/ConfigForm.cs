@@ -658,22 +658,22 @@ namespace InfoService.GUIConfiguration
 
         private void llblAboutCodeplex_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start(@"http://infoservice.codeplex.com/");
+            Process.Start(@"https://github.com/hasenbolle/InfoService");
         }
 
         private void llblAboutManual_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start(@"http://infoservice.codeplex.com/documentation");
+            Process.Start(@"https://github.com/hasenbolle/InfoService/wiki");
         }
 
         private void llblAboutForum_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start(@"http://forum.team-mediaportal.com/mediaportal-plugins-47/infoservice-v1-32-5-day-weather-feeds-twitter-basic-home-04-01-2010-planning-60206/");
+            Process.Start(@"http://forum.team-mediaportal.com/forums/infoservice.522/");
         }
 
         private void btnFeedHelp_Click(object sender, EventArgs e)
         {
-            Process.Start(@"http://infoservice.codeplex.com/wikipage?title=Feeds%20configuration&referringTitle=How%20to%20use%20%28Users%29");
+            Process.Start(@"https://github.com/hasenbolle/InfoService/wiki/Feed-configuration");
         }
 
         private void btnWeatherHelp_Click(object sender, EventArgs e)
@@ -683,7 +683,7 @@ namespace InfoService.GUIConfiguration
 
         private void btnTwitterHelp_Click(object sender, EventArgs e)
         {
-            Process.Start(@"http://infoservice.codeplex.com/wikipage?title=Twitter%20configuration&referringTitle=How%20to%20use%20%28Users%29");
+            Process.Start(@"https://github.com/hasenbolle/InfoService/wiki/Twitter-configuration");
         }
 
         private void llblFamFamFam_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
