@@ -20,12 +20,13 @@ namespace InfoService.Weather
 
         private static void GUIWindowManager_OnDeActivateWindow(int windowId)
         {
-            if (windowId == (int)Window.WINDOW_WEATHER)
-            {
-                logger.WriteLog("MPWeatherGUI has been closed. Save mediaportal.xml to get new city code...", LogLevel.Debug, InfoServiceModul.Weather);
-                timerDelegate = saveSettings;
-                timer = new System.Threading.Timer(timerDelegate, null, 1000, System.Threading.Timeout.Infinite);
-            }
+            //if (windowId == (int) Window.WINDOW_WEATHER)
+            //{
+            //    logger.WriteLog("MPWeatherGUI has been closed. Save mediaportal.xml to get new city code...",
+            //        LogLevel.Debug, InfoServiceModul.Weather);
+            //    timerDelegate = saveSettings;
+            //    timer = new System.Threading.Timer(timerDelegate, null, 1000, System.Threading.Timeout.Infinite);
+            //}
         }
 
         private static void GUIGraphicsContext_OnNewAction(Action action)

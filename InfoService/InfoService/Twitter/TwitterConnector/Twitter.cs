@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using TwitterConnector.Expections;
 using TwitterConnector.OAuth;
 
@@ -244,50 +245,61 @@ namespace TwitterConnector
         {
             int successCount = timeLines.Count;
             int count = 0;
-            foreach (KeyValuePair<string, Timeline> timeline in Timelines)
+
+            bool cacheAvailable = false;
+            if (CacheAutomatic)
             {
-                if (timeLines.Contains(timeline.Value.Type))
+                CheckCache();
+            }
+
+            if (CacheEnabled)
+            {
+                if (!CacheAutomatic)
                 {
-                    bool cacheAvailable = false;
-                    if (CacheAutomatic)
-                    {
-                        CheckCache();
-                    }
+                    cacheAvailable = Utils.IsCacheFolderAvailable(CacheFolder);
+                }
+                else cacheAvailable = true;
+            }
 
-                    if (CacheEnabled)
+            foreach (KeyValuePair<string, Timeline> timeline in Timelines.Where(timeline => timeLines.Contains(timeline.Value.Type)))
+            {
+                if (!CacheEnabled)
+                {
+                    LogEvents.InvokeOnInfo(new TwitterArgs("Parsing twitter timeline " + timeline.Value.Type + " without using cache"));
+                    if (timeline.Value.Update())
                     {
-                        if (!CacheAutomatic)
-                        {
-                            cacheAvailable = Utils.IsCacheFolderAvailable(CacheFolder);
-                        }
-                        else cacheAvailable = true;
+                        count++;
                     }
-
-                    if (!CacheEnabled)
+                }
+                else
+                {
+                    if (cacheAvailable)
                     {
-                        if(timeline.Value.Update())
+                        LogEvents.InvokeOnInfo(new TwitterArgs("Parsing twitter timeline " + timeline.Value.Type + " into cache folder " + CacheFolder));
+                        if (timeline.Value.Update(CacheFolder))
                         {
                             count++;
                         }
                     }
                     else
                     {
-                        if (cacheAvailable)
+                        if (CacheAutomatic)
                         {
-                            if(timeline.Value.Update(CacheFolder))
+                            LogEvents.InvokeOnInfo(new TwitterArgs("Parsing twitter timeline " + timeline.Value.Type + " without using cache"));
+                            if (timeline.Value.Update())
                             {
                                 count++;
                             }
                         }
                         else
                         {
-                            LogEvents.InvokeOnError(new TwitterArgs("Error parsing timeline into cache folder " + CacheFolder + ". Cache folder is not available...", ""));
+                            LogEvents.InvokeOnError(new TwitterArgs("Error parsing timeline into cache folder " + CacheFolder + ". Cache folder is not available...", "")); 
                         }
+
                     }
                 }
             }
-            if (successCount == count) return true;
-            else return false;
+            return successCount == count;
         }
         public bool UpdateAllTimelines()
         {

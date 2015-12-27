@@ -32,22 +32,22 @@ namespace InfoService.Utils
         {
             add
             {
-                if (value.Method.DeclaringType.Name == "FeedUpdater")
+                if (value.Method.DeclaringType != null && value.Method.DeclaringType.Name == "FeedUpdater")
                 {
                     logger.WriteLog("FeedUpdater registered for update timer", LogLevel.Debug, InfoServiceModul.InfoService);
                     UpdateDelegate[1] = value;
                 }
-                if (value.Method.DeclaringType.Name == "TwitterUpdater")
+                if (value.Method.DeclaringType != null && value.Method.DeclaringType.Name == "TwitterUpdater")
                 {
                     logger.WriteLog("TwitterUpdater registered for update timer", LogLevel.Debug, InfoServiceModul.InfoService);
                     UpdateDelegate[2] = value;
                 }
-                if (value.Method.DeclaringType.Name == "WeatherUpdater")
+                if (value.Method.DeclaringType != null && value.Method.DeclaringType.Name == "WeatherUpdater")
                 {
                     logger.WriteLog("WeatherUpdater registered for update timer", LogLevel.Debug, InfoServiceModul.InfoService);
                     UpdateDelegate[0] = value;
                 }
-                if (value.Method.DeclaringType.Name == "RecentlyAddedUpdater")
+                if (value.Method.DeclaringType != null && value.Method.DeclaringType.Name == "RecentlyAddedUpdater")
                 {
                     logger.WriteLog("RecentlyAddedUpdater registered for update timer", LogLevel.Debug, InfoServiceModul.InfoService);
                     UpdateDelegate[3] = value;
@@ -67,7 +67,7 @@ namespace InfoService.Utils
                 PeriodMs = 60000;
                 StartupFastTimer = false;
             }
-            logger.WriteLog("Set Timer callback to " + PeriodMs + " seconds", LogLevel.Debug, InfoServiceModul.InfoService);
+            logger.WriteLog("Set Timer callback to " + PeriodMs/1000 + " seconds", LogLevel.Debug, InfoServiceModul.InfoService);
         }
         private static void InfoTimerCallback(Object stateInfo)
         {
@@ -84,15 +84,14 @@ namespace InfoService.Utils
         public static void SetTimer(bool startupFastTimer)
         {
             //Set timer only if min. 1 Service is enabled
-            //Not needed since Recently added is always enabled
-            //if (FeedService.Enabled || TwitterService.Enabled || WeatherService.Enabled)
-            //{
-            
-            UpdateProperties = (UpdatePropertiesHandler)Delegate.Combine(UpdateDelegate);
-            ChangeTimerSettings(startupFastTimer);
-            _timerDelegate = InfoTimerCallback;
-            _timer = new Timer(_timerDelegate, null, 0, PeriodMs);
-            //}
+            if (FeedService.Enabled || TwitterService.Enabled || WeatherService.Enabled)
+            {
+
+                UpdateProperties = (UpdatePropertiesHandler) Delegate.Combine(UpdateDelegate);
+                ChangeTimerSettings(startupFastTimer);
+                _timerDelegate = InfoTimerCallback;
+                _timer = new Timer(_timerDelegate, null, 5000, PeriodMs);
+            }
         }
     }
 }

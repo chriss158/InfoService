@@ -253,12 +253,21 @@ namespace FeedReader
                 {
                     if (cacheAvailable)
                     {
-                        LogEvents.InvokeOnInfo(new FeedArgs("Parsing feed from url/path " + UrlPath + " into cache folder " + CacheFolder, ""));
+                        LogEvents.InvokeOnInfo(new FeedArgs("Parsing feed from url/path " + UrlPath + " into cache folder " + CacheFolder));
                         parseSuccess = feedParser.TryParse(xmlFeed, CacheFolder, downloadImages, _feedItemFilters);
                     }
                     else
                     {
-                        LogEvents.InvokeOnError(new FeedArgs("Error parsing feed into cache folder " + CacheFolder + ". Cache folder is not available...", ""));
+                        if (CacheAutomatic)
+                        {
+                            LogEvents.InvokeOnInfo(new FeedArgs("Parsing feed from url/path " + UrlPath + " without using cache"));
+                            parseSuccess = feedParser.TryParse(xmlFeed, CacheFolder, downloadImages, _feedItemFilters);
+                        }
+                        else
+                        {
+                            LogEvents.InvokeOnError(new FeedArgs("Error parsing feed into cache folder " + CacheFolder + ". Cache folder is not available..."));
+                        }
+                        
                     }
                 }
                 if (parseSuccess)
@@ -311,7 +320,7 @@ namespace FeedReader
             feed.Description = this.Description;
             feed.Items = this.Items.CloneList<FeedItem>();
             feed.Type = this.Type;
-            feed.Image = this.Image.Clone() as Image;
+            if(this.Image != null) feed.Image = this.Image.Clone() as Image;
             feed.ImagePath = this.ImagePath;
             feed.UrlPath = this.UrlPath;
             feed.LastUpdate = this.LastUpdate;
@@ -332,7 +341,7 @@ namespace FeedReader
                 this.Description = null;
                 this.Items.Clear();
                 this.Items = null;
-                this.Image.Dispose();
+                this.Image?.Dispose();
                 this.Image = null;
                 this.ImagePath = null;
                 this.UrlPath = null;

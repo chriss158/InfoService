@@ -411,7 +411,7 @@ namespace InfoService
 
             //RecentlyAddedUtils.LoadLastRecentlyAddedItems();
             //RecentlyAddedWatchedUpdater.SetupUpdater();
-            UpdateTimer.SetTimer(true);
+            UpdateTimer.SetTimer(false);
 
             #region Load infoservice.xml
             Logger.WriteLog("Loading InfoService GUI skin file from " + GUIGraphicsContext.Skin + @"\infoservice.xml", LogLevel.Debug, InfoServiceModul.InfoService);
