@@ -6,6 +6,7 @@
 *.user
 *.userosscache
 *.sln.docstates
+InfoService/InfoService/Twitter/TwitterApiKeys.cs
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -280,4 +281,3 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-InfoService/InfoService/Twitter/TwitterApiKeys.cs
