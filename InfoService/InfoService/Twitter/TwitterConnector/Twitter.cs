@@ -16,8 +16,8 @@ namespace TwitterConnector
     public class Twitter
     {
         private string _pin;
-        public static string ConsumerKey = string.Empty;
-        public static string ConsumerSecret = string.Empty;
+        internal static string ConsumerKey = string.Empty;
+        internal static string ConsumerSecret = string.Empty;
         private bool _useCache;
         private AccessToken _accessToken;
         private static RequestToken _reqToken;
