@@ -16,6 +16,7 @@ using InfoService.Enums;
 using InfoService.Utils;
 using MediaPortal.GUI.Library;
 using System.Xml;
+using InfoService.Utils.NotificationBar;
 
 #endregion
 
@@ -118,7 +119,7 @@ namespace InfoService.Feeds
             get { return _showPopup; }
             set
             {
-                Logger.WriteLog("Set ShowPopup to " + value, LogLevel.Debug, InfoServiceModul.InfoService);
+                Logger.WriteLog("Set FeedsShowPopup to " + value, LogLevel.Debug, InfoServiceModul.InfoService);
                 _showPopup = value;
             }
         }
@@ -129,7 +130,7 @@ namespace InfoService.Feeds
             get { return _popupWhileFullScreenVideo; }
             set
             {
-                Logger.WriteLog("Set PopupWhileFullScreenVideo to " + value, LogLevel.Debug, InfoServiceModul.InfoService);
+                Logger.WriteLog("Set FeedsPopupWhileFullScreenVideo to " + value, LogLevel.Debug, InfoServiceModul.InfoService);
                 _popupWhileFullScreenVideo = value;
             }
         }
@@ -140,7 +141,7 @@ namespace InfoService.Feeds
             get { return _popupTimeout; }
             set
             {
-                Logger.WriteLog("Set PopupTimeout to " + value, LogLevel.Debug, InfoServiceModul.InfoService);
+                Logger.WriteLog("Set FeedsPopupTimeout to " + value, LogLevel.Debug, InfoServiceModul.InfoService);
                 _popupTimeout = value;
             }
         }
@@ -367,7 +368,7 @@ namespace InfoService.Feeds
                         else
                         {
                             Logger.WriteLog("Feed[" + feed.Title + "] don't need a own feed image", LogLevel.Debug, InfoServiceModul.Feed);
-                            if (string.IsNullOrEmpty(feed.ImagePath) && feed.Image == null)
+                            if (string.IsNullOrEmpty(feed.ImagePath))
                             {
                                 //Feed has no image... Load default feed image
                                 string path = string.Empty;
@@ -469,7 +470,7 @@ namespace InfoService.Feeds
             //Check all feed items, if they need a default image
             for (int i = 0; i < feed.Items.Count; i++)
             {
-                if (string.IsNullOrEmpty(feed.Items[i].ImagePath) && feed.Items[i].Image == null)
+                if (string.IsNullOrEmpty(feed.Items[i].ImagePath))
                 {
                     string path = string.Empty;
                     string pathBig = string.Empty;
@@ -730,7 +731,7 @@ namespace InfoService.Feeds
                         if (PopupWhileFullScreenVideo || !GUIGraphicsContext.IsFullScreenVideo)
                         {
                             Logger.WriteLog("Showing new Popup (NotificationBar) for Feed[" + feed.Title + "] with text \"" + text + "\"", LogLevel.Info, InfoServiceModul.Feed);
-                            NotificationBar.NotificationBar.ShowNotificationBar(String.Format(InfoServiceUtils.GetLocalizedLabel(38), newItems.Count.ToString(), feed.Title), text, feed.ImagePath, PopupWhileFullScreenVideo, (int)PopupTimeout);
+                            NotificationBar.ShowNotificationBar(String.Format(InfoServiceUtils.GetLocalizedLabel(38), newItems.Count.ToString(), feed.Title), text, feed.ImagePath, PopupWhileFullScreenVideo, (int)PopupTimeout);
                         }
                         else Logger.WriteLog("Showing new Popup (NotificationBar) for Feed[" + feed.Title + "] with text \"" + text + "\" is not allowed - Fullscreen Video is running...", LogLevel.Info, InfoServiceModul.Feed);
                     }

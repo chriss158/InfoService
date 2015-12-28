@@ -159,6 +159,9 @@ namespace InfoService.Settings.Data
             TickerMask = "%message%";
             Separator = "+++";
             UpdateOnStartup = true;
+            PopupTimeout = 10;
+            ShowPopup = true;
+            PopupWhileFullScreenVideo = true;
         }
 
         public bool Enabled { get; set; }
@@ -174,6 +177,9 @@ namespace InfoService.Settings.Data
         public UsedTimelines UsedTimelines;
         public string TickerMask { get; set; }
         public TwitterStatusUpdate TwitterStatusUpdate = new TwitterStatusUpdate();
+        public bool ShowPopup { get; set; }
+        public decimal PopupTimeout { get; set; }
+        public bool PopupWhileFullScreenVideo { get; set; }
     }
 
     public class TwitterStatusUpdate

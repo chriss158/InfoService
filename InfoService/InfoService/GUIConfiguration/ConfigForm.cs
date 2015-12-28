@@ -179,6 +179,10 @@ namespace InfoService.GUIConfiguration
             cbTwitterUseMyVideo.Checked = SettingsManager.Properties.TwitterSettings.TwitterStatusUpdate.WithMyVideo;
             txtTwitterWatchingMoviesMask.Text = SettingsManager.Properties.TwitterSettings.TwitterStatusUpdate.WatchMoviesMask;
             txtTwitterWatchingSeriesMask.Text = SettingsManager.Properties.TwitterSettings.TwitterStatusUpdate.WatchSeriesMask;
+            cbTweetsPopup.Checked = SettingsManager.Properties.TwitterSettings.ShowPopup;
+            cbTweetsPopupWhileVideoPlaying.Checked = SettingsManager.Properties.TwitterSettings.PopupWhileFullScreenVideo;
+            txtTweetsPopupTimeout.Value = SettingsManager.Properties.TwitterSettings.PopupTimeout;
+            
             SetExampleTicker();
             //lblProductVersion.Text = "v" + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
             lblProductVersion.Text = "v" + FileVersionInfo.GetVersionInfo(System.Reflection.Assembly.GetExecutingAssembly().Location).ProductVersion;
@@ -306,6 +310,9 @@ namespace InfoService.GUIConfiguration
             SettingsManager.Properties.TwitterSettings.TwitterStatusUpdate.WithMyVideo = cbTwitterUseMyVideo.Checked;
             SettingsManager.Properties.TwitterSettings.TwitterStatusUpdate.WatchMoviesMask = txtTwitterWatchingMoviesMask.Text;
             SettingsManager.Properties.TwitterSettings.TwitterStatusUpdate.WatchSeriesMask = txtTwitterWatchingSeriesMask.Text;
+            SettingsManager.Properties.TwitterSettings.ShowPopup = cbTweetsPopup.Checked;
+            SettingsManager.Properties.TwitterSettings.PopupWhileFullScreenVideo = cbTweetsPopupWhileVideoPlaying.Checked;
+            SettingsManager.Properties.TwitterSettings.PopupTimeout = txtTweetsPopupTimeout.Value;
 
             try
             {

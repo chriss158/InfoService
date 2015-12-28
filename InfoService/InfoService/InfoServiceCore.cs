@@ -358,7 +358,7 @@ namespace InfoService
             if (InfoServiceSkinSettings.InfoServiceSkinSettingsInstance.Twitter_Enabled)
             {
                 Logger.WriteLog("Init TwitterService", LogLevel.Info, InfoServiceModul.Twitter);
-                bool success = TwitterService.SetupTwitter(SettingsManager.Properties.TwitterSettings.Pin, SettingsManager.Properties.TwitterSettings.TokenValue,
+                bool success = TwitterService.SetupTwitter(SettingsManager.Properties.TwitterSettings.TokenValue,
                                                            SettingsManager.Properties.TwitterSettings.TokenSecret);
                 if (success)
                 {
@@ -386,6 +386,9 @@ namespace InfoService
                     TwitterService.PostUsingMovingPictures = SettingsManager.Properties.TwitterSettings.TwitterStatusUpdate.WithMovingPictures;
                     TwitterService.PostUsingTVSeries = SettingsManager.Properties.TwitterSettings.TwitterStatusUpdate.WithMPTVSeries;
                     TwitterService.PostUsingMyVideos = SettingsManager.Properties.TwitterSettings.TwitterStatusUpdate.WithMyVideo;
+                    TwitterService.ShowPopup = SettingsManager.Properties.TwitterSettings.ShowPopup;
+                    TwitterService.PopupTimeout = SettingsManager.Properties.TwitterSettings.PopupTimeout;
+                    TwitterService.PopupWhileFullScreenVideo = SettingsManager.Properties.TwitterSettings.PopupWhileFullScreenVideo;
                     PropertyUtils.SetProperty(PropertyUtils.Properties.Twitter.Separator, TwitterService.Separator);
                     PropertyUtils.SetProperty(PropertyUtils.Properties.Twitter.Enabled, TwitterService.Enabled.ToString());
                     TwitterUpdater.SetupUpdater();

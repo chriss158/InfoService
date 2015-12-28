@@ -10,7 +10,7 @@ namespace TwitterConnector.Json
     {
         private const string _retweetsUrl = "https://api.twitter.com/1.1/statuses/retweets/{0}.json";
 
-        internal static bool TryParse(ref List<TwitterItem> twitterItems, TimelineType type, string user, string password, AccessToken accessToken, string cacheFolder = "")
+        internal static bool TryParse(ref List<TwitterItem> twitterItems, TimelineType type, AccessToken accessToken, bool withRetweets, string cacheFolder = "")
         {
             LogEvents.InvokeOnDebug(!string.IsNullOrEmpty(cacheFolder)
                 ? new TwitterArgs("Try downloading/parsing the " + type + " timeline using cache")
@@ -56,44 +56,78 @@ namespace TwitterConnector.Json
                 }
                 else LogEvents.InvokeOnWarning(new TwitterArgs("No user for the tweet \"" + twit.Text + "\" in the " + type + " timeline found."));
 
-                LogEvents.InvokeOnDebug(new TwitterArgs("Try downloading/parsing the retweets timeline of tweet \"" + twit.Text + "\"..."));
-                
-                dynamic jsonRetweetedStatus = Utils.DownloadTwitterJson(accessToken, string.Format(_retweetsUrl, twit.Id));
-
-                if (jsonRetweetedStatus != null)
+                if (withRetweets)
                 {
-                    LogEvents.InvokeOnDebug(new TwitterArgs("Download of the retweets timeline of tweet \"" + twit.Text + "\" succesful. Now parsing the json..."));
-                    int j = 0;
-                    foreach (dynamic retweet in jsonRetweetedStatus)
+                    LogEvents.InvokeOnDebug(
+                        new TwitterArgs("Try downloading/parsing the retweets timeline of tweet \"" + twit.Text +
+                                        "\"..."));
+
+                    dynamic jsonRetweetedStatus = Utils.DownloadTwitterJson(accessToken,
+                        string.Format(_retweetsUrl, twit.Id));
+
+                    if (jsonRetweetedStatus != null)
                     {
-                        TwitterItem twiRetweet = new TwitterItem
+                        LogEvents.InvokeOnDebug(
+                            new TwitterArgs("Download of the retweets timeline of tweet \"" + twit.Text +
+                                            "\" succesful. Now parsing the json..."));
+                        int j = 0;
+                        foreach (dynamic retweet in jsonRetweetedStatus)
                         {
-                            Id = TwitterJsonParser.ParseString(tweet.id_str, "tweet[" + i + "]/retweeted_status[" + j + "]/id_str"),
-                            Text = TwitterJsonParser.ParseString(retweet.text, "tweet[" + i + "]/retweeted_status[" + j + "]/text"),
-                            Source = Utils.Clean(TwitterJsonParser.ParseString(retweet.source, "tweet[" + i + "]/retweeted_status[" + j + "]/source")),
-                            PublishDate = TwitterJsonParser.ParseDateTime(retweet.created_at, "tweet[" + i + "]/retweeted_status[" + j + "]/created_at"),
-
-                        };
-                        if (retweet.user != null)
-                        {
-                            twiRetweet.User = new TwitterUser
+                            TwitterItem twiRetweet = new TwitterItem
                             {
-                                Description = TwitterJsonParser.ParseString(retweet.user.description, "tweet[" + i + "]/retweeted_status[" + j + "]/user/description"),
-                                Location = TwitterJsonParser.ParseString(retweet.user.location, "tweet[" + i + "]/retweeted_status[" + j + "]/user/location"),
-                                ScreenName = TwitterJsonParser.ParseString(retweet.user.screen_name, "tweet[" + i + "]/retweeted_status[" + j + "]/user/screen_name"),
-                                Name = TwitterJsonParser.ParseString(retweet.user.name, "tweet[" + i + "]/retweeted_status[" + j + "]/user/name"),
-                                FollowersCount = TwitterJsonParser.ParseInteger(retweet.user.followers_count, "tweet[" + i + "]/retweeted_status[" + j + "]/user/followers_count"),
-                                FriendsCount = TwitterJsonParser.ParseInteger(retweet.user.friends_count, "tweet[" + i + "]/retweeted_status[" + j + "]/user/friends_count"),
-                                PicturePath = TwitterJsonParser.ParseString(retweet.user.profile_image_url, "tweet[" + i + "]/retweeted_status[" + j + "]/user/profile_image_url").Replace("_normal.", ".")
-                            };
-                        }
-                        else LogEvents.InvokeOnWarning(new TwitterArgs("No user for the retweet \"" + twiRetweet.Text + "\" in the " + type + " timeline found."));
+                                Id =
+                                    TwitterJsonParser.ParseString(tweet.id_str,
+                                        "tweet[" + i + "]/retweeted_status[" + j + "]/id_str"),
+                                Text =
+                                    TwitterJsonParser.ParseString(retweet.text,
+                                        "tweet[" + i + "]/retweeted_status[" + j + "]/text"),
+                                Source =
+                                    Utils.Clean(TwitterJsonParser.ParseString(retweet.source,
+                                        "tweet[" + i + "]/retweeted_status[" + j + "]/source")),
+                                PublishDate =
+                                    TwitterJsonParser.ParseDateTime(retweet.created_at,
+                                        "tweet[" + i + "]/retweeted_status[" + j + "]/created_at"),
 
-                        twit.Retweets.Add(twiRetweet);
-                        j++;
+                            };
+                            if (retweet.user != null)
+                            {
+                                twiRetweet.User = new TwitterUser
+                                {
+                                    Description =
+                                        TwitterJsonParser.ParseString(retweet.user.description,
+                                            "tweet[" + i + "]/retweeted_status[" + j + "]/user/description"),
+                                    Location =
+                                        TwitterJsonParser.ParseString(retweet.user.location,
+                                            "tweet[" + i + "]/retweeted_status[" + j + "]/user/location"),
+                                    ScreenName =
+                                        TwitterJsonParser.ParseString(retweet.user.screen_name,
+                                            "tweet[" + i + "]/retweeted_status[" + j + "]/user/screen_name"),
+                                    Name =
+                                        TwitterJsonParser.ParseString(retweet.user.name,
+                                            "tweet[" + i + "]/retweeted_status[" + j + "]/user/name"),
+                                    FollowersCount =
+                                        TwitterJsonParser.ParseInteger(retweet.user.followers_count,
+                                            "tweet[" + i + "]/retweeted_status[" + j + "]/user/followers_count"),
+                                    FriendsCount =
+                                        TwitterJsonParser.ParseInteger(retweet.user.friends_count,
+                                            "tweet[" + i + "]/retweeted_status[" + j + "]/user/friends_count"),
+                                    PicturePath =
+                                        TwitterJsonParser.ParseString(retweet.user.profile_image_url,
+                                            "tweet[" + i + "]/retweeted_status[" + j + "]/user/profile_image_url")
+                                            .Replace("_normal.", ".")
+                                };
+                            }
+                            else
+                                LogEvents.InvokeOnWarning(
+                                    new TwitterArgs("No user for the retweet \"" + twiRetweet.Text + "\" in the " + type +
+                                                    " timeline found."));
+
+                            twit.Retweets.Add(twiRetweet);
+                            j++;
+                        }
                     }
                 }
-               
+
                 twitterItems.Add(twit);
                 i++;
             }

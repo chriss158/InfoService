@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace InfoService.Feeds.NotificationBar
+namespace InfoService.Utils.NotificationBar
 {
     public static class NotificationBar
     {

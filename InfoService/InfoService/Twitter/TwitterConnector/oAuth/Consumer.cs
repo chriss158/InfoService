@@ -4,7 +4,9 @@ using System.Text;
 using System.Net;
 using System.Security.Cryptography;
 using System.IO;
+using System.Linq;
 using System.Threading;
+using TwitterConnector.oAuth.Exceptions;
 
 namespace TwitterConnector.OAuth
 {
@@ -869,7 +871,7 @@ namespace TwitterConnector.OAuth
 
             Thread timeOutCatchThread = null;
             HttpWebResponse result = null;
-
+            HttpWebResponse response = null;
             Object timeOutCatchLockObject = new Object();
 
             try
@@ -879,31 +881,31 @@ namespace TwitterConnector.OAuth
                 {
                     timeOutCatchThread =
                         new Thread(
-                                delegate ()
+                            delegate()
+                            {
+                                DateTime waitStartClock = DateTime.Now;
+
+                                while (DateTime.Now.Ticks < waitStartClock.Ticks + req.Timeout*10000)
                                 {
-                                    DateTime waitStartClock = DateTime.Now;
-
-                                    while (DateTime.Now.Ticks < waitStartClock.Ticks + req.Timeout * 10000)
+                                    lock (timeOutCatchLockObject)
                                     {
-                                        lock (timeOutCatchLockObject)
-                                        {
-                                            if (result != null)
-                                                return;
-                                        }
-
-                                        Thread.Sleep(100);
-
+                                        if (result != null)
+                                            return;
                                     }
 
-                                    req.Abort();
+                                    Thread.Sleep(100);
 
                                 }
-                        );
+
+                                req.Abort();
+
+                            }
+                            );
 
                     timeOutCatchThread.Start();
                 }
 
-                HttpWebResponse response = (HttpWebResponse)req.EndGetResponse(syncResult);
+                response = (HttpWebResponse) req.EndGetResponse(syncResult);
 
                 lock (timeOutCatchLockObject)
                 {
@@ -915,6 +917,26 @@ namespace TwitterConnector.OAuth
                 return result;
 
             }
+            catch (WebException wex)
+            {
+                int rateLimit = 0;
+                int limitRemaining = 0;
+                DateTime rateReset = DateTime.MinValue;
+                if (GetInfoFromResponse(wex.Response, out rateLimit, out limitRemaining, out rateReset))
+                {
+                    throw new OAuthHttpWebRequestException("Error getting response from URL.", rateLimit, limitRemaining,
+                        rateReset, wex);
+                }
+                else
+                {
+
+                    throw new OAuthHttpWebRequestException("Error getting response from URL.", wex);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new OAuthHttpWebRequestException("Error getting response from URL.",  ex);
+            }
             finally
             {
                 if (timeOutCatchThread != null &&
@@ -923,6 +945,41 @@ namespace TwitterConnector.OAuth
                     timeOutCatchThread.Abort();
                 }
             }
+        }
+
+        internal static bool GetInfoFromResponse(WebResponse resp, out int rateLimit, out int limitRemaining, out DateTime reset)
+        {
+            rateLimit = 0;
+            limitRemaining = 0;
+            reset = DateTime.MinValue;
+
+            bool found = false;
+            if (resp != null)
+            {
+                for (int i = 0; i < resp.Headers.Keys.Count; i++)
+                {
+                    string s = resp.Headers.GetKey(i);
+                    if (s == "x-rate-limit-limit")
+                    {
+                        rateLimit = int.Parse(resp.Headers.GetValues(i).First());
+                        found = true;
+                    }
+                    if (s == "x-rate-limit-remaining")
+                    {
+                        limitRemaining = int.Parse(resp.Headers.GetValues(i).First());
+                        found = true;
+                    }
+                    if (s == "x-rate-limit-reset")
+                    {
+                        long unixTime = long.Parse(resp.Headers.GetValues(i).First());
+                        DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+                        reset = epoch.AddSeconds(unixTime);
+                        reset = reset.ToLocalTime();
+                        found = true;
+                    }
+                }
+            }
+            return found;
         }
 
         /// <summary>

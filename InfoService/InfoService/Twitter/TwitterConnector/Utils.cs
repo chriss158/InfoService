@@ -17,6 +17,8 @@ using TwitterConnector.OAuth;
 using System.Runtime.InteropServices;
 using System.Runtime.Versioning;
 using System.Net.Sockets;
+using TwitterConnector.oAuth.Exceptions;
+
 #endregion
 
 namespace TwitterConnector
@@ -34,48 +36,26 @@ namespace TwitterConnector
             [MarshalAs(UnmanagedType.LPTStr)] StringBuilder remoteName,
             ref int length);
 
-        internal static XDocument DownloadTwitterXml(AccessToken accessToken, string url)
-        {
-            int rateLimit = 0, limitRemaining = 0;
-            try
-            {
-                Consumer c = new Consumer(Twitter.ConsumerKey, Twitter.ConsumerSecret);
-                HttpWebResponse resp = c.AccessProtectedResource(
-                    accessToken,
-                    url,
-                    "GET",
-                    "http://twitter.com/", new[]{ new Parameter("since_id","1")});
-                GetInfoFromResponse(resp, out rateLimit, out limitRemaining);
-                using (XmlReader reader = XmlReader.Create(resp.GetResponseStream()))
-                {
-                    return XDocument.Load(reader);
-                }
-            }
-            catch (WebException wex)
-            {
-                LogEvents.InvokeOnError(new TwitterArgs(string.Format("Twitter rate limit exceeded, max of {0}/hr allowed. Remaining = {1}", rateLimit, limitRemaining), wex.Message, wex.StackTrace));
-                return null;
-            }
-
-            catch (Exception ex)
-            {
-                LogEvents.InvokeOnError(new TwitterArgs("Error downloading twitter status from " + url, ex.Message, ex.StackTrace));
-                return null;
-            }
-        }
         
         internal static dynamic DownloadTwitterJson(AccessToken accessToken, string url)
         {
             int rateLimit = 0, limitRemaining = 0;
+            DateTime rateReset = DateTime.MinValue;
+            bool responseInfoFound = false;
+            HttpWebResponse resp = null;
             try
             {
                 Consumer c = new Consumer(Twitter.ConsumerKey, Twitter.ConsumerSecret);
-                HttpWebResponse resp = c.AccessProtectedResource(
+                resp = c.AccessProtectedResource(
                     accessToken,
                     url,
                     "GET",
-                    "https://twitter.com/", new[] { new Parameter("since_id", "1") });
-                GetInfoFromResponse(resp, out rateLimit, out limitRemaining);
+                    "https://twitter.com/", new[]
+                    {
+                        new Parameter("since_id", "1"),
+                        new Parameter("include_entities", "true")
+                    });
+
                 string responseString = string.Empty;
                 using (Stream stream = resp.GetResponseStream())
                 {
@@ -83,8 +63,8 @@ namespace TwitterConnector
                     {
                         responseString = reader.ReadToEnd();
                     }
-                    
                 }
+
                 if (!string.IsNullOrEmpty(responseString))
                 {
                     dynamic timelineJson = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(responseString);
@@ -92,41 +72,34 @@ namespace TwitterConnector
                 }
                 else
                 {
-                    LogEvents.InvokeOnError(new TwitterArgs("Error downloading twitter status from " + url + ". Downloaded timeline is empty."));
+                    LogEvents.InvokeOnError(
+                        new TwitterArgs("Error downloading twitter status from " + url +
+                                        ". Downloaded timeline is empty."));
                     return null;
                 }
             }
-            catch (WebException wex)
+            catch (OAuthHttpWebRequestException ex)
             {
-                LogEvents.InvokeOnError(new TwitterArgs(string.Format("Twitter rate limit exceeded, max of {0}/hr allowed. Remaining = {1}", rateLimit, limitRemaining), wex.Message, wex.StackTrace));
+                if (ex.RateLimitsFound && ex.LimitRemaining <= 0)
+                {
+                    LogEvents.InvokeOnError(
+                        new TwitterArgs(
+                            string.Format(
+                                "Twitter rate limit exceeded, max of {0}/hr allowed. Remaining = {1}. Reset on = {2}",
+                                ex.RateLimit, ex.LimitRemaining, ex.RateReset.ToLongTimeString()),
+                            ex.InnerException.Message, ex.InnerException.StackTrace));
+                }
+                else
+                {
+
+                    LogEvents.InvokeOnError(new TwitterArgs("Error downloading twitter status from " + url, ex.InnerException.Message,
+                       ex.InnerException.StackTrace));
+                }
                 return null;
             }
+  }
 
-            catch (Exception ex)
-            {
-                LogEvents.InvokeOnError(new TwitterArgs("Error downloading twitter status from " + url, ex.Message, ex.StackTrace));
-                return null;
-            }
-        }
-
-        internal static void GetInfoFromResponse(WebResponse resp, out int rateLimit, out int limitRemaining)
-        {
-            rateLimit = 0;
-            limitRemaining = 0;
-
-            for (int i = 0; i < resp.Headers.Keys.Count; i++)
-            {
-                string s = resp.Headers.GetKey(i);
-                if (s == "x-rate-limit-limit")
-                {
-                    rateLimit = int.Parse(resp.Headers.GetValues(i).First());
-                }
-                if (s == "x-rate-limit-remaining")
-                {
-                    limitRemaining = int.Parse(resp.Headers.GetValues(i).First());
-                }
-            }
-        }
+ 
 
 
         internal static Image DownloadImage(string url)

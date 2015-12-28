@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
-using MediaPortal.ExtensionMethods;
 using TwitterConnector.Expections;
 using TwitterConnector.OAuth;
 
@@ -15,10 +14,8 @@ namespace TwitterConnector
 {
     public class Twitter
     {
-        private string _pin;
         internal static string ConsumerKey = string.Empty;
         internal static string ConsumerSecret = string.Empty;
-        private bool _useCache;
         private AccessToken _accessToken;
         private static RequestToken _reqToken;
 
@@ -97,57 +94,53 @@ namespace TwitterConnector
 
         }
 
-        public Twitter(string user, string password, string pin, AccessToken accessToken)
+        public Twitter(AccessToken accessToken)
         {
-            InitTwitter(user, password, pin, accessToken);
+            InitTwitter(accessToken);
         }
-        public Twitter(string user, string password, string pin, AccessToken accessToken, string cacheFolder, bool useCacheAutomatic = false)
+        public Twitter(AccessToken accessToken, string cacheFolder, bool useCacheAutomatic = false)
         {
-            InitTwitter(user, password, pin, accessToken);
+            InitTwitter(accessToken);
             SetCache(cacheFolder);
             CacheAutomatic = useCacheAutomatic;
             if (!useCacheAutomatic) EnableCache();
         }
 
-        private void InitTwitter(string user, string password, string pin, AccessToken accessToken)
+        private void InitTwitter(AccessToken accessToken)
         {
-                if (string.IsNullOrEmpty(pin))
-                {
-                    throw new TwitterNoPinExpection("No pin for OAuth is set. TwitterConnector disabled");
-                }
-                if (accessToken == null)
-                {
-                    throw new TwitterNoRequestTokenExpection("No token for OAuth is set. TwitterConnector disabled");
-                }
-                if (string.IsNullOrEmpty(accessToken.TokenValue))
-                {
-                    throw new TwitterNoRequestTokenExpection("No token value for OAuth is set. TwitterConnector disabled");
-                }
-                if (string.IsNullOrEmpty(accessToken.TokenSecret))
-                {
-                    throw new TwitterNoRequestTokenExpection("No token secret for OAuth is set. TwitterConnector disabled");
-                }
-                try
-                {
-                    _accessToken = accessToken;
-                    _pin = pin;
-                    LogEvents.InvokeOnDebug(new TwitterArgs("Create TwitterConnector(using OAuth) instance using cache"));
-                }
-                catch (Exception ex)
-                {
-                    throw new TwitterAuthExpection("Authorization unsuccessful", ex);
-                }
+            if (accessToken == null)
+            {
+                throw new TwitterNoRequestTokenExpection("No token for OAuth is set. TwitterConnector disabled");
+            }
+            if (string.IsNullOrEmpty(accessToken.TokenValue))
+            {
+                throw new TwitterNoRequestTokenExpection("No token value for OAuth is set. TwitterConnector disabled");
+            }
+            if (string.IsNullOrEmpty(accessToken.TokenSecret))
+            {
+                throw new TwitterNoRequestTokenExpection("No token secret for OAuth is set. TwitterConnector disabled");
+            }
+            try
+            {
+                _accessToken = accessToken;
+                LogEvents.InvokeOnDebug(new TwitterArgs("Create TwitterConnector(using OAuth) instance using cache"));
+            }
+            catch (Exception ex)
+            {
+                throw new TwitterAuthExpection("Authorization unsuccessful", ex);
+            }
 
             Timelines = new Dictionary<string, Timeline>();
             //Timelines.Add(TimelineType.Public.ToString(), new Timeline(TimelineType.Public, authType, user, password, accessToken));
             //Timelines.Add(TimelineType.Friends.ToString(), new Timeline(TimelineType.Friends, authType, user, password, accessToken));
-            Timelines.Add(TimelineType.User.ToString(), new Timeline(TimelineType.User, user, password, accessToken));
-            Timelines.Add(TimelineType.Home.ToString(), new Timeline(TimelineType.Home, user, password, accessToken));
-            Timelines.Add(TimelineType.Mentions.ToString(), new Timeline(TimelineType.Mentions, user, password, accessToken));
+            Timelines.Add(TimelineType.User.ToString(), new Timeline(TimelineType.User, accessToken));
+            Timelines.Add(TimelineType.Home.ToString(), new Timeline(TimelineType.Home, accessToken));
+            Timelines.Add(TimelineType.Mentions.ToString(), new Timeline(TimelineType.Mentions, accessToken));
             //Timelines.Add(TimelineType.RetweetedByMe.ToString(), new Timeline(TimelineType.RetweetedByMe, authType, user, password, accessToken));
             //Timelines.Add(TimelineType.RetweetedToMe.ToString(), new Timeline(TimelineType.RetweetedToMe, authType, user, password, accessToken));
-            Timelines.Add(TimelineType.RetweetsOfMe.ToString(), new Timeline(TimelineType.RetweetsOfMe, user, password, accessToken));
+            Timelines.Add(TimelineType.RetweetsOfMe.ToString(), new Timeline(TimelineType.RetweetsOfMe, accessToken));
         }
+
         public static void DisableCache()
         {
             LogEvents.InvokeOnDebug(new TwitterArgs("Cache disabled."));
@@ -256,7 +249,7 @@ namespace TwitterConnector
             return false;
         }
 
-        public bool UpdateTimelines(List<TimelineType> timeLines)
+        public bool UpdateTimelines(List<TimelineType> timeLines, bool withRetweets)
         {
             int successCount = timeLines.Count;
             int count = 0;
@@ -281,7 +274,7 @@ namespace TwitterConnector
                 if (!CacheEnabled)
                 {
                     LogEvents.InvokeOnInfo(new TwitterArgs("Parsing twitter timeline " + timeline.Value.Type + " without using cache"));
-                    if (timeline.Value.Update())
+                    if (timeline.Value.Update(withRetweets))
                     {
                         count++;
                     }
@@ -291,7 +284,7 @@ namespace TwitterConnector
                     if (cacheAvailable)
                     {
                         LogEvents.InvokeOnInfo(new TwitterArgs("Parsing twitter timeline " + timeline.Value.Type + " into cache folder " + CacheFolder));
-                        if (timeline.Value.Update(CacheFolder))
+                        if (timeline.Value.Update(withRetweets, CacheFolder))
                         {
                             count++;
                         }
@@ -301,7 +294,7 @@ namespace TwitterConnector
                         if (CacheAutomatic)
                         {
                             LogEvents.InvokeOnInfo(new TwitterArgs("Parsing twitter timeline " + timeline.Value.Type + " without using cache"));
-                            if (timeline.Value.Update())
+                            if (timeline.Value.Update(withRetweets))
                             {
                                 count++;
                             }
@@ -316,9 +309,9 @@ namespace TwitterConnector
             }
             return successCount == count;
         }
-        public bool UpdateAllTimelines()
+        public bool UpdateAllTimelines(bool withRetweets)
         {
-            return UpdateTimelines(new List<TimelineType>() { TimelineType.Home, TimelineType.Mentions, TimelineType.RetweetsOfMe, TimelineType.User });
+            return UpdateTimelines(new List<TimelineType>() { TimelineType.Home, TimelineType.Mentions, TimelineType.RetweetsOfMe, TimelineType.User }, withRetweets);
         }
         public bool PostStatus(string message)
         {
@@ -334,7 +327,6 @@ namespace TwitterConnector
                 if (resp != null)
                 {
                     resp.Close();
-                    resp.SafeDispose();
                 }
                 LogEvents.InvokeOnInfo(new TwitterArgs("Posting status update \"" + message + "\" successful"));
                 
