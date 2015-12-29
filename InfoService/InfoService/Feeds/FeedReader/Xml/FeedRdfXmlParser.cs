@@ -56,8 +56,12 @@ namespace FeedReader.Xml
                     else parseSuccess = imageParser.TryParseFeedImageUrl(xmlFeed, rFeed.Title);
                     if (parseSuccess)
                     {
-                        rFeed.Image = imageParser.GetParsedImage();
-                        rFeed.ImagePath = imageParser.GetImagePath();
+                        if (!_useCache)
+                        {
+                            rFeed.Image = imageParser.GetParsedImage();
+                            rFeed.ImagePath = string.Empty;
+                        }
+                        else rFeed.ImagePath = imageParser.GetImagePath();
                     }
                 }
 
@@ -82,8 +86,12 @@ namespace FeedReader.Xml
                             else parseSuccess = imageParser.TryParseFeedItemImageUrl(xmlFeed, rFeed.Title, feedItem.Title, i - 1);
                             if (parseSuccess)
                             {
-                                feedItem.Image = imageParser.GetParsedImage();
-                                feedItem.ImagePath = imageParser.GetImagePath();
+                                if (!_useCache)
+                                {
+                                    feedItem.Image = imageParser.GetParsedImage();
+                                    feedItem.ImagePath = string.Empty;
+                                }
+                                else feedItem.ImagePath = imageParser.GetImagePath();
                             }
                         }
   

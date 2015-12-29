@@ -28,7 +28,7 @@ namespace InfoService.GUIConfiguration
 
         private void FeedFormOPML_HelpButtonClicked(object sender, CancelEventArgs e)
         {
-            System.Diagnostics.Process.Start(@"http://infoservice.codeplex.com/wikipage?title=Add%2fEdit%20Feed&referringTitle=How%20to%20use%20%28Users%29");
+            System.Diagnostics.Process.Start(@"https://github.com/hasenbolle/InfoService/wiki/How-to-use-(Users)");
         }
 
         private void btnBrowseFeed_Click(object sender, EventArgs e)

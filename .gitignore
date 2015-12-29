@@ -6,6 +6,7 @@
 *.user
 *.userosscache
 *.sln.docstates
+InfoService/InfoService/Twitter/TwitterApiKeys.cs
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -279,5 +280,9 @@ $RECYCLE.BIN/
 *.msp
 
 # Windows shortcuts
+<<<<<<< HEAD
 *.lnk
 InfoService/InfoService/Twitter/TwitterApiKeys.cs
+=======
+*.lnk
+>>>>>>> refs/remotes/origin/Twitter-enabled

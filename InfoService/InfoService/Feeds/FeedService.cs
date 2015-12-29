@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -15,6 +16,7 @@ using InfoService.Enums;
 using InfoService.Utils;
 using MediaPortal.GUI.Library;
 using System.Xml;
+using InfoService.Utils.NotificationBar;
 
 #endregion
 
@@ -117,7 +119,7 @@ namespace InfoService.Feeds
             get { return _showPopup; }
             set
             {
-                Logger.WriteLog("Set ShowPopup to " + value, LogLevel.Debug, InfoServiceModul.InfoService);
+                Logger.WriteLog("Set FeedsShowPopup to " + value, LogLevel.Debug, InfoServiceModul.InfoService);
                 _showPopup = value;
             }
         }
@@ -128,7 +130,7 @@ namespace InfoService.Feeds
             get { return _popupWhileFullScreenVideo; }
             set
             {
-                Logger.WriteLog("Set PopupWhileFullScreenVideo to " + value, LogLevel.Debug, InfoServiceModul.InfoService);
+                Logger.WriteLog("Set FeedsPopupWhileFullScreenVideo to " + value, LogLevel.Debug, InfoServiceModul.InfoService);
                 _popupWhileFullScreenVideo = value;
             }
         }
@@ -139,7 +141,7 @@ namespace InfoService.Feeds
             get { return _popupTimeout; }
             set
             {
-                Logger.WriteLog("Set PopupTimeout to " + value, LogLevel.Debug, InfoServiceModul.InfoService);
+                Logger.WriteLog("Set FeedsPopupTimeout to " + value, LogLevel.Debug, InfoServiceModul.InfoService);
                 _popupTimeout = value;
             }
         }
@@ -343,7 +345,16 @@ namespace InfoService.Feeds
                             Logger.WriteLog("Feed[" + feed.Title + "] should get a own feed image. Try to load own feed image from " + feed.OwnFeedImagePath, LogLevel.Debug, InfoServiceModul.Feed);
                             try
                             {
-                                feed.Image = Image.FromFile(feed.OwnFeedImagePath);
+                                using (FileStream fs = new FileStream(feed.OwnFeedImagePath, FileMode.Open,
+                                        FileAccess.Read))
+                                {
+                                    using (Image cacheImage = Image.FromStream(fs))
+                                    {
+                                        feed.Image = cacheImage.Clone() as Image;
+                                    }
+                                }
+                                if(feed.Image != null) feed.Image.Dispose();
+                                feed.Image = null;
                                 feed.ImagePath = feed.OwnFeedImagePath;
                                 Logger.WriteLog("Loading own feed[" + feed.Title + "] image successful", LogLevel.Debug, InfoServiceModul.Feed);
                             }
@@ -357,7 +368,7 @@ namespace InfoService.Feeds
                         else
                         {
                             Logger.WriteLog("Feed[" + feed.Title + "] don't need a own feed image", LogLevel.Debug, InfoServiceModul.Feed);
-                            if (feed.Image == null)
+                            if (string.IsNullOrEmpty(feed.ImagePath))
                             {
                                 //Feed has no image... Load default feed image
                                 string path = string.Empty;
@@ -376,7 +387,15 @@ namespace InfoService.Feeds
                                 try
                                 {
                                     Logger.WriteLog("Feed[" + feed.Title + "] image is empty. Try to load default feed image from " + path, LogLevel.Debug, InfoServiceModul.Feed);
-                                    feed.Image = Image.FromFile(path);
+                                    using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read))
+                                    {
+                                        using (Image cacheImage = Image.FromStream(fs))
+                                        {
+                                            feed.Image = cacheImage.Clone() as Image;
+                                        }
+                                    }
+                                    if(feed.Image != null) feed.Image.Dispose();
+                                    feed.Image = null;
                                     feed.ImagePath = path;
                                     Logger.WriteLog("Loading default feed[" + feed.Title + "] image successful", LogLevel.Debug, InfoServiceModul.Feed);
                                 }
@@ -451,9 +470,9 @@ namespace InfoService.Feeds
             //Check all feed items, if they need a default image
             for (int i = 0; i < feed.Items.Count; i++)
             {
-                if (feed.Items[i].Image == null)
+                if (string.IsNullOrEmpty(feed.Items[i].ImagePath))
                 {
-                    string path = String.Empty;
+                    string path = string.Empty;
                     string pathBig = string.Empty;
                     switch (feed.Type)
                     {
@@ -474,7 +493,15 @@ namespace InfoService.Feeds
                     try
                     {
                         Logger.WriteLog("Feed[" + feed.Title + "] item[" + i + "] image is empty. Try to load default feed image from " + path, LogLevel.Debug, InfoServiceModul.Feed);
-                        feed.Items[i].Image = Image.FromFile(path);
+                        using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read))
+                        {
+                            using (Image cacheImage = Image.FromStream(fs))
+                            {
+                                feed.Items[i].Image = cacheImage.Clone() as Image;
+                            }
+                        }
+                        if(feed.Items[i].Image != null) feed.Items[i].Image.Dispose();
+                        feed.Items[i].Image = null;
                         feed.Items[i].ImagePath = path;
                         Logger.WriteLog("Loading default feed[" + feed.Title + "] item[" + i + "] image successful", LogLevel.Debug, InfoServiceModul.Feed);
                     }
@@ -487,7 +514,15 @@ namespace InfoService.Feeds
                     try
                     {
                         Logger.WriteLog("Feed[" + feed.Title + "] item[" + i + "] BIG image is empty. Try to load default BIG feed image from " + pathBig, LogLevel.Debug, InfoServiceModul.Feed);
-                        feed.Items[i].ImageBig = Image.FromFile(pathBig);
+                        using (FileStream fs = new FileStream(pathBig, FileMode.Open, FileAccess.Read))
+                        {
+                            using (Image cacheImage = Image.FromStream(fs))
+                            {
+                                feed.Items[i].ImageBig = cacheImage.Clone() as Image;
+                            }
+                        }
+                        if(feed.Items[i].ImageBig != null) feed.Items[i].ImageBig.Dispose();
+                        feed.Items[i].ImageBig = null;
                         feed.Items[i].ImagePathBig = pathBig;
                         Logger.WriteLog("Loading default feed[" + feed.Title + "] item[" + i + "] BIG image successful", LogLevel.Debug, InfoServiceModul.Feed);
                     }
@@ -501,7 +536,7 @@ namespace InfoService.Feeds
                 else
                 {
                     feed.Items[i].ImagePathBig = feed.Items[i].ImagePath;
-                    feed.Items[i].ImageBig = feed.Items[i].Image;
+                    //feed.Items[i].ImageBig = feed.Items[i].Image.Clone() as Image;
                 }
             }
         }
@@ -696,7 +731,7 @@ namespace InfoService.Feeds
                         if (PopupWhileFullScreenVideo || !GUIGraphicsContext.IsFullScreenVideo)
                         {
                             Logger.WriteLog("Showing new Popup (NotificationBar) for Feed[" + feed.Title + "] with text \"" + text + "\"", LogLevel.Info, InfoServiceModul.Feed);
-                            NotificationBar.NotificationBar.ShowNotificationBar(String.Format(InfoServiceUtils.GetLocalizedLabel(38), newItems.Count.ToString(), feed.Title), text, feed.ImagePath, PopupWhileFullScreenVideo, (int)PopupTimeout);
+                            NotificationBar.ShowNotificationBar(String.Format(InfoServiceUtils.GetLocalizedLabel(38), newItems.Count.ToString(), feed.Title), text, feed.ImagePath, PopupWhileFullScreenVideo, (int)PopupTimeout);
                         }
                         else Logger.WriteLog("Showing new Popup (NotificationBar) for Feed[" + feed.Title + "] with text \"" + text + "\" is not allowed - Fullscreen Video is running...", LogLevel.Info, InfoServiceModul.Feed);
                     }

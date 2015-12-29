@@ -52,7 +52,7 @@ namespace TwitterConnector.OAuth
         {
             List<Parameter> l = new List<Parameter>(parameterArray);
             l.Sort(
-                delegate(Parameter x, Parameter y)
+                delegate (Parameter x, Parameter y)
                 {
                     if (!x._name.Equals(y._name))
                         return EncodeParameterString(x._name).CompareTo(
@@ -72,7 +72,7 @@ namespace TwitterConnector.OAuth
         internal static String ConcatToNormalize(Parameter[] parameterArray)
         {
             parameterArray = SortToNormalize(parameterArray);
-            return ConCat(parameterArray,"");
+            return ConCat(parameterArray, "");
 
         }
 
@@ -81,7 +81,7 @@ namespace TwitterConnector.OAuth
             return ConCat(parameterArray, "");
         }
 
-        internal static string ConCat(Parameter[] parameterArray,String qutationMark)
+        internal static string ConCat(Parameter[] parameterArray, String qutationMark)
         {
 
             if (parameterArray.Length == 0)
@@ -117,11 +117,12 @@ namespace TwitterConnector.OAuth
         internal static Parameter[] Parse(String source)
         {
 
-            List<Parameter > list =new List<Parameter> ();
+            List<Parameter> list = new List<Parameter>();
 
             String[] nameAndValSetArray = source.Split('&');
 
-            foreach (String nameAndValSet in nameAndValSetArray ){
+            foreach (String nameAndValSet in nameAndValSetArray)
+            {
 
                 String[] nameAndVal = nameAndValSet.Split('=');
 
@@ -134,7 +135,7 @@ namespace TwitterConnector.OAuth
                         nameAndVal[1]
                     )
                 );
-                            
+
             }
 
             return list.ToArray();
@@ -143,7 +144,8 @@ namespace TwitterConnector.OAuth
 
         internal static String EncodeParameterString(String val)
         {
-            StringBuilder sb =new StringBuilder ();
+            //return Uri.EscapeDataString(val);
+            StringBuilder sb = new StringBuilder();
             foreach (char c in val)
             {
                 if (('\u0041' <= c && c <= '\u005a') || //ALPHA
@@ -159,7 +161,7 @@ namespace TwitterConnector.OAuth
                 else
                 {
                     byte[] encoded = Encoding.UTF8.GetBytes(new char[] { c });
-                    for (int i = 0; i < encoded.Length; i ++ )
+                    for (int i = 0; i < encoded.Length; i++)
                     {
                         sb.Append('%');
                         sb.Append(encoded[i].ToString("X2"));

@@ -2,23 +2,21 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using TwitterConnector.Data;
 using TwitterConnector.OAuth;
-using TwitterConnector.Xml;
-
+using TwitterConnector.Json;
+using TwitterConnector;
 #endregion
 
 namespace TwitterConnector
 {
-    public class Timeline
+    public class Timeline : IDisposable
     {
-        public Timeline(TimelineType type, AuthType authType, string user, string password, AccessToken accessToken)
+        public Timeline(TimelineType type, AccessToken accessToken)
         {
             _items = new List<TwitterItem>();
             _type = type;
-            _user = user;
-            _password = password;
-            _authType = authType;
             _accessToken = accessToken;
             _authSettingsSupplied = true;
         }
@@ -46,27 +44,51 @@ namespace TwitterConnector
         public TimelineType Type
         {
             get { return _type;  }
+            set { _type = value; }
         }
         public bool LastUpdateSuccessful { get; set; }
         public DateTime LastUpdate { get; set; }
-        private AuthType _authType;
-        private string _user;
-        private string _password;
+        public bool RetweetsDownloaded { get; private set; }
         private AccessToken _accessToken;
         private bool _authSettingsSupplied;
+        private bool _isDisposed;
 
+        public delegate void OnNewItemsEventHandler(Timeline timeline, List<TwitterItem> newItems);
 
-        public bool Update()
+        private OnNewItemsEventHandler _onNewItems;
+        public event OnNewItemsEventHandler OnNewItems
+        {
+            add
+            {
+                if (_onNewItems == null || !_onNewItems.GetInvocationList().Contains(value))
+                {
+                    _onNewItems += value;
+                }
+            }
+            remove
+            {
+                if (_onNewItems != null)
+                {
+                    _onNewItems -= value;
+                }
+            }
+        }
+
+        public bool Update(bool withRetweets = true, string cacheFolder = "")
         {
             if (_authSettingsSupplied)
             {
-                LogEvents.InvokeOnInfo(new TwitterArgs("Updating Twitter " + _type + " timeline without using cache"));
-                List<TwitterItem> oldTwitterItems = _items;
-                if (TimelineXmlParser.TryParse(ref _items, _type, _user, _password, _accessToken, _authType))
+                LogEvents.InvokeOnInfo(string.IsNullOrEmpty(cacheFolder)
+                    ? new TwitterArgs("Updating Twitter " + _type + " timeline without using cache")
+                    : new TwitterArgs("Updating Twitter " + _type + " timeline using cache"));
+                List<TwitterItem> oldTwitterItems = _items.CloneList();
+                RetweetsDownloaded = withRetweets;
+                if (TimelineJsonParser.TryParse(ref _items, _type, _accessToken, withRetweets, cacheFolder))
                 {
                     LogEvents.InvokeOnInfo(new TwitterArgs("Update of Twitter " + _type + " timeline successful"));
                     LastUpdateSuccessful = true;
                     LastUpdate = DateTime.Now;
+                    CheckForNewItems(oldTwitterItems, _items);
                     return true;
                 }
                 _items = oldTwitterItems;
@@ -79,27 +101,53 @@ namespace TwitterConnector
             return false;
         }
 
-        public bool Update(string cacheFolder)
+        private void CheckForNewItems(List<TwitterItem> oldItems, List<TwitterItem> items)
         {
-            if (_authSettingsSupplied)
+            if (oldItems.Count >= 1 && items.Count >= 1 && _onNewItems != null)
             {
-                LogEvents.InvokeOnInfo(new TwitterArgs("Updating Twitter " + _type + " timeline using cache"));
-                List<TwitterItem> oldTwitterItems = _items;
-                if (TimelineXmlParser.TryParse(ref _items, _type, _user, _password, _accessToken, _authType, cacheFolder))
+                List<TwitterItem> newItems = items.Except(oldItems, new TwitterItemComparer()).ToList();
+                if (newItems.Count > 0)
                 {
-                    LogEvents.InvokeOnInfo(new TwitterArgs("Update of Twitter " + _type + " timeline successful"));
-                    LastUpdateSuccessful = true;
-                    LastUpdate = DateTime.Now;
-                    return true;
+                    _onNewItems((Timeline)this.Clone(), newItems.CloneList<TwitterItem>());
                 }
-                _items = oldTwitterItems;
-                LastUpdateSuccessful = false;
-                LastUpdate = DateTime.Now;
-                LogEvents.InvokeOnInfo(new TwitterArgs("Update of Twitter " + _type + " timeline unsuccessful. See above for errors or warnings"));
-                return false;
             }
-            LogEvents.InvokeOnError(new TwitterArgs("Cannot update " + _type + " timeline. No auth settings are supplied"));
-            return false;
         }
+
+        public virtual object Clone()
+        {
+            Timeline timeline = new Timeline(this.Type, this._accessToken);
+            timeline.LastUpdate = this.LastUpdate;
+            timeline.LastUpdateSuccessful = this.LastUpdateSuccessful;
+            timeline.RetweetsDownloaded = this.RetweetsDownloaded;
+            timeline.Items = this.Items.CloneList();
+            return timeline;
+        }
+        #region IDisposable Members
+
+        /// <summary>
+        /// Performs the disposal.
+        /// </summary>
+        private void Dispose(bool disposing)
+        {
+            if (disposing && !_isDisposed)
+            {
+                this.Items.Clear();
+                this.Items = null;
+                this._accessToken = null;
+            }
+
+            _isDisposed = true;
+        }
+
+        /// <summary>
+        /// Releases the object to the garbage collector
+        /// </summary>
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        #endregion
     }
 }

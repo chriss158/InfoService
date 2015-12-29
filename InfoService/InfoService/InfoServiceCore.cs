@@ -355,55 +355,57 @@ namespace InfoService
             #endregion
 
             #region Twitter
-            //Twitter is disabled, until there is more time to for the new Twitter API
-            //if (InfoServiceSkinSettings.InfoServiceSkinSettingsInstance.Twitter_Enabled)
-            //{
-            //    Logger.WriteLog("Init TwitterService",LogLevel.Info, InfoServiceModul.Twitter);
-            //    bool success = TwitterService.SetupTwitter(SettingsManager.Properties.TwitterSettings.Pin, SettingsManager.Properties.TwitterSettings.TokenValue,
-            //                                               SettingsManager.Properties.TwitterSettings.TokenSecret);
-            //    if(success)
-            //    {
-            //        TwitterService.UpdateOnStartup = SettingsManager.Properties.TwitterSettings.UpdateOnStartup;
-            //        //TwitterService.RefreshInterval = SettingsManager.Properties.TwitterSettings.RefreshInterval;
-            //        //TwitterService.TickerMask = SettingsManager.Properties.TwitterSettings.TickerMask;
-            //        //TwitterService.Separator = SettingsManager.Properties.TwitterSettings.Separator;
-            //        //TwitterService.Items = SettingsManager.Properties.TwitterSettings.ItemsCount;
-            //        TwitterService.RefreshInterval = InfoServiceSkinSettings.InfoServiceSkinSettingsInstance.Twitter_General_RefreshTwitterEvery;
-            //        TwitterService.TickerMask = InfoServiceSkinSettings.InfoServiceSkinSettingsInstance.Twitter_TickerLayout_TickerMask;
-            //        TwitterService.Separator = InfoServiceSkinSettings.InfoServiceSkinSettingsInstance.Twitter_TickerLayout_Separator;
-            //        TwitterService.Items = InfoServiceSkinSettings.InfoServiceSkinSettingsInstance.Twitter_Layout_MaxItemsForTwitterTicker;
-            //        TwitterService.UseHomeTimeline = SettingsManager.Properties.TwitterSettings.UsedTimelines.HomeTimeline;
-            //        //TwitterService.UsePublicTimeline = SettingsManager.Properties.TwitterSettings.UsedTimelines.PublicTimeline;
-            //        TwitterService.UseUserTimeline = SettingsManager.Properties.TwitterSettings.UsedTimelines.UserTimeline;
-            //        TwitterService.UseFriendsTimeline = SettingsManager.Properties.TwitterSettings.UsedTimelines.FriendsTimeline;
-            //        TwitterService.UseMentionsTimeline = SettingsManager.Properties.TwitterSettings.UsedTimelines.MentionsTimeline;
-            //        TwitterService.UseRetweetedByMeTimeline = SettingsManager.Properties.TwitterSettings.UsedTimelines.RetweetedByMeTimeline;
-            //        TwitterService.UseRetweetedToMeTimeline = SettingsManager.Properties.TwitterSettings.UsedTimelines.RetweetedToMeTimeline;
-            //        TwitterService.UseRetweetsOfMeTimeline = SettingsManager.Properties.TwitterSettings.UsedTimelines.RetweetsOfMeTimeline;
-            //        TwitterService.DeletionInterval = SettingsManager.Properties.TwitterSettings.DeletionInterval;
-            //        TwitterService.PostWatchingVideos = SettingsManager.Properties.TwitterSettings.TwitterStatusUpdate.Enabled;
-            //        TwitterService.PostWatchMoviesMask = SettingsManager.Properties.TwitterSettings.TwitterStatusUpdate.WatchMoviesMask;
-            //        TwitterService.PostWatchSeriesMask = SettingsManager.Properties.TwitterSettings.TwitterStatusUpdate.WatchSeriesMask;
-            //        TwitterService.PostUsingMovingPictures = SettingsManager.Properties.TwitterSettings.TwitterStatusUpdate.WithMovingPictures;
-            //        TwitterService.PostUsingTVSeries = SettingsManager.Properties.TwitterSettings.TwitterStatusUpdate.WithMPTVSeries;
-            //        TwitterService.PostUsingMyVideos = SettingsManager.Properties.TwitterSettings.TwitterStatusUpdate.WithMyVideo;
-            //        PropertyUtils.SetProperty(PropertyUtils.Properties.Twitter.Separator, TwitterService.Separator);
-            //        PropertyUtils.SetProperty(PropertyUtils.Properties.Twitter.Enabled, TwitterService.Enabled.ToString());
-            //        TwitterUpdater.SetupUpdater();
-            //        Logger.WriteLog("Successfully initiated TwitterService", LogLevel.Info, InfoServiceModul.Twitter);
-            //    }
-            //    else
-            //    {
-            //        Logger.WriteLog("Cannot initialize TwitterService. See above for errors", LogLevel.Error, InfoServiceModul.Twitter);
-            //    }
-            //}
-            //else
-            //{
-            //    Logger.WriteLog("TwitterService is not enabled", LogLevel.Debug, InfoServiceModul.InfoService);
-            //    PropertyUtils.SetProperty(PropertyUtils.Properties.Twitter.Messages, InfoServiceUtils.GetLocalizedLabel(33));
-            //}
+            if (InfoServiceSkinSettings.InfoServiceSkinSettingsInstance.Twitter_Enabled)
+            {
+                Logger.WriteLog("Init TwitterService", LogLevel.Info, InfoServiceModul.Twitter);
+                bool success = TwitterService.SetupTwitter(SettingsManager.Properties.TwitterSettings.TokenValue,
+                                                           SettingsManager.Properties.TwitterSettings.TokenSecret);
+                if (success)
+                {
+                    TwitterService.UpdateOnStartup = SettingsManager.Properties.TwitterSettings.UpdateOnStartup;
+                    //TwitterService.RefreshInterval = SettingsManager.Properties.TwitterSettings.RefreshInterval;
+                    //TwitterService.TickerMask = SettingsManager.Properties.TwitterSettings.TickerMask;
+                    //TwitterService.Separator = SettingsManager.Properties.TwitterSettings.Separator;
+                    //TwitterService.Items = SettingsManager.Properties.TwitterSettings.ItemsCount;
+                    TwitterService.RefreshInterval = InfoServiceSkinSettings.InfoServiceSkinSettingsInstance.Twitter_General_RefreshTwitterEvery;
+                    TwitterService.TickerMask = InfoServiceSkinSettings.InfoServiceSkinSettingsInstance.Twitter_TickerLayout_TickerMask;
+                    TwitterService.Separator = InfoServiceSkinSettings.InfoServiceSkinSettingsInstance.Twitter_TickerLayout_Separator;
+                    TwitterService.Items = InfoServiceSkinSettings.InfoServiceSkinSettingsInstance.Twitter_Layout_MaxItemsForTwitterTicker;
+                    TwitterService.UseHomeTimeline = SettingsManager.Properties.TwitterSettings.UsedTimelines.HomeTimeline;
+                    //TwitterService.UsePublicTimeline = SettingsManager.Properties.TwitterSettings.UsedTimelines.PublicTimeline;
+                    TwitterService.UseUserTimeline = SettingsManager.Properties.TwitterSettings.UsedTimelines.UserTimeline;
+                    //TwitterService.UseFriendsTimeline = SettingsManager.Properties.TwitterSettings.UsedTimelines.FriendsTimeline;
+                    TwitterService.UseMentionsTimeline = SettingsManager.Properties.TwitterSettings.UsedTimelines.MentionsTimeline;
+                    //TwitterService.UseRetweetedByMeTimeline = SettingsManager.Properties.TwitterSettings.UsedTimelines.RetweetedByMeTimeline;
+                    //TwitterService.UseRetweetedToMeTimeline = SettingsManager.Properties.TwitterSettings.UsedTimelines.RetweetedToMeTimeline;
+                    TwitterService.UseRetweetsOfMeTimeline = SettingsManager.Properties.TwitterSettings.UsedTimelines.RetweetsOfMeTimeline;
+                    TwitterService.DeletionInterval = SettingsManager.Properties.TwitterSettings.DeletionInterval;
+                    TwitterService.PostWatchingVideos = SettingsManager.Properties.TwitterSettings.TwitterStatusUpdate.Enabled;
+                    TwitterService.PostWatchMoviesMask = SettingsManager.Properties.TwitterSettings.TwitterStatusUpdate.WatchMoviesMask;
+                    TwitterService.PostWatchSeriesMask = SettingsManager.Properties.TwitterSettings.TwitterStatusUpdate.WatchSeriesMask;
+                    TwitterService.PostUsingMovingPictures = SettingsManager.Properties.TwitterSettings.TwitterStatusUpdate.WithMovingPictures;
+                    TwitterService.PostUsingTVSeries = SettingsManager.Properties.TwitterSettings.TwitterStatusUpdate.WithMPTVSeries;
+                    TwitterService.PostUsingMyVideos = SettingsManager.Properties.TwitterSettings.TwitterStatusUpdate.WithMyVideo;
+                    TwitterService.ShowPopup = SettingsManager.Properties.TwitterSettings.ShowPopup;
+                    TwitterService.PopupTimeout = SettingsManager.Properties.TwitterSettings.PopupTimeout;
+                    TwitterService.PopupWhileFullScreenVideo = SettingsManager.Properties.TwitterSettings.PopupWhileFullScreenVideo;
+                    PropertyUtils.SetProperty(PropertyUtils.Properties.Twitter.Separator, TwitterService.Separator);
+                    PropertyUtils.SetProperty(PropertyUtils.Properties.Twitter.Enabled, TwitterService.Enabled.ToString());
+                    TwitterUpdater.SetupUpdater();
+                    Logger.WriteLog("Successfully initiated TwitterService", LogLevel.Info, InfoServiceModul.Twitter);
+                }
+                else
+                {
+                    Logger.WriteLog("Cannot initialize TwitterService. See above for errors", LogLevel.Error, InfoServiceModul.Twitter);
+                }
+            }
+            else
+            {
+                Logger.WriteLog("TwitterService is not enabled", LogLevel.Debug, InfoServiceModul.InfoService);
+                PropertyUtils.SetProperty(PropertyUtils.Properties.Twitter.Messages, InfoServiceUtils.GetLocalizedLabel(33));
+            }
             #endregion
-            
+
             #endregion
 
             // after the settings have been loaded, try to initialize log one more time, it should flush the log buffer
@@ -412,7 +414,7 @@ namespace InfoService
 
             //RecentlyAddedUtils.LoadLastRecentlyAddedItems();
             //RecentlyAddedWatchedUpdater.SetupUpdater();
-            UpdateTimer.SetTimer(true);
+            UpdateTimer.SetTimer(false);
 
             #region Load infoservice.xml
             Logger.WriteLog("Loading InfoService GUI skin file from " + GUIGraphicsContext.Skin + @"\infoservice.xml", LogLevel.Debug, InfoServiceModul.InfoService);

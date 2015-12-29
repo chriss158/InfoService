@@ -128,7 +128,7 @@ namespace InfoService.Utils
             {
                 PropertyUtils.SetProperty(PropertyUtils.Properties.Twitter.SelectedUsername, timeline.Items[0].User.ScreenName);
                 PropertyUtils.SetProperty(PropertyUtils.Properties.Twitter.SelectedUserpicture, timeline.Items[0].User.PicturePath);
-
+                PropertyUtils.SetProperty(PropertyUtils.Properties.Twitter.SelectedMediaImage, timeline.Items[0].MediaPath);
                 if (selectLastItemIndex || updateGUI)
                     GUIControl.SetControlLabel(GUITwitter.GUITwitterId, GUITwitter.GUITwitterMessage, timeline.Items[0].Text);
 
@@ -141,7 +141,7 @@ namespace InfoService.Utils
                             IconImage = timeline.Items[i].User.PicturePath,
                             Label = timeline.Items[i].User.ScreenName
                         };
-                        item.Label2 = InfoServiceUtils.GetTimeDifferenceToNow(timeline.Items[i].PublishDate) + " " + GUILocalizeStrings.Get(1024) + " " + timeline.Items[i].Source;
+                        item.Label2 = InfoServiceUtils.GetTimeDifferenceToNow(timeline.Items[i].PublishDate) + " " + GUILocalizeStrings.Get(1024) + " @" + timeline.Items[i].User.ScreenName;
                         logger.WriteLog("Set/Calc time diffrence for twitter timeline[" + timeline.Type + "]. For " + timeline.Items[i].PublishDate + " its \"" + item.Label2 + "\"", LogLevel.Debug, InfoServiceModul.Feed);
                         GUIListControl.AddListItemControl(GUITwitter.GUITwitterId, GUITwitter.GUITwitterList, item);
                     }

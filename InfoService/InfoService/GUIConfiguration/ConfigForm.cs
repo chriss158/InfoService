@@ -166,10 +166,10 @@ namespace InfoService.GUIConfiguration
             cbTwitterHomeTimeline.Checked = SettingsManager.Properties.TwitterSettings.UsedTimelines.HomeTimeline;
             //cbTwitterPublicTimeline.Checked = SettingsManager.Properties.TwitterSettings.UsedTimelines.PublicTimeline;
             cbTwitterUserTimeline.Checked = SettingsManager.Properties.TwitterSettings.UsedTimelines.UserTimeline;
-            cbTwitterFriendsTimeline.Checked = SettingsManager.Properties.TwitterSettings.UsedTimelines.FriendsTimeline;
+            //cbTwitterFriendsTimeline.Checked = SettingsManager.Properties.TwitterSettings.UsedTimelines.FriendsTimeline;
             cbTwitterMentionsTimeline.Checked = SettingsManager.Properties.TwitterSettings.UsedTimelines.MentionsTimeline;
-            cbTwitterRetweetedByMeTimeline.Checked = SettingsManager.Properties.TwitterSettings.UsedTimelines.RetweetedByMeTimeline;
-            cbTwitterRetweetedToMeTimeline.Checked = SettingsManager.Properties.TwitterSettings.UsedTimelines.RetweetedToMeTimeline;
+            //cbTwitterRetweetedByMeTimeline.Checked = SettingsManager.Properties.TwitterSettings.UsedTimelines.RetweetedByMeTimeline;
+            //cbTwitterRetweetedToMeTimeline.Checked = SettingsManager.Properties.TwitterSettings.UsedTimelines.RetweetedToMeTimeline;
             cbTwitterRetweetsOfMeTimeline.Checked = SettingsManager.Properties.TwitterSettings.UsedTimelines.RetweetsOfMeTimeline;
             txtTwitterTickerLayout.Text = SettingsManager.Properties.TwitterSettings.TickerMask;
             cbTwitterPostWatchingVideos.Checked = SettingsManager.Properties.TwitterSettings.TwitterStatusUpdate.Enabled;
@@ -179,6 +179,10 @@ namespace InfoService.GUIConfiguration
             cbTwitterUseMyVideo.Checked = SettingsManager.Properties.TwitterSettings.TwitterStatusUpdate.WithMyVideo;
             txtTwitterWatchingMoviesMask.Text = SettingsManager.Properties.TwitterSettings.TwitterStatusUpdate.WatchMoviesMask;
             txtTwitterWatchingSeriesMask.Text = SettingsManager.Properties.TwitterSettings.TwitterStatusUpdate.WatchSeriesMask;
+            cbTweetsPopup.Checked = SettingsManager.Properties.TwitterSettings.ShowPopup;
+            cbTweetsPopupWhileVideoPlaying.Checked = SettingsManager.Properties.TwitterSettings.PopupWhileFullScreenVideo;
+            txtTweetsPopupTimeout.Value = SettingsManager.Properties.TwitterSettings.PopupTimeout;
+            
             SetExampleTicker();
             //lblProductVersion.Text = "v" + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
             lblProductVersion.Text = "v" + FileVersionInfo.GetVersionInfo(System.Reflection.Assembly.GetExecutingAssembly().Location).ProductVersion;
@@ -209,9 +213,12 @@ namespace InfoService.GUIConfiguration
 
             if (cbTwitterEnabled.Checked)
             {
-                if (!cbTwitterFriendsTimeline.Checked && !cbTwitterUserTimeline.Checked &&
-                    //!cbTwitterPublicTimeline.Checked && !cbTwitterHomeTimeline.Checked &&
-                    !cbTwitterRetweetedByMeTimeline.Checked && !cbTwitterRetweetedToMeTimeline.Checked &&
+                //if (!cbTwitterFriendsTimeline.Checked && !cbTwitterUserTimeline.Checked &&
+                //    !cbTwitterPublicTimeline.Checked && !cbTwitterHomeTimeline.Checked &&
+                //    !cbTwitterRetweetedByMeTimeline.Checked && !cbTwitterRetweetedToMeTimeline.Checked &&
+                //    !cbTwitterRetweetsOfMeTimeline.Checked && !cbTwitterMentionsTimeline.Checked)
+                //{
+                if (!cbTwitterUserTimeline.Checked && !cbTwitterHomeTimeline.Checked &&
                     !cbTwitterRetweetsOfMeTimeline.Checked && !cbTwitterMentionsTimeline.Checked)
                 {
                     DialogResult dr = MessageBox.Show(
@@ -291,10 +298,10 @@ namespace InfoService.GUIConfiguration
             //SettingsManager.Properties.TwitterSettings.UsedTimelines.PublicTimeline = cbTwitterPublicTimeline.Checked;
             SettingsManager.Properties.TwitterSettings.UsedTimelines.HomeTimeline = cbTwitterHomeTimeline.Checked;
             SettingsManager.Properties.TwitterSettings.UsedTimelines.UserTimeline = cbTwitterUserTimeline.Checked;
-            SettingsManager.Properties.TwitterSettings.UsedTimelines.FriendsTimeline = cbTwitterFriendsTimeline.Checked;
+            //SettingsManager.Properties.TwitterSettings.UsedTimelines.FriendsTimeline = cbTwitterFriendsTimeline.Checked;
             SettingsManager.Properties.TwitterSettings.UsedTimelines.MentionsTimeline = cbTwitterMentionsTimeline.Checked;
-            SettingsManager.Properties.TwitterSettings.UsedTimelines.RetweetedByMeTimeline = cbTwitterRetweetedByMeTimeline.Checked;
-            SettingsManager.Properties.TwitterSettings.UsedTimelines.RetweetedToMeTimeline = cbTwitterRetweetedToMeTimeline.Checked;
+            //SettingsManager.Properties.TwitterSettings.UsedTimelines.RetweetedByMeTimeline = cbTwitterRetweetedByMeTimeline.Checked;
+            //SettingsManager.Properties.TwitterSettings.UsedTimelines.RetweetedToMeTimeline = cbTwitterRetweetedToMeTimeline.Checked;
             SettingsManager.Properties.TwitterSettings.UsedTimelines.RetweetsOfMeTimeline = cbTwitterRetweetsOfMeTimeline.Checked;
             SettingsManager.Properties.TwitterSettings.TickerMask = txtTwitterTickerLayout.Text;
             SettingsManager.Properties.TwitterSettings.TwitterStatusUpdate.Enabled = cbTwitterPostWatchingVideos.Checked;
@@ -303,6 +310,9 @@ namespace InfoService.GUIConfiguration
             SettingsManager.Properties.TwitterSettings.TwitterStatusUpdate.WithMyVideo = cbTwitterUseMyVideo.Checked;
             SettingsManager.Properties.TwitterSettings.TwitterStatusUpdate.WatchMoviesMask = txtTwitterWatchingMoviesMask.Text;
             SettingsManager.Properties.TwitterSettings.TwitterStatusUpdate.WatchSeriesMask = txtTwitterWatchingSeriesMask.Text;
+            SettingsManager.Properties.TwitterSettings.ShowPopup = cbTweetsPopup.Checked;
+            SettingsManager.Properties.TwitterSettings.PopupWhileFullScreenVideo = cbTweetsPopupWhileVideoPlaying.Checked;
+            SettingsManager.Properties.TwitterSettings.PopupTimeout = txtTweetsPopupTimeout.Value;
 
             try
             {
@@ -655,22 +665,22 @@ namespace InfoService.GUIConfiguration
 
         private void llblAboutCodeplex_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start(@"http://infoservice.codeplex.com/");
+            Process.Start(@"https://github.com/hasenbolle/InfoService");
         }
 
         private void llblAboutManual_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start(@"http://infoservice.codeplex.com/documentation");
+            Process.Start(@"https://github.com/hasenbolle/InfoService/wiki");
         }
 
         private void llblAboutForum_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start(@"http://forum.team-mediaportal.com/mediaportal-plugins-47/infoservice-v1-32-5-day-weather-feeds-twitter-basic-home-04-01-2010-planning-60206/");
+            Process.Start(@"http://forum.team-mediaportal.com/forums/infoservice.522/");
         }
 
         private void btnFeedHelp_Click(object sender, EventArgs e)
         {
-            Process.Start(@"http://infoservice.codeplex.com/wikipage?title=Feeds%20configuration&referringTitle=How%20to%20use%20%28Users%29");
+            Process.Start(@"https://github.com/hasenbolle/InfoService/wiki/Feed-configuration");
         }
 
         private void btnWeatherHelp_Click(object sender, EventArgs e)
@@ -680,7 +690,7 @@ namespace InfoService.GUIConfiguration
 
         private void btnTwitterHelp_Click(object sender, EventArgs e)
         {
-            Process.Start(@"http://infoservice.codeplex.com/wikipage?title=Twitter%20configuration&referringTitle=How%20to%20use%20%28Users%29");
+            Process.Start(@"https://github.com/hasenbolle/InfoService/wiki/Twitter-configuration");
         }
 
         private void llblFamFamFam_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
