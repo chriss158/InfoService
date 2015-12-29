@@ -200,6 +200,9 @@ Changelog:
 [i] - Information
 [!] - Attention
 
+Version v1.81:
+[-] Fixed crash on second twitter update
+
 Version v1.8:
 [+] Re-enabled Twitter
 [+] New property for twitter: #infoservice.twitter.selected.mediaimage. It holds the first image which is attached to a tweet
@@ -646,7 +649,7 @@ Version v0.1:
     <VersionDescription />
     <DevelopmentStatus>Stable</DevelopmentStatus>
     <OnlineLocation>http://www.team-mediaportal.com/index.php?option=com_mtree&amp;task=att_download&amp;link_id=84&amp;cf_id=24</OnlineLocation>
-    <ReleaseDate>2015-12-29T16:51:38.410011+01:00</ReleaseDate>
+    <ReleaseDate>2015-12-29T16:53:55.7957474+01:00</ReleaseDate>
     <Tags>all,infoservice,rss,feed,twitter,weather,feeds</Tags>
     <Location>..\LastBuild\MPInfoService_v[Version].mpe1</Location>
     <Params>

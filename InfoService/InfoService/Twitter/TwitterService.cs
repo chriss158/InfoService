@@ -485,7 +485,7 @@ namespace InfoService.Twitter
             {
                 notificationBarPluginEnabled = settings.GetValueAsString("plugins", "MPNotificationBar", "no") == "yes";
             }
-
+            string user = newItems.Count > 0 && newItems[0].User != null ? newItems[0].User.ScreenName : "UnkownUser";
             string imagePath = newItems.Count == 1 && newItems[0].User != null
                                 ? newItems[0].User.PicturePath
                                 : GUIGraphicsContext.Skin + @"\media\InfoService\defaultTwitter.png";
@@ -497,7 +497,7 @@ namespace InfoService.Twitter
                 string text = string.Empty;
                 foreach (TwitterItem item in newItems)
                 {
-                    text += item.Text + "\n";
+                    text += item.Text+ " " + GUILocalizeStrings.Get(1024) + " @" + user + "\n";
                 }
 
                 if (!string.IsNullOrEmpty(text))
@@ -522,8 +522,9 @@ namespace InfoService.Twitter
             }
             else
             {
+                
                 string text = newItems.Count == 1
-                    ? newItems[0].Text + " " + GUILocalizeStrings.Get(1024) + " @" + newItems[0].User.ScreenName
+                    ? newItems[0].Text + " " + GUILocalizeStrings.Get(1024) + " @" + user
                     : String.Format(InfoServiceUtils.GetLocalizedLabel(41), timeline.Type) + " Timeline";
                 if (!string.IsNullOrEmpty(text))
                 {

@@ -24,7 +24,7 @@ namespace FeedReader.Data
             newItem.Author = this.Author;
             newItem.Title = this.Title;
             newItem.Description = this.Description;
-            newItem.Image = this.Image;
+            if(this.Image != null) newItem.Image = this.Image.Clone() as Image;
             newItem.ImagePath = this.ImagePath;
             newItem.PublishDate = this.PublishDate;
             newItem.Url = this.Url;

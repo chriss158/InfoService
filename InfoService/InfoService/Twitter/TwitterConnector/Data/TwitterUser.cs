@@ -36,7 +36,7 @@ namespace TwitterConnector.Data
             newUser.Description = this.Description;
             newUser.Location = this.Location;
             newUser.Name = this.Name;
-            if (newUser.Picture != null) newUser.Picture = this.Picture.Clone() as Image;
+            if (this.Picture != null) newUser.Picture = this.Picture.Clone() as Image;
             newUser.PicturePath = this.PicturePath;
             newUser.ScreenName = this.ScreenName;
             return newUser;

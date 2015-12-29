@@ -13,6 +13,9 @@ Changelog:
 [i] - Information
 [!] - Attention
 
+Version v1.81:
+[-] Fixed crash on second twitter update
+
 Version v1.8:
 [+] Re-enabled Twitter
 [+] New property for twitter: #infoservice.twitter.selected.mediaimage. It holds the first image which is attached to a tweet

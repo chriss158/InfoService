@@ -35,12 +35,12 @@ namespace TwitterConnector.Data
             TwitterItem newItem = new TwitterItem();
             newItem.Id = this.Id;
             newItem.PublishDate = this.PublishDate;
-            if(newItem.User != null) newItem.User = this.User.Clone() as TwitterUser;
+            if(this.User != null) newItem.User = this.User.Clone() as TwitterUser;
             newItem.Text = this.Text;
             newItem.Source = this.Source;
             newItem.Retweets = this.Retweets.CloneList();
             newItem.MediaPath = this.MediaPath;
-            if (newItem.MediaImage != null) newItem.MediaImage = this.MediaImage.Clone() as Image;
+            if (this.MediaImage != null) newItem.MediaImage = this.MediaImage.Clone() as Image;
             newItem.MediaId = this.MediaId;
             return newItem;
         }
