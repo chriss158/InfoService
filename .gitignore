@@ -18,7 +18,8 @@ InfoService/InfoService/Twitter/TwitterApiKeys.cs
 [Rr]eleases/
 x64/
 x86/
-build/
+#build/
+build_log.txt
 bld/
 LastBuild/
 [Bb]in/
