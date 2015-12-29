@@ -479,7 +479,7 @@ namespace InfoService.Twitter
         private static void Value_OnNewItems(Timeline timeline, List<TwitterConnector.Data.TwitterItem> newItems)
         {
 
-            logger.WriteLog("Popups are enabled and new tweetsloaded...", LogLevel.Info, InfoServiceModul.Twitter);
+            logger.WriteLog("Popups are enabled and new tweets loaded...", LogLevel.Info, InfoServiceModul.Twitter);
 
             bool notificationBarPluginEnabled = false;
             using (MediaPortal.Profile.Settings settings = new MediaPortal.Profile.MPSettings())
@@ -505,7 +505,7 @@ namespace InfoService.Twitter
                             "Showing new Popup (NotificationBar) for Timeline[" + timeline.Type + "] with text \"" +
                             text + "\"", LogLevel.Info, InfoServiceModul.Twitter);
                         NotificationBar.ShowNotificationBar(
-                            String.Format(InfoServiceUtils.GetLocalizedLabel(40), newItems.Count.ToString(), timeline.Type),
+                            String.Format(InfoServiceUtils.GetLocalizedLabel(40), newItems.Count.ToString(), timeline.Type + " Timeline"),
                             text, newItems[0].User.PicturePath, PopupWhileFullScreenVideo, (int) PopupTimeout);
                     }
                     else
@@ -520,7 +520,7 @@ namespace InfoService.Twitter
             {
                 string text = newItems.Count == 1
                     ? newItems[0].Text + " " + GUILocalizeStrings.Get(1024) + " @" + newItems[0].User.ScreenName
-                    : String.Format(InfoServiceUtils.GetLocalizedLabel(40), timeline.Type);
+                    : String.Format(InfoServiceUtils.GetLocalizedLabel(41), timeline.Type) + " Timeline";
                 if (!string.IsNullOrEmpty(text))
                 {
                     if (PopupWhileFullScreenVideo || !GUIGraphicsContext.IsFullScreenVideo)
@@ -531,7 +531,7 @@ namespace InfoService.Twitter
                             "\"", LogLevel.Info, InfoServiceModul.Feed);
                         InfoServiceUtils.ShowDialogNotifyWindow(
                             String.Format(InfoServiceUtils.GetLocalizedLabel(40), newItems.Count.ToString(),
-                                timeline.Type),
+                                timeline.Type + " Timeline"),
                             text, newItems[0].User.PicturePath, new Size(120, 120), (int) PopupTimeout);
                     }
                     else

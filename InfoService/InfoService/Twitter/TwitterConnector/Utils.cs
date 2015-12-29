@@ -39,14 +39,10 @@ namespace TwitterConnector
         
         internal static dynamic DownloadTwitterJson(AccessToken accessToken, string url)
         {
-            int rateLimit = 0, limitRemaining = 0;
-            DateTime rateReset = DateTime.MinValue;
-            bool responseInfoFound = false;
-            HttpWebResponse resp = null;
             try
             {
                 Consumer c = new Consumer(Twitter.ConsumerKey, Twitter.ConsumerSecret);
-                resp = c.AccessProtectedResource(
+                HttpWebResponse resp = c.AccessProtectedResource(
                     accessToken,
                     url,
                     "GET",

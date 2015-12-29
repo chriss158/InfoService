@@ -35,7 +35,7 @@ namespace TwitterConnector.Data
             TwitterItem newItem = new TwitterItem();
             newItem.Id = this.Id;
             newItem.PublishDate = this.PublishDate;
-            newItem.User = this.User.Clone() as TwitterUser;
+            if(newItem.User != null) newItem.User = this.User.Clone() as TwitterUser;
             newItem.Text = this.Text;
             newItem.Source = this.Source;
             newItem.Retweets = this.Retweets.CloneList();

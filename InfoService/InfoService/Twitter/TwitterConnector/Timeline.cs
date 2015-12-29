@@ -118,6 +118,7 @@ namespace TwitterConnector
             Timeline timeline = new Timeline(this.Type, this._accessToken);
             timeline.LastUpdate = this.LastUpdate;
             timeline.LastUpdateSuccessful = this.LastUpdateSuccessful;
+            timeline.RetweetsDownloaded = this.RetweetsDownloaded;
             timeline.Items = this.Items.CloneList();
             return timeline;
         }
