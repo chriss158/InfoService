@@ -525,6 +525,10 @@ namespace InfoService.Twitter
                 {
                     if (PopupWhileFullScreenVideo || !GUIGraphicsContext.IsFullScreenVideo)
                     {
+                        string imagePath = newItems.Count == 1 && newItems[0].User != null
+                            ? newItems[0].User.PicturePath
+                            : GUIGraphicsContext.Skin + @"\media\InfoService\defaultTwitter.png";
+
                         logger.WriteLog(
                             "Showing new Popup (MediaPortal Dialog) for Timeline[" + timeline.Type + "] with text \"" +
                             text +
@@ -532,7 +536,7 @@ namespace InfoService.Twitter
                         InfoServiceUtils.ShowDialogNotifyWindow(
                             String.Format(InfoServiceUtils.GetLocalizedLabel(40), newItems.Count.ToString(),
                                 timeline.Type + " Timeline"),
-                            text, newItems[0].User.PicturePath, new Size(120, 120), (int) PopupTimeout);
+                            text, imagePath, new Size(120, 120), (int) PopupTimeout);
                     }
                     else
                         logger.WriteLog(
