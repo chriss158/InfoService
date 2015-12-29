@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using FeedReader.Data;
 using InfoService.Enums;
 using InfoService.Utils.NotificationBar;
 using InfoService.Utils;
@@ -476,7 +475,7 @@ namespace InfoService.Twitter
             }
         }
 
-        private static void Value_OnNewItems(Timeline timeline, List<TwitterConnector.Data.TwitterItem> newItems)
+        private static void Value_OnNewItems(Timeline timeline, List<TwitterItem> newItems)
         {
 
             logger.WriteLog("Popups are enabled and new tweets loaded...", LogLevel.Info, InfoServiceModul.Twitter);
@@ -486,6 +485,11 @@ namespace InfoService.Twitter
             {
                 notificationBarPluginEnabled = settings.GetValueAsString("plugins", "MPNotificationBar", "no") == "yes";
             }
+
+            string imagePath = newItems.Count == 1 && newItems[0].User != null
+                                ? newItems[0].User.PicturePath
+                                : GUIGraphicsContext.Skin + @"\media\InfoService\defaultTwitter.png";
+
             if (InfoServiceUtils.IsAssemblyAvailable("MPNotificationBar", new Version(0, 8, 3, 0)) &&
                 System.IO.File.Exists(GUIGraphicsContext.Skin + @"\NotificationBar.xml") &&
                 notificationBarPluginEnabled)
@@ -506,7 +510,7 @@ namespace InfoService.Twitter
                             text + "\"", LogLevel.Info, InfoServiceModul.Twitter);
                         NotificationBar.ShowNotificationBar(
                             String.Format(InfoServiceUtils.GetLocalizedLabel(40), newItems.Count.ToString(), timeline.Type + " Timeline"),
-                            text, newItems[0].User.PicturePath, PopupWhileFullScreenVideo, (int) PopupTimeout);
+                            text, imagePath, PopupWhileFullScreenVideo, (int) PopupTimeout);
                     }
                     else
                         logger.WriteLog(
@@ -525,10 +529,6 @@ namespace InfoService.Twitter
                 {
                     if (PopupWhileFullScreenVideo || !GUIGraphicsContext.IsFullScreenVideo)
                     {
-                        string imagePath = newItems.Count == 1 && newItems[0].User != null
-                            ? newItems[0].User.PicturePath
-                            : GUIGraphicsContext.Skin + @"\media\InfoService\defaultTwitter.png";
-
                         logger.WriteLog(
                             "Showing new Popup (MediaPortal Dialog) for Timeline[" + timeline.Type + "] with text \"" +
                             text +
