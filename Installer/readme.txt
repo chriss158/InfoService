@@ -13,6 +13,10 @@ Changelog:
 [i] - Information
 [!] - Attention
 
+Version v1.82:
+[*] Updated Spanish translation
+[-] Fixed wrong help text (%show%) for update twitter status on movie/series watching
+
 Version v1.81:
 [-] Fixed crash on second twitter update
 

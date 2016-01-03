@@ -65,6 +65,10 @@
             this.label19 = new System.Windows.Forms.Label();
             this.txtTwitterSeparator = new System.Windows.Forms.TextBox();
             this.gbTwitterGeneral = new System.Windows.Forms.GroupBox();
+            this.cbTweetsPopupWhileVideoPlaying = new System.Windows.Forms.CheckBox();
+            this.lblTweetsPopupTimeout = new System.Windows.Forms.Label();
+            this.txtTweetsPopupTimeout = new System.Windows.Forms.NumericUpDown();
+            this.cbTweetsPopup = new System.Windows.Forms.CheckBox();
             this.cbTwitterUpdateOnStartup = new System.Windows.Forms.CheckBox();
             this.txtTwitterRefreshInt = new System.Windows.Forms.NumericUpDown();
             this.laTwitterRefresh = new System.Windows.Forms.Label();
@@ -179,10 +183,6 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.cbTweetsPopupWhileVideoPlaying = new System.Windows.Forms.CheckBox();
-            this.lblTweetsPopupTimeout = new System.Windows.Forms.Label();
-            this.txtTweetsPopupTimeout = new System.Windows.Forms.NumericUpDown();
-            this.cbTweetsPopup = new System.Windows.Forms.CheckBox();
             this.pgTwitter.SuspendLayout();
             this.gbTwitterLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTwitterItems)).BeginInit();
@@ -190,6 +190,7 @@
             this.gbTwitterTimelines.SuspendLayout();
             this.gbTwitterTickerLayout.SuspendLayout();
             this.gbTwitterGeneral.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTweetsPopupTimeout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTwitterRefreshInt)).BeginInit();
             this.gbTwitterConf.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbOAuthLogo)).BeginInit();
@@ -210,7 +211,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtFeedRefreshInt)).BeginInit();
             this.gbFeedConf.SuspendLayout();
             this.tabControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTweetsPopupTimeout)).BeginInit();
             this.SuspendLayout();
             // 
             // imgList
@@ -622,6 +622,61 @@
             this.gbTwitterGeneral.TabIndex = 2;
             this.gbTwitterGeneral.TabStop = false;
             this.gbTwitterGeneral.Text = "General";
+            // 
+            // cbTweetsPopupWhileVideoPlaying
+            // 
+            this.cbTweetsPopupWhileVideoPlaying.AutoSize = true;
+            this.cbTweetsPopupWhileVideoPlaying.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTweetsPopupWhileVideoPlaying.Location = new System.Drawing.Point(30, 121);
+            this.cbTweetsPopupWhileVideoPlaying.Name = "cbTweetsPopupWhileVideoPlaying";
+            this.cbTweetsPopupWhileVideoPlaying.Size = new System.Drawing.Size(226, 17);
+            this.cbTweetsPopupWhileVideoPlaying.TabIndex = 16;
+            this.cbTweetsPopupWhileVideoPlaying.Text = "Show popup while playing fullscreen video";
+            this.cbTweetsPopupWhileVideoPlaying.UseVisualStyleBackColor = true;
+            // 
+            // lblTweetsPopupTimeout
+            // 
+            this.lblTweetsPopupTimeout.AutoSize = true;
+            this.lblTweetsPopupTimeout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTweetsPopupTimeout.Location = new System.Drawing.Point(27, 97);
+            this.lblTweetsPopupTimeout.Name = "lblTweetsPopupTimeout";
+            this.lblTweetsPopupTimeout.Size = new System.Drawing.Size(78, 13);
+            this.lblTweetsPopupTimeout.TabIndex = 15;
+            this.lblTweetsPopupTimeout.Text = "Popup timeout:";
+            // 
+            // txtTweetsPopupTimeout
+            // 
+            this.txtTweetsPopupTimeout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTweetsPopupTimeout.Location = new System.Drawing.Point(181, 95);
+            this.txtTweetsPopupTimeout.Maximum = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
+            this.txtTweetsPopupTimeout.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtTweetsPopupTimeout.Name = "txtTweetsPopupTimeout";
+            this.txtTweetsPopupTimeout.Size = new System.Drawing.Size(50, 20);
+            this.txtTweetsPopupTimeout.TabIndex = 14;
+            this.txtTweetsPopupTimeout.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // cbTweetsPopup
+            // 
+            this.cbTweetsPopup.AutoSize = true;
+            this.cbTweetsPopup.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTweetsPopup.Location = new System.Drawing.Point(9, 72);
+            this.cbTweetsPopup.Name = "cbTweetsPopup";
+            this.cbTweetsPopup.Size = new System.Drawing.Size(167, 17);
+            this.cbTweetsPopup.TabIndex = 13;
+            this.cbTweetsPopup.Text = "Show a popup on new tweets";
+            this.cbTweetsPopup.UseVisualStyleBackColor = true;
             // 
             // cbTwitterUpdateOnStartup
             // 
@@ -2051,61 +2106,6 @@
             this.tabControl.Size = new System.Drawing.Size(623, 686);
             this.tabControl.TabIndex = 0;
             // 
-            // cbTweetsPopupWhileVideoPlaying
-            // 
-            this.cbTweetsPopupWhileVideoPlaying.AutoSize = true;
-            this.cbTweetsPopupWhileVideoPlaying.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTweetsPopupWhileVideoPlaying.Location = new System.Drawing.Point(30, 121);
-            this.cbTweetsPopupWhileVideoPlaying.Name = "cbTweetsPopupWhileVideoPlaying";
-            this.cbTweetsPopupWhileVideoPlaying.Size = new System.Drawing.Size(226, 17);
-            this.cbTweetsPopupWhileVideoPlaying.TabIndex = 16;
-            this.cbTweetsPopupWhileVideoPlaying.Text = "Show popup while playing fullscreen video";
-            this.cbTweetsPopupWhileVideoPlaying.UseVisualStyleBackColor = true;
-            // 
-            // lblTweetsPopupTimeout
-            // 
-            this.lblTweetsPopupTimeout.AutoSize = true;
-            this.lblTweetsPopupTimeout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTweetsPopupTimeout.Location = new System.Drawing.Point(27, 97);
-            this.lblTweetsPopupTimeout.Name = "lblTweetsPopupTimeout";
-            this.lblTweetsPopupTimeout.Size = new System.Drawing.Size(78, 13);
-            this.lblTweetsPopupTimeout.TabIndex = 15;
-            this.lblTweetsPopupTimeout.Text = "Popup timeout:";
-            // 
-            // txtTweetsPopupTimeout
-            // 
-            this.txtTweetsPopupTimeout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTweetsPopupTimeout.Location = new System.Drawing.Point(181, 95);
-            this.txtTweetsPopupTimeout.Maximum = new decimal(new int[] {
-            60,
-            0,
-            0,
-            0});
-            this.txtTweetsPopupTimeout.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.txtTweetsPopupTimeout.Name = "txtTweetsPopupTimeout";
-            this.txtTweetsPopupTimeout.Size = new System.Drawing.Size(50, 20);
-            this.txtTweetsPopupTimeout.TabIndex = 14;
-            this.txtTweetsPopupTimeout.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            // 
-            // cbTweetsPopup
-            // 
-            this.cbTweetsPopup.AutoSize = true;
-            this.cbTweetsPopup.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTweetsPopup.Location = new System.Drawing.Point(9, 72);
-            this.cbTweetsPopup.Name = "cbTweetsPopup";
-            this.cbTweetsPopup.Size = new System.Drawing.Size(167, 17);
-            this.cbTweetsPopup.TabIndex = 13;
-            this.cbTweetsPopup.Text = "Show a popup on new tweets";
-            this.cbTweetsPopup.UseVisualStyleBackColor = true;
-            // 
             // ConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2137,6 +2137,7 @@
             this.gbTwitterTickerLayout.PerformLayout();
             this.gbTwitterGeneral.ResumeLayout(false);
             this.gbTwitterGeneral.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTweetsPopupTimeout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTwitterRefreshInt)).EndInit();
             this.gbTwitterConf.ResumeLayout(false);
             this.gbTwitterConf.PerformLayout();
@@ -2167,7 +2168,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtFeedRefreshInt)).EndInit();
             this.gbFeedConf.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtTweetsPopupTimeout)).EndInit();
             this.ResumeLayout(false);
 
         }

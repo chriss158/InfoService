@@ -40,20 +40,22 @@ namespace InfoService.Utils
         {
             if (FeedService.Feeds == null || FeedService.Feeds.Count < 1) return;
 
-            int index = 0;
-            foreach (ExFeed feed in FeedService.Feeds)
+            for (int i = FeedService.Feeds.Count - 1; i >= 0; i--)
             {
-                if (index == 0)
+                if (i == 0)
                 {
-                    PropertyUtils.SetProperty(string.Format(PropertyUtils.Properties.Feed.TitlesOfFeedIndex, index), MakeFeedMixLine(feed, FeedService.TickerAllMask, FeedService.Items, FeedService.SeparatorAll));
-                    PropertyUtils.SetProperty(string.Format(PropertyUtils.Properties.Feed.ImgOfFeedIndex, index), GUIGraphicsContext.Skin + @"\media\InfoService\defaultFeedALL.png");
+                    PropertyUtils.SetProperty(string.Format(PropertyUtils.Properties.Feed.TitlesOfFeedIndex, i),
+                        MakeFeedMixLine(FeedService.Feeds[i], FeedService.TickerAllMask, FeedService.Items, FeedService.SeparatorAll));
+                    PropertyUtils.SetProperty(string.Format(PropertyUtils.Properties.Feed.ImgOfFeedIndex, i),
+                        GUIGraphicsContext.Skin + @"\media\InfoService\defaultFeedALL.png");
                 }
                 else
                 {
-                    PropertyUtils.SetProperty(string.Format(PropertyUtils.Properties.Feed.TitlesOfFeedIndex, index), MakeFeedLine(feed, FeedService.TickerMask, FeedService.Items, FeedService.Separator));
-                    PropertyUtils.SetProperty(string.Format(PropertyUtils.Properties.Feed.ImgOfFeedIndex, index), feed.ImagePath);
+                    PropertyUtils.SetProperty(string.Format(PropertyUtils.Properties.Feed.TitlesOfFeedIndex, i),
+                        MakeFeedLine(FeedService.Feeds[i], FeedService.TickerMask, FeedService.Items, FeedService.Separator));
+                    PropertyUtils.SetProperty(string.Format(PropertyUtils.Properties.Feed.ImgOfFeedIndex, i),
+                        FeedService.Feeds[i].ImagePath);
                 }
-                index++;
             }
         }
 
