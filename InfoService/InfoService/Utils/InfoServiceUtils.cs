@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using InfoService.Enums;
 using InfoService.Feeds;
+using InfoService.GUIWindows;
 using InfoService.Settings;
 using InfoService.Twitter;
 using MediaPortal.Configuration;
@@ -100,7 +101,8 @@ namespace InfoService.Utils
         public static void ShowDialogNotifyWindow(string header, string text, string imagePath, System.Drawing.Size imageSize, int timeout)
         {
             logger.WriteLog("Show notify window with image", LogLevel.Info, InfoServiceModul.InfoService);
-            GUIDialogNotify window = (GUIDialogNotify)GUIWindowManager.GetWindow((int)GUIWindow.Window.WINDOW_DIALOG_NOTIFY);
+            //GUIDialogNotify window = (GUIDialogNotify)GUIWindowManager.GetWindow((int)GUIWindow.Window.WINDOW_DIALOG_NOTIFY);
+            GUINotifyFeed window = (GUINotifyFeed)GUIWindowManager.GetWindow(GUINotifyFeed.ID);
             window.SetHeading(header);
             window.SetText(text);
             window.SetImage(imagePath);
@@ -111,7 +113,8 @@ namespace InfoService.Utils
         public static void ShowDialogNotifyWindow(string header, string text, int timeout)
         {
             logger.WriteLog("Show notify window", LogLevel.Info, InfoServiceModul.InfoService);
-            GUIDialogNotify window = (GUIDialogNotify)GUIWindowManager.GetWindow((int)GUIWindow.Window.WINDOW_DIALOG_NOTIFY);
+            //GUIDialogNotify window = (GUIDialogNotify)GUIWindowManager.GetWindow((int)GUIWindow.Window.WINDOW_DIALOG_NOTIFY);
+            GUINotifyFeed window = (GUINotifyFeed)GUIWindowManager.GetWindow(GUINotifyFeed.ID);
             window.SetHeading(header);
             window.SetText(text);
             window.TimeOut = timeout;
