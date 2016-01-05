@@ -1,6 +1,7 @@
 ﻿#region Usings
 
 using System;
+using System.Drawing;
 using System.Linq;
 using InfoService.Feeds;
 using InfoService.Utils;
@@ -16,7 +17,14 @@ namespace InfoService.GUIWindows
     {
         private static readonly Logger logger = Logger.GetInstance();
 
+        private GUIFacadeControl.Layout _currentLayout;
+
         #region SkinControls
+
+        [SkinControl(6)]
+#pragma warning disable 649
+        private GUIMenuButton _btnLayouts;
+#pragma warning restore 649
 
         [SkinControlAttribute(4)]
 #pragma warning disable 649
@@ -25,7 +33,8 @@ namespace InfoService.GUIWindows
 
         [SkinControlAttribute(50)]
 #pragma warning disable 649
-        private GUIListControl _feedListcontrol;
+            //private GUIListControl _feedListcontrol;
+        private GUIFacadeControl _feedListcontrol;
 #pragma warning restore 649
 
         [SkinControlAttribute(2)]
@@ -84,7 +93,141 @@ namespace InfoService.GUIWindows
             DownloadWorker.StartDownload += DownloadWorker_StartDownload;
             return success;
         }
+        private bool AllowLayout(GUIFacadeControl.Layout layout)
+        {
+            return true;
+        }
+        private GUIFacadeControl.Layout GetLayoutNumber(string s)
+        {
+            switch (s.Trim().ToLowerInvariant())
+            {
+                case "list":
+                    return GUIFacadeControl.Layout.List;
+                case "icons":
+                case "smallicons":
+                    return GUIFacadeControl.Layout.SmallIcons;
+                case "big icons":
+                case "largeicons":
+                    return GUIFacadeControl.Layout.LargeIcons;
+                case "albums":
+                case "albumview":
+                    return GUIFacadeControl.Layout.AlbumView;
+                case "filmstrip":
+                    return GUIFacadeControl.Layout.Filmstrip;
+                case "playlist":
+                    return GUIFacadeControl.Layout.Playlist;
+                case "coverflow":
+                case "cover flow":
+                    return GUIFacadeControl.Layout.CoverFlow;
+            }
+            if (!string.IsNullOrEmpty(s))
+            {
+                //Log.Error("{0}::GetLayoutNumber: Unknown String - {1}", "WindowPluginBase", s);
+            }
+            return GUIFacadeControl.Layout.List;
+        }
+        private void InitLayoutSelections()
+        {
+            _btnLayouts.ClearMenu();
 
+            // Add the allowed layouts to choose from to the menu.
+            int totalLayouts = Enum.GetValues(typeof(GUIFacadeControl.Layout)).Length;
+            for (int i = 0; i < totalLayouts; i++)
+            {
+                string layoutName = Enum.GetName(typeof(GUIFacadeControl.Layout), i);
+                GUIFacadeControl.Layout layout = GetLayoutNumber(layoutName);
+                if (AllowLayout(layout))
+                {
+                    if (!_feedListcontrol.IsNullLayout(layout))
+                    {
+                        _btnLayouts.AddItem(GUIFacadeControl.GetLayoutLocalizedName(layout), (int)layout);
+                    }
+                }
+            }
+
+            // Have the menu select the currently selected layout.
+            _btnLayouts.SetSelectedItemByValue((int)_currentLayout);
+        }
+        private void SetLayout(GUIFacadeControl.Layout layout)
+        {
+            // Set the selected layout.
+            SwitchToNextAllowedLayout(layout);
+        }
+        private void SwitchToNextAllowedLayout(GUIFacadeControl.Layout selectedLayout)
+        {
+            int iSelectedLayout = (int)selectedLayout;
+            int totalLayouts = Enum.GetValues(typeof(GUIFacadeControl.Layout)).Length - 1;
+
+            if (iSelectedLayout > totalLayouts)
+                iSelectedLayout = 0;
+
+            bool shouldContinue = true;
+            do
+            {
+                if (!AllowLayout(selectedLayout) || _feedListcontrol.IsNullLayout(selectedLayout))
+                {
+                    iSelectedLayout++;
+                    if (iSelectedLayout > totalLayouts)
+                        iSelectedLayout = 0;
+                }
+                else
+                {
+                    shouldContinue = false;
+                }
+            } while (shouldContinue);
+
+            _currentLayout = (GUIFacadeControl.Layout)iSelectedLayout;
+
+            SwitchLayout();
+
+            GUIMessage msg = new GUIMessage(GUIMessage.MessageType.GUI_MSG_LAYOUT_CHANGED, 0, 0, 0, 0, 0, 0);
+            GUIWindowManager.SendMessage(msg);
+        }
+        private void SwitchLayout()
+        {
+            if (_feedListcontrol == null)
+            {
+                return;
+            }
+
+            // if skin has not implemented layout control or requested layout is not allowed
+            // then default to list layout
+            if (_feedListcontrol.IsNullLayout(_currentLayout) || !AllowLayout(_currentLayout))
+            {
+                _feedListcontrol.CurrentLayout = GUIFacadeControl.Layout.List;
+            }
+            else
+            {
+                _feedListcontrol.CurrentLayout = _currentLayout;
+            }
+
+            PresentLayout();
+
+            // The layout may be automatically switched via selection of a new view.
+            // Here we need to ensure that the layout menu button reflects the proper state (this is redundant when the
+            // layout button was used to change the layout).  Need to call facadeLayout to get the current layout since the
+            // CurrentLayout getter is algorithmic.
+            _btnLayouts.SetSelectedItemByValue((int)_feedListcontrol.CurrentLayout);
+        }
+        private void SelectCurrentItem()
+        {
+            if (_feedListcontrol == null)
+            {
+                return;
+            }
+            int iItem = _feedListcontrol.SelectedListItemIndex;
+            if (iItem > -1)
+            {
+                GUIControl.SelectItemControl(GetID, _feedListcontrol.GetID, iItem);
+            }
+        }
+        public void PresentLayout()
+        {
+            GUIControl.HideControl(GetID, _feedListcontrol.GetID);
+            int iControl = _feedListcontrol.GetID;
+            GUIControl.ShowControl(GetID, iControl);
+            GUIControl.FocusControl(GetID, iControl);
+        }
         public override void DeInit()
         {
             Logger.CloseLog();
@@ -113,6 +256,7 @@ namespace InfoService.GUIWindows
                 GUIControl.SetControlLabel(GetID, 2, InfoServiceUtils.GetLocalizedLabel(0));
                 GUIControl.SetControlLabel(GetID, 4, InfoServiceUtils.GetLocalizedLabel(1));
                 GUIControl.SetControlLabel(GetID, 5, InfoServiceUtils.GetLocalizedLabel(2));
+            InitLayoutSelections();
                 base.OnPageLoad();
         }
 
@@ -192,6 +336,10 @@ namespace InfoService.GUIWindows
             }
             else if (control == _setAllFeeds)
             {
+                //InfoServiceUtils.ShowDialogNotifyWindow("TestHeader", "Laaaaaaaaaaaaaaaaaaaanger text",
+                //    @"C:\ProgramData\Team MediaPortal\MediaPortal\skin\Titan\Media\InfoService\defaultTwitter.png",
+                //    new Size(120, 120), 10);
+
                 if (!FeedService.UpdateInProgress)
                 {
                     FeedUtils.SetAllFeedsOnBasichome();
@@ -202,6 +350,20 @@ namespace InfoService.GUIWindows
                     InfoServiceUtils.ShowDialogOkWindow(InfoServiceUtils.GetLocalizedLabel(8), InfoServiceUtils.GetLocalizedLabel(17));
                     logger.WriteLog("Feed update in progress. Cannot set all feeds on home", LogLevel.Warning, InfoServiceModul.Feed);
                 }
+            }
+            else if (control == _btnLayouts)
+            {
+                // Set the new layout and select the currently selected item in the layout.
+                SetLayout((GUIFacadeControl.Layout)_btnLayouts.SelectedItemValue);
+                SelectCurrentItem();
+
+                // Refocus facade so item will be selected
+                GUIControl.FocusControl(GetID, _feedListcontrol.GetID);
+
+                //msgHandled = true;
+
+                //if (_feedListcontrol.CurrentLayout == GUIFacadeControl.Layout.List) _feedListcontrol.CurrentLayout = GUIFacadeControl.Layout.SmallIcons;
+                //else _feedListcontrol.CurrentLayout = GUIFacadeControl.Layout.List;
             }
 
             if (control == _feedListcontrol && actionType == Action.ActionType.ACTION_SELECT_ITEM) // some other events raise onClicked too for some reason

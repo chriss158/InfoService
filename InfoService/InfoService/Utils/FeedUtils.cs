@@ -137,6 +137,7 @@ namespace InfoService.Utils
                         GUIListItem item = new GUIListItem
                         {
                             IconImage = FeedService.Feeds[index].Items[i].ImagePath,
+                            ThumbnailImage = FeedService.Feeds[index].Items[i].ImagePath,
                             Label = FeedService.Feeds[index].Items[i].Title
                         };
                         
@@ -161,7 +162,7 @@ namespace InfoService.Utils
                                 }
                             }
                         }
-                        GUIListControl.AddListItemControl(GUIFeed.GUIFeedId, GUIFeed.GUIFeedList, item);
+                        GUIControl.AddListItemControl(GUIFeed.GUIFeedId, GUIFeed.GUIFeedList, item);
                     }
                 }
                 
