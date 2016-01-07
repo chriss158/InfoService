@@ -18,7 +18,7 @@
         <posY>0</posY>
         <width>1850</width>
         <height>250</height>
-        <texture>InfoService\dialog_notify_feed.png</texture>
+        <texture>InfoService\dialog_notifybar.png</texture>
       </control>
       <control>
         <id>3</id>
@@ -27,7 +27,7 @@
         <posX>210</posX>
         <posY>70</posY>
         <width>1500</width>
-        <font>fontB16</font>
+        <font>fontB14</font>
         <textcolor>393939</textcolor>
         <label>181</label>
         <animation effect="fade" time="250">WindowOpen</animation>
@@ -67,13 +67,13 @@
         <onup>4</onup>
         <ondown>4</ondown>
         <posX>210</posX>
-        <posY>120</posY>
+        <posY>110</posY>
         <width>1500</width>
         <height>210</height>
         <textcolor>393939</textcolor>
         <spinPosX>1031</spinPosX>
         <spinPosY>-2000</spinPosY>
-        <font>fontB12</font>
+        <font>font12</font>
         <label>-</label>
       </control>
     </control>
