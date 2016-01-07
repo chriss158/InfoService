@@ -1,5 +1,9 @@
 ﻿#region Usings
+
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using InfoService.Feeds;
 using InfoService.Twitter;
 using InfoService.Utils;
 using MediaPortal.Dialogs;
@@ -104,13 +108,70 @@ namespace InfoService.GUIWindows
 
         protected override void OnPageLoad()
         {
-            logger.WriteLog("Load Twitter GUI", LogLevel.Info, InfoServiceModul.Twitter);
-            TwitterUtils.SetTimelineOnWindow(TwitterService.GetTimeline(TwitterService.ActiveTimeline), true, true);
-            TwitterUtils.SetTimelineOnBasichome(TwitterService.GetTimeline(TwitterService.ActiveTimeline));
             PropertyUtils.SetProperty("#currentmodule", InfoServiceCore.UserPluginName + " - Twitter");
             GUIControl.SetControlLabel(GetID, 2, InfoServiceUtils.GetLocalizedLabel(0));
             GUIControl.SetControlLabel(GetID, 4, InfoServiceUtils.GetLocalizedLabel(3));
             GUIControl.SetControlLabel(GetID, 5, InfoServiceUtils.GetLocalizedLabel(4));
+            if (string.IsNullOrEmpty(_loadParameter))
+            {
+                logger.WriteLog("Load Twitter GUI", LogLevel.Info, InfoServiceModul.Twitter);
+                TwitterUtils.SetTimelineOnWindow(TwitterService.GetTimeline(TwitterService.ActiveTimeline), true, true);
+                TwitterUtils.SetTimelineOnBasichome(TwitterService.GetTimeline(TwitterService.ActiveTimeline));
+            }
+            else
+            {
+                logger.WriteLog("Load Twitter GUI with params \"" + _loadParameter + "\"", LogLevel.Info, InfoServiceModul.Twitter);
+                string twitterTimelineName = string.Empty;
+                int twitterItemIndex = 0;
+                string[] parameters = _loadParameter.Split(',');
+                foreach (string parameter in parameters)
+                {
+                    string[] paramNameSetting = parameter.Split(':');
+                    if (paramNameSetting.Length == 2)
+                    {
+                        if (paramNameSetting[0] == "twitterTimeline") twitterTimelineName = paramNameSetting[1];
+
+                       
+                        if (paramNameSetting[0] == "twitterItemIndex" && paramNameSetting[1].All(char.IsDigit) && !string.IsNullOrEmpty(twitterTimelineName)) twitterItemIndex = Convert.ToInt32(paramNameSetting[1]);
+                        if (paramNameSetting[0] == "twitterItemId" && !string.IsNullOrEmpty(twitterTimelineName))
+                        {
+                            TimelineType timeline;
+                            if (Enum.TryParse(twitterTimelineName, out timeline))
+                            {
+                                Timeline twitterTimeline = TwitterService.GetTimeline(timeline);
+                                for (int i = 0; i < twitterTimeline.Items.Count; i++)
+                                {
+                                    if (twitterTimeline.Items[i].Id == paramNameSetting[1])
+                                    {
+                                        twitterItemIndex = i;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                if (!string.IsNullOrEmpty(twitterTimelineName))
+                {
+                    TimelineType timeline;
+                    if (Enum.TryParse(twitterTimelineName, out timeline))
+                    {
+                        TwitterUtils.SetTimelineOnWindow(TwitterService.GetTimeline(timeline), twitterItemIndex, true);
+                        TwitterUtils.SetTimelineOnBasichome(TwitterService.GetTimeline(timeline));
+                    }
+                    else
+                    {
+                        TwitterUtils.SetTimelineOnWindow(TwitterService.GetTimeline(TwitterService.ActiveTimeline), true, true);
+                        TwitterUtils.SetTimelineOnBasichome(TwitterService.GetTimeline(TwitterService.ActiveTimeline));
+                    }
+                }
+                else
+                {
+                    TwitterUtils.SetTimelineOnWindow(TwitterService.GetTimeline(TwitterService.ActiveTimeline), true, true);
+                    TwitterUtils.SetTimelineOnBasichome(TwitterService.GetTimeline(TwitterService.ActiveTimeline));
+                }
+
+            }
             base.OnPageLoad();
         }
 

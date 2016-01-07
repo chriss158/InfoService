@@ -7,6 +7,7 @@ using FeedReader.Data;
 using InfoService.BackgroundWorkers;
 using InfoService.Feeds;
 using InfoService.GUIWindows;
+using System.Drawing;
 using MediaPortal.GUI.Library;
 
 #endregion
@@ -57,6 +58,14 @@ namespace InfoService.Utils
                         FeedService.Feeds[i].ImagePath);
                 }
             }
+            //InfoServiceUtils.ShowDialogNotifyWindow(FeedService.Feeds[3].Title + " - " + FeedService.Feeds[3].Items[0].Title, FeedService.Feeds[3].Items[0].Description, FeedService.Feeds[3].ImagePath, new Size(120, 120), 20,
+            //    () =>
+            //    {
+            //        System.Diagnostics.Debugger.Break();
+            //        GUIWindowManager.ActivateWindow(GUIFeed.GUIFeedId,
+            //            string.Format("feedTitle:{0}, feedItemTitle:{1}", FeedService.Feeds[3].Title,
+            //                FeedService.Feeds[3].Items[0].Title));
+            //    });
         }
 
         public static void SetFeedOnBasichome(int index)
@@ -89,6 +98,15 @@ namespace InfoService.Utils
         public delegate void SetFeedOnWindowDelegate(int index, bool selectLastItemIndex, bool updateGUI);
 
         public static void SetFeedOnWindow(int index, bool selectLastItemIndex, bool updateGUI)
+        {
+            SetFeedOnWindow(index, -1, selectLastItemIndex, updateGUI);
+        }
+        public static void SetFeedOnWindow(int index, int feedItemIndex, bool updateGUI)
+        {
+            SetFeedOnWindow(index, feedItemIndex, false, updateGUI);
+        }
+
+        private static void SetFeedOnWindow(int index, int feedItemIndex, bool selectLastItemIndex, bool updateGUI)
         {
             if(index >= FeedService.Feeds.Count ||
                index < 0)
@@ -167,10 +185,12 @@ namespace InfoService.Utils
                 
                 logger.WriteLog("Set feed[" + FeedService.Feeds[index].Title + "]/[" + index + "] on window", LogLevel.Debug, InfoServiceModul.Feed);
 
-                if (lastSelectedItem >= 0)
+                if (lastSelectedItem >= 0 || feedItemIndex >= 0)
                 {
-                    logger.WriteLog("Set selected item [" + lastSelectedItem + "] for feed[" + FeedService.Feeds[index].Title + "]/[" + index + "] on window", LogLevel.Debug, InfoServiceModul.Feed);
-                    GUIListControl.SelectItemControl(GUIFeed.GUIFeedId, GUIFeed.GUIFeedList, lastSelectedItem);
+                    int setIndex = 0;
+                    setIndex = selectLastItemIndex ? lastSelectedItem : feedItemIndex;
+                    logger.WriteLog("Set selected item [" + setIndex + "] for feed[" + FeedService.Feeds[index].Title + "]/[" + index + "] on window", LogLevel.Debug, InfoServiceModul.Feed);
+                    GUIListControl.SelectItemControl(GUIFeed.GUIFeedId, GUIFeed.GUIFeedList, setIndex);
                 }
             }
             else

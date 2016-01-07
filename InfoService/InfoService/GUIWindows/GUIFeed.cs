@@ -107,13 +107,65 @@ namespace InfoService.GUIWindows
 
         protected override void OnPageLoad()
         {
+            PropertyUtils.SetProperty("#currentmodule", InfoServiceCore.UserPluginName + " - Feeds");
+            GUIControl.SetControlLabel(GetID, 2, InfoServiceUtils.GetLocalizedLabel(0));
+            GUIControl.SetControlLabel(GetID, 4, InfoServiceUtils.GetLocalizedLabel(1));
+            GUIControl.SetControlLabel(GetID, 5, InfoServiceUtils.GetLocalizedLabel(2));
+            if (string.IsNullOrEmpty(_loadParameter))
+            {
                 logger.WriteLog("Load Feed GUI", LogLevel.Info, InfoServiceModul.Feed);
                 FeedUtils.SetFeedOnWindow(FeedService.ActiveFeedIndex, true, true);
-                PropertyUtils.SetProperty("#currentmodule", InfoServiceCore.UserPluginName + " - Feeds");
-                GUIControl.SetControlLabel(GetID, 2, InfoServiceUtils.GetLocalizedLabel(0));
-                GUIControl.SetControlLabel(GetID, 4, InfoServiceUtils.GetLocalizedLabel(1));
-                GUIControl.SetControlLabel(GetID, 5, InfoServiceUtils.GetLocalizedLabel(2));
-                base.OnPageLoad();
+            }
+            else
+            {
+                logger.WriteLog("Load Feed GUI with params \"" + _loadParameter + "\"", LogLevel.Info, InfoServiceModul.Feed);
+                int feedIndex = -1;
+                int feedItemIndex = 0;
+                string[] parameters = _loadParameter.Split(',');
+                foreach (string parameter in parameters)
+                {
+                    string[] paramNameSetting = parameter.Split(':');
+                    if (paramNameSetting.Length == 2)
+                    {
+                        if (paramNameSetting[0] == "feedIndex" && paramNameSetting[1].All(char.IsDigit)) feedIndex = Convert.ToInt32(paramNameSetting[1]);
+                        
+                        if (paramNameSetting[0] == "feedTitle")
+                        {
+                            for (int i = 0; i < FeedService.Feeds.Count; i++)
+                            {
+                                if (FeedService.Feeds[i].Title == paramNameSetting[1])
+                                {
+                                    feedIndex = i;
+                                    break;
+                                }
+                            }
+ 
+                        }
+                        if (paramNameSetting[0] == "feedItemIndex" && paramNameSetting[1].All(char.IsDigit) && feedIndex >= 0) feedItemIndex = Convert.ToInt32(paramNameSetting[1]);
+                        if (paramNameSetting[0] == "feedItemTitle" && feedIndex >= 0)
+                        {
+                            for (int i = 0; i < FeedService.Feeds[feedIndex].Items.Count; i++)
+                            {
+                                if (FeedService.Feeds[feedIndex].Items[i].Title == paramNameSetting[1])
+                                {
+                                    feedItemIndex = i;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+                if (feedIndex >= 0)
+                {
+                    FeedUtils.SetFeedOnWindow(feedIndex, feedItemIndex, true);
+                }
+                else
+                {
+                    FeedUtils.SetFeedOnWindow(FeedService.ActiveFeedIndex, true, true);
+                }
+
+            }
+            base.OnPageLoad();
         }
 
         protected override void OnClicked(int controlId, GUIControl control, Action.ActionType actionType)

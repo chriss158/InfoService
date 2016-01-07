@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.IO;
+using System.Windows.Forms;
 using MediaPortal.Dialogs;
 using MediaPortal.GUI.Library;
 using Action = MediaPortal.GUI.Library.Action;
@@ -13,6 +14,8 @@ namespace InfoService.GUIWindows
     {
         [SkinControl(4)]
         private GUIButtonControl btnClose = null;
+        [SkinControl(7)]
+        private GUIButtonControl btnOk = null;
         [SkinControl(3)]
         private GUILabelControl lblHeading = null;
         [SkinControl(5)]
@@ -27,6 +30,7 @@ namespace InfoService.GUIWindows
 
         public const int ID = 16004;
 
+        public System.Action OkAction;
 
         public GUINotifyBar()
         {
@@ -66,9 +70,17 @@ namespace InfoService.GUIWindows
         protected override void OnClicked(int controlId, GUIControl control, Action.ActionType actionType)
         {
             base.OnClicked(controlId, control, actionType);
+
             if (control == btnClose)
             {
                 PageDestroy();
+            }
+            else if (control == btnOk)
+            {
+                if (OkAction != null)
+                {                   
+                    OkAction();
+                }
             }
         }
 

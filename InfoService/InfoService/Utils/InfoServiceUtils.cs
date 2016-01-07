@@ -111,6 +111,11 @@ namespace InfoService.Utils
 
         public static void ShowDialogNotifyWindow(string header, string text, string imagePath, System.Drawing.Size imageSize, int timeout)
         {
+            ShowDialogNotifyWindow(header, text, imagePath, imageSize, timeout, null);
+        }
+
+        public static void ShowDialogNotifyWindow(string header, string text, string imagePath, System.Drawing.Size imageSize, int timeout, System.Action action)
+        {
             logger.WriteLog("Show notify window with image", LogLevel.Info, InfoServiceModul.InfoService);
             object window = null;
             bool notifyBarFound;
@@ -129,6 +134,7 @@ namespace InfoService.Utils
             {
                 if (notifyBarFound)
                 {
+                    if(action != null) ((GUINotifyBar) window).OkAction = action;
                     ((GUINotifyBar)window).SetHeading(header);
                     ((GUINotifyBar)window).SetText(text);
                     ((GUINotifyBar)window).SetImage(imagePath);

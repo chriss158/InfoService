@@ -98,6 +98,15 @@ namespace InfoService.Utils
 
         public static void SetTimelineOnWindow(Timeline timeline, bool selectLastItemIndex, bool updateGUI)
         {
+            SetTimelineOnWindow(timeline, -1, selectLastItemIndex, updateGUI);
+        }
+        public static void SetTimelineOnWindow(Timeline timeline, int twitterItemIndex, bool updateGUI)
+        {
+            SetTimelineOnWindow(timeline, twitterItemIndex, false, updateGUI);
+        }
+
+        private static void SetTimelineOnWindow(Timeline timeline, int twitterItemIndex, bool selectLastItemIndex, bool updateGUI)
+        {
             // if we are calling from thread, function will be invoked and none of the GUIControl functions will be executed
             // they are not needed since this will be called again in OnPageLoad
             
@@ -149,10 +158,12 @@ namespace InfoService.Utils
 
                 logger.WriteLog("Set twitter timeline[" + timeline.Type + "] on window", LogLevel.Debug, InfoServiceModul.Twitter);
 
-                if (lastSelectedItem >= 0)
+                if (lastSelectedItem >= 0 || twitterItemIndex >= 0)
                 {
-                    logger.WriteLog("Set selected item [" + lastSelectedItem + "] for twitter timeline[" + timeline.Type + "] on window", LogLevel.Debug, InfoServiceModul.Twitter);
-                    GUIListControl.SelectItemControl(GUITwitter.GUITwitterId, GUITwitter.GUITwitterList, lastSelectedItem);
+                    int setIndex = 0;
+                    setIndex = selectLastItemIndex ? lastSelectedItem : twitterItemIndex;
+                    logger.WriteLog("Set selected item [" + setIndex + "] for twitter timeline[" + timeline.Type + "] on window", LogLevel.Debug, InfoServiceModul.Twitter);
+                    GUIListControl.SelectItemControl(GUITwitter.GUITwitterId, GUITwitter.GUITwitterList, setIndex);
                 }
             }
             else

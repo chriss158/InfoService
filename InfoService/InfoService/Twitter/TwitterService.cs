@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using InfoService.Enums;
+using InfoService.GUIWindows;
 using InfoService.Utils.NotificationBar;
 using InfoService.Utils;
 using MediaPortal.Configuration;
@@ -565,7 +566,10 @@ namespace InfoService.Twitter
                                 "\"", LogLevel.Info, InfoServiceModul.Feed);
                             InfoServiceUtils.ShowDialogNotifyWindow(header, text, item.User.PicturePath,
                                 new Size(120, 120),
-                                (int)PopupTimeout);
+                                (int)PopupTimeout, () => {
+                                    GUIWindowManager.ActivateWindow(GUITwitter.GUITwitterId,
+                     string.Format("twitterTimeline:{0}, twitterItemId:{1}", timeline.Type, item.Id));
+                                });
                         }
 
                         else

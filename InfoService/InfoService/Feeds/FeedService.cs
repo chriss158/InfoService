@@ -16,6 +16,7 @@ using InfoService.Enums;
 using InfoService.Utils;
 using MediaPortal.GUI.Library;
 using System.Xml;
+using InfoService.GUIWindows;
 using InfoService.Utils.NotificationBar;
 
 #endregion
@@ -746,7 +747,7 @@ namespace InfoService.Feeds
                 }
                 else
                 {
-                    if (!InfoServiceUtils.AreNotifyBarSkinFilesInstalled())
+                    if (InfoServiceUtils.AreNotifyBarSkinFilesInstalled())
                     {
 
 
@@ -762,7 +763,12 @@ namespace InfoService.Feeds
                                     header + "\" and text \"" + text + "\"", LogLevel.Info, InfoServiceModul.Feed);
                                 InfoServiceUtils.ShowDialogNotifyWindow(header, text, feed.ImagePath,
                                     new Size(120, 120),
-                                    (int) PopupTimeout);
+                                    (int) PopupTimeout,
+                                    () =>
+                                    {
+                                        GUIWindowManager.ActivateWindow(GUIFeed.GUIFeedId,
+                                            string.Format("feedTitle:{0}, feedItemTitle:{1}", feed.Title, item.Title));
+                                    });
                             }
 
                             else

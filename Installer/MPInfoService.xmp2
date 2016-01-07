@@ -128,123 +128,254 @@
           </Items>
         </Files>
       </GroupItem>
-      <GroupItem Name="Titan skin files">
-        <DisplayName>Titan skin files</DisplayName>
+      <GroupItem Name="Skins">
+        <DisplayName>Skins</DisplayName>
+        <DefaulChecked>true</DefaulChecked>
+        <Description>Skins</Description>
+        <Files>
+          <Items />
+        </Files>
+      </GroupItem>
+      <GroupItem Name="Titan">
+        <ParentGroup>Skins</ParentGroup>
+        <DisplayName>Titan</DisplayName>
         <DefaulChecked>true</DefaulChecked>
         <Description>Titan skin files</Description>
         <Files>
           <Items>
             <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
               <Param1 />
-              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
               <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\infoservice.feeds.xml</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{12b4211d-f711-4dbe-beb6-32d982bdaf03}-infoservice.feeds.xml</ZipFileName>
+              <ZipFileName>Installer{CopyFile}\{c6424086-83b2-4b3e-8586-17a9dd9a72e3}-infoservice.feeds.xml</ZipFileName>
               <DestinationFilename>%Skin%\Titan\infoservice.feeds.xml</DestinationFilename>
             </FileItem>
             <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
               <Param1 />
-              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
               <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\infoservice.notifybar.xml</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{a22bcd04-35be-46a6-a036-8a9ccee0f9f9}-infoservice.notifybar.xml</ZipFileName>
+              <ZipFileName>Installer{CopyFile}\{23655523-b091-414d-851b-ab20cd6882fb}-infoservice.notifybar.xml</ZipFileName>
               <DestinationFilename>%Skin%\Titan\infoservice.notifybar.xml</DestinationFilename>
             </FileItem>
             <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
               <Param1 />
-              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
               <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\infoservice.twitter.xml</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{b5a4c467-d03b-46d8-948b-96e7342afd85}-infoservice.twitter.xml</ZipFileName>
+              <ZipFileName>Installer{CopyFile}\{73856376-00b0-4921-b399-63263455c782}-infoservice.twitter.xml</ZipFileName>
               <DestinationFilename>%Skin%\Titan\infoservice.twitter.xml</DestinationFilename>
             </FileItem>
             <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
               <Param1 />
-              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
               <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\infoservice.xml</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{37509f52-91dd-4623-8e90-1cd2181f738a}-infoservice.xml</ZipFileName>
+              <ZipFileName>Installer{CopyFile}\{3a5e5838-17d7-4e39-b0e6-3128e8f80deb}-infoservice.xml</ZipFileName>
               <DestinationFilename>%Skin%\Titan\infoservice.xml</DestinationFilename>
             </FileItem>
             <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
               <Param1 />
-              <UpdateOption>AlwaysOverwrite</UpdateOption>
-              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\InfoService\defaultFeedALL.png</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{21a186bb-5d39-415b-9272-7ea4f2f2c871}-defaultFeedALL.png</ZipFileName>
-              <DestinationFilename>%Skin%\Titan\InfoService\defaultFeedALL.png</DestinationFilename>
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedALL.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{64be6524-9361-4124-95c9-d7b8bcd05cae}-defaultFeedALL.png</ZipFileName>
+              <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedALL.png</DestinationFilename>
             </FileItem>
             <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
               <Param1 />
-              <UpdateOption>AlwaysOverwrite</UpdateOption>
-              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\InfoService\defaultFeedAtom.png</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{f91def91-fa11-4f31-969a-58185dbf1827}-defaultFeedAtom.png</ZipFileName>
-              <DestinationFilename>%Skin%\Titan\InfoService\defaultFeedAtom.png</DestinationFilename>
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedAtom.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{10fc59a4-a618-4a68-ade9-a1b7e5a20e61}-defaultFeedAtom.png</ZipFileName>
+              <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedAtom.png</DestinationFilename>
             </FileItem>
             <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
               <Param1 />
-              <UpdateOption>AlwaysOverwrite</UpdateOption>
-              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\InfoService\defaultFeedItemAtom.png</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{bfad5f4f-a70b-40b7-8d6e-ade3c7f07780}-defaultFeedItemAtom.png</ZipFileName>
-              <DestinationFilename>%Skin%\Titan\InfoService\defaultFeedItemAtom.png</DestinationFilename>
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedItemAtom.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{e2dd3eeb-96c2-43c2-bc84-6e043cf43c1a}-defaultFeedItemAtom.png</ZipFileName>
+              <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedItemAtom.png</DestinationFilename>
             </FileItem>
             <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
               <Param1 />
-              <UpdateOption>AlwaysOverwrite</UpdateOption>
-              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\InfoService\defaultFeedItemAtomBig.png</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{df35343b-42ce-4577-8501-ce07f53f63d0}-defaultFeedItemAtomBig.png</ZipFileName>
-              <DestinationFilename>%Skin%\Titan\InfoService\defaultFeedItemAtomBig.png</DestinationFilename>
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedItemAtomBig.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{52255577-77a3-41d4-91a6-b149878d18f1}-defaultFeedItemAtomBig.png</ZipFileName>
+              <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedItemAtomBig.png</DestinationFilename>
             </FileItem>
             <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
               <Param1 />
-              <UpdateOption>AlwaysOverwrite</UpdateOption>
-              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\InfoService\defaultFeedItemRDF.png</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{a9295335-d05f-41dc-86eb-c4234539586d}-defaultFeedItemRDF.png</ZipFileName>
-              <DestinationFilename>%Skin%\Titan\InfoService\defaultFeedItemRDF.png</DestinationFilename>
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedItemRDF.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{a41d52ad-b38f-4e56-9498-5156c3dabf24}-defaultFeedItemRDF.png</ZipFileName>
+              <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedItemRDF.png</DestinationFilename>
             </FileItem>
             <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
               <Param1 />
-              <UpdateOption>AlwaysOverwrite</UpdateOption>
-              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\InfoService\defaultFeedItemRDFBig.png</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{21806c72-8a7c-4d36-9a5c-18bd360cbcf8}-defaultFeedItemRDFBig.png</ZipFileName>
-              <DestinationFilename>%Skin%\Titan\InfoService\defaultFeedItemRDFBig.png</DestinationFilename>
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedItemRDFBig.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{094d8aca-2ac0-40d1-89dc-5fdca87460d4}-defaultFeedItemRDFBig.png</ZipFileName>
+              <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedItemRDFBig.png</DestinationFilename>
             </FileItem>
             <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
               <Param1 />
-              <UpdateOption>AlwaysOverwrite</UpdateOption>
-              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\InfoService\defaultFeedItemRSS.png</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{d380a454-4904-45e1-96bd-797794eedc11}-defaultFeedItemRSS.png</ZipFileName>
-              <DestinationFilename>%Skin%\Titan\InfoService\defaultFeedItemRSS.png</DestinationFilename>
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedItemRSS.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{6abf9e33-54e6-43d5-b863-ae4f83b8f90c}-defaultFeedItemRSS.png</ZipFileName>
+              <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedItemRSS.png</DestinationFilename>
             </FileItem>
             <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
               <Param1 />
-              <UpdateOption>AlwaysOverwrite</UpdateOption>
-              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\InfoService\defaultFeedItemRSSBig.png</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{39615d21-1bcc-4331-837b-998c6086358b}-defaultFeedItemRSSBig.png</ZipFileName>
-              <DestinationFilename>%Skin%\Titan\InfoService\defaultFeedItemRSSBig.png</DestinationFilename>
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedItemRSSBig.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{1c3fc561-9a42-4c47-ac12-ba07695392d7}-defaultFeedItemRSSBig.png</ZipFileName>
+              <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedItemRSSBig.png</DestinationFilename>
             </FileItem>
             <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
               <Param1 />
-              <UpdateOption>AlwaysOverwrite</UpdateOption>
-              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\InfoService\defaultFeedRDF.png</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{7c700ab7-eb8b-4b2e-b136-d513752646b3}-defaultFeedRDF.png</ZipFileName>
-              <DestinationFilename>%Skin%\Titan\InfoService\defaultFeedRDF.png</DestinationFilename>
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedRDF.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{d200a217-9ed3-4ccf-abcd-0c8233de5f4c}-defaultFeedRDF.png</ZipFileName>
+              <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedRDF.png</DestinationFilename>
             </FileItem>
             <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
               <Param1 />
-              <UpdateOption>AlwaysOverwrite</UpdateOption>
-              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\InfoService\defaultFeedRSS.png</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{13cc00a5-8a40-4ea2-9438-4126576d88ff}-defaultFeedRSS.png</ZipFileName>
-              <DestinationFilename>%Skin%\Titan\InfoService\defaultFeedRSS.png</DestinationFilename>
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedRSS.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{6b5b49c5-804f-47b3-9617-f2e3c53162c3}-defaultFeedRSS.png</ZipFileName>
+              <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedRSS.png</DestinationFilename>
             </FileItem>
             <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
               <Param1 />
-              <UpdateOption>AlwaysOverwrite</UpdateOption>
-              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\InfoService\defaultTwitter.png</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{76355229-2f45-4b0c-8d6f-5e041f5e8a4c}-defaultTwitter.png</ZipFileName>
-              <DestinationFilename>%Skin%\Titan\InfoService\defaultTwitter.png</DestinationFilename>
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultTwitter.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{b74652c5-ab05-40f7-854b-2c530cf08899}-defaultTwitter.png</ZipFileName>
+              <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultTwitter.png</DestinationFilename>
             </FileItem>
             <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
               <Param1 />
-              <UpdateOption>AlwaysOverwrite</UpdateOption>
-              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\InfoService\dialog_notify_feed.png</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{7dcaf2e7-7853-4e00-a1f7-ebac461e1ae9}-dialog_notify_feed.png</ZipFileName>
-              <DestinationFilename>%Skin%\Titan\InfoService\dialog_notify_feed.png</DestinationFilename>
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\dialog_notifybar.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{a9ad04b7-2d45-49fe-a9c7-eb312ac1295e}-dialog_notifybar.png</ZipFileName>
+              <DestinationFilename>%Skin%\Titan\Media\InfoService\dialog_notifybar.png</DestinationFilename>
+            </FileItem>
+          </Items>
+        </Files>
+      </GroupItem>
+      <GroupItem Name="TITANIUS">
+        <ParentGroup>Skins</ParentGroup>
+        <DisplayName>TITANIUS</DisplayName>
+        <DefaulChecked>true</DefaulChecked>
+        <Description>TITANIUS skin files</Description>
+        <Files>
+          <Items>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\infoservice.feeds.xml</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{9e9edffe-b111-4ed1-a3ba-4b08f2391417}-infoservice.feeds.xml</ZipFileName>
+              <DestinationFilename>%Skin%\TITANIUS\infoservice.feeds.xml</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\infoservice.notifybar.xml</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{944d880b-9d06-4165-902a-a1afde521169}-infoservice.notifybar.xml</ZipFileName>
+              <DestinationFilename>%Skin%\TITANIUS\infoservice.notifybar.xml</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\infoservice.twitter.xml</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{5cc9e7b5-da51-4612-b5f7-8d36eaff81bc}-infoservice.twitter.xml</ZipFileName>
+              <DestinationFilename>%Skin%\TITANIUS\infoservice.twitter.xml</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\infoservice.xml</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{a1450673-85c7-4431-8b15-9f0f93e38739}-infoservice.xml</ZipFileName>
+              <DestinationFilename>%Skin%\TITANIUS\infoservice.xml</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedALL.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{8201c60c-f226-4c7c-81d6-996a556bd2fc}-defaultFeedALL.png</ZipFileName>
+              <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedALL.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedAtom.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{d49512eb-91ed-4d33-98be-15e9f4a3972c}-defaultFeedAtom.png</ZipFileName>
+              <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedAtom.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedItemAtom.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{9e83a402-57e3-4267-9c49-10e06d5feead}-defaultFeedItemAtom.png</ZipFileName>
+              <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedItemAtom.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedItemAtomBig.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{f77708db-87fa-4c62-b608-f0778a771f2b}-defaultFeedItemAtomBig.png</ZipFileName>
+              <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedItemAtomBig.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedItemRDF.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{95dd932e-3317-475c-823b-3922290e22e9}-defaultFeedItemRDF.png</ZipFileName>
+              <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedItemRDF.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedItemRDFBig.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{910e698c-30bc-419c-8965-5433cdf1bd47}-defaultFeedItemRDFBig.png</ZipFileName>
+              <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedItemRDFBig.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedItemRSS.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{5217e083-0d88-4d7c-8894-5e8703b0dacd}-defaultFeedItemRSS.png</ZipFileName>
+              <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedItemRSS.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedItemRSSBig.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{50b68198-098a-42c3-9757-dabc404b3fbc}-defaultFeedItemRSSBig.png</ZipFileName>
+              <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedItemRSSBig.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedRDF.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{6d25c008-0f0c-4cbb-a50e-5720f36d7aa3}-defaultFeedRDF.png</ZipFileName>
+              <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedRDF.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedRSS.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{4b010fb6-fdce-4818-bfa7-9fb9d272dc99}-defaultFeedRSS.png</ZipFileName>
+              <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedRSS.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultTwitter.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{5084ee01-e80c-4ed4-87d1-289c8e0dddf2}-defaultTwitter.png</ZipFileName>
+              <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultTwitter.png</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+              <Param1 />
+              <UpdateOption>OverwriteIfOlder</UpdateOption>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\dialog_notifybar.png</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{458b417c-40bf-4615-93b0-e1d6b7824821}-dialog_notifybar.png</ZipFileName>
+              <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\dialog_notifybar.png</DestinationFilename>
             </FileItem>
           </Items>
         </Files>
@@ -640,8 +771,10 @@ Version v0.1:
         </Actions>
         <IncludedGroups>
           <string>Plugin</string>
+          <string>Skins</string>
+          <string>TITANIUS</string>
+          <string>Titan</string>
           <string>Languages</string>
-          <string>Titan skin files</string>
         </IncludedGroups>
         <PanelName>Tree View Selector</PanelName>
         <WizardButtonsEnum>BackNextCancel</WizardButtonsEnum>
@@ -757,7 +890,7 @@ Version v0.1:
     <VersionDescription />
     <DevelopmentStatus>Stable</DevelopmentStatus>
     <OnlineLocation>http://www.team-mediaportal.com/index.php?option=com_mtree&amp;task=att_download&amp;link_id=84&amp;cf_id=24</OnlineLocation>
-    <ReleaseDate>2016-01-07T15:00:32.1549484+01:00</ReleaseDate>
+    <ReleaseDate>2016-01-07T20:21:46.346641+01:00</ReleaseDate>
     <Tags>all,infoservice,rss,feed,twitter,weather,feeds</Tags>
     <Location>..\LastBuild\MPInfoService_v[Version].mpe1</Location>
     <Params>
@@ -901,142 +1034,254 @@ Version v0.1:
       </FileItem>
       <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
         <Param1 />
-        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\infoservice.feeds.xml</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{12b4211d-f711-4dbe-beb6-32d982bdaf03}-infoservice.feeds.xml</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{c6424086-83b2-4b3e-8586-17a9dd9a72e3}-infoservice.feeds.xml</ZipFileName>
         <DestinationFilename>%Skin%\Titan\infoservice.feeds.xml</DestinationFilename>
       </FileItem>
       <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
         <Param1 />
-        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\infoservice.notifybar.xml</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{a22bcd04-35be-46a6-a036-8a9ccee0f9f9}-infoservice.notifybar.xml</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{23655523-b091-414d-851b-ab20cd6882fb}-infoservice.notifybar.xml</ZipFileName>
         <DestinationFilename>%Skin%\Titan\infoservice.notifybar.xml</DestinationFilename>
       </FileItem>
       <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
         <Param1 />
-        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\infoservice.twitter.xml</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{b5a4c467-d03b-46d8-948b-96e7342afd85}-infoservice.twitter.xml</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{73856376-00b0-4921-b399-63263455c782}-infoservice.twitter.xml</ZipFileName>
         <DestinationFilename>%Skin%\Titan\infoservice.twitter.xml</DestinationFilename>
       </FileItem>
       <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
         <Param1 />
-        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\infoservice.xml</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{37509f52-91dd-4623-8e90-1cd2181f738a}-infoservice.xml</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{3a5e5838-17d7-4e39-b0e6-3128e8f80deb}-infoservice.xml</ZipFileName>
         <DestinationFilename>%Skin%\Titan\infoservice.xml</DestinationFilename>
       </FileItem>
       <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
         <Param1 />
-        <UpdateOption>AlwaysOverwrite</UpdateOption>
-        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\InfoService\defaultFeedALL.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{21a186bb-5d39-415b-9272-7ea4f2f2c871}-defaultFeedALL.png</ZipFileName>
-        <DestinationFilename>%Skin%\Titan\InfoService\defaultFeedALL.png</DestinationFilename>
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedALL.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{64be6524-9361-4124-95c9-d7b8bcd05cae}-defaultFeedALL.png</ZipFileName>
+        <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedALL.png</DestinationFilename>
       </FileItem>
       <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
         <Param1 />
-        <UpdateOption>AlwaysOverwrite</UpdateOption>
-        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\InfoService\defaultFeedAtom.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{f91def91-fa11-4f31-969a-58185dbf1827}-defaultFeedAtom.png</ZipFileName>
-        <DestinationFilename>%Skin%\Titan\InfoService\defaultFeedAtom.png</DestinationFilename>
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedAtom.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{10fc59a4-a618-4a68-ade9-a1b7e5a20e61}-defaultFeedAtom.png</ZipFileName>
+        <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedAtom.png</DestinationFilename>
       </FileItem>
       <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
         <Param1 />
-        <UpdateOption>AlwaysOverwrite</UpdateOption>
-        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\InfoService\defaultFeedItemAtom.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{bfad5f4f-a70b-40b7-8d6e-ade3c7f07780}-defaultFeedItemAtom.png</ZipFileName>
-        <DestinationFilename>%Skin%\Titan\InfoService\defaultFeedItemAtom.png</DestinationFilename>
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedItemAtom.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{e2dd3eeb-96c2-43c2-bc84-6e043cf43c1a}-defaultFeedItemAtom.png</ZipFileName>
+        <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedItemAtom.png</DestinationFilename>
       </FileItem>
       <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
         <Param1 />
-        <UpdateOption>AlwaysOverwrite</UpdateOption>
-        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\InfoService\defaultFeedItemAtomBig.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{df35343b-42ce-4577-8501-ce07f53f63d0}-defaultFeedItemAtomBig.png</ZipFileName>
-        <DestinationFilename>%Skin%\Titan\InfoService\defaultFeedItemAtomBig.png</DestinationFilename>
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedItemAtomBig.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{52255577-77a3-41d4-91a6-b149878d18f1}-defaultFeedItemAtomBig.png</ZipFileName>
+        <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedItemAtomBig.png</DestinationFilename>
       </FileItem>
       <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
         <Param1 />
-        <UpdateOption>AlwaysOverwrite</UpdateOption>
-        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\InfoService\defaultFeedItemRDF.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{a9295335-d05f-41dc-86eb-c4234539586d}-defaultFeedItemRDF.png</ZipFileName>
-        <DestinationFilename>%Skin%\Titan\InfoService\defaultFeedItemRDF.png</DestinationFilename>
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedItemRDF.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{a41d52ad-b38f-4e56-9498-5156c3dabf24}-defaultFeedItemRDF.png</ZipFileName>
+        <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedItemRDF.png</DestinationFilename>
       </FileItem>
       <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
         <Param1 />
-        <UpdateOption>AlwaysOverwrite</UpdateOption>
-        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\InfoService\defaultFeedItemRDFBig.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{21806c72-8a7c-4d36-9a5c-18bd360cbcf8}-defaultFeedItemRDFBig.png</ZipFileName>
-        <DestinationFilename>%Skin%\Titan\InfoService\defaultFeedItemRDFBig.png</DestinationFilename>
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedItemRDFBig.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{094d8aca-2ac0-40d1-89dc-5fdca87460d4}-defaultFeedItemRDFBig.png</ZipFileName>
+        <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedItemRDFBig.png</DestinationFilename>
       </FileItem>
       <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
         <Param1 />
-        <UpdateOption>AlwaysOverwrite</UpdateOption>
-        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\InfoService\defaultFeedItemRSS.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{d380a454-4904-45e1-96bd-797794eedc11}-defaultFeedItemRSS.png</ZipFileName>
-        <DestinationFilename>%Skin%\Titan\InfoService\defaultFeedItemRSS.png</DestinationFilename>
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedItemRSS.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{6abf9e33-54e6-43d5-b863-ae4f83b8f90c}-defaultFeedItemRSS.png</ZipFileName>
+        <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedItemRSS.png</DestinationFilename>
       </FileItem>
       <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
         <Param1 />
-        <UpdateOption>AlwaysOverwrite</UpdateOption>
-        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\InfoService\defaultFeedItemRSSBig.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{39615d21-1bcc-4331-837b-998c6086358b}-defaultFeedItemRSSBig.png</ZipFileName>
-        <DestinationFilename>%Skin%\Titan\InfoService\defaultFeedItemRSSBig.png</DestinationFilename>
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedItemRSSBig.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{1c3fc561-9a42-4c47-ac12-ba07695392d7}-defaultFeedItemRSSBig.png</ZipFileName>
+        <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedItemRSSBig.png</DestinationFilename>
       </FileItem>
       <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
         <Param1 />
-        <UpdateOption>AlwaysOverwrite</UpdateOption>
-        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\InfoService\defaultFeedRDF.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{7c700ab7-eb8b-4b2e-b136-d513752646b3}-defaultFeedRDF.png</ZipFileName>
-        <DestinationFilename>%Skin%\Titan\InfoService\defaultFeedRDF.png</DestinationFilename>
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedRDF.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{d200a217-9ed3-4ccf-abcd-0c8233de5f4c}-defaultFeedRDF.png</ZipFileName>
+        <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedRDF.png</DestinationFilename>
       </FileItem>
       <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
         <Param1 />
-        <UpdateOption>AlwaysOverwrite</UpdateOption>
-        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\InfoService\defaultFeedRSS.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{13cc00a5-8a40-4ea2-9438-4126576d88ff}-defaultFeedRSS.png</ZipFileName>
-        <DestinationFilename>%Skin%\Titan\InfoService\defaultFeedRSS.png</DestinationFilename>
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedRSS.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{6b5b49c5-804f-47b3-9617-f2e3c53162c3}-defaultFeedRSS.png</ZipFileName>
+        <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedRSS.png</DestinationFilename>
       </FileItem>
       <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
         <Param1 />
-        <UpdateOption>AlwaysOverwrite</UpdateOption>
-        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\InfoService\defaultTwitter.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{76355229-2f45-4b0c-8d6f-5e041f5e8a4c}-defaultTwitter.png</ZipFileName>
-        <DestinationFilename>%Skin%\Titan\InfoService\defaultTwitter.png</DestinationFilename>
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultTwitter.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{b74652c5-ab05-40f7-854b-2c530cf08899}-defaultTwitter.png</ZipFileName>
+        <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultTwitter.png</DestinationFilename>
       </FileItem>
       <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
         <Param1 />
-        <UpdateOption>AlwaysOverwrite</UpdateOption>
-        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\InfoService\dialog_notify_feed.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{7dcaf2e7-7853-4e00-a1f7-ebac461e1ae9}-dialog_notify_feed.png</ZipFileName>
-        <DestinationFilename>%Skin%\Titan\InfoService\dialog_notify_feed.png</DestinationFilename>
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\dialog_notifybar.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{a9ad04b7-2d45-49fe-a9c7-eb312ac1295e}-dialog_notifybar.png</ZipFileName>
+        <DestinationFilename>%Skin%\Titan\Media\InfoService\dialog_notifybar.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\infoservice.feeds.xml</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{9e9edffe-b111-4ed1-a3ba-4b08f2391417}-infoservice.feeds.xml</ZipFileName>
+        <DestinationFilename>%Skin%\TITANIUS\infoservice.feeds.xml</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\infoservice.notifybar.xml</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{944d880b-9d06-4165-902a-a1afde521169}-infoservice.notifybar.xml</ZipFileName>
+        <DestinationFilename>%Skin%\TITANIUS\infoservice.notifybar.xml</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\infoservice.twitter.xml</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{5cc9e7b5-da51-4612-b5f7-8d36eaff81bc}-infoservice.twitter.xml</ZipFileName>
+        <DestinationFilename>%Skin%\TITANIUS\infoservice.twitter.xml</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\infoservice.xml</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{a1450673-85c7-4431-8b15-9f0f93e38739}-infoservice.xml</ZipFileName>
+        <DestinationFilename>%Skin%\TITANIUS\infoservice.xml</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedALL.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{8201c60c-f226-4c7c-81d6-996a556bd2fc}-defaultFeedALL.png</ZipFileName>
+        <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedALL.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedAtom.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{d49512eb-91ed-4d33-98be-15e9f4a3972c}-defaultFeedAtom.png</ZipFileName>
+        <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedAtom.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedItemAtom.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{9e83a402-57e3-4267-9c49-10e06d5feead}-defaultFeedItemAtom.png</ZipFileName>
+        <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedItemAtom.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedItemAtomBig.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{f77708db-87fa-4c62-b608-f0778a771f2b}-defaultFeedItemAtomBig.png</ZipFileName>
+        <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedItemAtomBig.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedItemRDF.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{95dd932e-3317-475c-823b-3922290e22e9}-defaultFeedItemRDF.png</ZipFileName>
+        <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedItemRDF.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedItemRDFBig.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{910e698c-30bc-419c-8965-5433cdf1bd47}-defaultFeedItemRDFBig.png</ZipFileName>
+        <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedItemRDFBig.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedItemRSS.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{5217e083-0d88-4d7c-8894-5e8703b0dacd}-defaultFeedItemRSS.png</ZipFileName>
+        <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedItemRSS.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedItemRSSBig.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{50b68198-098a-42c3-9757-dabc404b3fbc}-defaultFeedItemRSSBig.png</ZipFileName>
+        <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedItemRSSBig.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedRDF.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{6d25c008-0f0c-4cbb-a50e-5720f36d7aa3}-defaultFeedRDF.png</ZipFileName>
+        <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedRDF.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedRSS.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{4b010fb6-fdce-4818-bfa7-9fb9d272dc99}-defaultFeedRSS.png</ZipFileName>
+        <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedRSS.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultTwitter.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{5084ee01-e80c-4ed4-87d1-289c8e0dddf2}-defaultTwitter.png</ZipFileName>
+        <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultTwitter.png</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+        <Param1 />
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\dialog_notifybar.png</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{458b417c-40bf-4615-93b0-e1d6b7824821}-dialog_notifybar.png</ZipFileName>
+        <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\dialog_notifybar.png</DestinationFilename>
       </FileItem>
       <FileItem InstallType="CopyFile" SystemFile="true" Modified="true">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\Images\InfoService_tower.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{40697f26-8558-40c2-8a6c-fe5bac698dfb}-InfoService_tower.png</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{2203c685-4aca-41cf-895c-cbdb31d28fa5}-InfoService_tower.png</ZipFileName>
         <DestinationFilename />
       </FileItem>
       <FileItem InstallType="CopyFile" SystemFile="true" Modified="true">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\Images\InfoService_head.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{00426245-ea12-4d61-aa7a-8ccd62be8f06}-InfoService_head.png</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{752502a8-f5e3-4961-9f51-7501ac34e9f4}-InfoService_head.png</ZipFileName>
         <DestinationFilename />
       </FileItem>
       <FileItem InstallType="CopyFile" SystemFile="true" Modified="true">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\Images\InfoService_icon_full.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{7a7ceab8-f709-4a89-b542-257d77fa5db7}-InfoService_icon_full.png</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{ad9890aa-e457-4b28-a8d2-aa841a0bbfcc}-InfoService_icon_full.png</ZipFileName>
         <DestinationFilename />
       </FileItem>
       <FileItem InstallType="CopyFile" SystemFile="true" Modified="true">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>readme.rtf</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{5df14c29-7295-4da4-b67e-ed917a68ef34}-readme.rtf</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{d2b178d8-1d2c-406a-a96f-623a9a6ee40c}-readme.rtf</ZipFileName>
         <DestinationFilename />
       </FileItem>
     </Items>
@@ -1045,12 +1290,12 @@ Version v0.1:
     <FolderGroups>
       <FolderGroup InstallType="CopyFile" SystemFile="false" Modified="true">
         <Param1 />
-        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName />
-        <ZipFileName>Installer{CopyFile}\{dcf2645c-eba2-4176-95f2-068139545956}-</ZipFileName>
-        <DestinationFilename>%Skin%\Titan</DestinationFilename>
-        <Folder>..\InfoService\InfoService\GUIWindows\Skin\Titan</Folder>
-        <Group>Titan skin files</Group>
+        <ZipFileName>Installer{CopyFile}\{0f4320c2-f14e-439d-ae98-97614505184a}-</ZipFileName>
+        <DestinationFilename>%Skin%\TITANIUS</DestinationFilename>
+        <Folder>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS</Folder>
+        <Group>TITANIUS</Group>
         <Recursive>true</Recursive>
       </FolderGroup>
     </FolderGroups>
