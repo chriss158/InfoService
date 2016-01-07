@@ -727,26 +727,74 @@ namespace InfoService.Feeds
 
                     if (!string.IsNullOrEmpty(text))
                     {
-                        if(text.Length >= 2) text = text.Substring(0, text.Length - 1);
+                        if (text.Length >= 2) text = text.Substring(0, text.Length - 1);
                         if (PopupWhileFullScreenVideo || !GUIGraphicsContext.IsFullScreenVideo)
                         {
-                            Logger.WriteLog("Showing new Popup (NotificationBar) for Feed[" + feed.Title + "] with text \"" + text + "\"", LogLevel.Info, InfoServiceModul.Feed);
-                            NotificationBar.ShowNotificationBar(String.Format(InfoServiceUtils.GetLocalizedLabel(38), newItems.Count.ToString(), feed.Title), text, feed.ImagePath, PopupWhileFullScreenVideo, (int)PopupTimeout);
+                            Logger.WriteLog(
+                                "Showing new Popup (NotificationBar) for Feed[" + feed.Title + "] with text \"" + text +
+                                "\"", LogLevel.Info, InfoServiceModul.Feed);
+                            NotificationBar.ShowNotificationBar(
+                                String.Format(InfoServiceUtils.GetLocalizedLabel(38), newItems.Count.ToString(),
+                                    feed.Title), text, feed.ImagePath, PopupWhileFullScreenVideo, (int) PopupTimeout);
                         }
-                        else Logger.WriteLog("Showing new Popup (NotificationBar) for Feed[" + feed.Title + "] with text \"" + text + "\" is not allowed - Fullscreen Video is running...", LogLevel.Info, InfoServiceModul.Feed);
+                        else
+                            Logger.WriteLog(
+                                "Showing new Popup (NotificationBar) for Feed[" + feed.Title + "] with text \"" + text +
+                                "\" is not allowed - Fullscreen Video is running...", LogLevel.Info,
+                                InfoServiceModul.Feed);
                     }
                 }
                 else
                 {
-                    string text = newItems.Count == 1 ? newItems[0].Title : String.Format(InfoServiceUtils.GetLocalizedLabel(39), feed.Title);
-                    if (!string.IsNullOrEmpty(text))
+                    if (!InfoServiceUtils.AreNotifyBarSkinFilesInstalled())
                     {
-                        if (PopupWhileFullScreenVideo || !GUIGraphicsContext.IsFullScreenVideo)
+
+
+                        foreach (FeedItem item in newItems)
                         {
-                            Logger.WriteLog("Showing new Popup (MediaPortal Dialog) for Feed[" + feed.Title + "] with text \"" + text + "\"", LogLevel.Info, InfoServiceModul.Feed);
-                            InfoServiceUtils.ShowDialogNotifyWindow(String.Format(InfoServiceUtils.GetLocalizedLabel(38), newItems.Count.ToString(), feed.Title), text, feed.ImagePath, new Size(120, 120), (int)PopupTimeout);
+                            string header = item.Title + "(" + feed.Title + ")";
+                            string text = item.Description;
+                            if (PopupWhileFullScreenVideo || !GUIGraphicsContext.IsFullScreenVideo)
+                            {
+                                Logger.WriteLog(
+                                    "Showing new Popup (MediaPortal Dialog) for Feed[" + feed.Title +
+                                    "] with header \"" +
+                                    header + "\" and text \"" + text + "\"", LogLevel.Info, InfoServiceModul.Feed);
+                                InfoServiceUtils.ShowDialogNotifyWindow(header, text, feed.ImagePath,
+                                    new Size(120, 120),
+                                    (int) PopupTimeout);
+                            }
+
+                            else
+                                Logger.WriteLog(
+                                    "Showing new Popup (MediaPortal Dialog) for Feed[" + feed.Title + "] with header \"" +
+                                    header + "\" and text \"" + text + "\" is not allowed - Fullscreen Video is running...", LogLevel.Info,
+                                    InfoServiceModul.Feed);
                         }
-                        else Logger.WriteLog("Showing new Popup (MediaPortal Dialog) for Feed[" + feed.Title + "] with text \"" + text + "\" is not allowed - Fullscreen Video is running...", LogLevel.Info, InfoServiceModul.Feed);
+
+                    }
+                    else
+                    {
+                        string text = newItems.Count == 1
+                            ? newItems[0].Title
+                            : String.Format(InfoServiceUtils.GetLocalizedLabel(39), feed.Title);
+                        if (!string.IsNullOrEmpty(text))
+                        {
+                            if (PopupWhileFullScreenVideo || !GUIGraphicsContext.IsFullScreenVideo)
+                            {
+                                Logger.WriteLog(
+                                    "Showing new Popup (MediaPortal Dialog) for Feed[" + feed.Title + "] with text \"" +
+                                    text + "\"", LogLevel.Info, InfoServiceModul.Feed);
+                                InfoServiceUtils.ShowDialogNotifyWindow(
+                                    String.Format(InfoServiceUtils.GetLocalizedLabel(38), newItems.Count.ToString(),
+                                        feed.Title), text, feed.ImagePath, new Size(120, 120), (int) PopupTimeout);
+                            }
+                            else
+                                Logger.WriteLog(
+                                    "Showing new Popup (MediaPortal Dialog) for Feed[" + feed.Title + "] with text \"" +
+                                    text + "\" is not allowed - Fullscreen Video is running...", LogLevel.Info,
+                                    InfoServiceModul.Feed);
+                        }
                     }
                 }
             }

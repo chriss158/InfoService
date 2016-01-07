@@ -98,12 +98,23 @@ namespace InfoService.Utils
             window.DoModal(GUIWindowManager.ActiveWindow);
 
         }
+
+        public static bool AreNotifyBarSkinFilesInstalled()
+        {
+            bool installed = File.Exists(GUIGraphicsContext.Skin + @"\infoservice.notifybar.xml");
+            logger.WriteLog(
+                installed
+                    ? "InfoService NotifyBar skin files are installed."
+                    : "InfoService NotifyBar skin files are NOT installed.", LogLevel.Info, InfoServiceModul.InfoService);
+            return installed;
+        }
+
         public static void ShowDialogNotifyWindow(string header, string text, string imagePath, System.Drawing.Size imageSize, int timeout)
         {
             logger.WriteLog("Show notify window with image", LogLevel.Info, InfoServiceModul.InfoService);
             object window = null;
             bool notifyBarFound;
-            if (!File.Exists(GUIGraphicsContext.Skin + @"\infoservice.notifybar.xml"))
+            if (!AreNotifyBarSkinFilesInstalled())
             {
                 window = (GUIDialogNotify) GUIWindowManager.GetWindow((int) GUIWindow.Window.WINDOW_DIALOG_NOTIFY);
                 notifyBarFound = false;

@@ -522,29 +522,60 @@ namespace InfoService.Twitter
             }
             else
             {
-                
-                string text = newItems.Count == 1
-                    ? newItems[0].Text + " " + GUILocalizeStrings.Get(1024) + " @" + user
-                    : String.Format(InfoServiceUtils.GetLocalizedLabel(41), timeline.Type) + " Timeline";
-                if (!string.IsNullOrEmpty(text))
+                if (!InfoServiceUtils.AreNotifyBarSkinFilesInstalled())
                 {
-                    if (PopupWhileFullScreenVideo || !GUIGraphicsContext.IsFullScreenVideo)
+                    string text = newItems.Count == 1
+                        ? newItems[0].Text + " " + GUILocalizeStrings.Get(1024) + " @" + user
+                        : String.Format(InfoServiceUtils.GetLocalizedLabel(41), timeline.Type) + " Timeline";
+                    if (!string.IsNullOrEmpty(text))
                     {
-                        logger.WriteLog(
-                            "Showing new Popup (MediaPortal Dialog) for Timeline[" + timeline.Type + "] with text \"" +
-                            text +
-                            "\"", LogLevel.Info, InfoServiceModul.Feed);
-                        InfoServiceUtils.ShowDialogNotifyWindow(
-                            String.Format(InfoServiceUtils.GetLocalizedLabel(40), newItems.Count.ToString(),
-                                timeline.Type + " Timeline"),
-                            text, imagePath, new Size(120, 120), (int) PopupTimeout);
+                        if (PopupWhileFullScreenVideo || !GUIGraphicsContext.IsFullScreenVideo)
+                        {
+                            logger.WriteLog(
+                                "Showing new Popup (MediaPortal Dialog) for Timeline[" + timeline.Type +
+                                "] with text \"" +
+                                text +
+                                "\"", LogLevel.Info, InfoServiceModul.Twitter);
+                            InfoServiceUtils.ShowDialogNotifyWindow(
+                                String.Format(InfoServiceUtils.GetLocalizedLabel(40), newItems.Count.ToString(),
+                                    timeline.Type + " Timeline"),
+                                text, imagePath, new Size(120, 120), (int) PopupTimeout);
+                        }
+                        else
+                            logger.WriteLog(
+                                "Showing new Popup (MediaPortal Dialog) for Timeline[" + timeline.Type +
+                                "] with text \"" +
+                                text +
+                                "\" is not allowed - Fullscreen Video is running...", LogLevel.Info,
+                                InfoServiceModul.Twitter);
                     }
-                    else
-                        logger.WriteLog(
-                            "Showing new Popup (MediaPortal Dialog) for Timeline[" + timeline.Type + "] with text \"" +
-                            text +
-                            "\" is not allowed - Fullscreen Video is running...", LogLevel.Info,
-                            InfoServiceModul.Twitter);
+                }
+                else
+                {
+                    foreach (TwitterItem item in newItems)
+                    {
+                        string header = "@" + item.User.ScreenName + "(" + timeline.Type + ")";
+                        string text = item.Text;
+                        if (PopupWhileFullScreenVideo || !GUIGraphicsContext.IsFullScreenVideo)
+                        {
+                            logger.WriteLog(
+                                "Showing new Popup (MediaPortal Dialog) for Timeline[" + timeline.Type +
+                                "] with text \"" +
+                                text +
+                                "\"", LogLevel.Info, InfoServiceModul.Feed);
+                            InfoServiceUtils.ShowDialogNotifyWindow(header, text, item.User.PicturePath,
+                                new Size(120, 120),
+                                (int)PopupTimeout);
+                        }
+
+                        else
+                            logger.WriteLog(
+                                "Showing new Popup (MediaPortal Dialog) for Timeline[" + timeline.Type +
+                                "] with text \"" +
+                                text +
+                                "\" is not allowed - Fullscreen Video is running...", LogLevel.Info,
+                                InfoServiceModul.Twitter);
+                    }
                 }
             }
         }

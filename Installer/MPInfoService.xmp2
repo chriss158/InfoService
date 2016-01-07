@@ -750,14 +750,14 @@ Version v0.1:
     <Version>
       <Major>1</Major>
       <Minor>8</Minor>
-      <Build>2</Build>
+      <Build>3</Build>
       <Revision>0</Revision>
     </Version>
     <ExtensionDescription>InfoService is a plugin for that provides weather, feed and twitter informations on the home screen. It has also a feed reader and a twitter client built in. The plugin is for MediaPortal users and skinners who want to have some information on their MediaPortal homescreen.</ExtensionDescription>
     <VersionDescription />
     <DevelopmentStatus>Stable</DevelopmentStatus>
     <OnlineLocation>http://www.team-mediaportal.com/index.php?option=com_mtree&amp;task=att_download&amp;link_id=84&amp;cf_id=24</OnlineLocation>
-    <ReleaseDate>2016-01-07T14:37:22.7727531+01:00</ReleaseDate>
+    <ReleaseDate>2016-01-07T15:00:32.1549484+01:00</ReleaseDate>
     <Tags>all,infoservice,rss,feed,twitter,weather,feeds</Tags>
     <Location>..\LastBuild\MPInfoService_v[Version].mpe1</Location>
     <Params>
