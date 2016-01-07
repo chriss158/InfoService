@@ -137,7 +137,7 @@
     <Compile Include="Feeds\FeedReader\Xml\FeedRssImageXmlParser.cs" />
     <Compile Include="Feeds\FeedReader\Xml\Interfaces\IFeedTypeXmlParser.cs" />
     <Compile Include="Feeds\FeedReader\Xml\Interfaces\IFeedTypeImageXmlParser.cs" />
-    <Compile Include="GUIWindows\GUINotifyFeed.cs" />
+    <Compile Include="GUIWindows\GUINotifyBar.cs" />
     <Compile Include="Twitter\TwitterConnector\OAuth\Exceptions\oAuthExceptions.cs" />
     <Compile Include="Utils\NotificationBar\NotificationBar.cs" />
     <Compile Include="Feeds\OPMLManager\Data\OPMLFeedItem.cs" />
@@ -586,8 +586,7 @@
   </Target>
   -->
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>xcopy $(TargetPath) "C:\Program Files (x86)\Team MediaPortal\MediaPortal\plugins\Windows\" /Y</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>
@@ -595,7 +594,7 @@
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_UpdateFileVersion="True" BuildVersion_ConfigurationName="Release" BuildVersion_BuildVersioningStyle="Increment.Increment.Increment.DeltaBaseDate" BuildVersion_StartDate="2009/11/6" />
+      <UserProperties BuildVersion_StartDate="2009/11/6" BuildVersion_BuildVersioningStyle="Increment.Increment.Increment.DeltaBaseDate" BuildVersion_ConfigurationName="Release" BuildVersion_UpdateFileVersion="True" />
     </VisualStudio>
   </ProjectExtensions>
   <Import Project="$(SolutionDir)\.build\GitAssemblyVersion.targets" />

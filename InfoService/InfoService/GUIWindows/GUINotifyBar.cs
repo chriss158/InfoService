@@ -9,7 +9,7 @@ using VAlignment = MediaPortal.GUI.Library.GUIControl.VAlignment;
 
 namespace InfoService.GUIWindows
 {
-    public sealed class GUINotifyFeed : GUIDialogWindow
+    public sealed class GUINotifyBar : GUIDialogWindow
     {
         [SkinControl(4)]
         private GUIButtonControl btnClose = null;
@@ -28,14 +28,14 @@ namespace InfoService.GUIWindows
         public const int ID = 16004;
 
 
-        public GUINotifyFeed()
+        public GUINotifyBar()
         {
             GetID = ID;
         }
 
         public override bool Init()
         {
-            return Load(GUIGraphicsContext.GetThemedSkinFile(@"\infoservice.dialognotify.feed.xml"));
+            return Load(GUIGraphicsContext.GetThemedSkinFile(@"\infoservice.notifybar.xml"));
         }
 
         #region Base Dialog Members

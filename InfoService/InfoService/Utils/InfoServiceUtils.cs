@@ -102,7 +102,7 @@ namespace InfoService.Utils
         {
             logger.WriteLog("Show notify window with image", LogLevel.Info, InfoServiceModul.InfoService);
             //GUIDialogNotify window = (GUIDialogNotify)GUIWindowManager.GetWindow((int)GUIWindow.Window.WINDOW_DIALOG_NOTIFY);
-            GUINotifyFeed window = (GUINotifyFeed)GUIWindowManager.GetWindow(GUINotifyFeed.ID);
+            GUINotifyBar window = (GUINotifyBar)GUIWindowManager.GetWindow(GUINotifyBar.ID);
             window.SetHeading(header);
             window.SetText(text);
             window.SetImage(imagePath);
@@ -114,7 +114,7 @@ namespace InfoService.Utils
         {
             logger.WriteLog("Show notify window", LogLevel.Info, InfoServiceModul.InfoService);
             //GUIDialogNotify window = (GUIDialogNotify)GUIWindowManager.GetWindow((int)GUIWindow.Window.WINDOW_DIALOG_NOTIFY);
-            GUINotifyFeed window = (GUINotifyFeed)GUIWindowManager.GetWindow(GUINotifyFeed.ID);
+            GUINotifyBar window = (GUINotifyBar)GUIWindowManager.GetWindow(GUINotifyBar.ID);
             window.SetHeading(header);
             window.SetText(text);
             window.TimeOut = timeout;
