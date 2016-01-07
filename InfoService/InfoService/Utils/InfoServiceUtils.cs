@@ -101,14 +101,40 @@ namespace InfoService.Utils
         public static void ShowDialogNotifyWindow(string header, string text, string imagePath, System.Drawing.Size imageSize, int timeout)
         {
             logger.WriteLog("Show notify window with image", LogLevel.Info, InfoServiceModul.InfoService);
-            //GUIDialogNotify window = (GUIDialogNotify)GUIWindowManager.GetWindow((int)GUIWindow.Window.WINDOW_DIALOG_NOTIFY);
-            GUINotifyBar window = (GUINotifyBar)GUIWindowManager.GetWindow(GUINotifyBar.ID);
-            window.SetHeading(header);
-            window.SetText(text);
-            window.SetImage(imagePath);
-            window.TimeOut = timeout;
-            window.SetImageDimensions(imageSize, true, true);
-            window.DoModal(GUIWindowManager.ActiveWindow);
+            object window = null;
+            bool notifyBarFound;
+            if (!File.Exists(GUIGraphicsContext.Skin + @"\infoservice.notifybar.xml"))
+            {
+                window = (GUIDialogNotify) GUIWindowManager.GetWindow((int) GUIWindow.Window.WINDOW_DIALOG_NOTIFY);
+                notifyBarFound = false;
+            }
+            else
+            {
+                window = (GUINotifyBar)GUIWindowManager.GetWindow(GUINotifyBar.ID);
+                notifyBarFound = true;
+            }
+
+            if (window != null)
+            {
+                if (notifyBarFound)
+                {
+                    ((GUINotifyBar)window).SetHeading(header);
+                    ((GUINotifyBar)window).SetText(text);
+                    ((GUINotifyBar)window).SetImage(imagePath);
+                    ((GUINotifyBar)window).TimeOut = timeout;
+                    ((GUINotifyBar)window).SetImageDimensions(imageSize, true, true);
+                    ((GUINotifyBar)window).DoModal(GUIWindowManager.ActiveWindow);
+                }
+                else
+                {
+                    ((GUIDialogNotify)window).SetHeading(header);
+                    ((GUIDialogNotify)window).SetText(text);
+                    ((GUIDialogNotify)window).SetImage(imagePath);
+                    ((GUIDialogNotify)window).TimeOut = timeout;
+                    ((GUIDialogNotify)window).SetImageDimensions(imageSize, true, true);
+                    ((GUIDialogNotify)window).DoModal(GUIWindowManager.ActiveWindow);
+                }
+            }
         }
         public static void ShowDialogNotifyWindow(string header, string text, int timeout)
         {

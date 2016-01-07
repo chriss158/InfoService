@@ -641,6 +641,7 @@ Version v0.1:
         <IncludedGroups>
           <string>Plugin</string>
           <string>Languages</string>
+          <string>Titan skin files</string>
         </IncludedGroups>
         <PanelName>Tree View Selector</PanelName>
         <WizardButtonsEnum>BackNextCancel</WizardButtonsEnum>
@@ -737,25 +738,7 @@ Version v0.1:
     </Items>
   </Dependencies>
   <PluginDependencies>
-    <Items>
-      <PluginDependencyItem AssemblyName="InfoService.dll">
-        <CompatibleVersion>
-          <Items>
-            <CompatibleVersionItem>
-              <MinRequiredVersion>1.6.100.0</MinRequiredVersion>
-              <DesignedForVersion>1.7.0.0</DesignedForVersion>
-            </CompatibleVersionItem>
-          </Items>
-        </CompatibleVersion>
-        <SubSystemsUsed>
-          <Items>
-            <SubSystemItem Name="MP.Config" />
-            <SubSystemItem Name="MP.Input" />
-            <SubSystemItem Name="MP.SkinEngine" />
-          </Items>
-        </SubSystemsUsed>
-      </PluginDependencyItem>
-    </Items>
+    <Items />
   </PluginDependencies>
   <GeneralInfo>
     <Name>InfoService</Name>
@@ -774,7 +757,7 @@ Version v0.1:
     <VersionDescription />
     <DevelopmentStatus>Stable</DevelopmentStatus>
     <OnlineLocation>http://www.team-mediaportal.com/index.php?option=com_mtree&amp;task=att_download&amp;link_id=84&amp;cf_id=24</OnlineLocation>
-    <ReleaseDate>2016-01-03T13:44:07.7484617+01:00</ReleaseDate>
+    <ReleaseDate>2016-01-07T14:37:22.7727531+01:00</ReleaseDate>
     <Tags>all,infoservice,rss,feed,twitter,weather,feeds</Tags>
     <Location>..\LastBuild\MPInfoService_v[Version].mpe1</Location>
     <Params>
