@@ -58,10 +58,9 @@ namespace InfoService.Utils
                         FeedService.Feeds[i].ImagePath);
                 }
             }
-            //InfoServiceUtils.ShowDialogNotifyWindow(FeedService.Feeds[3].Title + " - " + FeedService.Feeds[3].Items[0].Title, FeedService.Feeds[3].Items[0].Description, FeedService.Feeds[3].ImagePath, new Size(120, 120), 20,
+            //InfoServiceUtils.ShowDialogNotifyWindow(FeedService.Feeds[3].Title + " - " + FeedService.Feeds[3].Items[0].Title, "012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-", FeedService.Feeds[3].ImagePath, new Size(120, 120), 20,
             //    () =>
             //    {
-            //        System.Diagnostics.Debugger.Break();
             //        GUIWindowManager.ActivateWindow(GUIFeed.GUIFeedId,
             //            string.Format("feedTitle:{0}, feedItemTitle:{1}", FeedService.Feeds[3].Title,
             //                FeedService.Feeds[3].Items[0].Title));

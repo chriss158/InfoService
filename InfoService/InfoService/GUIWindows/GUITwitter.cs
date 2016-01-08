@@ -123,28 +123,35 @@ namespace InfoService.GUIWindows
                 logger.WriteLog("Load Twitter GUI with params \"" + _loadParameter + "\"", LogLevel.Info, InfoServiceModul.Twitter);
                 string twitterTimelineName = string.Empty;
                 int twitterItemIndex = 0;
-                string[] parameters = _loadParameter.Split(',');
+                string[] parameters = _loadParameter.Trim().Split(',');
                 foreach (string parameter in parameters)
                 {
-                    string[] paramNameSetting = parameter.Split(':');
+                    string[] paramNameSetting = parameter.Trim().Split(':');
                     if (paramNameSetting.Length == 2)
                     {
-                        if (paramNameSetting[0] == "twitterTimeline") twitterTimelineName = paramNameSetting[1];
 
-                       
-                        if (paramNameSetting[0] == "twitterItemIndex" && paramNameSetting[1].All(char.IsDigit) && !string.IsNullOrEmpty(twitterTimelineName)) twitterItemIndex = Convert.ToInt32(paramNameSetting[1]);
-                        if (paramNameSetting[0] == "twitterItemId" && !string.IsNullOrEmpty(twitterTimelineName))
+                        string parameterName = paramNameSetting[0].Trim();
+                        string parameterSetting = paramNameSetting[1].Trim();
+
+                        if (parameterName == "twitterTimeline") twitterTimelineName = parameterSetting;
+
+
+                        if (!string.IsNullOrEmpty(twitterTimelineName))
                         {
-                            TimelineType timeline;
-                            if (Enum.TryParse(twitterTimelineName, out timeline))
+                            if (parameterName == "twitterItemIndex" && parameterSetting.All(char.IsDigit)) twitterItemIndex = Convert.ToInt32(parameterSetting);
+                            if (parameterName == "twitterItemId")
                             {
-                                Timeline twitterTimeline = TwitterService.GetTimeline(timeline);
-                                for (int i = 0; i < twitterTimeline.Items.Count; i++)
+                                TimelineType timeline;
+                                if (Enum.TryParse(twitterTimelineName, out timeline))
                                 {
-                                    if (twitterTimeline.Items[i].Id == paramNameSetting[1])
+                                    Timeline twitterTimeline = TwitterService.GetTimeline(timeline);
+                                    for (int i = 0; i < twitterTimeline.Items.Count; i++)
                                     {
-                                        twitterItemIndex = i;
-                                        break;
+                                        if (twitterTimeline.Items[i].Id == parameterSetting)
+                                        {
+                                            twitterItemIndex = i;
+                                            break;
+                                        }
                                     }
                                 }
                             }

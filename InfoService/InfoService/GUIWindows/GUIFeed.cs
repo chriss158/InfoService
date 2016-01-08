@@ -121,32 +121,37 @@ namespace InfoService.GUIWindows
                 logger.WriteLog("Load Feed GUI with params \"" + _loadParameter + "\"", LogLevel.Info, InfoServiceModul.Feed);
                 int feedIndex = -1;
                 int feedItemIndex = 0;
-                string[] parameters = _loadParameter.Split(',');
+                string[] parameters = _loadParameter.Trim().Split(',');
                 foreach (string parameter in parameters)
                 {
-                    string[] paramNameSetting = parameter.Split(':');
-                    if (paramNameSetting.Length == 2)
-                    {
-                        if (paramNameSetting[0] == "feedIndex" && paramNameSetting[1].All(char.IsDigit)) feedIndex = Convert.ToInt32(paramNameSetting[1]);
+                    string[] paramNameSetting = parameter.Trim().Split(':');
+                    if (paramNameSetting.Length != 2) continue;
+
+                    string parameterName = paramNameSetting[0].Trim();
+                    string parameterSetting = paramNameSetting[1].Trim();
+
+                    if (parameterName == "feedIndex" && parameterSetting.All(char.IsDigit)) feedIndex = Convert.ToInt32(parameterSetting);
                         
-                        if (paramNameSetting[0] == "feedTitle")
+                    if (parameterName == "feedTitle")
+                    {
+                        for (int i = 0; i < FeedService.Feeds.Count; i++)
                         {
-                            for (int i = 0; i < FeedService.Feeds.Count; i++)
+                            if (FeedService.Feeds[i].Title == parameterSetting)
                             {
-                                if (FeedService.Feeds[i].Title == paramNameSetting[1])
-                                {
-                                    feedIndex = i;
-                                    break;
-                                }
+                                feedIndex = i;
+                                break;
                             }
- 
                         }
-                        if (paramNameSetting[0] == "feedItemIndex" && paramNameSetting[1].All(char.IsDigit) && feedIndex >= 0) feedItemIndex = Convert.ToInt32(paramNameSetting[1]);
-                        if (paramNameSetting[0] == "feedItemTitle" && feedIndex >= 0)
+ 
+                    }
+                    if (feedIndex >= 0)
+                    {
+                        if (parameterName == "feedItemIndex" && parameterSetting.All(char.IsDigit)) feedItemIndex = Convert.ToInt32(parameterSetting);
+                        if (parameterName == "feedItemTitle")
                         {
                             for (int i = 0; i < FeedService.Feeds[feedIndex].Items.Count; i++)
                             {
-                                if (FeedService.Feeds[feedIndex].Items[i].Title == paramNameSetting[1])
+                                if (FeedService.Feeds[feedIndex].Items[i].Title == parameterSetting)
                                 {
                                     feedItemIndex = i;
                                     break;

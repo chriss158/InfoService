@@ -20,8 +20,10 @@ namespace InfoService.GUIWindows
         private GUILabelControl lblHeading = null;
         [SkinControl(5)]
         private GUIImage imgLogo = null;
+    
         [SkinControl(6)]
-        private GUITextControl txtArea = null;
+        //private GUITextControl txtArea = null;
+        private GUITextScrollUpControl txtArea = null;
 
         private int timeOutInSeconds = 5;
         private DateTime timeStart = DateTime.Now;
