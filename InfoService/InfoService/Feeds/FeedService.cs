@@ -753,7 +753,7 @@ namespace InfoService.Feeds
 
                         foreach (FeedItem item in newItems)
                         {
-                            string header = item.Title + "(" + feed.Title + ")";
+                            string header = item.Title + " (" + feed.Title + ")";
                             string text = item.Description;
                             if (PopupWhileFullScreenVideo || !GUIGraphicsContext.IsFullScreenVideo)
                             {

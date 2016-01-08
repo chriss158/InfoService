@@ -555,7 +555,7 @@ namespace InfoService.Twitter
                 {
                     foreach (TwitterItem item in newItems)
                     {
-                        string header = "@" + item.User.ScreenName + "(" + timeline.Type + ")";
+                        string header = "@" + item.User.ScreenName + " (" + timeline.Type + ")";
                         string text = item.Text;
                         if (PopupWhileFullScreenVideo || !GUIGraphicsContext.IsFullScreenVideo)
                         {
