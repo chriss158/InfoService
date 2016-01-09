@@ -109,50 +109,50 @@ namespace InfoService.Utils
             return installed;
         }
 
-        public static void ShowDialogNotifyWindow(string header, string text, string imagePath, System.Drawing.Size imageSize, int timeout)
-        {
-            ShowDialogNotifyWindow(header, text, imagePath, imageSize, timeout, null);
-        }
+        //public static void ShowDialogNotifyWindow(string header, string text, string imagePath, System.Drawing.Size imageSize, int timeout)
+        //{
+        //    ShowDialogNotifyWindow(header, text, imagePath, imageSize, timeout, null);
+        //}
 
-        public static void ShowDialogNotifyWindow(string header, string text, string imagePath, System.Drawing.Size imageSize, int timeout, System.Action action)
-        {
-            logger.WriteLog("Show notify window with image", LogLevel.Info, InfoServiceModul.InfoService);
-            object window = null;
-            bool notifyBarFound;
-            if (!AreNotifyBarSkinFilesInstalled())
-            {
-                window = (GUIDialogNotify) GUIWindowManager.GetWindow((int) GUIWindow.Window.WINDOW_DIALOG_NOTIFY);
-                notifyBarFound = false;
-            }
-            else
-            {
-                window = (GUINotifyBar)GUIWindowManager.GetWindow(GUINotifyBar.ID);
-                notifyBarFound = true;
-            }
+        //public static void ShowDialogNotifyWindow(string header, string text, string imagePath, System.Drawing.Size imageSize, int timeout, System.Action action)
+        //{
+        //    logger.WriteLog("Show notify window with image", LogLevel.Info, InfoServiceModul.InfoService);
+        //    object window = null;
+        //    bool notifyBarFound;
+        //    if (!AreNotifyBarSkinFilesInstalled())
+        //    {
+        //        window = (GUIDialogNotify) GUIWindowManager.GetWindow((int) GUIWindow.Window.WINDOW_DIALOG_NOTIFY);
+        //        notifyBarFound = false;
+        //    }
+        //    else
+        //    {
+        //        window = (GUINotifyBar)GUIWindowManager.GetWindow(GUINotifyBar.ID);
+        //        notifyBarFound = true;
+        //    }
 
-            if (window != null)
-            {
-                if (notifyBarFound)
-                {
-                    if(action != null) ((GUINotifyBar) window).OkAction = action;
-                    ((GUINotifyBar)window).SetHeading(header);
-                    ((GUINotifyBar)window).SetText(text);
-                    ((GUINotifyBar)window).SetImage(imagePath);
-                    ((GUINotifyBar)window).TimeOut = timeout;
-                    ((GUINotifyBar)window).SetImageDimensions(imageSize, true, true);
-                    ((GUINotifyBar)window).DoModal(GUIWindowManager.ActiveWindow);
-                }
-                else
-                {
-                    ((GUIDialogNotify)window).SetHeading(header);
-                    ((GUIDialogNotify)window).SetText(text);
-                    ((GUIDialogNotify)window).SetImage(imagePath);
-                    ((GUIDialogNotify)window).TimeOut = timeout;
-                    ((GUIDialogNotify)window).SetImageDimensions(imageSize, true, true);
-                    ((GUIDialogNotify)window).DoModal(GUIWindowManager.ActiveWindow);
-                }
-            }
-        }
+        //    if (window != null)
+        //    {
+        //        if (notifyBarFound)
+        //        {
+        //            if(action != null) ((GUINotifyBar) window).OkAction = action;
+        //            ((GUINotifyBar)window).SetHeading(header);
+        //            ((GUINotifyBar)window).SetText(text);
+        //            ((GUINotifyBar)window).SetImage(imagePath);
+        //            ((GUINotifyBar)window).TimeOut = timeout;
+        //            ((GUINotifyBar)window).SetImageDimensions(imageSize, true, true);
+        //            ((GUINotifyBar)window).DoModal(GUIWindowManager.ActiveWindow);
+        //        }
+        //        else
+        //        {
+        //            ((GUIDialogNotify)window).SetHeading(header);
+        //            ((GUIDialogNotify)window).SetText(text);
+        //            ((GUIDialogNotify)window).SetImage(imagePath);
+        //            ((GUIDialogNotify)window).TimeOut = timeout;
+        //            ((GUIDialogNotify)window).SetImageDimensions(imageSize, true, true);
+        //            ((GUIDialogNotify)window).DoModal(GUIWindowManager.ActiveWindow);
+        //        }
+        //    }
+        //}
         public static void ShowDialogNotifyWindow(string header, string text, int timeout)
         {
             logger.WriteLog("Show notify window", LogLevel.Info, InfoServiceModul.InfoService);

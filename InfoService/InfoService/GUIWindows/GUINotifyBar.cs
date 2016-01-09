@@ -30,9 +30,15 @@ namespace InfoService.GUIWindows
         private bool m_bNeedRefresh = false;
         private string logoUrl = string.Empty;
 
+        public string Text { get; private set; }
+        public string HeaderText { get; private set; }
+
         public const int ID = 16004;
 
         public System.Action OkAction;
+
+        public delegate void OnPageDestroyEventHandler(string header, string text);
+        public event OnPageDestroyEventHandler OnPageDestroy;
 
         public GUINotifyBar()
         {
@@ -124,10 +130,15 @@ namespace InfoService.GUIWindows
             //LoadSkin();
             AllocResources();
             InitControls();
-
+            HeaderText = strLine;
             lblHeading.Label = strLine;
         }
 
+        public override void PageDestroy()
+        {
+            if (OnPageDestroy != null) OnPageDestroy(HeaderText, Text);
+            base.PageDestroy();
+        }
 
         public void SetHeading(int iString)
         {
@@ -136,6 +147,7 @@ namespace InfoService.GUIWindows
 
         public void SetText(string text)
         {
+            Text = text;
             txtArea.Label = text;
         }
 

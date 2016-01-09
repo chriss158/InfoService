@@ -162,7 +162,8 @@ namespace InfoService.GUIWindows
                 }
                 if (feedIndex >= 0)
                 {
-                    FeedUtils.SetFeedOnWindow(feedIndex, feedItemIndex, true);
+                    FeedService.SetActive(feedIndex);
+                    FeedUtils.SetFeedOnWindow(FeedService.ActiveFeedIndex, feedItemIndex, true);
                 }
                 else
                 {

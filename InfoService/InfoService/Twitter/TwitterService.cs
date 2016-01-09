@@ -7,6 +7,7 @@ using InfoService.Enums;
 using InfoService.GUIWindows;
 using InfoService.Utils.NotificationBar;
 using InfoService.Utils;
+using InfoService.Utils.QueuedNotifyBar;
 using MediaPortal.Configuration;
 using MediaPortal.GUI.Library;
 using TwitterConnector;
@@ -350,10 +351,13 @@ namespace InfoService.Twitter
 
         #endregion
 
+        private static Dictionary<Timeline, List<TwitterItem>> _newTweets;
+
         #region Methods
 
         public static bool SetupTwitter(string tokenValue, string tokenSecret)
         {
+            _newTweets = new Dictionary<Timeline, List<TwitterItem>>();
             try
             {
                 LogEvents.OnDebug += new LogEvents.TwitterErrorHandler(LogEvents_OnDebug);
@@ -440,6 +444,7 @@ namespace InfoService.Twitter
 
         public static bool UpdateTwitter()
         {
+            bool returnValue = false;
             if (!Enabled)
             {
                 logger.WriteLog("Twitter is not enabled", LogLevel.Error, InfoServiceModul.Twitter);
@@ -447,6 +452,7 @@ namespace InfoService.Twitter
             }
 
             UpdateInProgress = true;
+            _newTweets.Clear();
             try
             {
                 if (ShowPopup)
@@ -461,91 +467,70 @@ namespace InfoService.Twitter
                     LastRefresh = DateTime.Now;
                     logger.WriteLog("Update of Twitter succesfull. Now setting up properties...", LogLevel.Info,
                         InfoServiceModul.Twitter);
-                    return true;
+                    returnValue = true;
                 }
                 else
                 {
                     logger.WriteLog("Update of Twitter unsuccesfull. Check the errors and warnings above",
                         LogLevel.Error, InfoServiceModul.Twitter);
-                    return false;
+                    returnValue = false;
+ 
                 }
             }
             finally
             {
                 UpdateInProgress = false;
+                TwitterUtils.SetTwitterProperties(returnValue);
+                ShowNewTweetsPopup();
             }
+            return returnValue;
         }
 
-        private static void Value_OnNewItems(Timeline timeline, List<TwitterItem> newItems)
+        private static void ShowNewTweetsPopup()
         {
-
-            logger.WriteLog("Popups are enabled and new tweets loaded...", LogLevel.Info, InfoServiceModul.Twitter);
-
-            bool notificationBarPluginEnabled = false;
-            using (MediaPortal.Profile.Settings settings = new MediaPortal.Profile.MPSettings())
+            foreach (KeyValuePair<Timeline, List<TwitterItem>> pair in _newTweets)
             {
-                notificationBarPluginEnabled = settings.GetValueAsString("plugins", "MPNotificationBar", "no") == "yes";
-            }
-            string user = newItems.Count > 0 && newItems[0].User != null ? newItems[0].User.ScreenName : "UnkownUser";
-            string imagePath = newItems.Count == 1 && newItems[0].User != null
-                                ? newItems[0].User.PicturePath
-                                : GUIGraphicsContext.Skin + @"\media\InfoService\defaultTwitter.png";
+                logger.WriteLog("Popups are enabled and new tweets loaded...", LogLevel.Info, InfoServiceModul.Twitter);
 
-            if (InfoServiceUtils.IsAssemblyAvailable("MPNotificationBar", new Version(0, 8, 3, 0)) &&
-                System.IO.File.Exists(GUIGraphicsContext.Skin + @"\NotificationBar.xml") &&
-                notificationBarPluginEnabled)
-            {
-                string text = string.Empty;
-                foreach (TwitterItem item in newItems)
+                bool notificationBarPluginEnabled = false;
+                using (MediaPortal.Profile.Settings settings = new MediaPortal.Profile.MPSettings())
                 {
-                    text += item.Text+ " " + GUILocalizeStrings.Get(1024) + " @" + user + "\n";
+                    notificationBarPluginEnabled = settings.GetValueAsString("plugins", "MPNotificationBar", "no") ==
+                                                   "yes";
                 }
+                string user = pair.Value.Count > 0 && pair.Value[0].User != null
+                    ? pair.Value[0].User.ScreenName
+                    : "UnkownUser";
+                string imagePath = pair.Value.Count == 1 && pair.Value[0].User != null
+                    ? pair.Value[0].User.PicturePath
+                    : GUIGraphicsContext.Skin + @"\media\InfoService\defaultTwitter.png";
 
-                if (!string.IsNullOrEmpty(text))
+                if (InfoServiceUtils.IsAssemblyAvailable("MPNotificationBar", new Version(0, 8, 3, 0)) &&
+                    System.IO.File.Exists(GUIGraphicsContext.Skin + @"\NotificationBar.xml") &&
+                    notificationBarPluginEnabled)
                 {
-                    if (text.Length >= 2) text = text.Substring(0, text.Length - 1);
-                    if (PopupWhileFullScreenVideo || !GUIGraphicsContext.IsFullScreenVideo)
+                    string text = string.Empty;
+                    foreach (TwitterItem item in pair.Value)
                     {
-                        logger.WriteLog(
-                            "Showing new Popup (NotificationBar) for Timeline[" + timeline.Type + "] with text \"" +
-                            text + "\"", LogLevel.Info, InfoServiceModul.Twitter);
-                        NotificationBar.ShowNotificationBar(
-                            String.Format(InfoServiceUtils.GetLocalizedLabel(40), newItems.Count.ToString(), timeline.Type + " Timeline"),
-                            text, imagePath, PopupWhileFullScreenVideo, (int) PopupTimeout);
+                        text += item.Text + " " + GUILocalizeStrings.Get(1024) + " @" + user + "\n";
                     }
-                    else
-                        logger.WriteLog(
-                            "Showing new Popup (NotificationBar) for Timeline[" + timeline.Type + "] with text \"" +
-                            text +
-                            "\" is not allowed - Fullscreen Video is running...", LogLevel.Info,
-                            InfoServiceModul.Twitter);
-                }
-            }
-            else
-            {
-                if (!InfoServiceUtils.AreNotifyBarSkinFilesInstalled())
-                {
-                    string text = newItems.Count == 1
-                        ? newItems[0].Text + " " + GUILocalizeStrings.Get(1024) + " @" + user
-                        : String.Format(InfoServiceUtils.GetLocalizedLabel(41), timeline.Type) + " Timeline";
+
                     if (!string.IsNullOrEmpty(text))
                     {
+                        if (text.Length >= 2) text = text.Substring(0, text.Length - 1);
                         if (PopupWhileFullScreenVideo || !GUIGraphicsContext.IsFullScreenVideo)
                         {
                             logger.WriteLog(
-                                "Showing new Popup (MediaPortal Dialog) for Timeline[" + timeline.Type +
-                                "] with text \"" +
-                                text +
-                                "\"", LogLevel.Info, InfoServiceModul.Twitter);
-                            InfoServiceUtils.ShowDialogNotifyWindow(
-                                String.Format(InfoServiceUtils.GetLocalizedLabel(40), newItems.Count.ToString(),
-                                    timeline.Type + " Timeline"),
-                                text, imagePath, new Size(120, 120), (int) PopupTimeout);
+                                "Showing new Popup (NotificationBar) for Timeline[" + pair.Key.Type + "] with text \"" +
+                                text + "\"", LogLevel.Info, InfoServiceModul.Twitter);
+                            NotificationBar.ShowNotificationBar(
+                                String.Format(InfoServiceUtils.GetLocalizedLabel(40), pair.Value.Count.ToString(),
+                                    pair.Key.Type + " Timeline"),
+                                text, imagePath, PopupWhileFullScreenVideo, (int) PopupTimeout);
                         }
                         else
                             logger.WriteLog(
-                                "Showing new Popup (MediaPortal Dialog) for Timeline[" + timeline.Type +
-                                "] with text \"" +
+                                "Showing new Popup (NotificationBar) for Timeline[" + pair.Key.Type + "] with text \"" +
                                 text +
                                 "\" is not allowed - Fullscreen Video is running...", LogLevel.Info,
                                 InfoServiceModul.Twitter);
@@ -553,35 +538,79 @@ namespace InfoService.Twitter
                 }
                 else
                 {
-                    foreach (TwitterItem item in newItems)
+                    if (!InfoServiceUtils.AreNotifyBarSkinFilesInstalled())
                     {
-                        string header = "@" + item.User.ScreenName + " (" + timeline.Type + ")";
-                        string text = item.Text;
-                        if (PopupWhileFullScreenVideo || !GUIGraphicsContext.IsFullScreenVideo)
+                        string text = pair.Value.Count == 1
+                            ? pair.Value[0].Text + " " + GUILocalizeStrings.Get(1024) + " @" + user
+                            : String.Format(InfoServiceUtils.GetLocalizedLabel(41), pair.Key.Type) + " Timeline";
+                        if (!string.IsNullOrEmpty(text))
                         {
-                            logger.WriteLog(
-                                "Showing new Popup (MediaPortal Dialog) for Timeline[" + timeline.Type +
-                                "] with text \"" +
-                                text +
-                                "\"", LogLevel.Info, InfoServiceModul.Feed);
-                            InfoServiceUtils.ShowDialogNotifyWindow(header, text, item.User.PicturePath,
-                                new Size(120, 120),
-                                (int)PopupTimeout, () => {
-                                    GUIWindowManager.ActivateWindow(GUITwitter.GUITwitterId,
-                     string.Format("twitterTimeline:{0}, twitterItemId:{1}", timeline.Type, item.Id));
-                                });
+                            if (PopupWhileFullScreenVideo || !GUIGraphicsContext.IsFullScreenVideo)
+                            {
+                                logger.WriteLog(
+                                    "Showing new Popup (MediaPortal Dialog) for Timeline[" + pair.Key.Type +
+                                    "] with text \"" +
+                                    text +
+                                    "\"", LogLevel.Info, InfoServiceModul.Twitter);
+                                NotifyBarQueue.ShowDialogNotifyWindowQueued(
+                                    String.Format(InfoServiceUtils.GetLocalizedLabel(40), pair.Value.Count.ToString(),
+                                        pair.Key.Type + " Timeline"),
+                                    text, imagePath, new Size(120, 120), (int) PopupTimeout);
+                            }
+                            else
+                                logger.WriteLog(
+                                    "Showing new Popup (MediaPortal Dialog) for Timeline[" + pair.Key.Type +
+                                    "] with text \"" +
+                                    text +
+                                    "\" is not allowed - Fullscreen Video is running...", LogLevel.Info,
+                                    InfoServiceModul.Twitter);
                         }
+                    }
+                    else
+                    {
+                        foreach (TwitterItem item in pair.Value)
+                        {
+                            string header = "@" + item.User.ScreenName + " (" + pair.Key.Type + ")";
+                            string text = item.Text;
+                            if (PopupWhileFullScreenVideo || !GUIGraphicsContext.IsFullScreenVideo)
+                            {
+                                logger.WriteLog(
+                                    "Showing new Popup (MediaPortal Dialog) for Timeline[" + pair.Key.Type +
+                                    "] with text \"" +
+                                    text +
+                                    "\"", LogLevel.Info, InfoServiceModul.Feed);
+                                NotifyBarQueue.ShowDialogNotifyWindowQueued(header, text, item.User.PicturePath,
+                                    new Size(120, 120),
+                                    (int) PopupTimeout, () =>
+                                    {
+                                        if (GUIGraphicsContext.IsTvWindow() && GUIGraphicsContext.IsFullScreenVideo)
+                                        {
+                                            GUIWindowManager.IsOsdVisible = false;
+                                            GUIGraphicsContext.IsFullScreenVideo = false;
+                                            GUIWindowManager.ShowPreviousWindow();
+                                        }
+                                        GUIWindowManager.ActivateWindow(GUITwitter.GUITwitterId,
+                                            string.Format("twitterTimeline:{0}, twitterItemId:{1}", pair.Key.Type,
+                                                item.Id));
+                                    });
+                            }
 
-                        else
-                            logger.WriteLog(
-                                "Showing new Popup (MediaPortal Dialog) for Timeline[" + timeline.Type +
-                                "] with text \"" +
-                                text +
-                                "\" is not allowed - Fullscreen Video is running...", LogLevel.Info,
-                                InfoServiceModul.Twitter);
+                            else
+                                logger.WriteLog(
+                                    "Showing new Popup (MediaPortal Dialog) for Timeline[" + pair.Key.Type +
+                                    "] with text \"" +
+                                    text +
+                                    "\" is not allowed - Fullscreen Video is running...", LogLevel.Info,
+                                    InfoServiceModul.Twitter);
+                        }
                     }
                 }
             }
+        }
+
+        private static void Value_OnNewItems(Timeline timeline, List<TwitterItem> newItems)
+        {
+            _newTweets.Add(timeline, newItems);
         }
 
 

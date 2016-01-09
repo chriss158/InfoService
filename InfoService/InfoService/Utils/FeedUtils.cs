@@ -58,13 +58,27 @@ namespace InfoService.Utils
                         FeedService.Feeds[i].ImagePath);
                 }
             }
-            //InfoServiceUtils.ShowDialogNotifyWindow(FeedService.Feeds[3].Title + " - " + FeedService.Feeds[3].Items[0].Title, "012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-", FeedService.Feeds[3].ImagePath, new Size(120, 120), 20,
-            //    () =>
-            //    {
-            //        GUIWindowManager.ActivateWindow(GUIFeed.GUIFeedId,
-            //            string.Format("feedTitle:{0}, feedItemTitle:{1}", FeedService.Feeds[3].Title,
-            //                FeedService.Feeds[3].Items[0].Title));
-            //    });
+    //        QueuedNotifyBar.NotifyBarQueue.ShowDialogNotifyWindowQueued(FeedService.Feeds[3].Title + " - " + FeedService.Feeds[3].Items[0].Title, "012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-", FeedService.Feeds[3].ImagePath, new Size(120, 120), 20,
+    //            () =>
+    //            {
+    //                GUIWindowManager.ActivateWindow(GUIFeed.GUIFeedId,
+    //                    string.Format("feedTitle:{0}, feedItemTitle:{1}", FeedService.Feeds[3].Title,
+    //                        FeedService.Feeds[3].Items[0].Title));
+    //            });
+    //        QueuedNotifyBar.NotifyBarQueue.ShowDialogNotifyWindowQueued(FeedService.Feeds[4].Title + " - " + FeedService.Feeds[4].Items[0].Title, "012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-", FeedService.Feeds[4].ImagePath, new Size(120, 120), 20,
+    //() =>
+    //{
+    //    GUIWindowManager.ActivateWindow(GUIFeed.GUIFeedId,
+    //        string.Format("feedTitle:{0}, feedItemTitle:{1}", FeedService.Feeds[4].Title,
+    //            FeedService.Feeds[4].Items[0].Title));
+    //});
+    //        QueuedNotifyBar.NotifyBarQueue.ShowDialogNotifyWindowQueued(FeedService.Feeds[5].Title + " - " + FeedService.Feeds[5].Items[0].Title, "012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-012345678-", FeedService.Feeds[5].ImagePath, new Size(120, 120), 20,
+    //() =>
+    //{
+    //    GUIWindowManager.ActivateWindow(GUIFeed.GUIFeedId,
+    //        string.Format("feedTitle:{0}, feedItemTitle:{1}", FeedService.Feeds[5].Title,
+    //            FeedService.Feeds[5].Items[0].Title));
+    //});
         }
 
         public static void SetFeedOnBasichome(int index)

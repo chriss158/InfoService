@@ -18,6 +18,8 @@ using MediaPortal.GUI.Library;
 using System.Xml;
 using InfoService.GUIWindows;
 using InfoService.Utils.NotificationBar;
+using InfoService.Utils.QueuedNotifyBar;
+using MediaPortal.Player;
 
 #endregion
 
@@ -259,9 +261,13 @@ namespace InfoService.Feeds
         #endregion
 
         #region Methods
+
+        private static Dictionary<Feed, List<FeedItem>> _newFeedItems;
+
         public static void SetupFeeds()
         {
             Enabled = true;
+            _newFeedItems = new Dictionary<Feed, List<FeedItem>>();
             ActiveFeedIndex = -1;
             LogEvents.OnDebug += LogEvents_OnDebug;
             LogEvents.OnError += LogEvents_OnError;
@@ -321,7 +327,7 @@ namespace InfoService.Feeds
             try
             {
                 int errorCounter = 0;
-
+                _newFeedItems.Clear();
                 Logger.WriteLog("Check if feed image needs a default image or should be get a own feed image...", LogLevel.Debug, InfoServiceModul.Feed);
                 foreach (ExFeed feed in _feeds.Where(feed => !feed.IsAllFeed))
                 {
@@ -457,13 +463,144 @@ namespace InfoService.Feeds
                 _feeds[0] = FillAllFeeds(_feeds[0]);
                 _feeds[0].LastUpdateSuccessful = true;
                 _feeds[0].LastUpdate = DateTime.Now;
+
+                
             }
             finally
             {
                 UpdateInProgress = false;
+                FeedUtils.SetFeedProperties(returnValue);
+                ShowNewFeedItemPopup();
             }
             return returnValue;
         }
+
+        private static void ShowNewFeedItemPopup()
+        {
+            foreach (KeyValuePair<Feed, List<FeedItem>> feedItem in _newFeedItems)
+            {
+                if (_feeds.Find(f => f.UrlPath == feedItem.Key.UrlPath).ShowPopupDialog)
+                {
+                    Logger.WriteLog("Popups are enabled and new feed items loaded...", LogLevel.Info,
+                        InfoServiceModul.Feed);
+                    Logger.WriteLog("Popups for feed[" + feedItem.Key.Title + "] are enabled...", LogLevel.Debug,
+                        InfoServiceModul.Feed);
+
+
+                    bool notificationBarPluginEnabled = false;
+                    using (MediaPortal.Profile.Settings settings = new MediaPortal.Profile.MPSettings())
+                    {
+                        notificationBarPluginEnabled =
+                            settings.GetValueAsString("plugins", "MPNotificationBar", "no") == "yes";
+                    }
+                    if (InfoServiceUtils.IsAssemblyAvailable("MPNotificationBar", new Version(0, 8, 3, 0)) &&
+                        System.IO.File.Exists(GUIGraphicsContext.Skin + @"\NotificationBar.xml") &&
+                        notificationBarPluginEnabled)
+                    {
+                        string text = string.Empty;
+                        foreach (FeedItem item in feedItem.Value)
+                        {
+                            text += item.Title + "\n";
+                        }
+
+                        if (!string.IsNullOrEmpty(text))
+                        {
+                            if (text.Length >= 2) text = text.Substring(0, text.Length - 1);
+                            if (PopupWhileFullScreenVideo || !GUIGraphicsContext.IsFullScreenVideo)
+                            {
+                                Logger.WriteLog(
+                                    "Showing new Popup (NotificationBar) for Feed[" + feedItem.Key.Title + "] with text \"" +
+                                    text +
+                                    "\"", LogLevel.Info, InfoServiceModul.Feed);
+                                NotificationBar.ShowNotificationBar(
+                                    String.Format(InfoServiceUtils.GetLocalizedLabel(38), feedItem.Value.Count.ToString(),
+                                        feedItem.Key.Title), text, feedItem.Key.ImagePath, PopupWhileFullScreenVideo, (int) PopupTimeout);
+                            }
+                            else
+                                Logger.WriteLog(
+                                    "Showing new Popup (NotificationBar) for Feed[" + feedItem.Key.Title + "] with text \"" +
+                                    text +
+                                    "\" is not allowed - Fullscreen Video is running...", LogLevel.Info,
+                                    InfoServiceModul.Feed);
+                        }
+                    }
+                    else
+                    {
+                        if (InfoServiceUtils.AreNotifyBarSkinFilesInstalled())
+                        {
+
+
+                            foreach (FeedItem item in feedItem.Value)
+                            {
+                                string header = item.Title + " (" + feedItem.Key.Title + ")";
+                                string text = item.Description;
+                                if (PopupWhileFullScreenVideo || !GUIGraphicsContext.IsFullScreenVideo)
+                                {
+                                    Logger.WriteLog(
+                                        "Showing new Popup (MediaPortal Dialog) for Feed[" + feedItem.Key.Title +
+                                        "] with header \"" +
+                                        header + "\" and text \"" + text + "\"", LogLevel.Info, InfoServiceModul.Feed);
+                                    NotifyBarQueue.ShowDialogNotifyWindowQueued(header, text, feedItem.Key.ImagePath,
+                                        new Size(120, 120),
+                                        (int) PopupTimeout,
+                                        () =>
+                                        {
+                                            if (GUIGraphicsContext.IsTvWindow() && GUIGraphicsContext.IsFullScreenVideo)
+                                            {
+                                                GUIWindowManager.IsOsdVisible = false;
+                                                GUIGraphicsContext.IsFullScreenVideo = false;
+                                                GUIWindowManager.ShowPreviousWindow();
+                                            }
+                                            GUIWindowManager.ActivateWindow(GUIFeed.GUIFeedId,
+                                                string.Format("feedTitle:{0},feedItemTitle:{1}", feedItem.Key.Title, item.Title));
+                                        });
+                                }
+
+                                else
+                                    Logger.WriteLog(
+                                        "Showing new Popup (MediaPortal Dialog) for Feed[" + feedItem.Key.Title +
+                                        "] with header \"" +
+                                        header + "\" and text \"" + text +
+                                        "\" is not allowed - Fullscreen Video is running...", LogLevel.Info,
+                                        InfoServiceModul.Feed);
+                            }
+
+                        }
+                        else
+                        {
+                            string text = feedItem.Value.Count == 1
+                                ? feedItem.Value[0].Title
+                                : String.Format(InfoServiceUtils.GetLocalizedLabel(39), feedItem.Key.Title);
+                            if (!string.IsNullOrEmpty(text))
+                            {
+                                if (PopupWhileFullScreenVideo || !GUIGraphicsContext.IsFullScreenVideo)
+                                {
+                                    Logger.WriteLog(
+                                        "Showing new Popup (MediaPortal Dialog) for Feed[" + feedItem.Key.Title +
+                                        "] with text \"" +
+                                        text + "\"", LogLevel.Info, InfoServiceModul.Feed);
+                                    NotifyBarQueue.ShowDialogNotifyWindowQueued(
+                                        String.Format(InfoServiceUtils.GetLocalizedLabel(38), feedItem.Value.Count.ToString(),
+                                            feedItem.Key.Title), text, feedItem.Key.ImagePath, new Size(120, 120), (int) PopupTimeout);
+                                }
+                                else
+                                    Logger.WriteLog(
+                                        "Showing new Popup (MediaPortal Dialog) for Feed[" + feedItem.Key.Title +
+                                        "] with text \"" +
+                                        text + "\" is not allowed - Fullscreen Video is running...", LogLevel.Info,
+                                        InfoServiceModul.Feed);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    Logger.WriteLog("Popups for feed[" + feedItem.Key.Title + "] are disabled...", LogLevel.Debug,
+                        InfoServiceModul.Feed);
+                }
+            }
+        }
+
         private static void LoadImagesForFeedItems(ExFeed feed)
         {
             Logger.WriteLog("Check if feed item images needs default images...", LogLevel.Debug, InfoServiceModul.Feed);
@@ -705,109 +842,7 @@ namespace InfoService.Feeds
 
         static void addFeed_OnNewItems(Feed feed, List<FeedItem> newItems)
         {
-            if (_feeds.Find(f => f.UrlPath == feed.UrlPath).ShowPopupDialog)
-            {
-                Logger.WriteLog("Popups are enabled and new feed items loaded...", LogLevel.Info, InfoServiceModul.Feed);
-                Logger.WriteLog("Popups for feed[" + feed.Title + "] are enabled...", LogLevel.Debug, InfoServiceModul.Feed);
-
-
-                bool notificationBarPluginEnabled = false;
-                using (MediaPortal.Profile.Settings settings = new MediaPortal.Profile.MPSettings())
-                {
-                    notificationBarPluginEnabled = settings.GetValueAsString("plugins", "MPNotificationBar", "no") == "yes";
-                }
-                if (InfoServiceUtils.IsAssemblyAvailable("MPNotificationBar", new Version(0, 8, 3, 0)) &&
-                    System.IO.File.Exists(GUIGraphicsContext.Skin + @"\NotificationBar.xml") &&
-                    notificationBarPluginEnabled)
-                {
-                    string text = string.Empty;
-                    foreach (FeedItem item in newItems)
-                    {
-                        text += item.Title + "\n";
-                    }
-
-                    if (!string.IsNullOrEmpty(text))
-                    {
-                        if (text.Length >= 2) text = text.Substring(0, text.Length - 1);
-                        if (PopupWhileFullScreenVideo || !GUIGraphicsContext.IsFullScreenVideo)
-                        {
-                            Logger.WriteLog(
-                                "Showing new Popup (NotificationBar) for Feed[" + feed.Title + "] with text \"" + text +
-                                "\"", LogLevel.Info, InfoServiceModul.Feed);
-                            NotificationBar.ShowNotificationBar(
-                                String.Format(InfoServiceUtils.GetLocalizedLabel(38), newItems.Count.ToString(),
-                                    feed.Title), text, feed.ImagePath, PopupWhileFullScreenVideo, (int) PopupTimeout);
-                        }
-                        else
-                            Logger.WriteLog(
-                                "Showing new Popup (NotificationBar) for Feed[" + feed.Title + "] with text \"" + text +
-                                "\" is not allowed - Fullscreen Video is running...", LogLevel.Info,
-                                InfoServiceModul.Feed);
-                    }
-                }
-                else
-                {
-                    if (InfoServiceUtils.AreNotifyBarSkinFilesInstalled())
-                    {
-
-
-                        foreach (FeedItem item in newItems)
-                        {
-                            string header = item.Title + " (" + feed.Title + ")";
-                            string text = item.Description;
-                            if (PopupWhileFullScreenVideo || !GUIGraphicsContext.IsFullScreenVideo)
-                            {
-                                Logger.WriteLog(
-                                    "Showing new Popup (MediaPortal Dialog) for Feed[" + feed.Title +
-                                    "] with header \"" +
-                                    header + "\" and text \"" + text + "\"", LogLevel.Info, InfoServiceModul.Feed);
-                                InfoServiceUtils.ShowDialogNotifyWindow(header, text, feed.ImagePath,
-                                    new Size(120, 120),
-                                    (int) PopupTimeout,
-                                    () =>
-                                    {
-                                        GUIWindowManager.ActivateWindow(GUIFeed.GUIFeedId,
-                                            string.Format("feedTitle:{0}, feedItemTitle:{1}", feed.Title, item.Title));
-                                    });
-                            }
-
-                            else
-                                Logger.WriteLog(
-                                    "Showing new Popup (MediaPortal Dialog) for Feed[" + feed.Title + "] with header \"" +
-                                    header + "\" and text \"" + text + "\" is not allowed - Fullscreen Video is running...", LogLevel.Info,
-                                    InfoServiceModul.Feed);
-                        }
-
-                    }
-                    else
-                    {
-                        string text = newItems.Count == 1
-                            ? newItems[0].Title
-                            : String.Format(InfoServiceUtils.GetLocalizedLabel(39), feed.Title);
-                        if (!string.IsNullOrEmpty(text))
-                        {
-                            if (PopupWhileFullScreenVideo || !GUIGraphicsContext.IsFullScreenVideo)
-                            {
-                                Logger.WriteLog(
-                                    "Showing new Popup (MediaPortal Dialog) for Feed[" + feed.Title + "] with text \"" +
-                                    text + "\"", LogLevel.Info, InfoServiceModul.Feed);
-                                InfoServiceUtils.ShowDialogNotifyWindow(
-                                    String.Format(InfoServiceUtils.GetLocalizedLabel(38), newItems.Count.ToString(),
-                                        feed.Title), text, feed.ImagePath, new Size(120, 120), (int) PopupTimeout);
-                            }
-                            else
-                                Logger.WriteLog(
-                                    "Showing new Popup (MediaPortal Dialog) for Feed[" + feed.Title + "] with text \"" +
-                                    text + "\" is not allowed - Fullscreen Video is running...", LogLevel.Info,
-                                    InfoServiceModul.Feed);
-                        }
-                    }
-                }
-            }
-            else
-            {
-                Logger.WriteLog("Popups for feed[" + feed.Title + "] are disabled...", LogLevel.Debug, InfoServiceModul.Feed);
-            }
+            _newFeedItems.Add(feed, newItems);
         }
 
         public static void DeleteCache()

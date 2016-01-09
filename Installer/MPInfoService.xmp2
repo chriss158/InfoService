@@ -890,7 +890,7 @@ Version v0.1:
     <VersionDescription />
     <DevelopmentStatus>Stable</DevelopmentStatus>
     <OnlineLocation>http://www.team-mediaportal.com/index.php?option=com_mtree&amp;task=att_download&amp;link_id=84&amp;cf_id=24</OnlineLocation>
-    <ReleaseDate>2016-01-08T11:24:16.940657+01:00</ReleaseDate>
+    <ReleaseDate>2016-01-09T20:55:14.9739532+01:00</ReleaseDate>
     <Tags>all,infoservice,rss,feed,twitter,weather,feeds</Tags>
     <Location>..\LastBuild\MPInfoService_v[Version].mpe1</Location>
     <Params>
