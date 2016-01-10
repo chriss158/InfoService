@@ -129,10 +129,22 @@ namespace InfoService.GUIWindows
 
                     string parameterName = paramNameSetting[0].Trim();
                     string parameterSetting = paramNameSetting[1].Trim();
+                    Guid feedGuid = Guid.Empty;
 
-                    if (parameterName == "feedIndex" && parameterSetting.All(char.IsDigit)) feedIndex = Convert.ToInt32(parameterSetting);
-                        
-                    if (parameterName == "feedTitle")
+                    if (parameterName == "feedIndex" && parameterSetting.All(char.IsDigit) && feedIndex < 0) feedIndex = Convert.ToInt32(parameterSetting);
+
+                    if (parameterName == "feedGuid" && feedIndex < 0 && Guid.TryParse(parameterSetting, out feedGuid))
+                    {
+                        for (int i = 0; i < FeedService.Feeds.Count; i++)
+                        {
+                            if (FeedService.Feeds[i].Guid == feedGuid)
+                            {
+                                feedIndex = i;
+                                break;
+                            }
+                        }
+                    }
+                    if (parameterName == "feedTitle" && feedIndex < 0)
                     {
                         for (int i = 0; i < FeedService.Feeds.Count; i++)
                         {
@@ -142,31 +154,33 @@ namespace InfoService.GUIWindows
                                 break;
                             }
                         }
- 
+
                     }
                     if (feedIndex >= 0)
                     {
                         if (parameterName == "feedItemIndex" && parameterSetting.All(char.IsDigit)) feedItemIndex = Convert.ToInt32(parameterSetting);
-                        if (parameterName == "feedItemTitle")
-                        {
-                            for (int i = 0; i < FeedService.Feeds[feedIndex].Items.Count; i++)
-                            {
-                                if (FeedService.Feeds[feedIndex].Items[i].Title == parameterSetting)
-                                {
-                                    feedItemIndex = i;
-                                    break;
-                                }
-                            }
-                        }
+                        //if (parameterName == "feedItemTitle")
+                        //{
+                        //    for (int i = 0; i < FeedService.Feeds[feedIndex].Items.Count; i++)
+                        //    {
+                        //        if (FeedService.Feeds[feedIndex].Items[i].Title == parameterSetting)
+                        //        {
+                        //            feedItemIndex = i;
+                        //            break;
+                        //        }
+                        //    }
+                        //}
                     }
                 }
                 if (feedIndex >= 0)
                 {
+                    logger.WriteLog("Parsing load params succesfull. Open Feed GUI with feed index \"" + feedIndex + "\" and feed item index \"" + feedItemIndex + "\"", LogLevel.Info, InfoServiceModul.Feed);
                     FeedService.SetActive(feedIndex);
                     FeedUtils.SetFeedOnWindow(FeedService.ActiveFeedIndex, feedItemIndex, true);
                 }
                 else
                 {
+                    logger.WriteLog("Parsing load params unsuccesfull. Open Feed GUI without params.", LogLevel.Error, InfoServiceModul.Twitter);
                     FeedUtils.SetFeedOnWindow(FeedService.ActiveFeedIndex, true, true);
                 }
 

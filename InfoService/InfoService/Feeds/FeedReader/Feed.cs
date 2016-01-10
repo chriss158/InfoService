@@ -37,6 +37,7 @@ namespace FeedReader
             Items = new List<FeedItem>();
             CacheAutomatic = useCacheAutomatic;
             if (!useCacheAutomatic) EnableCache();
+            Guid = Guid.NewGuid();
             //Update();
         }
         public Feed(string url_path, string cacheFolder, bool useCacheAutomatic = false)
@@ -49,6 +50,7 @@ namespace FeedReader
             Items = new List<FeedItem>();
             CacheAutomatic = useCacheAutomatic;
             if (!useCacheAutomatic) EnableCache();
+            Guid = Guid.NewGuid();
             //Update();
         }
         public Feed(string url_path)
@@ -58,6 +60,7 @@ namespace FeedReader
             CacheEnabled = false;
             LastUpdateSuccessful = false;
             Items = new List<FeedItem>();
+            Guid = Guid.NewGuid();
             //Update();
         }
 
@@ -69,7 +72,7 @@ namespace FeedReader
             CacheEnabled = false;
             LastUpdateSuccessful = false;
             Items = new List<FeedItem>();
-
+            Guid = Guid.NewGuid();
             //Update();
         }
         public static void DisableCache()
@@ -163,6 +166,7 @@ namespace FeedReader
         public Feed()
         {
             Items = new List<FeedItem>();
+            Guid = Guid.NewGuid();
         }
 
         public static bool DeleteCache()
@@ -196,9 +200,11 @@ namespace FeedReader
         public string UrlPath { get; set; }
         public DateTime LastUpdate { get; set; }
         public bool LastUpdateSuccessful { get; set; }
+        public Guid Guid { get; private set; }
 
         public virtual bool Update(bool downloadImages)
         {
+            bool oldLastUpdateSuccessful = LastUpdateSuccessful;
             LastUpdateSuccessful = false;
 
             LogEvents.InvokeOnDebug(new FeedArgs("Try downloading/loading feed from " + UrlPath));
@@ -296,7 +302,7 @@ namespace FeedReader
             }
             else
             {
-                CheckForNewItems(oldItems, Items);
+                if (oldLastUpdateSuccessful) CheckForNewItems(oldItems, Items);
                 return true;
             }
         }
@@ -325,6 +331,7 @@ namespace FeedReader
             feed.UrlPath = this.UrlPath;
             feed.LastUpdate = this.LastUpdate;
             feed.LastUpdateSuccessful = this.LastUpdateSuccessful;
+            feed.Guid = this.Guid;
             return feed;
         }
 
@@ -345,6 +352,7 @@ namespace FeedReader
                 this.Image = null;
                 this.ImagePath = null;
                 this.UrlPath = null;
+                this.Guid = Guid.Empty;
             }
 
             _isDisposed = true;

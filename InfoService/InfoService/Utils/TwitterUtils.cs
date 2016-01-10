@@ -95,6 +95,7 @@ namespace InfoService.Utils
         }
 
         public delegate void SetTimelineOnWindowDelegate(Timeline timeline, bool selectLastItemIndex, bool updateGUI);
+        public delegate void SetTimelineOnWindowIndexDelegate(Timeline timeline, int twitterItemIndex, bool updateGUI);
 
         public static void SetTimelineOnWindow(Timeline timeline, bool selectLastItemIndex, bool updateGUI)
         {
@@ -112,8 +113,17 @@ namespace InfoService.Utils
             
             if (GUIGraphicsContext.form.InvokeRequired)
             {
-                SetTimelineOnWindowDelegate d = new SetTimelineOnWindowDelegate(SetTimelineOnWindow);
-                GUIGraphicsContext.form.Invoke(d, timeline, selectLastItemIndex, false);
+                if (selectLastItemIndex || twitterItemIndex < 0)
+                {
+                    SetTimelineOnWindowDelegate d = new SetTimelineOnWindowDelegate(SetTimelineOnWindow);
+                    GUIGraphicsContext.form.Invoke(d, timeline, selectLastItemIndex, false);
+                }
+                else
+                {
+                    SetTimelineOnWindowIndexDelegate d = new SetTimelineOnWindowIndexDelegate(SetTimelineOnWindow);
+                    GUIGraphicsContext.form.Invoke(d, timeline, twitterItemIndex, false);
+                }
+
                 return;
             }
 
@@ -160,8 +170,7 @@ namespace InfoService.Utils
 
                 if (lastSelectedItem >= 0 || twitterItemIndex >= 0)
                 {
-                    int setIndex = 0;
-                    setIndex = selectLastItemIndex ? lastSelectedItem : twitterItemIndex;
+                    int setIndex = selectLastItemIndex ? lastSelectedItem : twitterItemIndex;
                     logger.WriteLog("Set selected item [" + setIndex + "] for twitter timeline[" + timeline.Type + "] on window", LogLevel.Debug, InfoServiceModul.Twitter);
                     GUIListControl.SelectItemControl(GUITwitter.GUITwitterId, GUITwitter.GUITwitterList, setIndex);
                 }

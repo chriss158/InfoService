@@ -13,6 +13,14 @@ Changelog:
 [i] - Information
 [!] - Attention
 
+Version v1.83:
+[+] Added load paramaters (feedIndex, feedTitle, feedGuid, feedItemIndex, twitterTimeline, twitterId). More about that on InfoService Github Wiki.
+[+] You can go now directly to twitter/feed if you click ok on the News/New Tweets popup
+[*] Improved News/New Tweets popup (New dialog, better to read). 
+[*] Include skin files for Titan and TITANIUS
+[-] Fixed #infoservice.feed.img is not set everytime
+[-] Fixed problems of two many new feed messages on some feeds
+
 Version v1.82:
 [*] Updated Spanish translation
 [-] Fixed wrong help text (%show%) for update twitter status on movie/series watching

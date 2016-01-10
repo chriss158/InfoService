@@ -109,6 +109,7 @@ namespace InfoService.Utils
         }
 
         public delegate void SetFeedOnWindowDelegate(int index, bool selectLastItemIndex, bool updateGUI);
+        public delegate void SetFeedOnWindowIndexDelegate(int index, int feedItemIndex, bool updateGUI);
 
         public static void SetFeedOnWindow(int index, bool selectLastItemIndex, bool updateGUI)
         {
@@ -132,8 +133,18 @@ namespace InfoService.Utils
 
             if (GUIGraphicsContext.form.InvokeRequired)
             {
-                SetFeedOnWindowDelegate d = new SetFeedOnWindowDelegate(SetFeedOnWindow);
-                GUIGraphicsContext.form.Invoke(d, index, selectLastItemIndex, false);
+                
+                if (selectLastItemIndex || feedItemIndex < 0)
+                {
+                    SetFeedOnWindowDelegate d = new SetFeedOnWindowDelegate(SetFeedOnWindow);
+                    GUIGraphicsContext.form.Invoke(d, index, selectLastItemIndex, false);
+                }
+                else
+                {
+                    SetFeedOnWindowIndexDelegate d = new SetFeedOnWindowIndexDelegate(SetFeedOnWindow);
+                    GUIGraphicsContext.form.Invoke(d, index, feedItemIndex, false);
+                }
+                
                 return;
             }
 
@@ -147,7 +158,7 @@ namespace InfoService.Utils
             PropertyUtils.SetProperty(PropertyUtils.Properties.Feed.SelectedType, FeedService.Feeds[index].Type.ToString());
             PropertyUtils.SetProperty(PropertyUtils.Properties.Feed.ItemCount, MediaPortal.Util.Utils.GetObjectCountLabel(FeedService.Feeds[index].Items.Count));
             PropertyUtils.SetProperty(PropertyUtils.Properties.Feed.ItemType, InfoServiceUtils.GetLocalizedLabel(34));
-
+            PropertyUtils.SetProperty(PropertyUtils.Properties.Feed.Img, FeedService.Feeds[index].ImagePath);
             if (selectLastItemIndex || updateGUI)
                 GUIListControl.ClearControl(GUIFeed.GUIFeedId, GUIFeed.GUIFeedList);
 
@@ -200,8 +211,7 @@ namespace InfoService.Utils
 
                 if (lastSelectedItem >= 0 || feedItemIndex >= 0)
                 {
-                    int setIndex = 0;
-                    setIndex = selectLastItemIndex ? lastSelectedItem : feedItemIndex;
+                    int setIndex = selectLastItemIndex ? lastSelectedItem : feedItemIndex;
                     logger.WriteLog("Set selected item [" + setIndex + "] for feed[" + FeedService.Feeds[index].Title + "]/[" + index + "] on window", LogLevel.Debug, InfoServiceModul.Feed);
                     GUIListControl.SelectItemControl(GUIFeed.GUIFeedId, GUIFeed.GUIFeedList, setIndex);
                 }

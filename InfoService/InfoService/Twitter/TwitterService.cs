@@ -552,10 +552,11 @@ namespace InfoService.Twitter
                                     "] with text \"" +
                                     text +
                                     "\"", LogLevel.Info, InfoServiceModul.Twitter);
-                                NotifyBarQueue.ShowDialogNotifyWindowQueued(
-                                    String.Format(InfoServiceUtils.GetLocalizedLabel(40), pair.Value.Count.ToString(),
-                                        pair.Key.Type + " Timeline"),
-                                    text, imagePath, new Size(120, 120), (int) PopupTimeout);
+                                InfoServiceUtils.ShowDialogNotifyWindow(String.Format(InfoServiceUtils.GetLocalizedLabel(40), pair.Value.Count.ToString(), pair.Key.Type + " Timeline"), text, imagePath, new Size(120, 120), (int)PopupTimeout);
+                                //NotifyBarQueue.ShowDialogNotifyWindowQueued(
+                                //    String.Format(InfoServiceUtils.GetLocalizedLabel(40), pair.Value.Count.ToString(),
+                                //        pair.Key.Type + " Timeline"),
+                                //    text, imagePath, new Size(120, 120), (int) PopupTimeout);
                             }
                             else
                                 logger.WriteLog(
@@ -579,7 +580,7 @@ namespace InfoService.Twitter
                                     "] with text \"" +
                                     text +
                                     "\"", LogLevel.Info, InfoServiceModul.Feed);
-                                NotifyBarQueue.ShowDialogNotifyWindowQueued(header, text, item.User.PicturePath,
+                                InfoServiceUtils.ShowDialogNotifyWindow(header, text, item.User.PicturePath,
                                     new Size(120, 120),
                                     (int) PopupTimeout, () =>
                                     {
@@ -590,9 +591,23 @@ namespace InfoService.Twitter
                                             GUIWindowManager.ShowPreviousWindow();
                                         }
                                         GUIWindowManager.ActivateWindow(GUITwitter.GUITwitterId,
-                                            string.Format("twitterTimeline:{0}, twitterItemId:{1}", pair.Key.Type,
+                                            string.Format("twitterTimeline:{0},twitterItemId:{1}", pair.Key.Type,
                                                 item.Id));
                                     });
+                                //NotifyBarQueue.ShowDialogNotifyWindowQueued(header, text, item.User.PicturePath,
+                                //    new Size(120, 120),
+                                //    (int) PopupTimeout, () =>
+                                //    {
+                                //        if (GUIGraphicsContext.IsTvWindow() && GUIGraphicsContext.IsFullScreenVideo)
+                                //        {
+                                //            GUIWindowManager.IsOsdVisible = false;
+                                //            GUIGraphicsContext.IsFullScreenVideo = false;
+                                //            GUIWindowManager.ShowPreviousWindow();
+                                //        }
+                                //        GUIWindowManager.ActivateWindow(GUITwitter.GUITwitterId,
+                                //            string.Format("twitterTimeline:{0},twitterItemId:{1}", pair.Key.Type,
+                                //                item.Id));
+                                //    });
                             }
 
                             else
@@ -610,6 +625,7 @@ namespace InfoService.Twitter
 
         private static void Value_OnNewItems(Timeline timeline, List<TwitterItem> newItems)
         {
+            newItems.Reverse();
             _newTweets.Add(timeline, newItems);
         }
 

@@ -540,9 +540,9 @@ namespace InfoService.Feeds
                                         "Showing new Popup (MediaPortal Dialog) for Feed[" + feedItem.Key.Title +
                                         "] with header \"" +
                                         header + "\" and text \"" + text + "\"", LogLevel.Info, InfoServiceModul.Feed);
-                                    NotifyBarQueue.ShowDialogNotifyWindowQueued(header, text, feedItem.Key.ImagePath,
+                                    InfoServiceUtils.ShowDialogNotifyWindow(header, text, feedItem.Key.ImagePath,
                                         new Size(120, 120),
-                                        (int) PopupTimeout,
+                                        (int)PopupTimeout,
                                         () =>
                                         {
                                             if (GUIGraphicsContext.IsTvWindow() && GUIGraphicsContext.IsFullScreenVideo)
@@ -552,8 +552,22 @@ namespace InfoService.Feeds
                                                 GUIWindowManager.ShowPreviousWindow();
                                             }
                                             GUIWindowManager.ActivateWindow(GUIFeed.GUIFeedId,
-                                                string.Format("feedTitle:{0},feedItemTitle:{1}", feedItem.Key.Title, item.Title));
+                                                string.Format("feedGuid:{0},feedItemIndex:{1}", feedItem.Key.Guid, item.Index));
                                         });
+                                    //NotifyBarQueue.ShowDialogNotifyWindowQueued(header, text, feedItem.Key.ImagePath,
+                                    //    new Size(120, 120),
+                                    //    (int) PopupTimeout,
+                                    //    () =>
+                                    //    {
+                                    //        if (GUIGraphicsContext.IsTvWindow() && GUIGraphicsContext.IsFullScreenVideo)
+                                    //        {
+                                    //            GUIWindowManager.IsOsdVisible = false;
+                                    //            GUIGraphicsContext.IsFullScreenVideo = false;
+                                    //            GUIWindowManager.ShowPreviousWindow();
+                                    //        }
+                                    //        GUIWindowManager.ActivateWindow(GUIFeed.GUIFeedId,
+                                    //            string.Format("feedGuid:{0},feedItemIndex:{1}", feedItem.Key.Guid, item.Index));
+                                    //    });
                                 }
 
                                 else
@@ -579,9 +593,10 @@ namespace InfoService.Feeds
                                         "Showing new Popup (MediaPortal Dialog) for Feed[" + feedItem.Key.Title +
                                         "] with text \"" +
                                         text + "\"", LogLevel.Info, InfoServiceModul.Feed);
-                                    NotifyBarQueue.ShowDialogNotifyWindowQueued(
-                                        String.Format(InfoServiceUtils.GetLocalizedLabel(38), feedItem.Value.Count.ToString(),
-                                            feedItem.Key.Title), text, feedItem.Key.ImagePath, new Size(120, 120), (int) PopupTimeout);
+                                    InfoServiceUtils.ShowDialogNotifyWindow(String.Format(InfoServiceUtils.GetLocalizedLabel(38), feedItem.Value.Count.ToString(), feedItem.Key.Title), text, feedItem.Key.ImagePath, new Size(120, 120), (int)PopupTimeout);
+                                    //NotifyBarQueue.ShowDialogNotifyWindowQueued(
+                                    //    String.Format(InfoServiceUtils.GetLocalizedLabel(38), feedItem.Value.Count.ToString(),
+                                    //        feedItem.Key.Title), text, feedItem.Key.ImagePath, new Size(120, 120), (int)PopupTimeout);
                                 }
                                 else
                                     Logger.WriteLog(
@@ -842,6 +857,7 @@ namespace InfoService.Feeds
 
         static void addFeed_OnNewItems(Feed feed, List<FeedItem> newItems)
         {
+            newItems.Reverse();
             _newFeedItems.Add(feed, newItems);
         }
 

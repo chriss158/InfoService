@@ -120,9 +120,11 @@ namespace InfoService.GUIWindows
             }
             else
             {
-                logger.WriteLog("Load Twitter GUI with params \"" + _loadParameter + "\"", LogLevel.Info, InfoServiceModul.Twitter);
-                string twitterTimelineName = string.Empty;
+                logger.WriteLog("Load Twitter GUI with params \"" + _loadParameter + "\"", LogLevel.Info,
+                    InfoServiceModul.Twitter);
+                TimelineType twitterTimelineType = TimelineType.None;
                 int twitterItemIndex = 0;
+                logger.WriteLog("Parsing load params...", LogLevel.Info, InfoServiceModul.Twitter);
                 string[] parameters = _loadParameter.Trim().Split(',');
                 foreach (string parameter in parameters)
                 {
@@ -133,52 +135,45 @@ namespace InfoService.GUIWindows
                         string parameterName = paramNameSetting[0].Trim();
                         string parameterSetting = paramNameSetting[1].Trim();
 
-                        if (parameterName == "twitterTimeline") twitterTimelineName = parameterSetting;
+                        if (parameterName == "twitterTimeline")
+                            TimelineType.TryParse(parameterSetting, out twitterTimelineType);
 
 
-                        if (!string.IsNullOrEmpty(twitterTimelineName))
+                        if (twitterTimelineType != TimelineType.None)
                         {
-                            if (parameterName == "twitterItemIndex" && parameterSetting.All(char.IsDigit)) twitterItemIndex = Convert.ToInt32(parameterSetting);
+                            if (parameterName == "twitterItemIndex" && parameterSetting.All(char.IsDigit))
+                                twitterItemIndex = Convert.ToInt32(parameterSetting);
                             if (parameterName == "twitterItemId")
                             {
-                                TimelineType timeline;
-                                if (Enum.TryParse(twitterTimelineName, out timeline))
+                                Timeline twitterTimeline = TwitterService.GetTimeline(twitterTimelineType);
+                                for (int i = 0; i < twitterTimeline.Items.Count; i++)
                                 {
-                                    Timeline twitterTimeline = TwitterService.GetTimeline(timeline);
-                                    for (int i = 0; i < twitterTimeline.Items.Count; i++)
+                                    if (twitterTimeline.Items[i].Id == parameterSetting)
                                     {
-                                        if (twitterTimeline.Items[i].Id == parameterSetting)
-                                        {
-                                            twitterItemIndex = i;
-                                            break;
-                                        }
+                                        twitterItemIndex = i;
+                                        break;
                                     }
                                 }
                             }
                         }
                     }
                 }
-                if (!string.IsNullOrEmpty(twitterTimelineName))
+                if (twitterTimelineType != TimelineType.None)
                 {
-                    TimelineType timeline;
-                    if (Enum.TryParse(twitterTimelineName, out timeline))
-                    {
-                        TwitterUtils.SetTimelineOnWindow(TwitterService.GetTimeline(timeline), twitterItemIndex, true);
-                        TwitterUtils.SetTimelineOnBasichome(TwitterService.GetTimeline(timeline));
-                    }
-                    else
-                    {
-                        TwitterUtils.SetTimelineOnWindow(TwitterService.GetTimeline(TwitterService.ActiveTimeline), true, true);
-                        TwitterUtils.SetTimelineOnBasichome(TwitterService.GetTimeline(TwitterService.ActiveTimeline));
-                    }
+                    logger.WriteLog("Parsing load params succesfull. Open Twitter GUI with Timeline \"" + twitterTimelineType + "\" and index \"" + twitterItemIndex + "\"",
+                        LogLevel.Info, InfoServiceModul.Twitter);
+                    TwitterUtils.SetTimelineOnWindow(TwitterService.GetTimeline(twitterTimelineType), twitterItemIndex, true);
+                    TwitterUtils.SetTimelineOnBasichome(TwitterService.GetTimeline(twitterTimelineType));
                 }
                 else
                 {
+                    logger.WriteLog("Parsing load params unsuccesfull. Open Twitter GUI without params.", LogLevel.Error, InfoServiceModul.Twitter);
                     TwitterUtils.SetTimelineOnWindow(TwitterService.GetTimeline(TwitterService.ActiveTimeline), true, true);
                     TwitterUtils.SetTimelineOnBasichome(TwitterService.GetTimeline(TwitterService.ActiveTimeline));
                 }
 
             }
+
             base.OnPageLoad();
         }
 

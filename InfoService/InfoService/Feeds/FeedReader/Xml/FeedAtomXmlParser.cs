@@ -92,6 +92,7 @@ namespace FeedReader.Xml
                         feedItem.PublishDate = FeedXmlParser.ParseDateTime(entry.Element(atom + "updated"), "entry[" + i + "]/updated");
                         string description = FeedXmlParser.ParseString(entry.Element(atom + "summary"), "entry[" + i + "]/summary");
                         feedItem.Description = Utils.Clean(description, false, true, false, true, itemFilter);
+                        feedItem.Index = i - 1;
                         rFeed.Items.Add(feedItem);
                         i++;
                     }

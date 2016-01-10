@@ -452,6 +452,14 @@ Changelog:
 [i] - Information
 [!] - Attention
 
+Version v1.83:
+[+] Added load paramaters (feedIndex, feedTitle, feedGuid, feedItemIndex, twitterTimeline, twitterId). More about that on InfoService Github Wiki.
+[+] You can go now directly to twitter/feed if you click ok on the News/New Tweets popup
+[*] Improved News/New Tweets popup (New dialog, better to read). 
+[*] Include skin files for Titan and TITANIUS
+[-] Fixed #infoservice.feed.img is not set everytime
+[-] Fixed problems of two many new feed messages on some feeds
+
 Version v1.82:
 [*] Updated Spanish translation
 [-] Fixed wrong help text (%show%) for update twitter status on movie/series watching
@@ -890,7 +898,7 @@ Version v0.1:
     <VersionDescription />
     <DevelopmentStatus>Stable</DevelopmentStatus>
     <OnlineLocation>http://www.team-mediaportal.com/index.php?option=com_mtree&amp;task=att_download&amp;link_id=84&amp;cf_id=24</OnlineLocation>
-    <ReleaseDate>2016-01-09T20:55:14.9739532+01:00</ReleaseDate>
+    <ReleaseDate>2016-01-10T19:43:47.8994794+01:00</ReleaseDate>
     <Tags>all,infoservice,rss,feed,twitter,weather,feeds</Tags>
     <Location>..\LastBuild\MPInfoService_v[Version].mpe1</Location>
     <Params>
