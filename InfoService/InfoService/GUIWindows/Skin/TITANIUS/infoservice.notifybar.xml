@@ -14,7 +14,7 @@
       <control>
         <id>0</id>
         <type>image</type>
-        <posX>0</posX>
+        <posX>35</posX>
         <posY>0</posY>
         <width>1850</width>
         <height>300</height>
@@ -24,7 +24,7 @@
         <id>3</id>
         <description>Heading text label</description>
         <type>label</type>
-        <posX>250</posX>
+        <posX>285</posX>
         <posY>90</posY>
         <width>1500</width>
         <font>fontB16</font>
@@ -62,7 +62,7 @@
         <id>5</id>
         <description>logo</description>
         <type>image</type>
-        <posX>100</posX>
+        <posX>135</posX>
         <posY>97</posY>
         <width>120</width>
         <height>80</height>
@@ -79,7 +79,7 @@
         <onright>4</onright>
         <onup>4</onup>
         <ondown>4</ondown>
-        <posX>250</posX>
+        <posX>285</posX>
         <posY>135</posY>
         <width>1500</width>
         <height>85</height>

@@ -1,4 +1,4 @@
-If you never used InfoService please read carefully the documentation: http://infoservice.codeplex.com/documentation
+If you never used InfoService please read carefully the documentation: https://github.com/hasenbolle/InfoService/wiki
 
 There you will find some useful informations about the plugin configuration. Especially MediaPortal skin developers need to look into this wiki. They will find some informations about the used property names and hyperlinks to the GUI screen,
 
@@ -16,6 +16,7 @@ Changelog:
 Version v1.83:
 [+] Added load paramaters (feedIndex, feedTitle, feedGuid, feedItemIndex, twitterTimeline, twitterId). More about that on InfoService Github Wiki.
 [+] You can go now directly to twitter/feed if you click ok on the News/New Tweets popup
+[+] Added developer mode. More about that on InfoService Github Wiki.
 [*] Improved News/New Tweets popup (New dialog, better to read). 
 [*] Include skin files for Titan and TITANIUS
 [-] Fixed #infoservice.feed.img is not set everytime

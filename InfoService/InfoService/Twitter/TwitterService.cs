@@ -2,13 +2,10 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using InfoService.Enums;
 using InfoService.GUIWindows;
 using InfoService.Utils.NotificationBar;
 using InfoService.Utils;
-using InfoService.Utils.QueuedNotifyBar;
-using MediaPortal.Configuration;
 using MediaPortal.GUI.Library;
 using TwitterConnector;
 using TwitterConnector.Data;
@@ -586,8 +583,6 @@ namespace InfoService.Twitter
                                     {
                                         if (GUIGraphicsContext.IsTvWindow() && GUIGraphicsContext.IsFullScreenVideo)
                                         {
-                                            GUIWindowManager.IsOsdVisible = false;
-                                            GUIGraphicsContext.IsFullScreenVideo = false;
                                             GUIWindowManager.ShowPreviousWindow();
                                         }
                                         GUIWindowManager.ActivateWindow(GUITwitter.GUITwitterId,

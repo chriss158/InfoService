@@ -6,20 +6,15 @@ using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Web;
 using FeedReader;
 using FeedReader.Data;
 using FeedReader.Expections;
 using InfoService.Enums;
 using InfoService.Utils;
 using MediaPortal.GUI.Library;
-using System.Xml;
 using InfoService.GUIWindows;
 using InfoService.Utils.NotificationBar;
-using InfoService.Utils.QueuedNotifyBar;
-using MediaPortal.Player;
 
 #endregion
 
@@ -547,8 +542,6 @@ namespace InfoService.Feeds
                                         {
                                             if (GUIGraphicsContext.IsTvWindow() && GUIGraphicsContext.IsFullScreenVideo)
                                             {
-                                                GUIWindowManager.IsOsdVisible = false;
-                                                GUIGraphicsContext.IsFullScreenVideo = false;
                                                 GUIWindowManager.ShowPreviousWindow();
                                             }
                                             GUIWindowManager.ActivateWindow(GUIFeed.GUIFeedId,

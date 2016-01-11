@@ -108,6 +108,7 @@ namespace InfoService.GUIConfiguration
             }
 
             SettingsManager.Properties.GeneralSettings.PluginName = txtPluginName.Text;
+            SettingsManager.Properties.GeneralSettings.DeveloperMode = cbDeveloperMode.Checked;
 
             SettingsManager.Properties.WebBrowserSettings.BrowserType = (WebBrowserType)cbWebBrowserSelector.SelectedIndex;
 
@@ -143,6 +144,7 @@ namespace InfoService.GUIConfiguration
             }
 
             txtPluginName.Text = SettingsManager.Properties.GeneralSettings.PluginName;
+            cbDeveloperMode.Checked = SettingsManager.Properties.GeneralSettings.DeveloperMode;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
