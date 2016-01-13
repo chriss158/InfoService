@@ -30,6 +30,9 @@ namespace InfoService.GUIConfiguration
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdvancedConfigForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbLogging = new System.Windows.Forms.GroupBox();
             this.btnOpenLog = new System.Windows.Forms.Button();
             this.imgList = new System.Windows.Forms.ImageList(this.components);
@@ -55,6 +58,7 @@ namespace InfoService.GUIConfiguration
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.gbGeneral = new System.Windows.Forms.GroupBox();
+            this.cbDeveloperMode = new System.Windows.Forms.CheckBox();
             this.txtPluginName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.gbWebBrowser = new System.Windows.Forms.GroupBox();
@@ -73,7 +77,6 @@ namespace InfoService.GUIConfiguration
             this.btnExportOPML = new System.Windows.Forms.Button();
             this.btnFeedItemsFilters = new System.Windows.Forms.Button();
             this.saveOPMLFile = new System.Windows.Forms.SaveFileDialog();
-            this.cbDeveloperMode = new System.Windows.Forms.CheckBox();
             this.gbLogging.SuspendLayout();
             this.gbCaching.SuspendLayout();
             this.gbGeneral.SuspendLayout();
@@ -393,6 +396,17 @@ namespace InfoService.GUIConfiguration
             this.gbGeneral.TabStop = false;
             this.gbGeneral.Text = "General";
             // 
+            // cbDeveloperMode
+            // 
+            this.cbDeveloperMode.AutoSize = true;
+            this.cbDeveloperMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbDeveloperMode.Location = new System.Drawing.Point(12, 58);
+            this.cbDeveloperMode.Name = "cbDeveloperMode";
+            this.cbDeveloperMode.Size = new System.Drawing.Size(138, 17);
+            this.cbDeveloperMode.TabIndex = 2;
+            this.cbDeveloperMode.Text = "Enable developer mode";
+            this.cbDeveloperMode.UseVisualStyleBackColor = true;
+            // 
             // txtPluginName
             // 
             this.txtPluginName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -459,12 +473,36 @@ namespace InfoService.GUIConfiguration
             // dgWebBrowserData
             // 
             this.dgWebBrowserData.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgWebBrowserData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgWebBrowserData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgWebBrowserData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Property,
             this.Value});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgWebBrowserData.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgWebBrowserData.Location = new System.Drawing.Point(12, 50);
             this.dgWebBrowserData.Name = "dgWebBrowserData";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgWebBrowserData.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgWebBrowserData.RowHeadersWidth = 10;
             this.dgWebBrowserData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgWebBrowserData.ShowCellToolTips = false;
@@ -586,17 +624,6 @@ namespace InfoService.GUIConfiguration
             this.saveOPMLFile.DefaultExt = "*.xml";
             this.saveOPMLFile.FileName = "infoservice_feed_export";
             this.saveOPMLFile.Filter = "XML-File|*.xml";
-            // 
-            // cbDeveloperMode
-            // 
-            this.cbDeveloperMode.AutoSize = true;
-            this.cbDeveloperMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbDeveloperMode.Location = new System.Drawing.Point(12, 58);
-            this.cbDeveloperMode.Name = "cbDeveloperMode";
-            this.cbDeveloperMode.Size = new System.Drawing.Size(138, 17);
-            this.cbDeveloperMode.TabIndex = 2;
-            this.cbDeveloperMode.Text = "Enable developer mode";
-            this.cbDeveloperMode.UseVisualStyleBackColor = true;
             // 
             // AdvancedConfigForm
             // 

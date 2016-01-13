@@ -581,7 +581,7 @@ namespace InfoService.Twitter
                                     new Size(120, 120),
                                     (int) PopupTimeout, () =>
                                     {
-                                        if (GUIGraphicsContext.IsTvWindow() && GUIGraphicsContext.IsFullScreenVideo)
+                                        if (GUIGraphicsContext.IsFullScreenVideo)
                                         {
                                             GUIWindowManager.ShowPreviousWindow();
                                         }

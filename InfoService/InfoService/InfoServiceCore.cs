@@ -7,6 +7,7 @@ using System.Threading;
 using FeedReader.Data;
 using InfoService.Feeds;
 using InfoService.GUIConfiguration;
+using InfoService.GUIWindows;
 using InfoService.Settings;
 using InfoService.Settings.Data;
 using InfoService.Twitter;
@@ -427,9 +428,24 @@ namespace InfoService
                 Logger.WriteLog("Enabled InfoService developer mode. Showing NotifyBar Popup every 30 seconds.", LogLevel.Debug, InfoServiceModul.InfoService);
                 _developerModetimer = new Timer(state =>
                 {
-                    InfoServiceUtils.ShowDialogNotifyWindow(InfoServiceUtils.GenerateLoremIpsum(4, 10, 1, 1, 1), InfoServiceUtils.GenerateLoremIpsum(20, 40, 1, 4, 1), GUIGraphicsContext.Skin + @"\media\InfoService\defaultFeedALL.png", new Size(120, 120), 20);
+                    InfoServiceUtils.ShowDialogNotifyWindow(InfoServiceUtils.GenerateLoremIpsum(4, 10, 1, 1, 1), InfoServiceUtils.GenerateLoremIpsum(20, 40, 1, 4, 1), GUIGraphicsContext.Skin + @"\media\InfoService\defaultFeedALL.png", new Size(120, 120), 20,
+                    //InfoServiceUtils.ShowDialogNotifyWindow(FeedService.Feeds[3].Items[0].Title + " (" + FeedService.Feeds[3].Title + ")", FeedService.Feeds[3].Items[0].Description, FeedService.Feeds[3].ImagePath, new Size(120, 120), 20,
+                    () =>
+                        {
+                            if (FeedService.Enabled)
+                            {
+                                if (GUIGraphicsContext.IsFullScreenVideo)
+                                {
+                                    GUIWindowManager.ShowPreviousWindow();
+                                }
+                                Random rnd = new Random();
+                                int randomFeedIndex = rnd.Next(0, FeedService.Feeds.Count - 1);
+                                GUIWindowManager.ActivateWindow(GUIFeed.GUIFeedId,
+                                    string.Format("feedIndex:{0},feedItemIndex:{1}", randomFeedIndex, 0));
+                            }
+                        });
 
-                }, null, 10000, 30000);
+                }, null, 10000, 25000);
             }
             #endregion
 

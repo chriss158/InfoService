@@ -540,7 +540,7 @@ namespace InfoService.Feeds
                                         (int)PopupTimeout,
                                         () =>
                                         {
-                                            if (GUIGraphicsContext.IsTvWindow() && GUIGraphicsContext.IsFullScreenVideo)
+                                            if (GUIGraphicsContext.IsFullScreenVideo)
                                             {
                                                 GUIWindowManager.ShowPreviousWindow();
                                             }
