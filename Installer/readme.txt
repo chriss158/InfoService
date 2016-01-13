@@ -14,7 +14,7 @@ Changelog:
 [!] - Attention
 
 Version v1.83:
-[+] Added load paramaters (feedIndex, feedTitle, feedGuid, feedItemIndex, twitterTimeline, twitterId). More about that on InfoService Github Wiki.
+[+] Added load paramaters (feedIndex, feedTitle, feedGuid, feedItemIndex, twitterTimeline, twitterId, twitterItemIndex). More about that on InfoService Github Wiki.
 [+] You can go now directly to twitter/feed if you click the "Ok" button on your remote if the News/New Tweets popup is display
 [+] Added developer mode. More about that on InfoService Github Wiki.
 [*] Improved News/New Tweets popup (New dialog, better to read). Thanks to wizard123 

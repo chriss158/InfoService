@@ -583,7 +583,8 @@ namespace InfoService.Twitter
                                     {
                                         if (GUIGraphicsContext.IsFullScreenVideo)
                                         {
-                                            GUIWindowManager.ShowPreviousWindow();
+                                            GUIMessage msg = new GUIMessage(GUIMessage.MessageType.GUI_MSG_WINDOW_DEINIT, (int)GUIWindow.Window.WINDOW_FULLSCREEN_VIDEO, 0, 0, 0, 0, null);
+                                            GUIWindowManager.SendMessage(msg);
                                         }
                                         GUIWindowManager.ActivateWindow(GUITwitter.GUITwitterId,
                                             string.Format("twitterTimeline:{0},twitterItemId:{1}", pair.Key.Type,

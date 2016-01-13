@@ -542,7 +542,8 @@ namespace InfoService.Feeds
                                         {
                                             if (GUIGraphicsContext.IsFullScreenVideo)
                                             {
-                                                GUIWindowManager.ShowPreviousWindow();
+                                                GUIMessage msg = new GUIMessage(GUIMessage.MessageType.GUI_MSG_WINDOW_DEINIT, (int)GUIWindow.Window.WINDOW_FULLSCREEN_VIDEO, 0, 0, 0, 0, null);
+                                                GUIWindowManager.SendMessage(msg);
                                             }
                                             GUIWindowManager.ActivateWindow(GUIFeed.GUIFeedId,
                                                 string.Format("feedGuid:{0},feedItemIndex:{1}", feedItem.Key.Guid, item.Index));
