@@ -107,13 +107,85 @@ namespace InfoService.GUIWindows
 
         protected override void OnPageLoad()
         {
+            PropertyUtils.SetProperty("#currentmodule", InfoServiceCore.UserPluginName + " - Feeds");
+            GUIControl.SetControlLabel(GetID, 2, InfoServiceUtils.GetLocalizedLabel(0));
+            GUIControl.SetControlLabel(GetID, 4, InfoServiceUtils.GetLocalizedLabel(1));
+            GUIControl.SetControlLabel(GetID, 5, InfoServiceUtils.GetLocalizedLabel(2));
+            if (string.IsNullOrEmpty(_loadParameter))
+            {
                 logger.WriteLog("Load Feed GUI", LogLevel.Info, InfoServiceModul.Feed);
                 FeedUtils.SetFeedOnWindow(FeedService.ActiveFeedIndex, true, true);
-                PropertyUtils.SetProperty("#currentmodule", InfoServiceCore.UserPluginName + " - Feeds");
-                GUIControl.SetControlLabel(GetID, 2, InfoServiceUtils.GetLocalizedLabel(0));
-                GUIControl.SetControlLabel(GetID, 4, InfoServiceUtils.GetLocalizedLabel(1));
-                GUIControl.SetControlLabel(GetID, 5, InfoServiceUtils.GetLocalizedLabel(2));
-                base.OnPageLoad();
+            }
+            else
+            {
+                logger.WriteLog("Load Feed GUI with params \"" + _loadParameter + "\"", LogLevel.Info, InfoServiceModul.Feed);
+                int feedIndex = -1;
+                int feedItemIndex = 0;
+                string[] parameters = _loadParameter.Trim().Split(',');
+                foreach (string parameter in parameters)
+                {
+                    string[] paramNameSetting = parameter.Trim().Split(':');
+                    if (paramNameSetting.Length != 2) continue;
+
+                    string parameterName = paramNameSetting[0].Trim();
+                    string parameterSetting = paramNameSetting[1].Trim();
+                    Guid feedGuid = Guid.Empty;
+
+                    if (parameterName == "feedIndex" && parameterSetting.All(char.IsDigit) && feedIndex < 0) feedIndex = Convert.ToInt32(parameterSetting);
+
+                    if (parameterName == "feedGuid" && feedIndex < 0 && Guid.TryParse(parameterSetting, out feedGuid))
+                    {
+                        for (int i = 0; i < FeedService.Feeds.Count; i++)
+                        {
+                            if (FeedService.Feeds[i].Guid == feedGuid)
+                            {
+                                feedIndex = i;
+                                break;
+                            }
+                        }
+                    }
+                    if (parameterName == "feedTitle" && feedIndex < 0)
+                    {
+                        for (int i = 0; i < FeedService.Feeds.Count; i++)
+                        {
+                            if (FeedService.Feeds[i].Title == parameterSetting)
+                            {
+                                feedIndex = i;
+                                break;
+                            }
+                        }
+
+                    }
+                    if (feedIndex >= 0)
+                    {
+                        if (parameterName == "feedItemIndex" && parameterSetting.All(char.IsDigit)) feedItemIndex = Convert.ToInt32(parameterSetting);
+                        //if (parameterName == "feedItemTitle")
+                        //{
+                        //    for (int i = 0; i < FeedService.Feeds[feedIndex].Items.Count; i++)
+                        //    {
+                        //        if (FeedService.Feeds[feedIndex].Items[i].Title == parameterSetting)
+                        //        {
+                        //            feedItemIndex = i;
+                        //            break;
+                        //        }
+                        //    }
+                        //}
+                    }
+                }
+                if (feedIndex >= 0)
+                {
+                    logger.WriteLog("Parsing load params succesfull. Open Feed GUI with feed index \"" + feedIndex + "\" and feed item index \"" + feedItemIndex + "\"", LogLevel.Info, InfoServiceModul.Feed);
+                    FeedService.SetActive(feedIndex);
+                    FeedUtils.SetFeedOnWindow(FeedService.ActiveFeedIndex, feedItemIndex, true);
+                }
+                else
+                {
+                    logger.WriteLog("Parsing load params unsuccesfull. Open Feed GUI without params.", LogLevel.Error, InfoServiceModul.Twitter);
+                    FeedUtils.SetFeedOnWindow(FeedService.ActiveFeedIndex, true, true);
+                }
+
+            }
+            base.OnPageLoad();
         }
 
         protected override void OnClicked(int controlId, GUIControl control, Action.ActionType actionType)

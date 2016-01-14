@@ -17,6 +17,7 @@ namespace InfoService.Settings.Data
             PluginName = "InfoService";
             FeedCacheFolder = Config.GetFolder(Config.Dir.Thumbs) + @"\InfoService\Feeds\";
             TwitterCacheFolder = Config.GetFolder(Config.Dir.Thumbs) + @"\InfoService\Twitter\";
+            DeveloperMode = false;
         }
 
         public bool LogWarning { get; set; }
@@ -25,6 +26,7 @@ namespace InfoService.Settings.Data
         public string PluginName { get; set; }
         public string FeedCacheFolder { get; set; }
         public string TwitterCacheFolder { get; set; }
+        public bool DeveloperMode { get; set; }
 
     }
     #endregion

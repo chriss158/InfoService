@@ -30,9 +30,9 @@ namespace InfoService.GUIConfiguration
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdvancedConfigForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbLogging = new System.Windows.Forms.GroupBox();
             this.btnOpenLog = new System.Windows.Forms.Button();
             this.imgList = new System.Windows.Forms.ImageList(this.components);
@@ -58,6 +58,7 @@ namespace InfoService.GUIConfiguration
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.gbGeneral = new System.Windows.Forms.GroupBox();
+            this.cbDeveloperMode = new System.Windows.Forms.CheckBox();
             this.txtPluginName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.gbWebBrowser = new System.Windows.Forms.GroupBox();
@@ -71,11 +72,11 @@ namespace InfoService.GUIConfiguration
             this.ttWebBrowserValueHelp = new System.Windows.Forms.ToolTip(this.components);
             this.CacheFolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.btnExportOPML = new System.Windows.Forms.Button();
             this.btnFeedItemsFilters = new System.Windows.Forms.Button();
             this.saveOPMLFile = new System.Windows.Forms.SaveFileDialog();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.gbLogging.SuspendLayout();
             this.gbCaching.SuspendLayout();
             this.gbGeneral.SuspendLayout();
@@ -94,7 +95,7 @@ namespace InfoService.GUIConfiguration
             this.gbLogging.Controls.Add(this.cbInfo);
             this.gbLogging.Controls.Add(this.label1);
             this.gbLogging.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbLogging.Location = new System.Drawing.Point(6, 157);
+            this.gbLogging.Location = new System.Drawing.Point(6, 180);
             this.gbLogging.Name = "gbLogging";
             this.gbLogging.Size = new System.Drawing.Size(462, 119);
             this.gbLogging.TabIndex = 1;
@@ -217,7 +218,7 @@ namespace InfoService.GUIConfiguration
             this.gbCaching.Controls.Add(this.label3);
             this.gbCaching.Controls.Add(this.label2);
             this.gbCaching.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbCaching.Location = new System.Drawing.Point(6, 282);
+            this.gbCaching.Location = new System.Drawing.Point(6, 305);
             this.gbCaching.Name = "gbCaching";
             this.gbCaching.Size = new System.Drawing.Size(462, 152);
             this.gbCaching.TabIndex = 2;
@@ -364,7 +365,7 @@ namespace InfoService.GUIConfiguration
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(6, 629);
+            this.btnSave.Location = new System.Drawing.Point(6, 652);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 4;
@@ -374,7 +375,7 @@ namespace InfoService.GUIConfiguration
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(84, 629);
+            this.btnCancel.Location = new System.Drawing.Point(84, 652);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 5;
@@ -384,15 +385,27 @@ namespace InfoService.GUIConfiguration
             // 
             // gbGeneral
             // 
+            this.gbGeneral.Controls.Add(this.cbDeveloperMode);
             this.gbGeneral.Controls.Add(this.txtPluginName);
             this.gbGeneral.Controls.Add(this.label4);
             this.gbGeneral.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbGeneral.Location = new System.Drawing.Point(6, 3);
             this.gbGeneral.Name = "gbGeneral";
-            this.gbGeneral.Size = new System.Drawing.Size(462, 64);
+            this.gbGeneral.Size = new System.Drawing.Size(462, 86);
             this.gbGeneral.TabIndex = 0;
             this.gbGeneral.TabStop = false;
             this.gbGeneral.Text = "General";
+            // 
+            // cbDeveloperMode
+            // 
+            this.cbDeveloperMode.AutoSize = true;
+            this.cbDeveloperMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbDeveloperMode.Location = new System.Drawing.Point(12, 58);
+            this.cbDeveloperMode.Name = "cbDeveloperMode";
+            this.cbDeveloperMode.Size = new System.Drawing.Size(138, 17);
+            this.cbDeveloperMode.TabIndex = 2;
+            this.cbDeveloperMode.Text = "Enable developer mode";
+            this.cbDeveloperMode.UseVisualStyleBackColor = true;
             // 
             // txtPluginName
             // 
@@ -421,7 +434,7 @@ namespace InfoService.GUIConfiguration
             this.gbWebBrowser.Controls.Add(this.dgWebBrowserData);
             this.gbWebBrowser.Controls.Add(this.cbWebBrowserSelector);
             this.gbWebBrowser.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbWebBrowser.Location = new System.Drawing.Point(6, 440);
+            this.gbWebBrowser.Location = new System.Drawing.Point(6, 463);
             this.gbWebBrowser.Name = "gbWebBrowser";
             this.gbWebBrowser.Size = new System.Drawing.Size(462, 183);
             this.gbWebBrowser.TabIndex = 3;
@@ -460,36 +473,36 @@ namespace InfoService.GUIConfiguration
             // dgWebBrowserData
             // 
             this.dgWebBrowserData.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgWebBrowserData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgWebBrowserData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgWebBrowserData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgWebBrowserData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Property,
             this.Value});
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgWebBrowserData.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgWebBrowserData.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgWebBrowserData.Location = new System.Drawing.Point(12, 50);
             this.dgWebBrowserData.Name = "dgWebBrowserData";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgWebBrowserData.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgWebBrowserData.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgWebBrowserData.RowHeadersWidth = 10;
             this.dgWebBrowserData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgWebBrowserData.ShowCellToolTips = false;
@@ -551,12 +564,32 @@ namespace InfoService.GUIConfiguration
             this.groupBox1.Controls.Add(this.btnExportOPML);
             this.groupBox1.Controls.Add(this.btnFeedItemsFilters);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(6, 72);
+            this.groupBox1.Location = new System.Drawing.Point(6, 95);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(462, 79);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Feeds";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(9, 53);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(318, 13);
+            this.label8.TabIndex = 11;
+            this.label8.Text = "Export current feed list to a OPML file and import the list elsewhere";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(9, 24);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(326, 13);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Edit feed item filters, to replace unwanted chars in title or description";
             // 
             // btnExportOPML
             // 
@@ -592,31 +625,11 @@ namespace InfoService.GUIConfiguration
             this.saveOPMLFile.FileName = "infoservice_feed_export";
             this.saveOPMLFile.Filter = "XML-File|*.xml";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(9, 24);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(326, 13);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "Edit feed item filters, to replace unwanted chars in title or description";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(9, 53);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(318, 13);
-            this.label8.TabIndex = 11;
-            this.label8.Text = "Export current feed list to a OPML file and import the list elsewhere";
-            // 
             // AdvancedConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(475, 659);
+            this.ClientSize = new System.Drawing.Size(475, 684);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbWebBrowser);
             this.Controls.Add(this.gbGeneral);
@@ -695,5 +708,6 @@ namespace InfoService.GUIConfiguration
         private System.Windows.Forms.SaveFileDialog saveOPMLFile;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.CheckBox cbDeveloperMode;
     }
 }

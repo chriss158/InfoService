@@ -10,6 +10,7 @@ using InfoService.Settings;
 using InfoService.Settings.Data;
 using InfoService.Utils;
 using InfoService.Enums;
+using InfoService.Twitter;
 using MediaPortal.Configuration;
 using MediaPortal.Profile;
 using TwitterConnector.OAuth;
@@ -592,6 +593,7 @@ namespace InfoService.GUIConfiguration
                                           "you will be assigned a 7-digit PIN for this application.",
                                             "InfoService", MessageBoxButtons.OKCancel, MessageBoxIcon.Information))
                     return;
+                TwitterConnector.Twitter.SetConsumerKeySecret(TwitterApiKeys.ConsumerKey, TwitterApiKeys.ConsumerSecret);
                 RequestToken requestToken;
                 TwitterConnector.Twitter.GetRequestToken(out requestToken);
                 Process.Start(TwitterConnector.Twitter.GetAuthUrl());

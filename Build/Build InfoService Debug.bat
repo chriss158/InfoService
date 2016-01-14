@@ -49,7 +49,7 @@ echo ---- Copy last build ----
 xcopy "%TARGETPATH%" "%SVN_ROOT%\LastBuild\"  /Y /S /E
 xcopy "%INFOSERVICEDIR%\GUIWindows\Language\*.*" "%SVN_ROOT%\LastBuild\Language\" /Y /S /E
 xcopy "%INFOSERVICEDIR%\GUIWindows\Skin" "%SVN_ROOT%\LastBuild\Skin\" /Y /S /E
-
+xcopy "%SVN_ROOT%\Installer\readme.txt" "%SVN_ROOT%\LastBuild\" /Y /S /E
 echo ---- Generating MPE Package
 for /f "tokens=*" %%i in ('..\Tools\FileVersion.exe %SVN_ROOT%\LastBuild\InfoService.dll') do set version=%%i
 "%programfiles(x86)%\Team MediaPortal\MediaPortal\MPEMaker.exe" ..\Installer\MPInfoService.xmp2 /B /V=%version%

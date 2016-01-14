@@ -140,11 +140,11 @@ namespace InfoService.Twitter
 
         private static void TWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
-            if (e.Cancelled || !(bool)e.Result)
-            {
-                TwitterUtils.SetTwitterProperties(false);
-            }
-            else TwitterUtils.SetTwitterProperties(true);
+            //if (e.Cancelled || !(bool)e.Result)
+            //{
+            //    TwitterUtils.SetTwitterProperties(false);
+            //}
+            //else TwitterUtils.SetTwitterProperties(true);
         }
 
         public static void UpdateTwitterDataSync()
@@ -159,11 +159,13 @@ namespace InfoService.Twitter
 
                 InfoServiceUtils.DeleteTwitterCache();
                 PropertyUtils.SetProperty(PropertyUtils.Properties.Twitter.Messages, InfoServiceUtils.GetLocalizedLabel(15));
-                if (TwitterService.UpdateTwitter())
-                {
-                    TwitterUtils.SetTwitterProperties(true);
-                }
-                else TwitterUtils.SetTwitterProperties(false);
+
+                TwitterService.UpdateTwitter();
+                //if (TwitterService.UpdateTwitter())
+                //{
+                //    TwitterUtils.SetTwitterProperties(true);
+                //}
+                //else TwitterUtils.SetTwitterProperties(false);
             }
         }
     }

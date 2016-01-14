@@ -93,7 +93,7 @@ namespace FeedReader.Xml
                         feedItem.Url = FeedXmlParser.ParseString(item.Element("link"), "item/link").Trim();
                         string description = FeedXmlParser.ParseString(item.Element("description"), "item/description");
                         feedItem.Description = Utils.Clean(description, false, true, false, true, itemFilters);
-
+                        feedItem.Index = i - 1;
                         rFeed.Items.Add(feedItem);
                         i++;
                     }

@@ -56,11 +56,11 @@ namespace InfoService.Feeds
 
         private static void FWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
-            if (e.Cancelled || !(bool)e.Result)
-            {
-                FeedUtils.SetFeedProperties(false);
-            }
-            else FeedUtils.SetFeedProperties(true);
+            //if (e.Cancelled || !(bool)e.Result)
+            //{
+            //    FeedUtils.SetFeedProperties(false);
+            //}
+            //else FeedUtils.SetFeedProperties(true);
             FeedUpaterCompleted = true;
         }
 
@@ -79,14 +79,16 @@ namespace InfoService.Feeds
                 PropertyUtils.SetProperty(PropertyUtils.Properties.Feed.Titles, InfoServiceUtils.GetLocalizedLabel(13));
                 PropertyUtils.SetProperty(PropertyUtils.Properties.Feed.Alltitles, InfoServiceUtils.GetLocalizedLabel(13));
 
-                if (FeedService.UpdateAllFeeds())
-                {
-                    FeedUtils.SetFeedProperties(true);
-                }
-                else
-                {
-                    FeedUtils.SetFeedProperties(false);
-                }
+                FeedService.UpdateAllFeeds();
+
+                //if (FeedService.UpdateAllFeeds())
+                //{
+                //    FeedUtils.SetFeedProperties(true);
+                //}
+                //else
+                //{
+                //    FeedUtils.SetFeedProperties(false);
+                //}
 
             }
             FeedUpaterCompleted = true;

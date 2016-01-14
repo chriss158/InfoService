@@ -98,6 +98,7 @@ namespace FeedReader.Xml
                         feedItem.Description = Utils.Clean(description, false, true, false, true, itemFilters) == "" ?
                                                Utils.Clean(Utils.GetCdata(FeedXmlParser.ParseString(item.Element("encoded"), "item[" + i + "]/encoded")), false, true, false, true, itemFilters) :
                                                Utils.Clean(description, false, true, false, true, itemFilters);
+                        feedItem.Index = i - 1;
                         rFeed.Items.Add(feedItem);
                         i++;
                     }

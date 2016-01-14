@@ -17,6 +17,7 @@ namespace FeedReader.Data
         public string ImagePath { get; set; }
         public DateTime PublishDate { get; set; }
         public string Url { get; set; }
+        public int Index { get; set; }
 
         public object Clone()
         {
@@ -28,6 +29,7 @@ namespace FeedReader.Data
             newItem.ImagePath = this.ImagePath;
             newItem.PublishDate = this.PublishDate;
             newItem.Url = this.Url;
+            newItem.Index = this.Index;
             return newItem;
         }
     }

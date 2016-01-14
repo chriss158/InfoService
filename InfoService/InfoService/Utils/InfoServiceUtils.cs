@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows;
 using InfoService.Enums;
 using InfoService.Feeds;
+using InfoService.GUIWindows;
 using InfoService.Settings;
 using InfoService.Twitter;
 using MediaPortal.Configuration;
@@ -97,21 +99,66 @@ namespace InfoService.Utils
             window.DoModal(GUIWindowManager.ActiveWindow);
 
         }
+
+        public static bool AreNotifyBarSkinFilesInstalled()
+        {
+            bool installed = File.Exists(GUIGraphicsContext.Skin + @"\infoservice.notifybar.xml");
+            logger.WriteLog(
+                installed
+                    ? "InfoService NotifyBar skin files are installed."
+                    : "InfoService NotifyBar skin files are NOT installed.", LogLevel.Info, InfoServiceModul.InfoService);
+            return installed;
+        }
+
         public static void ShowDialogNotifyWindow(string header, string text, string imagePath, System.Drawing.Size imageSize, int timeout)
         {
+            ShowDialogNotifyWindow(header, text, imagePath, imageSize, timeout, null);
+        }
+
+        public static void ShowDialogNotifyWindow(string header, string text, string imagePath, System.Drawing.Size imageSize, int timeout, System.Action action)
+        {
             logger.WriteLog("Show notify window with image", LogLevel.Info, InfoServiceModul.InfoService);
-            GUIDialogNotify window = (GUIDialogNotify)GUIWindowManager.GetWindow((int)GUIWindow.Window.WINDOW_DIALOG_NOTIFY);
-            window.SetHeading(header);
-            window.SetText(text);
-            window.SetImage(imagePath);
-            window.TimeOut = timeout;
-            window.SetImageDimensions(imageSize, true, true);
-            window.DoModal(GUIWindowManager.ActiveWindow);
+            object window = null;
+            bool notifyBarFound;
+            if (!AreNotifyBarSkinFilesInstalled())
+            {
+                window = (GUIDialogNotify)GUIWindowManager.GetWindow((int)GUIWindow.Window.WINDOW_DIALOG_NOTIFY);
+                notifyBarFound = false;
+            }
+            else
+            {
+                window = (GUINotifyBar)GUIWindowManager.GetWindow(GUINotifyBar.ID);
+                notifyBarFound = true;
+            }
+
+            if (window != null)
+            {
+                if (notifyBarFound)
+                {
+                    if (action != null) ((GUINotifyBar)window).OkAction = action;
+                    ((GUINotifyBar)window).SetHeading(header);
+                    ((GUINotifyBar)window).SetText(text);
+                    ((GUINotifyBar)window).SetImage(imagePath);
+                    ((GUINotifyBar)window).TimeOut = timeout;
+                    ((GUINotifyBar)window).SetImageDimensions(imageSize, true, true);
+                    ((GUINotifyBar)window).DoModal(GUIWindowManager.ActiveWindow);
+                }
+                else
+                {
+                    ((GUIDialogNotify)window).SetHeading(header);
+                    ((GUIDialogNotify)window).SetText(text);
+                    ((GUIDialogNotify)window).SetImage(imagePath);
+                    ((GUIDialogNotify)window).TimeOut = timeout;
+                    ((GUIDialogNotify)window).SetImageDimensions(imageSize, true, true);
+                    ((GUIDialogNotify)window).DoModal(GUIWindowManager.ActiveWindow);
+                }
+            }
         }
         public static void ShowDialogNotifyWindow(string header, string text, int timeout)
         {
             logger.WriteLog("Show notify window", LogLevel.Info, InfoServiceModul.InfoService);
-            GUIDialogNotify window = (GUIDialogNotify)GUIWindowManager.GetWindow((int)GUIWindow.Window.WINDOW_DIALOG_NOTIFY);
+            //GUIDialogNotify window = (GUIDialogNotify)GUIWindowManager.GetWindow((int)GUIWindow.Window.WINDOW_DIALOG_NOTIFY);
+            GUINotifyBar window = (GUINotifyBar)GUIWindowManager.GetWindow(GUINotifyBar.ID);
             window.SetHeading(header);
             window.SetText(text);
             window.TimeOut = timeout;
@@ -376,7 +423,33 @@ namespace InfoService.Utils
 
             return result;
         }
+        public static string GenerateLoremIpsum(int minWords, int maxWords, int minSentences, int maxSentences, int numLines)
+        {
+            var words = new[] { "lorem", "ipsum", "dolor", "sit", "amet", "consectetuer", "adipiscing", "elit", "sed", "diam", "nonummy", "nibh", "euismod", "tincidunt", "ut", "laoreet", "dolore", "magna", "aliquam", "erat" };
 
+            var rand = new Random();
+            int numSentences = rand.Next(maxSentences - minSentences)
+                + minSentences;
+            int numWords = rand.Next(maxWords - minWords) + minWords;
+
+            var sb = new StringBuilder();
+            for (int p = 0; p < numLines; p++)
+            {
+                for (int s = 0; s < numSentences; s++)
+                {
+                    for (int w = 0; w < numWords; w++)
+                    {
+                        if (w > 0) { sb.Append(" "); }
+                        string word = words[rand.Next(words.Length)];
+                        if (w == 0) { word = word.Substring(0, 1).Trim().ToUpper() + word.Substring(1); }
+                        sb.Append(word);
+                    }
+                    sb.Append(". ");
+                }
+                if (p < numLines - 1) sb.AppendLine();
+            }
+            return sb.ToString();
+        }
 
 
     }
