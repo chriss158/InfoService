@@ -409,7 +409,18 @@ namespace InfoService.Twitter
 
         }
 
-
+        public static int GetItemIndexFromTimeline(TimelineType type, string id)
+        {
+            Timeline twitterTimeline = TwitterService.GetTimeline(type);
+            for (int i = 0; i < twitterTimeline.Items.Count; i++)
+            {
+                if (twitterTimeline.Items[i].Id == parameterSetting)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
 
         public static Timeline GetTimeline(TimelineType type)
         {
