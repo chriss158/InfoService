@@ -18,7 +18,17 @@ namespace InfoService.Utils
         {
             _loadParameters = loadParameters;
             _parameters = new LoadParameters();
+            //ParseParameters();
+        }
+        
+        public void Parse()
+        {
             ParseParameters();
+        }
+        
+        public LoadParameters GetAllParameters()
+        {
+            return _parameters;
         }
 
         public LoadParameter GetParameter(string parameterName)
@@ -27,7 +37,7 @@ namespace InfoService.Utils
             {
                 return _parameters.FirstOrDefault(parameter => parameter.ParameterName == parameterName);
             }
-            else return new LoadParameter();
+            else return null;
         }
 
         private void ParseParameters()
