@@ -277,7 +277,7 @@ namespace InfoService.Feeds
             _feeds.Add(allFeed);
 
         }
-        public int GetIndexFromFeeds(string feedTitle)
+        public static int GetIndexFromFeeds(string feedTitle)
         {
             for (int i = 0; i < Feeds.Count; i++)
             {
@@ -288,7 +288,7 @@ namespace InfoService.Feeds
             }
             return -1;
         }
-        public int GetIndexFromFeeds(string feedGuid)
+        public static int GetIndexFromFeeds(string feedGuid)
         {
             for (int i = 0; i < Feeds.Count; i++)
             {
