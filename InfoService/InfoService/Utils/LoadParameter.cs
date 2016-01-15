@@ -5,15 +5,36 @@ using System.Text;
 
 namespace InfoService.Utils
 {
-    public class LoadParameter
+    public class LoadParameter<T> : LoadParameter
     {
-        public string ParameterName { get; set; }
-        public object ParameterSetting { get; set; }
+        public T ParameterSetting { get; set; }
 
-        public LoadParameter(string parameterName, object parameterSetting)
+        public LoadParameter()
+        {
+
+        }
+
+        public LoadParameter(string parameterName, T parameterSetting)
         {
             ParameterName = parameterName;
             ParameterSetting = parameterSetting;
+        }
+    }
+
+    public abstract class LoadParameter
+    {
+        public string ParameterName { get; set; }
+        //public ParameterSetting<> ParameterSetting { get; set; }
+
+        protected LoadParameter()
+        {
+            ParameterName = string.Empty;
+        }
+
+        protected LoadParameter(string parameterName)
+        {
+            ParameterName = parameterName;
+            //ParameterSetting = parameterSetting;
         }
     }
 }
