@@ -179,6 +179,7 @@ namespace InfoService.Utils
             {
                 PropertyUtils.SetProperty(PropertyUtils.Properties.Twitter.SelectedUsername, " ");
                 PropertyUtils.SetProperty(PropertyUtils.Properties.Twitter.SelectedUserpicture, " ");
+                PropertyUtils.SetProperty(PropertyUtils.Properties.Twitter.SelectedMediaImage, " ");
                 if (selectLastItemIndex || updateGUI)
                     GUIControl.SetControlLabel(GUITwitter.GUITwitterId, GUITwitter.GUITwitterMessage, "");
             }

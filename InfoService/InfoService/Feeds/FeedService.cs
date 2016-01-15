@@ -288,7 +288,7 @@ namespace InfoService.Feeds
             }
             return -1;
         }
-        public static int GetIndexFromFeeds(string feedGuid)
+        public static int GetIndexFromFeeds(Guid feedGuid)
         {
             for (int i = 0; i < Feeds.Count; i++)
             {
@@ -568,7 +568,7 @@ namespace InfoService.Feeds
                                                 GUIWindowManager.SendMessage(msg);
                                             }
                                             GUIWindowManager.ActivateWindow(GUIFeed.GUIFeedId,
-                                                string.Format("feedGuid:{0},feedItemIndex:{1}", feedItem.Key.Guid, item.Index));
+                                                string.Format("feedGuid:\"{0}\",feedItemIndex:\"{1}\"", feedItem.Key.Guid, item.Index));
                                         });
                                     //NotifyBarQueue.ShowDialogNotifyWindowQueued(header, text, feedItem.Key.ImagePath,
                                     //    new Size(120, 120),

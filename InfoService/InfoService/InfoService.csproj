@@ -53,7 +53,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;CODE_ANALYSIS;NET40;CODE_ANALYSIS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
@@ -93,6 +93,31 @@
     </Reference>
     <Reference Include="Dialogs">
       <HintPath>..\Externals\MP\Dialogs.dll</HintPath>
+    </Reference>
+    <Reference Include="envdte, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\Program Files (x86)\Common Files\Microsoft Shared\MSEnv\PublicAssemblies\envdte.dll</HintPath>
+    </Reference>
+    <Reference Include="envdte100, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\Program Files (x86)\Common Files\Microsoft Shared\MSEnv\PublicAssemblies\envdte100.dll</HintPath>
+    </Reference>
+    <Reference Include="envdte80, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\Program Files (x86)\Common Files\Microsoft Shared\MSEnv\PublicAssemblies\envdte80.dll</HintPath>
+    </Reference>
+    <Reference Include="envdte90, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\Program Files (x86)\Common Files\Microsoft Shared\MSEnv\PublicAssemblies\envdte90.dll</HintPath>
+    </Reference>
+    <Reference Include="envdte90a, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\Program Files (x86)\Common Files\Microsoft Shared\MSEnv\PublicAssemblies\envdte90a.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MPNotificationBar, Version=0.8.3.0, Culture=neutral, processorArchitecture=MSIL">
@@ -139,8 +164,10 @@
     <Compile Include="Feeds\FeedReader\Xml\Interfaces\IFeedTypeImageXmlParser.cs" />
     <Compile Include="GUIWindows\GUINotifyBar.cs" />
     <Compile Include="Twitter\TwitterConnector\OAuth\Exceptions\oAuthExceptions.cs" />
-    <Compile Include="Utils\LoadParameter.cs" />
-    <Compile Include="Utils\LoadParameterParser.cs" />
+    <Compile Include="Utils\DebuggerAttacher.cs" />
+    <Compile Include="Utils\LoadParameterParsing\Data\LoadParameter.cs" />
+    <Compile Include="Utils\LoadParameterParsing\LoadParameterParser.cs" />
+    <Compile Include="Utils\LoadParameterParsing\Data\LoadParameters.cs" />
     <Compile Include="Utils\NotificationBar\NotificationBar.cs" />
     <Compile Include="Feeds\OPMLManager\Data\OPMLFeedItem.cs" />
     <Compile Include="Feeds\OPMLManager\OPMLManager.cs" />
@@ -436,6 +463,7 @@
     <Compile Include="Feeds\FeedReader\ExtensionMethods.cs" />
     <Compile Include="Utils\InfoServiceUtils.cs" />
     <Compile Include="Utils\Log.cs" />
+    <Compile Include="Utils\LoadParameterParsing\Data\ParameterSetting.cs" />
     <Compile Include="Utils\PropertyUtils.cs" />
     <Compile Include="Utils\RecentlyAddedWatchedUtils.cs" />
     <Compile Include="Utils\UpdateTimer.cs" />
@@ -567,7 +595,6 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

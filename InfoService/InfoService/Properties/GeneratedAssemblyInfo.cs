@@ -8,10 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersion("1.8.2.0-f55187f")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersion("1.8.3.0-7286b14")]
->>>>>>> refs/remotes/origin/Improve-Feed_Twitter-notify
+[assembly: System.Reflection.AssemblyInformationalVersion("1.8.5.0-eb96abe")]
 
 

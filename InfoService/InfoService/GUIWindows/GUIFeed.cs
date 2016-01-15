@@ -4,6 +4,8 @@ using System;
 using System.Linq;
 using InfoService.Feeds;
 using InfoService.Utils;
+using InfoService.Utils.LoadParameterParsing;
+using InfoService.Utils.LoadParameterParsing.Data;
 using MediaPortal.Dialogs;
 using MediaPortal.GUI.Library;
 using Action = MediaPortal.GUI.Library.Action;
@@ -119,13 +121,14 @@ namespace InfoService.GUIWindows
             else
             {
                 logger.WriteLog("Load Feed GUI with params \"" + _loadParameter + "\"", LogLevel.Info, InfoServiceModul.Feed);
-                LoadParameterParser parser = new LoadParameterParser(parameter);
+                LoadParameterParser parser = new LoadParameterParser(_loadParameter);
                 
                 int feedIndex = -1;
                 int feedItemIndex = 0;
                 
                 parser.Parse();
-                foreach(LoadParameter parameter in parser.GetAllParameters())
+                LoadParameters parameters = parser.GetAllParameters();
+                foreach (LoadParameter parameter in parameters)
                 {
                     switch(parameter.ParameterName)
                     {
@@ -153,17 +156,21 @@ namespace InfoService.GUIWindows
                             logger.WriteLog("Unknown parameter \"" + parameter.ParameterName + ". Parameter will be skipped", LogLevel.Warning, InfoServiceModul.Feed);
                             break;
                     }
-                }   
+                }
+                if (parameters.Count <= 0)
+                {
+                    logger.WriteLog("None of the parameters could be parsed. Defaulting parameters \"feedIndex\" and \"feedItemIndex\"",LogLevel.Warning, InfoServiceModul.Feed);
+                }
                 if(feedIndex < 0)
                 {
-                    logger.WriteLog("Parameter feedIndex out of bounds. Defaulting parameter to 0", LogLevel.Warning, InfoServiceModul.Feed);
+                    logger.WriteLog("Parameter \"feedIndex\" is invalid. Defaulting parameter to " + FeedService.ActiveFeedIndex, LogLevel.Warning, InfoServiceModul.Feed);
                     feedIndex = FeedService.ActiveFeedIndex;
                 }
                 FeedService.SetActive(feedIndex);
                 
-                if(feedItemIndex < 0 || feedItemIndex >= FeedService.Feeds[FeedService.ActiveFeedIndex].Count)
+                if(feedItemIndex < 0 || feedItemIndex >= FeedService.Feeds[FeedService.ActiveFeedIndex].Items.Count)
                 {
-                    logger.WriteLog("Parameter feedItemIndex out of bounds. Defaulting parameter to 0", LogLevel.Warning, InfoServiceModul.Feed);
+                    logger.WriteLog("Parameter \"feedItemIndex\" is invalid. Defaulting parameter to 0", LogLevel.Warning, InfoServiceModul.Feed);
                     feedItemIndex = 0;
                 }
 

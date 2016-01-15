@@ -414,7 +414,7 @@ namespace InfoService.Twitter
             Timeline twitterTimeline = TwitterService.GetTimeline(type);
             for (int i = 0; i < twitterTimeline.Items.Count; i++)
             {
-                if (twitterTimeline.Items[i].Id == parameterSetting)
+                if (twitterTimeline.Items[i].Id == id)
                 {
                     return i;
                 }
@@ -598,7 +598,7 @@ namespace InfoService.Twitter
                                             GUIWindowManager.SendMessage(msg);
                                         }
                                         GUIWindowManager.ActivateWindow(GUITwitter.GUITwitterId,
-                                            string.Format("twitterTimeline:{0},twitterItemId:{1}", pair.Key.Type,
+                                            string.Format("twitterTimeline:\"{0}\",twitterItemId:\"{1}\"", pair.Key.Type,
                                                 item.Id));
                                     });
                                 //NotifyBarQueue.ShowDialogNotifyWindowQueued(header, text, item.User.PicturePath,

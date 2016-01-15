@@ -1,6 +1,7 @@
 ﻿#region Usings
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Reflection;
 using System.Threading;
@@ -29,10 +30,10 @@ namespace InfoService
         public const int GUIInfoServiceId = 16000;
         private static readonly Logger Logger = Logger.GetInstance();
         private Timer _developerModetimer;
-
+        private Random _rnd;
         #endregion
 
-        
+
         #region Properties
         public static string UserPluginName { get; set; }
         public static bool InitDone { get; private set; }
@@ -97,6 +98,9 @@ namespace InfoService
         #region Constructor
         public InfoServiceCore()
         {
+#if DEBUG
+            AttachDebugger();
+#endif
             GetID = GUIInfoServiceId;
             InitDone = false;
         }
@@ -175,6 +179,8 @@ namespace InfoService
 
         public override bool Init()
         {
+
+
             Version ver = InfoServiceVersion();
             Logger.WriteLog(string.Format("InfoService ({0}.{1}.{2}.{3})", ver.Major, ver.Minor, ver.Build, ver.Revision), LogLevel.Info, InfoServiceModul.InfoService);
             InfoServiceUtils.InitLog();
@@ -426,6 +432,7 @@ namespace InfoService
             if (SettingsManager.Properties.GeneralSettings.DeveloperMode)
             {
                 Logger.WriteLog("Enabled InfoService developer mode. Showing NotifyBar Popup every 30 seconds.", LogLevel.Debug, InfoServiceModul.InfoService);
+                _rnd = new Random();
                 _developerModetimer = new Timer(state =>
                 {
                     InfoServiceUtils.ShowDialogNotifyWindow(InfoServiceUtils.GenerateLoremIpsum(4, 10, 1, 1, 1), InfoServiceUtils.GenerateLoremIpsum(20, 40, 1, 4, 1), GUIGraphicsContext.Skin + @"\media\InfoService\defaultFeedALL.png", new Size(120, 120), 20,
@@ -438,16 +445,30 @@ namespace InfoService
                                 {
                                     GUIWindowManager.ShowPreviousWindow();
                                 }
-                                Random rnd = new Random();
-                                int randomFeedIndex = rnd.Next(0, FeedService.Feeds.Count - 1);
-                                GUIWindowManager.ActivateWindow(GUIFeed.GUIFeedId,
-                                    string.Format("feedIndex:{0},feedItemIndex:{1}", randomFeedIndex, 0));
+
+                                bool gotoFeed = _rnd.NextDouble() >= 0.5;
+
+                                if (gotoFeed)
+                                {
+                                    int randomFeedIndex = _rnd.Next(0, FeedService.Feeds.Count - 1);
+                                    GUIWindowManager.ActivateWindow(GUIFeed.GUIFeedId,
+                                        string.Format("feedIndex:\"{0}\",feedItemIndex:\"{1}\"", randomFeedIndex, 0));
+
+                                }
+                                else
+                                {
+                                    int randomTwitterIndex = _rnd.Next(0, TwitterService.UsedTimelines.Count - 1);
+                                    GUIWindowManager.ActivateWindow(GUITwitter.GUITwitterId,
+                                                string.Format("twitterTimeline:\"{0}\",twitterItemIndex:\"{1}\"", TwitterService.UsedTimelines[randomTwitterIndex], 0));
+                                }
                             }
                         });
 
                 }, null, 10000, 25000);
             }
             #endregion
+
+
 
             #region Load infoservice.xml
             Logger.WriteLog("Loading InfoService GUI skin file from " + GUIGraphicsContext.Skin + @"\infoservice.xml", LogLevel.Debug, InfoServiceModul.InfoService);
@@ -468,6 +489,34 @@ namespace InfoService
             return loadedSkinSuccess;
             #endregion
         }
+
+         private static void AttachDebugger()
+         {
+             if (!Debugger.IsAttached)
+             {
+                 Process[] vsProcesses = System.Diagnostics.Process.GetProcessesByName("devenv");
+                 if (vsProcesses.Length > 0)
+                 {
+                     // do a search for any Visual Studio processes that also have our solution currently open
+                     var vsProcess = DebuggerAttacher.GetVisualStudioForSolutions(new List<string>() {"InfoService.sln"});
+                     bool attached = false;
+                     if (vsProcess != null)
+                     {
+                         Process[] mpProcesses = System.Diagnostics.Process.GetProcessesByName("MediaPortal");
+                         if (mpProcesses.Length > 0)
+                         {
+                             DebuggerAttacher.AttachVisualStudioToProcess(vsProcesses[0], mpProcesses[0]);
+                             attached = true;
+                         }
+                     }
+                     if (!attached)
+                     {
+                         // try and attach the old fashioned way
+                         Debugger.Launch();
+                     }
+                 }
+             }
+         }
 
         public override void DeInit()
         {

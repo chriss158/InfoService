@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using InfoService.Utils.LoadParameterParsing.Data;
 
-namespace InfoService.Utils
+namespace InfoService.Utils.LoadParameterParsing
 {
     public class LoadParameterParser
     {

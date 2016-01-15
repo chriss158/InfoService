@@ -1169,13 +1169,14 @@ Changelog:
 [i] - Information
 [!] - Attention
 
-Version v1.83:
+Version v1.85:
 [+] Added load paramaters (feedIndex, feedTitle, feedGuid, feedItemIndex, twitterTimeline, twitterId, twitterItemIndex). More about that on InfoService Github Wiki.
 [+] You can go now directly to twitter/feed if you click the "Ok" button on your remote if the News/New Tweets popup is display
 [+] Added developer mode. More about that on InfoService Github Wiki.
 [*] Improved News/New Tweets popup (New dialog, better to read). Thanks to wizard123 
 [*] Include skin files for Titan and TITANIUS
 [-] Fixed #infoservice.feed.img is not set everytime
+[-] Fixed clearing of property #infoservice.twitter.selected.mediaimage
 [-] Fixed problems of two many new feed messages on some feeds
 [-] Fixed wrong error "Empty consumer key/secret" when pressing "Get PIN!" in the twitter config
 

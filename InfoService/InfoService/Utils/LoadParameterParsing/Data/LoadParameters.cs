@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace InfoService.Utils
+namespace InfoService.Utils.LoadParameterParsing.Data
 {    
     public class LoadParameters : IList<LoadParameter>
     {

@@ -6,6 +6,8 @@ using System.Linq;
 using InfoService.Feeds;
 using InfoService.Twitter;
 using InfoService.Utils;
+using InfoService.Utils.LoadParameterParsing;
+using InfoService.Utils.LoadParameterParsing.Data;
 using MediaPortal.Dialogs;
 using MediaPortal.GUI.Library;
 using TwitterConnector;
@@ -121,20 +123,22 @@ namespace InfoService.GUIWindows
             else
             {
                 logger.WriteLog("Load Twitter GUI with params \"" + _loadParameter + "\"", LogLevel.Info, InfoServiceModul.Twitter);
+                LoadParameterParser parser = new LoadParameterParser(_loadParameter);
+
                 TimelineType twitterTimelineType = TimelineType.None;
+                string timelineName = string.Empty;
                 string twitterItemId = string.Empty;
                 int twitterItemIndex = 0;
 
+                parser.Parse();
+                LoadParameters parameters = parser.GetAllParameters();
                 foreach (LoadParameter parameter in parser.GetAllParameters())
                 {
                     switch (parameter.ParameterName)
                     {
                         case "twitterTimeline":
-                            string timeline = parameter.ParameterSetting.ParseSetting<string>();
-                            if (TimelineType.TryParse(timeline, out twitterTimelineType))
-                            {
-                                logger.WriteLog("Parsed load parameter \"" + parameter.ParameterName + "\" with value \"" + twitterTimelineType.ToString() + "\"", LogLevel.Debug, InfoServiceModul.Twitter);
-                            }
+                            timelineName = parameter.ParameterSetting.ParseSetting<string>();
+                            logger.WriteLog("Parsed load parameter \"" + parameter.ParameterName + "\" with value \"" + timelineName + "\"", LogLevel.Debug, InfoServiceModul.Twitter);
                             break;
                         case "twitterItemIndex":
                             twitterItemIndex = parameter.ParameterSetting.ParseSetting<int>();
@@ -142,22 +146,46 @@ namespace InfoService.GUIWindows
                             break;
                         case "twitterItemId":
                             twitterItemId = parameter.ParameterSetting.ParseSetting<string>();
-                            logger.WriteLog("Parsed load parameter \"" + parameter.ParameterName + "\" with value \"" + id + "\"", LogLevel.Debug, InfoServiceModul.Twitter);
+                            logger.WriteLog("Parsed load parameter \"" + parameter.ParameterName + "\" with value \"" + twitterItemId + "\"", LogLevel.Debug, InfoServiceModul.Twitter);
                             break;
                         default:
-                            logger.WriteLog("Unknown parameter \"" + parameter.ParameterName + ". Parameter will be skipped", LogLevel.Warning, InfoServiceModul.Feed);
+                            logger.WriteLog("Unknown parameter \"" + parameter.ParameterName + ". Parameter will be skipped", LogLevel.Warning, InfoServiceModul.Twitter);
                             break;
                     }
                 }
+                if (parameters.Count <= 0)
+                {
+                    logger.WriteLog("None of the parameters could be parsed. Defaulting parameters \"twitterTimeline\" and \"twitterItemIndex\"", LogLevel.Warning, InfoServiceModul.Twitter);
+                }
+
+                if (!TimelineType.TryParse(timelineName, out twitterTimelineType))
+                { 
+                    logger.WriteLog("Parameter \"twitterTimeline\" is invalid. Defaulting parameter to \"" + TwitterService.ActiveTimeline + "\"", LogLevel.Warning, InfoServiceModul.Twitter);
+                    twitterTimelineType = TwitterService.ActiveTimeline;
+                }
+                else
+                {
+                    if (twitterTimelineType == TimelineType.None)
+                    {
+                        logger.WriteLog("Parameter \"twitterTimeline\" is invalid. Defaulting parameter to \"" + TwitterService.ActiveTimeline + "\"", LogLevel.Warning, InfoServiceModul.Twitter);
+                        twitterTimelineType = TwitterService.ActiveTimeline;
+                    }
+                }
+
+
                 if (!string.IsNullOrEmpty(twitterItemId) && twitterTimelineType != TimelineType.None)
                 {
                     twitterItemIndex = TwitterService.GetItemIndexFromTimeline(twitterTimelineType, twitterItemId);
                     logger.WriteLog("Converted twitter item id \"" + twitterItemId + "\" to index \"" + twitterItemIndex + "\"", LogLevel.Debug, InfoServiceModul.Twitter);
                 }
-                if (twitterTimelineType == TimelineType.None)
+
+                if (twitterItemIndex < 0 ||
+                    twitterItemIndex >= TwitterService.GetTimeline(twitterTimelineType).Items.Count)
                 {
-                    twitterTimelineType = TwitterService.ActiveTimeline;
+                    logger.WriteLog("Parameter \"twitterItemIndex\" is invalid. Defaulting parameter to 0", LogLevel.Warning, InfoServiceModul.Twitter);
+                    twitterItemIndex = 0;
                 }
+
     
                 logger.WriteLog("Open Twitter GUI with Timeline \"" + twitterTimelineType + "\" and index \"" + twitterItemIndex + "\"", LogLevel.Info, InfoServiceModul.Twitter);
                 TwitterUtils.SetTimelineOnWindow(TwitterService.GetTimeline(twitterTimelineType), twitterItemIndex, true);

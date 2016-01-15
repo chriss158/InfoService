@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace InfoService.Utils
+namespace InfoService.Utils.LoadParameterParsing.Data
 {
-    public  class LoadParameter : IEquatable<LoadParameter>
+    public class LoadParameter : IEquatable<LoadParameter>
     {
         public string ParameterName { get; set; }
         public ParameterSetting ParameterSetting { get; set; }
