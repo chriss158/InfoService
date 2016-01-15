@@ -156,11 +156,15 @@ namespace InfoService.GUIWindows
                 }   
                 if(feedIndex < 0)
                 {
+                    logger.WriteLog("Parameter feedIndex out of bounds. Defaulting parameter to 0", LogLevel.Warning, InfoServiceModul.Feed);
                     feedIndex = FeedService.ActiveFeedIndex;
                 }
-                else
+                FeedService.SetActive(feedIndex);
+                
+                if(feedItemIndex < 0 || feedItemIndex >= FeedService.Feeds[FeedService.ActiveFeedIndex].Count)
                 {
-                    FeedService.SetActive(feedIndex);
+                    logger.WriteLog("Parameter feedItemIndex out of bounds. Defaulting parameter to 0", LogLevel.Warning, InfoServiceModul.Feed);
+                    feedItemIndex = 0;
                 }
 
                 logger.WriteLog("Open Feed GUI with feed index \"" + feedIndex + "\" and feed item index \"" + feedItemIndex + "\"", LogLevel.Info, InfoServiceModul.Feed);
