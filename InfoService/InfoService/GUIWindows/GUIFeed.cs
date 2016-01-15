@@ -119,59 +119,41 @@ namespace InfoService.GUIWindows
             else
             {
                 logger.WriteLog("Load Feed GUI with params \"" + _loadParameter + "\"", LogLevel.Info, InfoServiceModul.Feed);
+                LoadParameterParser parser = new LoadParameterParser(parameter);
+                
                 int feedIndex = -1;
                 int feedItemIndex = 0;
-                string[] parameters = _loadParameter.Trim().Split(',');
-                foreach (string parameter in parameters)
+                
+                parser.Parse();
+                foreach(LoadParameter parameter in parser.GetAllParameters())
                 {
-                    string[] paramNameSetting = parameter.Trim().Split(':');
-                    if (paramNameSetting.Length != 2) continue;
-
-                    string parameterName = paramNameSetting[0].Trim();
-                    string parameterSetting = paramNameSetting[1].Trim();
-                    Guid feedGuid = Guid.Empty;
-
-                    if (parameterName == "feedIndex" && parameterSetting.All(char.IsDigit) && feedIndex < 0) feedIndex = Convert.ToInt32(parameterSetting);
-
-                    if (parameterName == "feedGuid" && feedIndex < 0 && Guid.TryParse(parameterSetting, out feedGuid))
+                    switch(parameter.ParameterName)
                     {
-                        for (int i = 0; i < FeedService.Feeds.Count; i++)
-                        {
-                            if (FeedService.Feeds[i].Guid == feedGuid)
-                            {
-                                feedIndex = i;
-                                break;
-                            }
-                        }
+                        case "feedIndex":
+                            feedIndex = parameter.ParameterSetting.ParseSetting<int>();
+                            logger.WriteLog("Parsed load parameter \"" + parameter.ParameterName + "\" with value \"" + feedIndex + "\"", LogLevel.Debug, InfoServiceModul.Feed);
+                            break;
+                        case "feedTitle":
+                            string feedTitle = parameter.ParameterSetting.ParseSetting<string>();
+                            logger.WriteLog("Parsed load parameter \"" + parameter.ParameterName + "\" with value \"" + feedTitle + "\"", LogLevel.Debug, InfoServiceModul.Feed);
+                            feedIndex = FeedService.GetIndexFromFeeds(feedTitle);
+                            logger.WriteLog("Converted feed title \"" + feedTitle + "\" to index \"" + feedIndex + "\"", LogLevel.Debug, InfoServiceModul.Feed);
+                            break;
+                        case "feedGuid":
+                            Guid feedGuid = parameter.ParameterSetting.ParseSetting<Guid>();
+                            logger.WriteLog("Parsed load parameter \"" + parameter.ParameterName + "\" with value \"" + feedGuid.ToString() + "\"", LogLevel.Debug, InfoServiceModul.Feed);
+                            feedIndex = FeedService.GetIndexFromFeeds(feedGuid);
+                            logger.WriteLog("Converted feed guid \"" + feedGuid.ToString() + "\" to index \"" + feedIndex + "\"", LogLevel.Debug, InfoServiceModul.Feed);
+                            break;
+                        case "feedItemIndex":
+                            feedItemIndex = parameter.ParameterSetting.ParseSetting<int>();
+                            logger.WriteLog("Parsed load parameter \"" + parameter.ParameterName + "\" with value \"" + feedItemIndex + "\"", LogLevel.Debug, InfoServiceModul.Feed);
+                            break;
+                        default:
+                            logger.WriteLog("Unknown parameter \"" + parameter.ParameterName + ". Parameter will be skipped", LogLevel.Warning, InfoServiceModul.Feed);
+                            break;
                     }
-                    if (parameterName == "feedTitle" && feedIndex < 0)
-                    {
-                        for (int i = 0; i < FeedService.Feeds.Count; i++)
-                        {
-                            if (FeedService.Feeds[i].Title == parameterSetting)
-                            {
-                                feedIndex = i;
-                                break;
-                            }
-                        }
-
-                    }
-                    if (feedIndex >= 0)
-                    {
-                        if (parameterName == "feedItemIndex" && parameterSetting.All(char.IsDigit)) feedItemIndex = Convert.ToInt32(parameterSetting);
-                        //if (parameterName == "feedItemTitle")
-                        //{
-                        //    for (int i = 0; i < FeedService.Feeds[feedIndex].Items.Count; i++)
-                        //    {
-                        //        if (FeedService.Feeds[feedIndex].Items[i].Title == parameterSetting)
-                        //        {
-                        //            feedItemIndex = i;
-                        //            break;
-                        //        }
-                        //    }
-                        //}
-                    }
-                }
+                }   
                 if (feedIndex >= 0)
                 {
                     logger.WriteLog("Parsing load params succesfull. Open Feed GUI with feed index \"" + feedIndex + "\" and feed item index \"" + feedItemIndex + "\"", LogLevel.Info, InfoServiceModul.Feed);
@@ -183,7 +165,6 @@ namespace InfoService.GUIWindows
                     logger.WriteLog("Parsing load params unsuccesfull. Open Feed GUI without params.", LogLevel.Error, InfoServiceModul.Twitter);
                     FeedUtils.SetFeedOnWindow(FeedService.ActiveFeedIndex, true, true);
                 }
-
             }
             base.OnPageLoad();
         }
