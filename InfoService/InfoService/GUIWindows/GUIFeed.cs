@@ -154,17 +154,17 @@ namespace InfoService.GUIWindows
                             break;
                     }
                 }   
-                if (feedIndex >= 0)
+                if(feedIndex < 0)
                 {
-                    logger.WriteLog("Parsing load params succesfull. Open Feed GUI with feed index \"" + feedIndex + "\" and feed item index \"" + feedItemIndex + "\"", LogLevel.Info, InfoServiceModul.Feed);
-                    FeedService.SetActive(feedIndex);
-                    FeedUtils.SetFeedOnWindow(FeedService.ActiveFeedIndex, feedItemIndex, true);
+                    feedIndex = FeedService.ActiveFeedIndex;
                 }
                 else
                 {
-                    logger.WriteLog("Parsing load params unsuccesfull. Open Feed GUI without params.", LogLevel.Error, InfoServiceModul.Twitter);
-                    FeedUtils.SetFeedOnWindow(FeedService.ActiveFeedIndex, true, true);
+                    FeedService.SetActive(feedIndex);
                 }
+
+                logger.WriteLog("Open Feed GUI with feed index \"" + feedIndex + "\" and feed item index \"" + feedItemIndex + "\"", LogLevel.Info, InfoServiceModul.Feed);
+                FeedUtils.SetFeedOnWindow(FeedService.ActiveFeedIndex, feedItemIndex, true);
             }
             base.OnPageLoad();
         }
