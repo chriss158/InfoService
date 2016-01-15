@@ -277,6 +277,28 @@ namespace InfoService.Feeds
             _feeds.Add(allFeed);
 
         }
+        public int GetIndexFromFeeds(string feedTitle)
+        {
+            for (int i = 0; i < Feeds.Count; i++)
+            {
+                if (Feeds[i].Title == feedTitle)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+        public int GetIndexFromFeeds(string feedGuid)
+        {
+            for (int i = 0; i < Feeds.Count; i++)
+            {
+                if (Feeds[i].Guid == feedGuid)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
 
         private static string ReplaceProblemChars(string text)
         {
