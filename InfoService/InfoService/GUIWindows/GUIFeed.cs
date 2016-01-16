@@ -143,10 +143,14 @@ namespace InfoService.GUIWindows
                             logger.WriteLog("Converted feed title \"" + feedTitle + "\" to index \"" + feedIndex + "\"", LogLevel.Debug, InfoServiceModul.Feed);
                             break;
                         case "feedGuid":
-                            Guid feedGuid = parameter.ParameterSetting.ParseSetting<Guid>();
-                            logger.WriteLog("Parsed load parameter \"" + parameter.ParameterName + "\" with value \"" + feedGuid.ToString() + "\"", LogLevel.Debug, InfoServiceModul.Feed);
-                            feedIndex = FeedService.GetIndexFromFeeds(feedGuid);
-                            logger.WriteLog("Converted feed guid \"" + feedGuid.ToString() + "\" to index \"" + feedIndex + "\"", LogLevel.Debug, InfoServiceModul.Feed);
+                            Guid feedGuid = Guid.Empty;
+                            bool parseOk = Guid.TryParse(parameter.ParameterSetting.ParseSetting<string>(), out feedGuid);
+                            if (parseOk)
+                            {
+                                logger.WriteLog("Parsed load parameter \"" + parameter.ParameterName + "\" with value \"" + feedGuid.ToString() + "\"", LogLevel.Debug, InfoServiceModul.Feed);
+                                feedIndex = FeedService.GetIndexFromFeeds(feedGuid);
+                                logger.WriteLog("Converted feed guid \"" + feedGuid.ToString() + "\" to index \"" + feedIndex + "\"", LogLevel.Debug, InfoServiceModul.Feed);
+                            }
                             break;
                         case "feedItemIndex":
                             feedItemIndex = parameter.ParameterSetting.ParseSetting<int>();
