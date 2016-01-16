@@ -559,31 +559,7 @@ namespace InfoService.Feeds
                                         header + "\" and text \"" + text + "\"", LogLevel.Info, InfoServiceModul.Feed);
                                     InfoServiceUtils.ShowDialogNotifyWindow(header, text, feedItem.Key.ImagePath,
                                         new Size(120, 120),
-                                        (int)PopupTimeout,
-                                        () =>
-                                        {
-                                            if (GUIGraphicsContext.IsFullScreenVideo)
-                                            {
-                                                GUIMessage msg = new GUIMessage(GUIMessage.MessageType.GUI_MSG_WINDOW_DEINIT, (int)GUIWindow.Window.WINDOW_FULLSCREEN_VIDEO, 0, 0, 0, 0, null);
-                                                GUIWindowManager.SendMessage(msg);
-                                            }
-                                            GUIWindowManager.ActivateWindow(GUIFeed.GUIFeedId,
-                                                string.Format("feedGuid:\"{0}\",feedItemIndex:\"{1}\"", feedItem.Key.Guid, item.Index));
-                                        });
-                                    //NotifyBarQueue.ShowDialogNotifyWindowQueued(header, text, feedItem.Key.ImagePath,
-                                    //    new Size(120, 120),
-                                    //    (int) PopupTimeout,
-                                    //    () =>
-                                    //    {
-                                    //        if (GUIGraphicsContext.IsTvWindow() && GUIGraphicsContext.IsFullScreenVideo)
-                                    //        {
-                                    //            GUIWindowManager.IsOsdVisible = false;
-                                    //            GUIGraphicsContext.IsFullScreenVideo = false;
-                                    //            GUIWindowManager.ShowPreviousWindow();
-                                    //        }
-                                    //        GUIWindowManager.ActivateWindow(GUIFeed.GUIFeedId,
-                                    //            string.Format("feedGuid:{0},feedItemIndex:{1}", feedItem.Key.Guid, item.Index));
-                                    //    });
+                                        (int)PopupTimeout, PopupCallback, string.Format("feedGuid:\"{0}\",feedItemIndex:\"{1}\"", feedItem.Key.Guid, item.Index));
                                 }
 
                                 else
@@ -629,6 +605,26 @@ namespace InfoService.Feeds
                     Logger.WriteLog("Popups for feed[" + feedItem.Key.Title + "] are disabled...", LogLevel.Debug,
                         InfoServiceModul.Feed);
                 }
+            }
+        }
+        private delegate void PopupCallbackDelegate(object o);
+        private static void PopupCallback(object o)
+        {
+            if (o is string && !string.IsNullOrEmpty(o.ToString()))
+            {
+                if (GUIGraphicsContext.form.InvokeRequired)
+                {
+                    PopupCallbackDelegate d = PopupCallback;
+                    GUIGraphicsContext.form.Invoke(d, o);
+                    return;
+                }
+                if (GUIGraphicsContext.IsFullScreenVideo)
+                {
+                    GUIMessage msg = new GUIMessage(GUIMessage.MessageType.GUI_MSG_WINDOW_DEINIT,
+                        (int) GUIWindow.Window.WINDOW_FULLSCREEN_VIDEO, 0, 0, 0, 0, null);
+                    GUIWindowManager.SendMessage(msg);
+                }
+                GUIWindowManager.ActivateWindow(GUIFeed.GUIFeedId, o.ToString());
             }
         }
 

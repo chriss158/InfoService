@@ -590,31 +590,7 @@ namespace InfoService.Twitter
                                     "\"", LogLevel.Info, InfoServiceModul.Feed);
                                 InfoServiceUtils.ShowDialogNotifyWindow(header, text, item.User.PicturePath,
                                     new Size(120, 120),
-                                    (int) PopupTimeout, () =>
-                                    {
-                                        if (GUIGraphicsContext.IsFullScreenVideo)
-                                        {
-                                            GUIMessage msg = new GUIMessage(GUIMessage.MessageType.GUI_MSG_WINDOW_DEINIT, (int)GUIWindow.Window.WINDOW_FULLSCREEN_VIDEO, 0, 0, 0, 0, null);
-                                            GUIWindowManager.SendMessage(msg);
-                                        }
-                                        GUIWindowManager.ActivateWindow(GUITwitter.GUITwitterId,
-                                            string.Format("twitterTimeline:\"{0}\",twitterItemId:\"{1}\"", pair.Key.Type,
-                                                item.Id));
-                                    });
-                                //NotifyBarQueue.ShowDialogNotifyWindowQueued(header, text, item.User.PicturePath,
-                                //    new Size(120, 120),
-                                //    (int) PopupTimeout, () =>
-                                //    {
-                                //        if (GUIGraphicsContext.IsTvWindow() && GUIGraphicsContext.IsFullScreenVideo)
-                                //        {
-                                //            GUIWindowManager.IsOsdVisible = false;
-                                //            GUIGraphicsContext.IsFullScreenVideo = false;
-                                //            GUIWindowManager.ShowPreviousWindow();
-                                //        }
-                                //        GUIWindowManager.ActivateWindow(GUITwitter.GUITwitterId,
-                                //            string.Format("twitterTimeline:{0},twitterItemId:{1}", pair.Key.Type,
-                                //                item.Id));
-                                //    });
+                                    (int) PopupTimeout, PopupCallback, string.Format("twitterTimeline:\"{0}\",twitterItemId:\"{1}\"", pair.Key.Type, item.Id));
                             }
 
                             else
@@ -627,6 +603,25 @@ namespace InfoService.Twitter
                         }
                     }
                 }
+            }
+        }
+        private delegate void PopupCallbackDelegate(object o);
+        private static void PopupCallback(object o)
+        {
+            if (o is string && !string.IsNullOrEmpty(o.ToString()))
+            {
+                if (GUIGraphicsContext.form.InvokeRequired)
+                {
+                    PopupCallbackDelegate d = PopupCallback;
+                    GUIGraphicsContext.form.Invoke(d, o);
+                    return;
+                }
+                if (GUIGraphicsContext.IsFullScreenVideo)
+                {
+                    GUIMessage msg = new GUIMessage(GUIMessage.MessageType.GUI_MSG_WINDOW_DEINIT, (int)GUIWindow.Window.WINDOW_FULLSCREEN_VIDEO, 0, 0, 0, 0, null);
+                    GUIWindowManager.SendMessage(msg);
+                }
+                GUIWindowManager.ActivateWindow(GUITwitter.GUITwitterId, o.ToString());
             }
         }
 

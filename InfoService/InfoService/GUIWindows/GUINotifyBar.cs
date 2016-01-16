@@ -35,7 +35,8 @@ namespace InfoService.GUIWindows
 
         public const int ID = 16004;
 
-        public System.Action OkAction;
+        public System.Action<object> OkAction;
+        public object OkActionParam;
 
         public delegate void OnPageDestroyEventHandler(string header, string text);
         public event OnPageDestroyEventHandler OnPageDestroy;
@@ -86,8 +87,8 @@ namespace InfoService.GUIWindows
             else if (control == btnOk)
             {
                 if (OkAction != null)
-                {                   
-                    OkAction();
+                {
+                    OkAction(OkActionParam);
                 }
             }
         }

@@ -437,8 +437,8 @@ namespace InfoService
                 {
                     InfoServiceUtils.ShowDialogNotifyWindow(InfoServiceUtils.GenerateLoremIpsum(4, 10, 1, 1, 1), InfoServiceUtils.GenerateLoremIpsum(20, 40, 1, 4, 1), GUIGraphicsContext.Skin + @"\media\InfoService\defaultFeedALL.png", new Size(120, 120), 20,
                     //InfoServiceUtils.ShowDialogNotifyWindow(FeedService.Feeds[3].Items[0].Title + " (" + FeedService.Feeds[3].Title + ")", FeedService.Feeds[3].Items[0].Description, FeedService.Feeds[3].ImagePath, new Size(120, 120), 20,
-                    () =>
-                        {
+                    (o =>
+                    {
                             if (FeedService.Enabled)
                             {
                                 if (GUIGraphicsContext.IsFullScreenVideo)
@@ -462,7 +462,7 @@ namespace InfoService
                                                 string.Format("twitterTimeline:\"{0}\",twitterItemIndex:\"{1}\"", TwitterService.UsedTimelines[randomTwitterIndex], 0));
                                 }
                             }
-                        });
+                        }), null);
 
                 }, null, 10000, 25000);
             }
@@ -498,7 +498,7 @@ namespace InfoService
                  if (vsProcesses.Length > 0)
                  {
                      // do a search for any Visual Studio processes that also have our solution currently open
-                     var vsProcess = DebuggerAttacher.GetVisualStudioForSolutions(new List<string>() {"InfoService.sln"});
+                     var vsProcess = DebuggerAttacher.GetVisualStudioForSolutions(new List<string>() {"InfoService.sln", "MediaPortal.sln"});
                      bool attached = false;
                      if (vsProcess != null)
                      {
